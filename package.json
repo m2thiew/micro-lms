@@ -7,26 +7,37 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "docker-print-code-shortcut": "scripts/docker-print-code-shortcut.sh",
-    "docker-mysql-asc-to-gpg": "scripts/docker-mysql-asc-to-gpg.sh"
+    "setup-print-code-shortcut": "scripts/setup-print-code-shortcut.sh",
+    "setup-mysql-asc-to-gpg": "scripts/setup-mysql-asc-to-gpg.sh",
+    "prisma-diff": "dotenv -e .env.development -- prisma migrate diff --from-schema-datasource=prisma/schema.prisma --to-schema-datamodel=prisma/schema.prisma",
+    "prisma-diff-sql": "dotenv -e .env.development -- prisma migrate diff --from-schema-datasource=prisma/schema.prisma --to-schema-datamodel=prisma/schema.prisma --script",
+    "prisma-push": "dotenv -e .env.development -- prisma db push",
+    "app-generate-jwt-keys": "scripts/app-generate-jwt-keys.sh",
+    "app-init-db": "scripts/app-init-db.sh",
+    "app-export-db": "scripts/app-export-db.sh",
+    "app-import-db": "scripts/app-import-db.sh"
   },
   "dependencies": {
+    "dotenv-cli": "^7.3.0",
+    "next": "14.0.4",
     "react": "^18",
-    "react-dom": "^18",
-    "next": "14.0.4"
+    "react-dom": "^18"
   },
   "devDependencies": {
-    "typescript": "^5",
+    "@types/eslint": "^8.44.2",
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",
-    "@types/eslint": "^8.44.2",
     "@typescript-eslint/eslint-plugin": "^6.3.0",
     "@typescript-eslint/parser": "^6.3.0",
     "autoprefixer": "^10.0.1",
-    "postcss": "^8",
-    "tailwindcss": "^3.3.0",
     "eslint": "^8",
-    "eslint-config-next": "14.0.4"
+    "eslint-config-next": "14.0.4",
+    "postcss": "^8",
+    "prettier-plugin-prisma": "^5.0.0",
+    "prettier-plugin-tailwindcss": "^0.5.9",
+    "prisma": "^5.7.1",
+    "tailwindcss": "^3.3.0",
+    "typescript": "^5"
   }
 }

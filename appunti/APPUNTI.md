@@ -131,14 +131,5 @@ Video molto bello su laravel:
 - Usare contesti con custom hook:
   https://www.johno.com/using-react-context-with-a-custom-hook
 
-TODO:
-~~- form creazione nota~~
-~~- editign di una nota~~
-~~- eliminazione di una nota~~
-
-- login
-- eseguire le azioni solo se loggato
-- rendere più presentabile il tutto
-- test componente
-- test chiamata API
--
+- Libreria erede di moment JS: per rappresentare ma anche formattare le date in JS:
+  https://moment.github.io/luxon/#/

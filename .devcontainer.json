@@ -24,7 +24,7 @@
   // 2) riavvia subito il container principale ("micro-lms") per rimuovere eventuali processi zombi lasciati indietro da
   //    precedenti connessioni di VSCode dentro al container
   "initializeCommand": "docker compose --progress plain up -d --wait && docker restart micro-lms",
-  "containerEnv": {
+  "remoteEnv": {
     "NODE_ENV": "development"
   },
 
@@ -87,6 +87,9 @@
           "**/.hg/store/**": true,
           "**/.next/**": true,
           "**/.npm/**": true
+        },
+        "[prisma]": {
+          "editor.defaultFormatter": "Prisma.prisma"
         }
       }
     }
