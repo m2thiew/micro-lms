@@ -23,6 +23,10 @@ const hello = publicAPIProcedure.input(z.object({ name: z.string().min(1) })).qu
 
 // --------------------------------------------------------------------------------------------------------------------
 
-export const apiHello = createAPIRouter({
+// export const apiHello = createAPIRouter({
+//   hello,
+// });
+
+export default createAPIRouter({
   hello,
 });
