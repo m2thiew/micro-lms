@@ -1,0 +1,88 @@
+version: "3.8"
+
+# Per assegnare un valore a tutte le ${VARIABILI} presenti in questo file
+# creare un file ".env" nella stessa cartella dove è presente docker-compose.yml
+# e specificare lì dentro i valori delle variabili.
+
+# Rete lan interna che connette tutti i container
+networks:
+  docker-lms:
+    name: docker-lms
+    driver: bridge
+
+volumes:
+  mysql-lms-data:
+    name: mysql-lms-data
+    driver: local
+
+services:
+  # container server nodejs
+  micro-lms:
+    image: debian-server:latest
+    build:
+      context: ./docker/
+      dockerfile: Dockerfile
+    container_name: micro-lms
+    hostname: micro-lms
+    networks:
+      docker-lms:
+        aliases:
+          - debian-server.docker
+          - micro-lms.docker
+    ports:
+      - 3000:3000
+    volumes:
+      # codice sorgente
+      - .:/var/app
+      # confiurazione git
+      - ~/.gitconfig:/home/dev/.gitconfig:ro
+      # configurazione github cli
+      - ~/.config/gh:/home/dev/.config/gh:ro
+    environment:
+      - TZ=Europe/Rome
+    depends_on:
+      - mysql-lms
+    restart: unless-stopped
+    init: true
+
+  # container MySql
+  mysql-lms:
+    networks:
+      docker-lms:
+        aliases:
+            - mysql.docker
+    image: mysql:8.0.35-debian
+    container_name: mysql-lms
+    volumes:
+      - mysql-lms-data:/var/lib/mysql
+    environment:
+      - TZ=Europe/Rome
+      - MYSQL_ROOT_PASSWORD=root
+    mem_limit: 512M
+    cpuset: 0,1
+    cpu_shares: 1024
+    mem_swappiness: 1
+    restart: unless-stopped
+
+  # container PhpMyAdmin
+  phpmyadmin-lms:
+    networks:
+      docker-lms:
+        aliases:
+            - phpmyadmin.docker
+    image: phpmyadmin/phpmyadmin:5.2.1
+    container_name: phpmyadmin-lms
+    ports:
+      - 8080:80
+    environment:
+      - TZ=Europe/Rome
+      - PMA_HOST=mysql.docker
+      - UPLOAD_LIMIT=80M
+      - PMA_USER=root
+      - PMA_PASSWORD=root
+    depends_on:
+      - mysql-lms
+    cpuset: 0,1
+    cpu_shares: 512
+    mem_limit: 128M
+    restart: unless-stopped

@@ -1,0 +1,98 @@
+// For format details, see https://aka.ms/devcontainer.json. For config options, see the
+// README at: https://github.com/devcontainers/templates/tree/main/src/docker-existing-docker-compose
+{
+    "name": "micro-lms (docker-compose)",
+  
+    // Update the 'dockerComposeFile' list if you have more compose files or use different names.
+    // The .devcontainer/docker-compose.yml file contains any overrides you need/want to make.
+    "dockerComposeFile": ["../docker-compose.yml"],
+  
+    // The 'service' property is the name of the service for the container that VS Code should
+    // use. Update this value and .devcontainer/docker-compose.yml to the real service name.
+    "service": "micro-lms",
+    "runServices": ["mysql-lms", "phpmyadmin-lms"],
+    "shutdownAction": "none",
+    //"containerUser": "dev",
+    "updateRemoteUserUID": true,
+    "overrideCommand": false,
+  
+    // normalmente, usando "devcontainer up" viene eseguit un processo che crea un container separato
+    // (pescando il Dockerfile specificato in composer) e avvia tale container.
+    // usando "initializeCommand" forzo un cambio della situazione affinchè nel momento
+    // in cui si chiede di "Aprire il progetto in Dev Container"
+    // 1) viene eseguito il normale "docker compose up -d" per avviare i container (nel caso non esistano già)
+    // 2) riavvia subito il container principale ("micro-lms") per rimuovere eventuali processi zombi lasciati indietro da
+    //    precedenti connessioni di VSCode dentro al container
+    "initializeCommand": "docker compose --progress plain up -d --wait && docker restart micro-lms",
+    "containerEnv": {
+      "NODE_ENV": "development"
+    },
+  
+    // The optional 'workspaceFolder' property is the path VS Code should open by default when
+    // connected. This is typically a file mount in .devcontainer/docker-compose.yml
+    "workspaceFolder": "/var/app",
+    
+    //"features": {
+    //	"ghcr.io/devcontainers/features/git:1": {},
+    //	"ghcr.io/devcontainers/features/git-lfs:1": {},
+    //	"ghcr.io/devcontainers/features/github-cli:1": {}
+    //},
+  
+    // Features to add to the dev container. More info: https://containers.dev/features.
+    // "features": {},
+  
+    // Use 'forwardPorts' to make a list of ports inside the container available locally.
+    // "forwardPorts": [],
+  
+    // Uncomment the next line if you want start specific services in your Docker Compose config.
+    // "runServices": [],
+  
+    // Uncomment the next line if you want to keep your containers running after VS Code shuts down.
+    // "shutdownAction": "none",
+  
+    // Uncomment the next line to run commands after the container is created.
+    // "postCreateCommand": "cat /etc/os-release",
+  
+    // Configure tool-specific properties.
+    "customizations": {
+      "vscode": {
+        "extensions": [
+          "ms-azuretools.vscode-docker",
+          "mhutchie.git-graph",
+          "yzhang.markdown-all-in-one",
+          "christian-kohler.path-intellisense",
+          "dbaeumer.vscode-eslint",
+          "esbenp.prettier-vscode",
+          "EditorConfig.EditorConfig",
+          "Prisma.prisma",
+          "bradlc.vscode-tailwindcss",
+          "ms-azuretools.vscode-docker"
+        ],
+        "settings": {
+          "javascript.suggest.paths": false,
+          "typescript.suggest.paths": false,
+          "debug.javascript.unmapMissingSources": true,
+          "editor.defaultFormatter": "esbenp.prettier-vscode",
+          "editor.formatOnSave": true,
+          "telemetry.enableTelemetry": false,
+          "search.exclude": {
+            "**/node_modules": true,
+            "**/bower_components": true,
+            "**/*.code-search": true
+          },
+          "files.watcherExclude": {
+            "**/.git/objects/**": true,
+            "**/.git/subtree-cache/**": true,
+            "**/node_modules/*/**": true,
+            "**/.hg/store/**": true,
+            "**/.next/**": true,
+            "**/.npm/**": true
+          }
+        }
+      }
+    }
+  
+    // Uncomment to connect as an existing user other than the container default. More info: https://aka.ms/dev-containers-non-root.
+    // "remoteUser": "devcontainer"
+  }
+  
