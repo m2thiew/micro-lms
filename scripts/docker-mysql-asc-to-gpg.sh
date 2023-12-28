@@ -11,9 +11,10 @@ set -e
 # la chiave è in formato .asc, ma per usarla con "apt-get" deve essere convertita in formato .gpg
 # I seguenti comandi partono dal file .asc e genera il corrispondente .gpg
 
-gpg --no-default-keyring --keyring ./temp-keyring.gpg --import ./mysql.asc
-gpg --no-default-keyring --keyring ./temp-keyring.gpg --export --output ./mysql.gpg
+gpg --no-default-keyring --keyring ./temp-keyring.gpg --import ./docker/mysql.asc
+gpg --no-default-keyring --keyring ./temp-keyring.gpg --export --output ./docker/mysql.gpg
 rm ./temp-keyring.gpg
+rm ./~temp-keyring.gpg
 
 # Il file .gpg deve essere salvato nella directory:
 # /usr/local/share/keyrings/
