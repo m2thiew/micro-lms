@@ -74,8 +74,14 @@
         "debug.javascript.unmapMissingSources": true,
         "editor.defaultFormatter": "esbenp.prettier-vscode",
         "editor.formatOnSave": true,
+        "editor.codeActionsOnSave": {
+          "source.fixAll": "always",
+          "source.organizeImports": "always"
+        },
         "telemetry.enableTelemetry": false,
         "search.exclude": {
+          "**/.next": true,
+          "**/out": true,
           "**/node_modules": true,
           "**/bower_components": true,
           "**/*.code-search": true
@@ -86,6 +92,7 @@
           "**/node_modules/*/**": true,
           "**/.hg/store/**": true,
           "**/.next/**": true,
+          "**/out/**": true,
           "**/.npm/**": true
         },
         "[prisma]": {

@@ -9,27 +9,44 @@
     "isolatedModules": true,
     "incremental": true,
     "jsx": "preserve",
-
     /* opzioni di compilazione */
-    "module": "es2022",
+    "module": "esnext",
     "moduleResolution": "bundler",
     "target": "es2022",
-
     /* librerie e plugin */
-    "lib": ["dom", "dom.iterable", "es2022"],
-    "plugins": [{ "name": "next" }],
-
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "es2022"
+    ],
+    "plugins": [
+      {
+        "name": "next"
+      }
+    ],
     /* parametri strict */
     "strict": true,
     "checkJs": true,
     "noUncheckedIndexedAccess": true,
-
     /* percorsi */
     "baseUrl": ".",
     "paths": {
-      "@/*": ["./src/*"]
+      "@/*": [
+        "./src/*"
+      ]
     }
   },
-  "include": [".eslintrc.cjs", "next-env.d.ts", "**/*.ts", "**/*.tsx", "**/*.cjs", "**/*.mjs", ".next/types/**/*.ts"],
-  "exclude": ["**/node_modules", "**/.*/"]
+  "include": [
+    ".eslintrc.cjs",
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    "**/*.cjs",
+    "**/*.mjs",
+    ".next/types/**/*.ts"
+  ],
+  "exclude": [
+    "**/node_modules",
+    "**/.*/"
+  ]
 }
