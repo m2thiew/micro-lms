@@ -133,3 +133,97 @@ Video molto bello su laravel:
 
 - Libreria erede di moment JS: per rappresentare ma anche formattare le date in JS:
   https://moment.github.io/luxon/#/
+
+# Librerie per varie funzioni
+
+- Tanstack sembra essere una buona collezione di librerie tutte provenienti dallo stesso autore:
+  https://tanstack.com/
+
+le librerie che mi interesserebbero sono:
+
+- tanstack query (di fatto giù utilizzata da tRPC).
+- tanstack table (per costruire le proprie tabelle)
+- tanstack form (per gestire i form)
+- tanstack router (sembra gestire bene tante cose per creare un router)
+- tanstack chart (per fare qualche grafico semplice)
+
+Da quello che però che ho visto e che ho letto in giro, di fatto solo "tanstack query" è quella più
+famosa e supportata (forse anche "tanstack table").
+Da quello che ho visto, altre librerie (tipo "tanstack form") sono meno utilizzate e hanno
+davvero poca documentazione (il sito ufficiale spiega veramente poco delle opzioni disponibili).
+Probabilmente ciò è dovuto al fatto che tutte queste librerie sono mantenute da una singola persona.
+Veramente un gran peccato. Sarebbe stato ottimo avere così tanti componenti forniti dallo stesso fornitore.
+
+Per quel che ho visto le librerie consigliate sono:
+
+- [React hook form](https://react-hook-form.com/) per i form (molto semplice da usare, non causa troppi re-rendering del form)
+- [AG Grid](https://www.ag-grid.com/) per le tabelle (è praticamente una ExtJS avanzato). permette anche di avere dei grafici
+  alcune funzioni sono però a pagamento (p.e. il chiedere i dati al server) e non costa poco....
+- [React Router] (https://reactrouter.com/en/main) per crare il routing (in realtà nel mio caso non serve, tutto questo è gestito da Next)
+
+# Librerie per grafica
+
+Tailwind è un modo più conveniente di scrivere il CSS. Stop. Non è nulla di più.
+
+Quelle che in giro vengono definite "Headleass UI" sono librerie che implementano la
+logica per creare alcuni componento con azioni dinamiche (p.e. tab, popup, etc.)
+
+Il team che ha sviluppato Taiwind ha rilasciato anche:
+[tailwind UI] (https://tailwindui.com/): libreria di componenti e template. Pochi i componenti/template gratuiti.
+non installi tali componenti, ma copi e incolli il codice che ti forniscono.
+Con circa 750 dollari, si possono avere i componenti a pagamento e anche tutto ciò che rilasciano
+in futuro. Non male.
+Molti dei componenti di Tailwind UI usando anche [Headless UI] una libreria sempre dal team che
+ha sviluppato Tailwind. La Headleass UI serve per dare dinamicità ai componenti
+
+Librerie grafiche:
+
+- [DaisyUI](https://daisyui.com/): aggiunge delle classi (usando tailwind) per implementare alcune funzionalità
+  è bello che funzioni come tailwind (tutto tramite classi). Permette di gestire tab e dialog, non ha nulla per notifiche e tabelle.
+  Di fatto permette di gestire con semplicità solo pochi casi semplici (come faceva boostrap).
+  La cosa più carina che ho visto è lo "skeleton" (disegna i riquadri animati per il caricamento in corso).
+- [RadixUI](https://www.radix-ui.com/) fornisce delle primitive di logica per poi costruire elementi HTML complessi.
+  ha primitive per dialog e notifiche e tab, non ha nulla per le tabelle. Molto verboso.
+  Server solo per la logica, non ti da alcuno stile.
+- [ChackraUI](https://chakra-ui.com/): fornisce un po di componenti con una loro logica. NON USA TAILWIND,
+  ti obbliga ad usare dei suoi attributi sui componenti per impostare le proprietà. Non bene.
+- [Mantine UI](https://ui.mantine.dev/): una collezione di pochi componenti già pronti. Tutti gratuiti. Nulla di che.
+- [React Aria](https://react-spectrum.adobe.com/react-aria/index.html): fornisce alcune primitive (sopratutto per i form) e
+  qualche primitiva per le tabelle. Le primitive che offre sono tante (anche tramite Hook) e c'è poco di pronto.
+  È compito dello sviluppatore creare i componenti usando le primitive fornite. Buon supporto a internalizzazione
+  e accessibilità. Finisce con implementare anche alcune funzionalità dei form (che invece magari preferirei continuare a
+  gestire con react-hook-form).
+  È l'unico che ho visto fornire delle primitive per il drag & drop.
+- [TailwindUI] (https://tailwindui.com/) un po' di componenti già pronti. I componenti free usano headless ui per la logica
+  ma Headleass UI fornisce veramente pochi pezzi di logica.
+  Lo stesso team di Taiwind UI sta per rilasciare [Catalyst](https://tailwindui.com/templates/catalyst), una collezione di alcuni componenti un po' più aggiornati.
+- [PrimeReact](https://primereact.org/): mi ha impressionato molto. Ha tantissimi componenti. Alcuni banali (e quindi con
+  tante opzioni) altri più complessi, ma che arrivano quindi con tante opzioni di configurazione. Compreso il poter sempre
+  iniettare un proprio "template" per cambiare l'aspetto del componente.
+  Sono implementati tanti campi per i form ma non la gestione del form stesso (che posso quindi continuare a gesitre con
+  react-hook-form, ci sono anche delle indicazioni nella documentazione).
+  Ha una tabella abbastanza avanzata, dialog, tab, popup, notifiche. Ha anche azioni per lo "scheletro".
+  Ha anche una primitiva progettata per cambiare le classi di un elmento a seguito di un click (cosa perfetta
+  per tailwind).
+  Di default i componenti hanno già un loro stile / tema (fatto con bootstrap), tuttavia è supportato anche l'usere
+  "className" per impostare gli stili con Tailwind.
+  Credo questa sia veramente una ottima libreria di "HTML Potenziato" con tante cose già coperte (ed è tutto gratis).
+  Ha un negozio dove si possono acquistare dei template già pronti a circa 20 dollari (curiosamente ci sono anche per Angular)
+- [Material UI](https://mui.com/material-ui/): ha tanti componenti, lo stile è fisso ed è lo stile "Material" creato da Google,
+  non c'è scelta. Mi sembra che fornisca quasi le stesse cose di "PrimeReact" ma quest'ultimo è gratuito mentre MaterialUI
+  pare avere qualche componente a pagamento.
+- [AG Grid](https://www.ag-grid.com/): fa solo tabelle e grafici, però li fa bene e offrendo tantissimo controllo. È l'erede
+  delle liste fatte con ExtJS.
+
+https://www.reddit.com/r/reactjs/comments/xcgyj4/what_react_ui_component_library_do_you_use_and_why/
+una discussione su quale libreria usare. I pareri sono:
+
+- se vuoi fare una cosa veloce, usa qualcosa con controlli e stile già decisi, p.e. Material UI
+- altrimenti, crea i tuoi componenti con tailwindCSS. La logica ce la metti tu.
+- più persone si sono trovate bene a usare "PrimeReact" per creare applicazioni enteprise (pannelli di controllo).
+
+Cosa uso in questo progetto?
+
+- react-hook-form: mi sembra semplice, l'ho già capito
+- (?) PrimeReact: mi da tanto "HTML Potenziato" che altrimenti dovrei reinventare io;
+-
