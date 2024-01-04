@@ -14,11 +14,7 @@
     "moduleResolution": "bundler",
     "target": "es2022",
     /* librerie e plugin */
-    "lib": [
-      "dom",
-      "dom.iterable",
-      "es2022"
-    ],
+    "lib": ["dom", "dom.iterable", "ES2022"],
     "plugins": [
       {
         "name": "next"
@@ -31,9 +27,7 @@
     /* percorsi */
     "baseUrl": ".",
     "paths": {
-      "@/*": [
-        "./src/*"
-      ]
+      "@/*": ["./src/*"]
     }
   },
   "include": [
@@ -45,8 +39,5 @@
     "**/*.mjs",
     ".next/types/**/*.ts"
   ],
-  "exclude": [
-    "**/node_modules",
-    "**/.*/"
-  ]
+  "exclude": ["**/node_modules", "**/.*/", "./scripts/**"]
 }

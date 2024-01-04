@@ -43,7 +43,8 @@ RUN adduser --gecos '' dev && \
     cp /etc/sudoers.tmp /etc/sudoers && \
     (echo 'set mouse=""' | tee -a /etc/vim/vimrc) && \
     (echo 'set ttymouse=""' | tee -a /etc/vim/vimrc) && \
-    echo 'PS1='\''\[\033]0;$TITLEPREFIX:$PWD\007\]\n\[\033[32m\]\u@\h \[\033[35m\]\[\033[33m\]\w\[\033[36m\]`__git_ps1`\[\033[0m\]\n$ '\' >> /home/dev/.bashrc
+    echo 'PS1='\''\[\033]0;$TITLEPREFIX:$PWD\007\]\n\[\033[32m\]\u@\h \[\033[35m\]\[\033[33m\]\w\[\033[36m\]`__git_ps1`\[\033[0m\]\n$ '\' >> /home/dev/.bashrc && \
+    (npm completion | tee -a /home/dev/.bashrc)
 
 # setup cartella di lavoro
 RUN mkdir /var/app

@@ -182,6 +182,7 @@ Librerie grafiche:
   è bello che funzioni come tailwind (tutto tramite classi). Permette di gestire tab e dialog, non ha nulla per notifiche e tabelle.
   Di fatto permette di gestire con semplicità solo pochi casi semplici (come faceva boostrap).
   La cosa più carina che ho visto è lo "skeleton" (disegna i riquadri animati per il caricamento in corso).
+  Ha pochi stili per i form (p.e. per evidenziare un input come non valido)
 - [RadixUI](https://www.radix-ui.com/) fornisce delle primitive di logica per poi costruire elementi HTML complessi.
   ha primitive per dialog e notifiche e tab, non ha nulla per le tabelle. Molto verboso.
   Server solo per la logica, non ti da alcuno stile.
@@ -214,6 +215,25 @@ Librerie grafiche:
   pare avere qualche componente a pagamento.
 - [AG Grid](https://www.ag-grid.com/): fa solo tabelle e grafici, però li fa bene e offrendo tantissimo controllo. È l'erede
   delle liste fatte con ExtJS.
+- [Tabler](https://tabler.io/): boostrap + alcune classi per implementare componenti usati normalmente nei pannelli di
+  controllo. Mi è piaciuto tanto, anche se è meno ricco di PrimeReact.
+  Purtroppo non è costruito con TailwindCSS, quindi non saprei come integrare entrambi :(
+- [ShadCN](https://ui.shadcn.com/): ti fornisce il codice JSX da copiare (oppure usi un comando cli) che ti genera il codice.
+  l'idea è che ti copi un codice di partenza, con uno stile neutro (brutto) e un po' di JS di logica dentro al tuo progetto,
+  poi ci pensi tu a cambiare lo stile del codice copiato una volta dentro il tuo progetto.
+  Per afforntare i componenti dinamici usa di volta in volta librerie diverse (p.e. react-hook-form, tanstack/table).
+  L'idea è ottima, però lo stile che offre è davvero brutto. Serve usare un altro stile!
+- [Flowbite](https://flowbite.com/): componenti fatti con Tailwind. Offre due modalità di utilizzo:
+  - o copi e incolli il codice HTML con le classi Tailwind. Per i componenti con la logica, c'è un file JS costruito da loro che permette di gestire la logica per varie casistiche di componenti.
+  - Installi "react-flowbite". Ti fornisce dei componenti già fatti con (con lo stile di "Flowbyte") e la logica già predisposta.
+    è possibile personalizzare lo stile usando "className" e le regole di tailwind.
+    Lo stile della libreria è carino, ricorda bootstrap. Lo stile è di fatto dato dalle classi tailwind usate nei componenti, quindi basta
+    cambiare tali classi e si cambia anche lo stile.
+    Offre abbstanza componenti (più di DaisyUI, ma meno di PrimeReact).
+
+È possibile vedere l'elenco di tutti i UI kit costruiti con tailwind a questa pagina:
+https://www.tailwindawesome.com/?type=kit
+DaisyUI è ancora il UI kit più popolare (fra quelli gratuiti)
 
 https://www.reddit.com/r/reactjs/comments/xcgyj4/what_react_ui_component_library_do_you_use_and_why/
 una discussione su quale libreria usare. I pareri sono:
@@ -222,8 +242,115 @@ una discussione su quale libreria usare. I pareri sono:
 - altrimenti, crea i tuoi componenti con tailwindCSS. La logica ce la metti tu.
 - più persone si sono trovate bene a usare "PrimeReact" per creare applicazioni enteprise (pannelli di controllo).
 
+---
+
 Cosa uso in questo progetto?
 
+Riflettendoci, alla fine per creare dei componenti riutilizzabili significa comunque alla fine creare delle classi "Componente" da
+usare dentro al proprio progetto. Si arriverà al punto quindi in cui si lavorerà con un misto di HTML e Componenti creati nel progetto e anche
+componenti creati da altri.
+
+Quindi in fondo, in fondo, non conviene molto usare daisyUI. Ha molto più senso la logica di ShadCN a cui però bisogna assolutamente
+abbinare uno stile migliore (perchè lo stile di default è brutto!)
+
+---
+
+Anche scelgiere le icone è un'impresa. Ci sono tantissime possibilità.
+
+- [react-icons](https://react-icons.github.io/react-icons/): raccoglie e mette a disposizione le icone di tantissimi progetti open source fra cui:
+  - [bootstrap](https://icons.getbootstrap.com/)
+  - font awesome 5 e 6 (solo le icone gratis)
+  - heoricons (sviluppate dal team di tailwind)
+  - [tabler](https://tabler.io/icons)
+    Per tutte queste icone è disponibile un componente già pronto per esporle. Ogni pacchetto di icone ha
+    il suo prefisso.
+- [Flowbite icons](https://flowbite.com/icons/): sarebbero le icone ufficiali di Flowbite. Sono carine, ma
+  attualmente offrono solo la possibilità di essere copiate come SVG
+
+È disponibile anche questo sito che raccoglie un numero ancora maggiore di icone:
+https://icon-sets.iconify.design/
+Questo sito offre una libreria per usare le sue icone con React installando @iconify/react + @iconify/icons-[sigla] e importando manualmente il perorso della icona.
+
+Con le librerie per le icone è la prima volta che trovo alcuni piccoli difetti:
+
+- react-icons:
+  - di default non funziona l'autocompletamento (IntelliSense). bisogna importare almeno "react-icons/[sigla]" per vedere funzionare l'autocompletamento
+  - è possibile personalizzare l'icona tramite "className" ma IntelliSense non riconosce "className" come attributo valido.
+  - cercare le icone sul sito react-icons non sempre conviene (p.e. cercando "user" non trovo le icone di Bootstrap perchè si chiamano "person")
+  - non sono incluse le icone di flowbite
+
+- @iconify/react
+  - bisogna cercare il percorso completo da cui importare l'icona sul loro sito
+  - autocompleta classname
+  - sembra che non importi le icone con il tag <svg> ma includa un richiamo alle API iconify per scaricare l'icona (https://github.com/iconify/iconify/issues/234)
+  - cercare le icone sul sito iconify non sempre conviene (p.e. cercando "user" non trovo le icone di Bootstrap perchè si chiamano "person")
+  - non sono incluse le icone di flowbite
+
+Ho provato per esprimento a creare un file da copiavo, adattavo ed esportavo un componente "Icon". Il risultato finale è buono,
+ma è tedioso farlo una icona alla volta. Ci vorrebbe un modo per farlo a livello massivo, ma non sono riusito a trovarlo.
+
+Avrei voluto usare le icone di Flowbite ma non sono disponibili :( (se non copiando manualmente i svg).
+
+Per questo motivo ripiego sull'usare "react-icons", usando come riferimento le icone Bootstrap (cercandole però sul sito ufficiale https://icons.getbootstrap.com/)
+Quando non trovo una icona bootstrap, allora uso una icona di tabler (cercando sul sito ufficiale https://tabler.io/icons)
+Se anche su table non trovo nulla, sono allora autorizzato a cercare le icone dal primo pacchetto di "react-icons" in cui le trovo.
+Opzione finale, copio i svg ed esporto manualmente un componente per esporre le icone.
+
+**Aggiornamento**
+alla fine ho scaricato i file svg del progetto [FlowbiteIcons](https://github.com/themesberg/flowbite-icons).
+Ho quindi realizzato uno script che legge tali file e ci costruisce il codice JSX per esportarli (basandosi sul codice
+da me precedentemente scritto e salvato in "FlowbiteIconsExperiment.tsx").
+
+Ho quindi imparato a come scrivere uno script di node:
+
+- ho prima provato a farlo in puro js
+- poi ho tentato di farlo in TS
+- ho cercato di usare ts-node, ma sembra che, oltre a non essere banale da configurare (devi passare sempre delle opzioni a node), con
+  Node 20 stampa sempre un warning. Bisogna quindi passare ulteriori opzioni per sopprimere tale warning.
+- online, consigliano di usare "tsx" (TypeScript Execute) in quanto più facile e che non stampa warning
+- Alla fine, ho optato per creare un nuovo file "typescript.scripts.json" che istruisce il comando "tsc" (compilatore TypeScript) a
+  compilare il file typescript per la sola cartella "script"
+
+Da questa esperienza ho imparato che:
+
+- i file "mjs" e "mts" indicano che al suo interno c'è codice "ES Module" moderno, che supporta import / export e anche await a primo livello.
+- i file "cjs" e "cts" indicano che al suo interno c'è del codice "CommonJS" fatto con "require(...)"
+- in generale, è adesso consigliato di usare sempre il codice "ES Module"
+- in `tsconfig.json` puoi indicare che il sorgente del progetto usa codice ES Moderno ma l'output finale della build / compilazione deve essere compatibile
+  con codice Js vecchio (quindi anche commonJs)
+- c'è una estensione `npm intellisense` per suggerire i completamenti agli import
+- si può specificare alcuni path per l'import in `tsconfig.json` (magari risolve il problema di react-icons)
+- `npm completion` confiugura l'autocompletamento
+
+**Aggiornamento 02**
+
+Ho scoperto vari piccoli dettagli che mi hanno portato a modificare e rieseguire più volte lo script per importare le icone di Flowbite:
+- per poter dare una dimensione di default (nel caso non sia specificata) bisonga usare gli attributi HTML.
+- Usando le sole classi, non è poi possibile distinguere quale classe era per i valori di default e quale per i valori da sovrascrivere
+- alcune icone hanno una "width" e una "height" pre-compilati (circa 60 icone su 450), tutti gli altri no. 
+- Ho dovuto quindi modificare lo script affinchè aggiungesse `width` e `height` solo dove effettivamente mancava
+- Tante icone (almeno 200) avevano `fill` e/o `stroke` compilati con dei colori hardocded, non sovrascrivibili via classi CSS
+- ho quindi modificato lo script per forzare `fill` e `stroke` a "currentColor"
+- senza specificare il tipo della icona esportata, VSCode impiegava circa 5/6 secondi a salvare le modifiche al file generato
+- includendo la dichiarazione del tipo delle icone esportate il tempo si è abbassato a 1/2 secondi.
+- specificare i tipi delle variabili nel codice TS, quindi, aiuta a ridurre i tempi di elaborazione
+- alcune icone hanno degli errori ortografici (p.e. "adress-book"). Non mi metto a correggere tali errori.
+
+Ho perso tanto tempo con questi dettagli. Ero quasi tentato di eseguire lo stesso processo anche per le icone di Bootstrap / Tabler ma ho poi notato che hanno delle altre impostazioni diverse nei loro svg (p.e. le icone di tabler hanno un area di disegno grossa ma poi l'icona in se è piccola).
+meglio quindi rinunciare a cercare di fare ancora tutto questo lavoro per delle altre icone. Sono già contento di esserci riuscito con le icone Flowbite.
+
+# Riassunto
+
+Librerie da usare durante lo sviluppo:
+
 - react-hook-form: mi sembra semplice, l'ho già capito
-- (?) PrimeReact: mi da tanto "HTML Potenziato" che altrimenti dovrei reinventare io;
--
+- ShadCN: copio a mano i vari componenti che mi interessano
+- Flowbite: copio il codice html con le classe tailwind al fine di imitare il loro stile
+- icone:
+  - utilizzare le icone Flowbite (importate manualmente in "frontend/icons") (https://flowbite.com/icons/)
+  - prima si cercano le icone Bootstrap (https://icons.getbootstrap.com/) usando react-icons/bs
+  - poi si cercano le icone Tabler (https://tabler.io/icons) usando react-icons/tb
+  - poi si cerca una qualsiasi altra icona di "react-icons"
+  - ultima istanza, si copia il svg e si esporta un componente creato a mano in "frontend/icons"
+- contex per DI...
+- Eslint strict...

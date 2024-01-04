@@ -66,7 +66,8 @@
         "EditorConfig.EditorConfig",
         "Prisma.prisma",
         "bradlc.vscode-tailwindcss",
-        "ms-azuretools.vscode-docker"
+        "ms-azuretools.vscode-docker",
+        "christian-kohler.npm-intellisense"
       ],
       "settings": {
         "javascript.suggest.paths": false,
@@ -78,6 +79,17 @@
           "source.fixAll": "always",
           "source.organizeImports": "always"
         },
+        "editor.quickSuggestions": {
+          "other": "on",
+          "comments": "off",
+          "strings": "off"
+        },
+        "files.associations": {
+          "*.css": "tailwindcss"
+        },
+        "tailwindCSS.experimental.classRegex": [
+          ["clsx\\(([^)]*)\\)", "(?:'|\"|`)([^']*)(?:'|\"|`)"]
+        ],
         "telemetry.enableTelemetry": false,
         "search.exclude": {
           "**/.next": true,
@@ -97,6 +109,13 @@
         },
         "[prisma]": {
           "editor.defaultFormatter": "Prisma.prisma"
+        },
+        "[markdown]": {
+          "editor.defaultFormatter": "yzhang.markdown-all-in-one"
+        },
+        "workbench.colorCustomizations": {
+          "statusBarItem.remoteBackground": "#3a3ae2",
+          "statusBarItem.remoteHoverBackground": "#4a4ae4"
         }
       }
     }
