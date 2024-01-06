@@ -10427,9 +10427,9 @@ export const FbImageOutline: TIcon = forwardRef((props: IIconProps, ref: TIconRe
       />
       <path
         stroke="currentColor"
-        stroke-linecap="round"
-        stroke-linejoin="round"
-        stroke-width="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        strokeWidth="2"
         d="M13 5.5a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0ZM7.565 7.423 4.5 14h11.518l-2.516-3.71L11 13 7.565 7.423Z"
       />
     </svg>
@@ -11030,7 +11030,7 @@ export const FbDotsVerticalOutline: TIcon = forwardRef((props: IIconProps, ref: 
       <path
         stroke="currentColor"
         strokeLinecap="round"
-        stroke-width="3"
+        strokeWidth="3"
         d="M1.5 2h.01M1.5 8h.01m-.01 6h.01"
       />
     </svg>
@@ -11059,7 +11059,7 @@ export const FbDotsHorizontalOutline: TIcon = forwardRef((props: IIconProps, ref
       <path
         stroke="currentColor"
         strokeLinecap="round"
-        stroke-width="3"
+        strokeWidth="3"
         d="M2.49 2h.01m6 0h.01m5.99 0h.01"
       />
     </svg>

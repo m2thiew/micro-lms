@@ -1,7 +1,9 @@
 import { Head, Html, Main, NextScript } from "next/document";
 
 /**
- * Proprietà HTML base dell'intera applicazione
+ * Personalizzazione dei tag <html>, <head>, <body>
+ * https://nextjs.org/docs/pages/building-your-application/routing/custom-document
+ *
  * @returns scheletro header + body HTML
  */
 

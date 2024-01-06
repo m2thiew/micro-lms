@@ -1,6 +1,7 @@
 /** @type {import('prettier').Config & import('prettier-plugin-tailwindcss').options} */
-const config = {
+const config =  {
   plugins: ["prettier-plugin-tailwindcss", "prettier-plugin-prisma"],
+  tailwindFunctions: ["clsx"],
 };
 
-export default config;
+module.exports = config;

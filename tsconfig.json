@@ -10,9 +10,9 @@
     "incremental": true,
     "jsx": "preserve",
     /* opzioni di compilazione */
-    "module": "esnext",
+    "module": "ESNext",
     "moduleResolution": "bundler",
-    "target": "es2022",
+    "target": "ES2022",
     /* librerie e plugin */
     "lib": ["dom", "dom.iterable", "ES2022"],
     "plugins": [
@@ -32,6 +32,9 @@
   },
   "include": [
     ".eslintrc.cjs",
+    "prettier.config.js",
+    "postcss.config.js",
+    "tailwind.config.ts",
     "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx",
