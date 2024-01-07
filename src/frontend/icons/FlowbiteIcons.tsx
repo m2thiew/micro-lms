@@ -8,27 +8,25 @@ import { forwardRef } from "react";
  * Proprietà delle icone SVG.
  */
 
-interface IIconProps extends React.SVGProps<SVGSVGElement> {}
+type TIconProps = React.SVGProps<SVGSVGElement>;
 type TIconRef = React.Ref<SVGSVGElement>;
 type TIcon = React.ForwardRefExoticComponent<
-  Omit<IIconProps, "ref"> & React.RefAttributes<SVGSVGElement>
+  Omit<TIconProps, "ref"> & React.RefAttributes<SVGSVGElement>
 >;
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/solid/weather/sun.svg
+ * /var/app/ignore/flowbite-icons/solid/weather/sun.svg
  */
 
-export const FbSunSolid: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
-  const { strokeWidth, ...otherProps } = props;
-
+export const FbSunSolid: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   return (
     <svg
       width="24"
       height="24"
       ref={ref}
-      {...otherProps}
+      {...props}
       xmlns="http://www.w3.org/2000/svg"
       fill="none"
       viewBox="0 0 20 20"
@@ -40,22 +38,21 @@ export const FbSunSolid: TIcon = forwardRef((props: IIconProps, ref: TIconRef) =
     </svg>
   );
 });
+FbSunSolid.displayName = "FbSunSolid";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/solid/weather/moon.svg
+ * /var/app/ignore/flowbite-icons/solid/weather/moon.svg
  */
 
-export const FbMoonSolid: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
-  const { strokeWidth, ...otherProps } = props;
-
+export const FbMoonSolid: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   return (
     <svg
       width="24"
       height="24"
       ref={ref}
-      {...otherProps}
+      {...props}
       xmlns="http://www.w3.org/2000/svg"
       fill="none"
       viewBox="0 0 18 20"
@@ -67,22 +64,21 @@ export const FbMoonSolid: TIcon = forwardRef((props: IIconProps, ref: TIconRef) 
     </svg>
   );
 });
+FbMoonSolid.displayName = "FbMoonSolid";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/solid/user/users.svg
+ * /var/app/ignore/flowbite-icons/solid/user/users.svg
  */
 
-export const FbUsersSolid: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
-  const { strokeWidth, ...otherProps } = props;
-
+export const FbUsersSolid: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   return (
     <svg
       width="24"
       height="24"
       ref={ref}
-      {...otherProps}
+      {...props}
       xmlns="http://www.w3.org/2000/svg"
       fill="none"
       viewBox="0 0 20 18"
@@ -94,22 +90,21 @@ export const FbUsersSolid: TIcon = forwardRef((props: IIconProps, ref: TIconRef)
     </svg>
   );
 });
+FbUsersSolid.displayName = "FbUsersSolid";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/solid/user/user.svg
+ * /var/app/ignore/flowbite-icons/solid/user/user.svg
  */
 
-export const FbUserSolid: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
-  const { strokeWidth, ...otherProps } = props;
-
+export const FbUserSolid: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   return (
     <svg
       width="24"
       height="24"
       ref={ref}
-      {...otherProps}
+      {...props}
       xmlns="http://www.w3.org/2000/svg"
       fill="none"
       viewBox="0 0 14 18"
@@ -121,22 +116,21 @@ export const FbUserSolid: TIcon = forwardRef((props: IIconProps, ref: TIconRef) 
     </svg>
   );
 });
+FbUserSolid.displayName = "FbUserSolid";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/solid/user/user-settings.svg
+ * /var/app/ignore/flowbite-icons/solid/user/user-settings.svg
  */
 
-export const FbUserSettingsSolid: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
-  const { strokeWidth, ...otherProps } = props;
-
+export const FbUserSettingsSolid: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   return (
     <svg
       width="24"
       height="24"
       ref={ref}
-      {...otherProps}
+      {...props}
       xmlns="http://www.w3.org/2000/svg"
       fill="none"
       viewBox="0 0 20 19"
@@ -148,22 +142,21 @@ export const FbUserSettingsSolid: TIcon = forwardRef((props: IIconProps, ref: TI
     </svg>
   );
 });
+FbUserSettingsSolid.displayName = "FbUserSettingsSolid";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/solid/user/user-remove.svg
+ * /var/app/ignore/flowbite-icons/solid/user/user-remove.svg
  */
 
-export const FbUserRemoveSolid: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
-  const { strokeWidth, ...otherProps } = props;
-
+export const FbUserRemoveSolid: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   return (
     <svg
       width="24"
       height="24"
       ref={ref}
-      {...otherProps}
+      {...props}
       xmlns="http://www.w3.org/2000/svg"
       fill="none"
       viewBox="0 0 20 18"
@@ -175,22 +168,21 @@ export const FbUserRemoveSolid: TIcon = forwardRef((props: IIconProps, ref: TIco
     </svg>
   );
 });
+FbUserRemoveSolid.displayName = "FbUserRemoveSolid";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/solid/user/user-plus.svg
+ * /var/app/ignore/flowbite-icons/solid/user/user-plus.svg
  */
 
-export const FbUserPlusSolid: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
-  const { strokeWidth, ...otherProps } = props;
-
+export const FbUserPlusSolid: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   return (
     <svg
       width="24"
       height="24"
       ref={ref}
-      {...otherProps}
+      {...props}
       xmlns="http://www.w3.org/2000/svg"
       fill="none"
       viewBox="0 0 20 18"
@@ -202,22 +194,21 @@ export const FbUserPlusSolid: TIcon = forwardRef((props: IIconProps, ref: TIconR
     </svg>
   );
 });
+FbUserPlusSolid.displayName = "FbUserPlusSolid";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/solid/user/user-group.svg
+ * /var/app/ignore/flowbite-icons/solid/user/user-group.svg
  */
 
-export const FbUserGroupSolid: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
-  const { strokeWidth, ...otherProps } = props;
-
+export const FbUserGroupSolid: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   return (
     <svg
       width="24"
       height="24"
       ref={ref}
-      {...otherProps}
+      {...props}
       xmlns="http://www.w3.org/2000/svg"
       fill="none"
       viewBox="0 0 20 19"
@@ -229,22 +220,21 @@ export const FbUserGroupSolid: TIcon = forwardRef((props: IIconProps, ref: TIcon
     </svg>
   );
 });
+FbUserGroupSolid.displayName = "FbUserGroupSolid";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/solid/user/user-edit.svg
+ * /var/app/ignore/flowbite-icons/solid/user/user-edit.svg
  */
 
-export const FbUserEditSolid: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
-  const { strokeWidth, ...otherProps } = props;
-
+export const FbUserEditSolid: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   return (
     <svg
       width="24"
       height="24"
       ref={ref}
-      {...otherProps}
+      {...props}
       xmlns="http://www.w3.org/2000/svg"
       fill="none"
       viewBox="0 0 20 18"
@@ -256,22 +246,21 @@ export const FbUserEditSolid: TIcon = forwardRef((props: IIconProps, ref: TIconR
     </svg>
   );
 });
+FbUserEditSolid.displayName = "FbUserEditSolid";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/solid/user/user-circle.svg
+ * /var/app/ignore/flowbite-icons/solid/user/user-circle.svg
  */
 
-export const FbUserCircleSolid: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
-  const { strokeWidth, ...otherProps } = props;
-
+export const FbUserCircleSolid: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   return (
     <svg
       width="24"
       height="24"
       ref={ref}
-      {...otherProps}
+      {...props}
       xmlns="http://www.w3.org/2000/svg"
       fill="none"
       viewBox="0 0 20 20"
@@ -283,22 +272,21 @@ export const FbUserCircleSolid: TIcon = forwardRef((props: IIconProps, ref: TIco
     </svg>
   );
 });
+FbUserCircleSolid.displayName = "FbUserCircleSolid";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/solid/user/adress-book.svg
+ * /var/app/ignore/flowbite-icons/solid/user/adress-book.svg
  */
 
-export const FbAdressBookSolid: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
-  const { strokeWidth, ...otherProps } = props;
-
+export const FbAddressBookSolid: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   return (
     <svg
       width="24"
       height="24"
       ref={ref}
-      {...otherProps}
+      {...props}
       xmlns="http://www.w3.org/2000/svg"
       fill="none"
       viewBox="0 0 18 20"
@@ -310,22 +298,21 @@ export const FbAdressBookSolid: TIcon = forwardRef((props: IIconProps, ref: TIco
     </svg>
   );
 });
+FbAddressBookSolid.displayName = "FbAddressBookSolid";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/solid/user/address-card.svg
+ * /var/app/ignore/flowbite-icons/solid/user/address-card.svg
  */
 
-export const FbAddressCardSolid: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
-  const { strokeWidth, ...otherProps } = props;
-
+export const FbAddressCardSolid: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   return (
     <svg
       width="24"
       height="24"
       ref={ref}
-      {...otherProps}
+      {...props}
       xmlns="http://www.w3.org/2000/svg"
       fill="none"
       viewBox="0 0 20 16"
@@ -337,22 +324,21 @@ export const FbAddressCardSolid: TIcon = forwardRef((props: IIconProps, ref: TIc
     </svg>
   );
 });
+FbAddressCardSolid.displayName = "FbAddressCardSolid";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/solid/text/underline.svg
+ * /var/app/ignore/flowbite-icons/solid/text/underline.svg
  */
 
-export const FbUnderlineSolid: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
-  const { strokeWidth, ...otherProps } = props;
-
+export const FbUnderlineSolid: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   return (
     <svg
       width="24"
       height="24"
       ref={ref}
-      {...otherProps}
+      {...props}
       xmlns="http://www.w3.org/2000/svg"
       fill="none"
       viewBox="0 0 16 20"
@@ -364,22 +350,21 @@ export const FbUnderlineSolid: TIcon = forwardRef((props: IIconProps, ref: TIcon
     </svg>
   );
 });
+FbUnderlineSolid.displayName = "FbUnderlineSolid";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/solid/text/text-center.svg
+ * /var/app/ignore/flowbite-icons/solid/text/text-center.svg
  */
 
-export const FbTextCenterSolid: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
-  const { strokeWidth, ...otherProps } = props;
-
+export const FbTextCenterSolid: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   return (
     <svg
       width="24"
       height="24"
       ref={ref}
-      {...otherProps}
+      {...props}
       xmlns="http://www.w3.org/2000/svg"
       fill="none"
       viewBox="0 0 14 14"
@@ -391,22 +376,21 @@ export const FbTextCenterSolid: TIcon = forwardRef((props: IIconProps, ref: TIco
     </svg>
   );
 });
+FbTextCenterSolid.displayName = "FbTextCenterSolid";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/solid/text/quote.svg
+ * /var/app/ignore/flowbite-icons/solid/text/quote.svg
  */
 
-export const FbQuoteSolid: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
-  const { strokeWidth, ...otherProps } = props;
-
+export const FbQuoteSolid: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   return (
     <svg
       width="24"
       height="24"
       ref={ref}
-      {...otherProps}
+      {...props}
       xmlns="http://www.w3.org/2000/svg"
       fill="none"
       viewBox="0 0 18 14"
@@ -418,22 +402,21 @@ export const FbQuoteSolid: TIcon = forwardRef((props: IIconProps, ref: TIconRef)
     </svg>
   );
 });
+FbQuoteSolid.displayName = "FbQuoteSolid";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/solid/text/list.svg
+ * /var/app/ignore/flowbite-icons/solid/text/list.svg
  */
 
-export const FbListSolid: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
-  const { strokeWidth, ...otherProps } = props;
-
+export const FbListSolid: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   return (
     <svg
       width="24"
       height="24"
       ref={ref}
-      {...otherProps}
+      {...props}
       xmlns="http://www.w3.org/2000/svg"
       fill="none"
       viewBox="0 0 16 10"
@@ -445,22 +428,21 @@ export const FbListSolid: TIcon = forwardRef((props: IIconProps, ref: TIconRef) 
     </svg>
   );
 });
+FbListSolid.displayName = "FbListSolid";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/solid/text/list-ordored.svg
+ * /var/app/ignore/flowbite-icons/solid/text/list-ordored.svg
  */
 
-export const FbListOrdoredSolid: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
-  const { strokeWidth, ...otherProps } = props;
-
+export const FbListOrdoredSolid: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   return (
     <svg
       width="24"
       height="24"
       ref={ref}
-      {...otherProps}
+      {...props}
       xmlns="http://www.w3.org/2000/svg"
       fill="none"
       viewBox="0 0 21 18"
@@ -472,22 +454,21 @@ export const FbListOrdoredSolid: TIcon = forwardRef((props: IIconProps, ref: TIc
     </svg>
   );
 });
+FbListOrdoredSolid.displayName = "FbListOrdoredSolid";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/solid/text/italic.svg
+ * /var/app/ignore/flowbite-icons/solid/text/italic.svg
  */
 
-export const FbItalicSolid: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
-  const { strokeWidth, ...otherProps } = props;
-
+export const FbItalicSolid: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   return (
     <svg
       width="24"
       height="24"
       ref={ref}
-      {...otherProps}
+      {...props}
       xmlns="http://www.w3.org/2000/svg"
       fill="none"
       viewBox="0 0 14 16"
@@ -499,22 +480,21 @@ export const FbItalicSolid: TIcon = forwardRef((props: IIconProps, ref: TIconRef
     </svg>
   );
 });
+FbItalicSolid.displayName = "FbItalicSolid";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/solid/text/bold.svg
+ * /var/app/ignore/flowbite-icons/solid/text/bold.svg
  */
 
-export const FbBoldSolid: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
-  const { strokeWidth, ...otherProps } = props;
-
+export const FbBoldSolid: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   return (
     <svg
       width="24"
       height="24"
       ref={ref}
-      {...otherProps}
+      {...props}
       xmlns="http://www.w3.org/2000/svg"
       fill="none"
       viewBox="0 0 14 16"
@@ -526,22 +506,21 @@ export const FbBoldSolid: TIcon = forwardRef((props: IIconProps, ref: TIconRef) 
     </svg>
   );
 });
+FbBoldSolid.displayName = "FbBoldSolid";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/solid/media/video.svg
+ * /var/app/ignore/flowbite-icons/solid/media/video.svg
  */
 
-export const FbVideoSolid: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
-  const { strokeWidth, ...otherProps } = props;
-
+export const FbVideoSolid: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   return (
     <svg
       width="24"
       height="24"
       ref={ref}
-      {...otherProps}
+      {...props}
       xmlns="http://www.w3.org/2000/svg"
       fill="none"
       viewBox="0 0 20 14"
@@ -553,22 +532,21 @@ export const FbVideoSolid: TIcon = forwardRef((props: IIconProps, ref: TIconRef)
     </svg>
   );
 });
+FbVideoSolid.displayName = "FbVideoSolid";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/solid/media/shuffle.svg
+ * /var/app/ignore/flowbite-icons/solid/media/shuffle.svg
  */
 
-export const FbShuffleSolid: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
-  const { strokeWidth, ...otherProps } = props;
-
+export const FbShuffleSolid: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   return (
     <svg
       width="24"
       height="24"
       ref={ref}
-      {...otherProps}
+      {...props}
       xmlns="http://www.w3.org/2000/svg"
       fill="none"
       viewBox="0 0 20 19"
@@ -580,22 +558,21 @@ export const FbShuffleSolid: TIcon = forwardRef((props: IIconProps, ref: TIconRe
     </svg>
   );
 });
+FbShuffleSolid.displayName = "FbShuffleSolid";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/solid/media/rectangle-list.svg
+ * /var/app/ignore/flowbite-icons/solid/media/rectangle-list.svg
  */
 
-export const FbRectangleListSolid: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
-  const { strokeWidth, ...otherProps } = props;
-
+export const FbRectangleListSolid: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   return (
     <svg
       width="24"
       height="24"
       ref={ref}
-      {...otherProps}
+      {...props}
       xmlns="http://www.w3.org/2000/svg"
       fill="none"
       viewBox="0 0 20 16"
@@ -607,22 +584,21 @@ export const FbRectangleListSolid: TIcon = forwardRef((props: IIconProps, ref: T
     </svg>
   );
 });
+FbRectangleListSolid.displayName = "FbRectangleListSolid";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/solid/media/play.svg
+ * /var/app/ignore/flowbite-icons/solid/media/play.svg
  */
 
-export const FbPlaySolid: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
-  const { strokeWidth, ...otherProps } = props;
-
+export const FbPlaySolid: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   return (
     <svg
       width="24"
       height="24"
       ref={ref}
-      {...otherProps}
+      {...props}
       xmlns="http://www.w3.org/2000/svg"
       fill="none"
       viewBox="0 0 14 16"
@@ -634,20 +610,19 @@ export const FbPlaySolid: TIcon = forwardRef((props: IIconProps, ref: TIconRef) 
     </svg>
   );
 });
+FbPlaySolid.displayName = "FbPlaySolid";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/solid/media/pause.svg
+ * /var/app/ignore/flowbite-icons/solid/media/pause.svg
  */
 
-export const FbPauseSolid: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
-  const { strokeWidth, ...otherProps } = props;
-
+export const FbPauseSolid: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   return (
     <svg
       ref={ref}
-      {...otherProps}
+      {...props}
       xmlns="http://www.w3.org/2000/svg"
       width="12"
       height="16"
@@ -661,22 +636,21 @@ export const FbPauseSolid: TIcon = forwardRef((props: IIconProps, ref: TIconRef)
     </svg>
   );
 });
+FbPauseSolid.displayName = "FbPauseSolid";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/solid/media/microphone.svg
+ * /var/app/ignore/flowbite-icons/solid/media/microphone.svg
  */
 
-export const FbMicrophoneSolid: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
-  const { strokeWidth, ...otherProps } = props;
-
+export const FbMicrophoneSolid: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   return (
     <svg
       width="24"
       height="24"
       ref={ref}
-      {...otherProps}
+      {...props}
       xmlns="http://www.w3.org/2000/svg"
       fill="none"
       viewBox="0 0 16 19"
@@ -688,22 +662,21 @@ export const FbMicrophoneSolid: TIcon = forwardRef((props: IIconProps, ref: TIco
     </svg>
   );
 });
+FbMicrophoneSolid.displayName = "FbMicrophoneSolid";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/solid/media/list-music.svg
+ * /var/app/ignore/flowbite-icons/solid/media/list-music.svg
  */
 
-export const FbListMusicSolid: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
-  const { strokeWidth, ...otherProps } = props;
-
+export const FbListMusicSolid: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   return (
     <svg
       width="24"
       height="24"
       ref={ref}
-      {...otherProps}
+      {...props}
       xmlns="http://www.w3.org/2000/svg"
       fill="none"
       viewBox="0 0 18 16"
@@ -715,22 +688,21 @@ export const FbListMusicSolid: TIcon = forwardRef((props: IIconProps, ref: TIcon
     </svg>
   );
 });
+FbListMusicSolid.displayName = "FbListMusicSolid";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/solid/media/headphones.svg
+ * /var/app/ignore/flowbite-icons/solid/media/headphones.svg
  */
 
-export const FbHeadphonesSolid: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
-  const { strokeWidth, ...otherProps } = props;
-
+export const FbHeadphonesSolid: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   return (
     <svg
       width="24"
       height="24"
       ref={ref}
-      {...otherProps}
+      {...props}
       xmlns="http://www.w3.org/2000/svg"
       fill="none"
       viewBox="0 0 20 18"
@@ -742,22 +714,21 @@ export const FbHeadphonesSolid: TIcon = forwardRef((props: IIconProps, ref: TIco
     </svg>
   );
 });
+FbHeadphonesSolid.displayName = "FbHeadphonesSolid";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/solid/media/forward-step.svg
+ * /var/app/ignore/flowbite-icons/solid/media/forward-step.svg
  */
 
-export const FbForwardStepSolid: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
-  const { strokeWidth, ...otherProps } = props;
-
+export const FbForwardStepSolid: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   return (
     <svg
       width="24"
       height="24"
       ref={ref}
-      {...otherProps}
+      {...props}
       xmlns="http://www.w3.org/2000/svg"
       fill="none"
       viewBox="0 0 12 16"
@@ -769,22 +740,21 @@ export const FbForwardStepSolid: TIcon = forwardRef((props: IIconProps, ref: TIc
     </svg>
   );
 });
+FbForwardStepSolid.displayName = "FbForwardStepSolid";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/solid/media/computer-speaker.svg
+ * /var/app/ignore/flowbite-icons/solid/media/computer-speaker.svg
  */
 
-export const FbComputerSpeakerSolid: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
-  const { strokeWidth, ...otherProps } = props;
-
+export const FbComputerSpeakerSolid: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   return (
     <svg
       width="24"
       height="24"
       ref={ref}
-      {...otherProps}
+      {...props}
       xmlns="http://www.w3.org/2000/svg"
       fill="none"
       viewBox="0 0 20 20"
@@ -797,22 +767,21 @@ export const FbComputerSpeakerSolid: TIcon = forwardRef((props: IIconProps, ref:
     </svg>
   );
 });
+FbComputerSpeakerSolid.displayName = "FbComputerSpeakerSolid";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/solid/media/clapperboard-play.svg
+ * /var/app/ignore/flowbite-icons/solid/media/clapperboard-play.svg
  */
 
-export const FbClapperboardPlaySolid: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
-  const { strokeWidth, ...otherProps } = props;
-
+export const FbClapperboardPlaySolid: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   return (
     <svg
       width="24"
       height="24"
       ref={ref}
-      {...otherProps}
+      {...props}
       xmlns="http://www.w3.org/2000/svg"
       fill="none"
       viewBox="0 0 20 20"
@@ -824,20 +793,19 @@ export const FbClapperboardPlaySolid: TIcon = forwardRef((props: IIconProps, ref
     </svg>
   );
 });
+FbClapperboardPlaySolid.displayName = "FbClapperboardPlaySolid";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/solid/media/circle-pause.svg
+ * /var/app/ignore/flowbite-icons/solid/media/circle-pause.svg
  */
 
-export const FbCirclePauseSolid: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
-  const { strokeWidth, ...otherProps } = props;
-
+export const FbCirclePauseSolid: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   return (
     <svg
       ref={ref}
-      {...otherProps}
+      {...props}
       xmlns="http://www.w3.org/2000/svg"
       width="20"
       height="20"
@@ -851,22 +819,21 @@ export const FbCirclePauseSolid: TIcon = forwardRef((props: IIconProps, ref: TIc
     </svg>
   );
 });
+FbCirclePauseSolid.displayName = "FbCirclePauseSolid";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/solid/media/captioning.svg
+ * /var/app/ignore/flowbite-icons/solid/media/captioning.svg
  */
 
-export const FbCaptioningSolid: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
-  const { strokeWidth, ...otherProps } = props;
-
+export const FbCaptioningSolid: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   return (
     <svg
       width="24"
       height="24"
       ref={ref}
-      {...otherProps}
+      {...props}
       xmlns="http://www.w3.org/2000/svg"
       fill="none"
       viewBox="0 0 20 16"
@@ -878,22 +845,21 @@ export const FbCaptioningSolid: TIcon = forwardRef((props: IIconProps, ref: TIco
     </svg>
   );
 });
+FbCaptioningSolid.displayName = "FbCaptioningSolid";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/solid/media/camera-foto.svg
+ * /var/app/ignore/flowbite-icons/solid/media/camera-foto.svg
  */
 
-export const FbCameraFotoSolid: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
-  const { strokeWidth, ...otherProps } = props;
-
+export const FbCameraFotoSolid: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   return (
     <svg
       width="24"
       height="24"
       ref={ref}
-      {...otherProps}
+      {...props}
       xmlns="http://www.w3.org/2000/svg"
       fill="none"
       viewBox="0 0 20 18"
@@ -905,22 +871,21 @@ export const FbCameraFotoSolid: TIcon = forwardRef((props: IIconProps, ref: TIco
     </svg>
   );
 });
+FbCameraFotoSolid.displayName = "FbCameraFotoSolid";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/solid/media/backward-step.svg
+ * /var/app/ignore/flowbite-icons/solid/media/backward-step.svg
  */
 
-export const FbBackwardStepSolid: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
-  const { strokeWidth, ...otherProps } = props;
-
+export const FbBackwardStepSolid: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   return (
     <svg
       width="24"
       height="24"
       ref={ref}
-      {...otherProps}
+      {...props}
       xmlns="http://www.w3.org/2000/svg"
       fill="none"
       viewBox="0 0 12 16"
@@ -932,22 +897,21 @@ export const FbBackwardStepSolid: TIcon = forwardRef((props: IIconProps, ref: TI
     </svg>
   );
 });
+FbBackwardStepSolid.displayName = "FbBackwardStepSolid";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/solid/general/zoom-out.svg
+ * /var/app/ignore/flowbite-icons/solid/general/zoom-out.svg
  */
 
-export const FbZoomOutSolid: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
-  const { strokeWidth, ...otherProps } = props;
-
+export const FbZoomOutSolid: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   return (
     <svg
       width="24"
       height="24"
       ref={ref}
-      {...otherProps}
+      {...props}
       xmlns="http://www.w3.org/2000/svg"
       fill="none"
       viewBox="0 0 20 20"
@@ -959,22 +923,21 @@ export const FbZoomOutSolid: TIcon = forwardRef((props: IIconProps, ref: TIconRe
     </svg>
   );
 });
+FbZoomOutSolid.displayName = "FbZoomOutSolid";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/solid/general/zoom-in.svg
+ * /var/app/ignore/flowbite-icons/solid/general/zoom-in.svg
  */
 
-export const FbZoomInSolid: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
-  const { strokeWidth, ...otherProps } = props;
-
+export const FbZoomInSolid: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   return (
     <svg
       width="24"
       height="24"
       ref={ref}
-      {...otherProps}
+      {...props}
       xmlns="http://www.w3.org/2000/svg"
       fill="none"
       viewBox="0 0 20 20"
@@ -986,22 +949,21 @@ export const FbZoomInSolid: TIcon = forwardRef((props: IIconProps, ref: TIconRef
     </svg>
   );
 });
+FbZoomInSolid.displayName = "FbZoomInSolid";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/solid/general/window.svg
+ * /var/app/ignore/flowbite-icons/solid/general/window.svg
  */
 
-export const FbWindowSolid: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
-  const { strokeWidth, ...otherProps } = props;
-
+export const FbWindowSolid: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   return (
     <svg
       width="24"
       height="24"
       ref={ref}
-      {...otherProps}
+      {...props}
       xmlns="http://www.w3.org/2000/svg"
       fill="none"
       viewBox="0 0 20 18"
@@ -1013,22 +975,21 @@ export const FbWindowSolid: TIcon = forwardRef((props: IIconProps, ref: TIconRef
     </svg>
   );
 });
+FbWindowSolid.displayName = "FbWindowSolid";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/solid/general/wand-sparkles.svg
+ * /var/app/ignore/flowbite-icons/solid/general/wand-sparkles.svg
  */
 
-export const FbWandSparklesSolid: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
-  const { strokeWidth, ...otherProps } = props;
-
+export const FbWandSparklesSolid: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   return (
     <svg
       width="24"
       height="24"
       ref={ref}
-      {...otherProps}
+      {...props}
       xmlns="http://www.w3.org/2000/svg"
       fill="none"
       viewBox="0 0 22 21"
@@ -1040,22 +1001,21 @@ export const FbWandSparklesSolid: TIcon = forwardRef((props: IIconProps, ref: TI
     </svg>
   );
 });
+FbWandSparklesSolid.displayName = "FbWandSparklesSolid";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/solid/general/volume-up.svg
+ * /var/app/ignore/flowbite-icons/solid/general/volume-up.svg
  */
 
-export const FbVolumeUpSolid: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
-  const { strokeWidth, ...otherProps } = props;
-
+export const FbVolumeUpSolid: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   return (
     <svg
       width="24"
       height="24"
       ref={ref}
-      {...otherProps}
+      {...props}
       xmlns="http://www.w3.org/2000/svg"
       fill="none"
       viewBox="0 0 20 18"
@@ -1067,22 +1027,21 @@ export const FbVolumeUpSolid: TIcon = forwardRef((props: IIconProps, ref: TIconR
     </svg>
   );
 });
+FbVolumeUpSolid.displayName = "FbVolumeUpSolid";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/solid/general/volume-down.svg
+ * /var/app/ignore/flowbite-icons/solid/general/volume-down.svg
  */
 
-export const FbVolumeDownSolid: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
-  const { strokeWidth, ...otherProps } = props;
-
+export const FbVolumeDownSolid: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   return (
     <svg
       width="24"
       height="24"
       ref={ref}
-      {...otherProps}
+      {...props}
       xmlns="http://www.w3.org/2000/svg"
       fill="none"
       viewBox="0 0 16 18"
@@ -1094,22 +1053,21 @@ export const FbVolumeDownSolid: TIcon = forwardRef((props: IIconProps, ref: TIco
     </svg>
   );
 });
+FbVolumeDownSolid.displayName = "FbVolumeDownSolid";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/solid/general/upload.svg
+ * /var/app/ignore/flowbite-icons/solid/general/upload.svg
  */
 
-export const FbUploadSolid: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
-  const { strokeWidth, ...otherProps } = props;
-
+export const FbUploadSolid: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   return (
     <svg
       width="24"
       height="24"
       ref={ref}
-      {...otherProps}
+      {...props}
       xmlns="http://www.w3.org/2000/svg"
       fill="none"
       viewBox="0 0 20 20"
@@ -1121,22 +1079,21 @@ export const FbUploadSolid: TIcon = forwardRef((props: IIconProps, ref: TIconRef
     </svg>
   );
 });
+FbUploadSolid.displayName = "FbUploadSolid";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/solid/general/truck.svg
+ * /var/app/ignore/flowbite-icons/solid/general/truck.svg
  */
 
-export const FbTruckSolid: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
-  const { strokeWidth, ...otherProps } = props;
-
+export const FbTruckSolid: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   return (
     <svg
       width="24"
       height="24"
       ref={ref}
-      {...otherProps}
+      {...props}
       xmlns="http://www.w3.org/2000/svg"
       fill="none"
       viewBox="0 0 20 16"
@@ -1148,22 +1105,21 @@ export const FbTruckSolid: TIcon = forwardRef((props: IIconProps, ref: TIconRef)
     </svg>
   );
 });
+FbTruckSolid.displayName = "FbTruckSolid";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/solid/general/trash-bin.svg
+ * /var/app/ignore/flowbite-icons/solid/general/trash-bin.svg
  */
 
-export const FbTrashBinSolid: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
-  const { strokeWidth, ...otherProps } = props;
-
+export const FbTrashBinSolid: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   return (
     <svg
       width="24"
       height="24"
       ref={ref}
-      {...otherProps}
+      {...props}
       xmlns="http://www.w3.org/2000/svg"
       fill="none"
       viewBox="0 0 18 20"
@@ -1175,22 +1131,21 @@ export const FbTrashBinSolid: TIcon = forwardRef((props: IIconProps, ref: TIconR
     </svg>
   );
 });
+FbTrashBinSolid.displayName = "FbTrashBinSolid";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/solid/general/ticket.svg
+ * /var/app/ignore/flowbite-icons/solid/general/ticket.svg
  */
 
-export const FbTicketSolid: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
-  const { strokeWidth, ...otherProps } = props;
-
+export const FbTicketSolid: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   return (
     <svg
       width="24"
       height="24"
       ref={ref}
-      {...otherProps}
+      {...props}
       xmlns="http://www.w3.org/2000/svg"
       fill="none"
       viewBox="0 0 20 14"
@@ -1202,22 +1157,21 @@ export const FbTicketSolid: TIcon = forwardRef((props: IIconProps, ref: TIconRef
     </svg>
   );
 });
+FbTicketSolid.displayName = "FbTicketSolid";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/solid/general/terminal.svg
+ * /var/app/ignore/flowbite-icons/solid/general/terminal.svg
  */
 
-export const FbTerminalSolid: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
-  const { strokeWidth, ...otherProps } = props;
-
+export const FbTerminalSolid: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   return (
     <svg
       width="24"
       height="24"
       ref={ref}
-      {...otherProps}
+      {...props}
       xmlns="http://www.w3.org/2000/svg"
       fill="none"
       viewBox="0 0 20 18"
@@ -1229,22 +1183,21 @@ export const FbTerminalSolid: TIcon = forwardRef((props: IIconProps, ref: TIconR
     </svg>
   );
 });
+FbTerminalSolid.displayName = "FbTerminalSolid";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/solid/general/tablet.svg
+ * /var/app/ignore/flowbite-icons/solid/general/tablet.svg
  */
 
-export const FbTabletSolid: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
-  const { strokeWidth, ...otherProps } = props;
-
+export const FbTabletSolid: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   return (
     <svg
       width="24"
       height="24"
       ref={ref}
-      {...otherProps}
+      {...props}
       xmlns="http://www.w3.org/2000/svg"
       fill="none"
       viewBox="0 0 18 20"
@@ -1256,22 +1209,21 @@ export const FbTabletSolid: TIcon = forwardRef((props: IIconProps, ref: TIconRef
     </svg>
   );
 });
+FbTabletSolid.displayName = "FbTabletSolid";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/solid/general/table.svg
+ * /var/app/ignore/flowbite-icons/solid/general/table.svg
  */
 
-export const FbTableSolid: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
-  const { strokeWidth, ...otherProps } = props;
-
+export const FbTableSolid: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   return (
     <svg
       width="24"
       height="24"
       ref={ref}
-      {...otherProps}
+      {...props}
       xmlns="http://www.w3.org/2000/svg"
       fill="none"
       viewBox="0 0 20 14"
@@ -1283,22 +1235,21 @@ export const FbTableSolid: TIcon = forwardRef((props: IIconProps, ref: TIconRef)
     </svg>
   );
 });
+FbTableSolid.displayName = "FbTableSolid";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/solid/general/table-column.svg
+ * /var/app/ignore/flowbite-icons/solid/general/table-column.svg
  */
 
-export const FbTableColumnSolid: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
-  const { strokeWidth, ...otherProps } = props;
-
+export const FbTableColumnSolid: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   return (
     <svg
       width="24"
       height="24"
       ref={ref}
-      {...otherProps}
+      {...props}
       xmlns="http://www.w3.org/2000/svg"
       fill="none"
       viewBox="0 0 20 14"
@@ -1310,22 +1261,21 @@ export const FbTableColumnSolid: TIcon = forwardRef((props: IIconProps, ref: TIc
     </svg>
   );
 });
+FbTableColumnSolid.displayName = "FbTableColumnSolid";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/solid/general/swatchbook.svg
+ * /var/app/ignore/flowbite-icons/solid/general/swatchbook.svg
  */
 
-export const FbSwatchbookSolid: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
-  const { strokeWidth, ...otherProps } = props;
-
+export const FbSwatchbookSolid: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   return (
     <svg
       width="24"
       height="24"
       ref={ref}
-      {...otherProps}
+      {...props}
       xmlns="http://www.w3.org/2000/svg"
       fill="none"
       viewBox="0 0 18 18"
@@ -1337,22 +1287,21 @@ export const FbSwatchbookSolid: TIcon = forwardRef((props: IIconProps, ref: TIco
     </svg>
   );
 });
+FbSwatchbookSolid.displayName = "FbSwatchbookSolid";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/solid/general/star.svg
+ * /var/app/ignore/flowbite-icons/solid/general/star.svg
  */
 
-export const FbStarSolid: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
-  const { strokeWidth, ...otherProps } = props;
-
+export const FbStarSolid: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   return (
     <svg
       width="24"
       height="24"
       ref={ref}
-      {...otherProps}
+      {...props}
       xmlns="http://www.w3.org/2000/svg"
       fill="none"
       viewBox="0 0 22 20"
@@ -1364,22 +1313,21 @@ export const FbStarSolid: TIcon = forwardRef((props: IIconProps, ref: TIconRef) 
     </svg>
   );
 });
+FbStarSolid.displayName = "FbStarSolid";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/solid/general/star-half.svg
+ * /var/app/ignore/flowbite-icons/solid/general/star-half.svg
  */
 
-export const FbStarHalfSolid: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
-  const { strokeWidth, ...otherProps } = props;
-
+export const FbStarHalfSolid: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   return (
     <svg
       width="24"
       height="24"
       ref={ref}
-      {...otherProps}
+      {...props}
       xmlns="http://www.w3.org/2000/svg"
       fill="none"
       viewBox="0 0 12 20"
@@ -1391,22 +1339,21 @@ export const FbStarHalfSolid: TIcon = forwardRef((props: IIconProps, ref: TIconR
     </svg>
   );
 });
+FbStarHalfSolid.displayName = "FbStarHalfSolid";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/solid/general/star-half-stroke.svg
+ * /var/app/ignore/flowbite-icons/solid/general/star-half-stroke.svg
  */
 
-export const FbStarHalfStrokeSolid: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
-  const { strokeWidth, ...otherProps } = props;
-
+export const FbStarHalfStrokeSolid: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   return (
     <svg
       width="24"
       height="24"
       ref={ref}
-      {...otherProps}
+      {...props}
       xmlns="http://www.w3.org/2000/svg"
       fill="none"
       viewBox="0 0 22 20"
@@ -1418,22 +1365,21 @@ export const FbStarHalfStrokeSolid: TIcon = forwardRef((props: IIconProps, ref: 
     </svg>
   );
 });
+FbStarHalfStrokeSolid.displayName = "FbStarHalfStrokeSolid";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/solid/general/shield.svg
+ * /var/app/ignore/flowbite-icons/solid/general/shield.svg
  */
 
-export const FbShieldSolid: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
-  const { strokeWidth, ...otherProps } = props;
-
+export const FbShieldSolid: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   return (
     <svg
       width="24"
       height="24"
       ref={ref}
-      {...otherProps}
+      {...props}
       xmlns="http://www.w3.org/2000/svg"
       fill="none"
       viewBox="0 0 16 18"
@@ -1442,20 +1388,19 @@ export const FbShieldSolid: TIcon = forwardRef((props: IIconProps, ref: TIconRef
     </svg>
   );
 });
+FbShieldSolid.displayName = "FbShieldSolid";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/solid/general/shield-check.svg
+ * /var/app/ignore/flowbite-icons/solid/general/shield-check.svg
  */
 
-export const FbShieldCheckSolid: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
-  const { strokeWidth, ...otherProps } = props;
-
+export const FbShieldCheckSolid: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   return (
     <svg
       ref={ref}
-      {...otherProps}
+      {...props}
       xmlns="http://www.w3.org/2000/svg"
       width="18"
       height="20"
@@ -1469,22 +1414,21 @@ export const FbShieldCheckSolid: TIcon = forwardRef((props: IIconProps, ref: TIc
     </svg>
   );
 });
+FbShieldCheckSolid.displayName = "FbShieldCheckSolid";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/solid/general/share-nodes.svg
+ * /var/app/ignore/flowbite-icons/solid/general/share-nodes.svg
  */
 
-export const FbShareNodesSolid: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
-  const { strokeWidth, ...otherProps } = props;
-
+export const FbShareNodesSolid: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   return (
     <svg
       width="24"
       height="24"
       ref={ref}
-      {...otherProps}
+      {...props}
       xmlns="http://www.w3.org/2000/svg"
       fill="none"
       viewBox="0 0 18 18"
@@ -1496,22 +1440,21 @@ export const FbShareNodesSolid: TIcon = forwardRef((props: IIconProps, ref: TIco
     </svg>
   );
 });
+FbShareNodesSolid.displayName = "FbShareNodesSolid";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/solid/general/search.svg
+ * /var/app/ignore/flowbite-icons/solid/general/search.svg
  */
 
-export const FbSearchSolid: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
-  const { strokeWidth, ...otherProps } = props;
-
+export const FbSearchSolid: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   return (
     <svg
       width="24"
       height="24"
       ref={ref}
-      {...otherProps}
+      {...props}
       xmlns="http://www.w3.org/2000/svg"
       fill="none"
       viewBox="0 0 20 20"
@@ -1523,22 +1466,21 @@ export const FbSearchSolid: TIcon = forwardRef((props: IIconProps, ref: TIconRef
     </svg>
   );
 });
+FbSearchSolid.displayName = "FbSearchSolid";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/solid/general/ruler-combined.svg
+ * /var/app/ignore/flowbite-icons/solid/general/ruler-combined.svg
  */
 
-export const FbRulerCombinedSolid: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
-  const { strokeWidth, ...otherProps } = props;
-
+export const FbRulerCombinedSolid: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   return (
     <svg
       width="24"
       height="24"
       ref={ref}
-      {...otherProps}
+      {...props}
       xmlns="http://www.w3.org/2000/svg"
       fill="none"
       viewBox="0 0 20 20"
@@ -1550,22 +1492,21 @@ export const FbRulerCombinedSolid: TIcon = forwardRef((props: IIconProps, ref: T
     </svg>
   );
 });
+FbRulerCombinedSolid.displayName = "FbRulerCombinedSolid";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/solid/general/rocket.svg
+ * /var/app/ignore/flowbite-icons/solid/general/rocket.svg
  */
 
-export const FbRocketSolid: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
-  const { strokeWidth, ...otherProps } = props;
-
+export const FbRocketSolid: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   return (
     <svg
       width="24"
       height="24"
       ref={ref}
-      {...otherProps}
+      {...props}
       xmlns="http://www.w3.org/2000/svg"
       fill="none"
       viewBox="0 0 20 20"
@@ -1577,22 +1518,21 @@ export const FbRocketSolid: TIcon = forwardRef((props: IIconProps, ref: TIconRef
     </svg>
   );
 });
+FbRocketSolid.displayName = "FbRocketSolid";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/solid/general/restore-window.svg
+ * /var/app/ignore/flowbite-icons/solid/general/restore-window.svg
  */
 
-export const FbRestoreWindowSolid: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
-  const { strokeWidth, ...otherProps } = props;
-
+export const FbRestoreWindowSolid: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   return (
     <svg
       width="24"
       height="24"
       ref={ref}
-      {...otherProps}
+      {...props}
       xmlns="http://www.w3.org/2000/svg"
       fill="none"
       viewBox="0 0 20 18"
@@ -1604,22 +1544,21 @@ export const FbRestoreWindowSolid: TIcon = forwardRef((props: IIconProps, ref: T
     </svg>
   );
 });
+FbRestoreWindowSolid.displayName = "FbRestoreWindowSolid";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/solid/general/question-circle.svg
+ * /var/app/ignore/flowbite-icons/solid/general/question-circle.svg
  */
 
-export const FbQuestionCircleSolid: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
-  const { strokeWidth, ...otherProps } = props;
-
+export const FbQuestionCircleSolid: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   return (
     <svg
       width="24"
       height="24"
       ref={ref}
-      {...otherProps}
+      {...props}
       xmlns="http://www.w3.org/2000/svg"
       fill="none"
       viewBox="0 0 20 20"
@@ -1631,22 +1570,21 @@ export const FbQuestionCircleSolid: TIcon = forwardRef((props: IIconProps, ref: 
     </svg>
   );
 });
+FbQuestionCircleSolid.displayName = "FbQuestionCircleSolid";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/solid/general/print.svg
+ * /var/app/ignore/flowbite-icons/solid/general/print.svg
  */
 
-export const FbPrintSolid: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
-  const { strokeWidth, ...otherProps } = props;
-
+export const FbPrintSolid: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   return (
     <svg
       width="24"
       height="24"
       ref={ref}
-      {...otherProps}
+      {...props}
       xmlns="http://www.w3.org/2000/svg"
       fill="none"
       viewBox="0 0 20 20"
@@ -1658,22 +1596,21 @@ export const FbPrintSolid: TIcon = forwardRef((props: IIconProps, ref: TIconRef)
     </svg>
   );
 });
+FbPrintSolid.displayName = "FbPrintSolid";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/solid/general/plus.svg
+ * /var/app/ignore/flowbite-icons/solid/general/plus.svg
  */
 
-export const FbPlusSolid: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
-  const { strokeWidth, ...otherProps } = props;
-
+export const FbPlusSolid: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   return (
     <svg
       width="24"
       height="24"
       ref={ref}
-      {...otherProps}
+      {...props}
       xmlns="http://www.w3.org/2000/svg"
       fill="none"
       viewBox="0 0 18 18"
@@ -1685,22 +1622,21 @@ export const FbPlusSolid: TIcon = forwardRef((props: IIconProps, ref: TIconRef) 
     </svg>
   );
 });
+FbPlusSolid.displayName = "FbPlusSolid";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/solid/general/phone.svg
+ * /var/app/ignore/flowbite-icons/solid/general/phone.svg
  */
 
-export const FbPhoneSolid: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
-  const { strokeWidth, ...otherProps } = props;
-
+export const FbPhoneSolid: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   return (
     <svg
       width="24"
       height="24"
       ref={ref}
-      {...otherProps}
+      {...props}
       xmlns="http://www.w3.org/2000/svg"
       fill="none"
       viewBox="0 0 19 18"
@@ -1712,22 +1648,21 @@ export const FbPhoneSolid: TIcon = forwardRef((props: IIconProps, ref: TIconRef)
     </svg>
   );
 });
+FbPhoneSolid.displayName = "FbPhoneSolid";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/solid/general/pen.svg
+ * /var/app/ignore/flowbite-icons/solid/general/pen.svg
  */
 
-export const FbPenSolid: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
-  const { strokeWidth, ...otherProps } = props;
-
+export const FbPenSolid: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   return (
     <svg
       width="24"
       height="24"
       ref={ref}
-      {...otherProps}
+      {...props}
       xmlns="http://www.w3.org/2000/svg"
       fill="none"
       viewBox="0 0 20 20"
@@ -1739,22 +1674,21 @@ export const FbPenSolid: TIcon = forwardRef((props: IIconProps, ref: TIconRef) =
     </svg>
   );
 });
+FbPenSolid.displayName = "FbPenSolid";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/solid/general/pen-to-square.svg
+ * /var/app/ignore/flowbite-icons/solid/general/pen-to-square.svg
  */
 
-export const FbPenToSquareSolid: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
-  const { strokeWidth, ...otherProps } = props;
-
+export const FbPenToSquareSolid: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   return (
     <svg
       width="24"
       height="24"
       ref={ref}
-      {...otherProps}
+      {...props}
       xmlns="http://www.w3.org/2000/svg"
       fill="none"
       viewBox="0 0 20 18"
@@ -1766,22 +1700,21 @@ export const FbPenToSquareSolid: TIcon = forwardRef((props: IIconProps, ref: TIc
     </svg>
   );
 });
+FbPenToSquareSolid.displayName = "FbPenToSquareSolid";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/solid/general/pen-nib.svg
+ * /var/app/ignore/flowbite-icons/solid/general/pen-nib.svg
  */
 
-export const FbPenNibSolid: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
-  const { strokeWidth, ...otherProps } = props;
-
+export const FbPenNibSolid: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   return (
     <svg
       width="24"
       height="24"
       ref={ref}
-      {...otherProps}
+      {...props}
       xmlns="http://www.w3.org/2000/svg"
       fill="none"
       viewBox="0 0 21 20"
@@ -1793,22 +1726,21 @@ export const FbPenNibSolid: TIcon = forwardRef((props: IIconProps, ref: TIconRef
     </svg>
   );
 });
+FbPenNibSolid.displayName = "FbPenNibSolid";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/solid/general/papper-plane.svg
+ * /var/app/ignore/flowbite-icons/solid/general/papper-plane.svg
  */
 
-export const FbPapperPlaneSolid: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
-  const { strokeWidth, ...otherProps } = props;
-
+export const FbPapperPlaneSolid: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   return (
     <svg
       width="24"
       height="24"
       ref={ref}
-      {...otherProps}
+      {...props}
       xmlns="http://www.w3.org/2000/svg"
       fill="none"
       viewBox="0 0 18 20"
@@ -1820,22 +1752,21 @@ export const FbPapperPlaneSolid: TIcon = forwardRef((props: IIconProps, ref: TIc
     </svg>
   );
 });
+FbPapperPlaneSolid.displayName = "FbPapperPlaneSolid";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/solid/general/papper-clip.svg
+ * /var/app/ignore/flowbite-icons/solid/general/papper-clip.svg
  */
 
-export const FbPapperClipSolid: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
-  const { strokeWidth, ...otherProps } = props;
-
+export const FbPapperClipSolid: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   return (
     <svg
       width="24"
       height="24"
       ref={ref}
-      {...otherProps}
+      {...props}
       xmlns="http://www.w3.org/2000/svg"
       fill="none"
       viewBox="0 0 12 20"
@@ -1847,22 +1778,21 @@ export const FbPapperClipSolid: TIcon = forwardRef((props: IIconProps, ref: TIco
     </svg>
   );
 });
+FbPapperClipSolid.displayName = "FbPapperClipSolid";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/solid/general/pallete.svg
+ * /var/app/ignore/flowbite-icons/solid/general/pallete.svg
  */
 
-export const FbPalleteSolid: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
-  const { strokeWidth, ...otherProps } = props;
-
+export const FbPalleteSolid: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   return (
     <svg
       width="24"
       height="24"
       ref={ref}
-      {...otherProps}
+      {...props}
       xmlns="http://www.w3.org/2000/svg"
       fill="none"
       viewBox="0 0 21 21"
@@ -1874,22 +1804,21 @@ export const FbPalleteSolid: TIcon = forwardRef((props: IIconProps, ref: TIconRe
     </svg>
   );
 });
+FbPalleteSolid.displayName = "FbPalleteSolid";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/solid/general/open-book.svg
+ * /var/app/ignore/flowbite-icons/solid/general/open-book.svg
  */
 
-export const FbOpenBookSolid: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
-  const { strokeWidth, ...otherProps } = props;
-
+export const FbOpenBookSolid: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   return (
     <svg
       width="24"
       height="24"
       ref={ref}
-      {...otherProps}
+      {...props}
       xmlns="http://www.w3.org/2000/svg"
       fill="none"
       viewBox="0 0 20 18"
@@ -1901,22 +1830,21 @@ export const FbOpenBookSolid: TIcon = forwardRef((props: IIconProps, ref: TIconR
     </svg>
   );
 });
+FbOpenBookSolid.displayName = "FbOpenBookSolid";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/solid/general/newspaper.svg
+ * /var/app/ignore/flowbite-icons/solid/general/newspaper.svg
  */
 
-export const FbNewspaperSolid: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
-  const { strokeWidth, ...otherProps } = props;
-
+export const FbNewspaperSolid: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   return (
     <svg
       width="24"
       height="24"
       ref={ref}
-      {...otherProps}
+      {...props}
       xmlns="http://www.w3.org/2000/svg"
       fill="none"
       viewBox="0 0 20 20"
@@ -1928,20 +1856,19 @@ export const FbNewspaperSolid: TIcon = forwardRef((props: IIconProps, ref: TIcon
     </svg>
   );
 });
+FbNewspaperSolid.displayName = "FbNewspaperSolid";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/solid/general/mountain-sun.svg
+ * /var/app/ignore/flowbite-icons/solid/general/mountain-sun.svg
  */
 
-export const FbMountainSunSolid: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
-  const { strokeWidth, ...otherProps } = props;
-
+export const FbMountainSunSolid: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   return (
     <svg
       ref={ref}
-      {...otherProps}
+      {...props}
       xmlns="http://www.w3.org/2000/svg"
       width="20"
       height="18"
@@ -1955,22 +1882,21 @@ export const FbMountainSunSolid: TIcon = forwardRef((props: IIconProps, ref: TIc
     </svg>
   );
 });
+FbMountainSunSolid.displayName = "FbMountainSunSolid";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/solid/general/mobile-phone.svg
+ * /var/app/ignore/flowbite-icons/solid/general/mobile-phone.svg
  */
 
-export const FbMobilePhoneSolid: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
-  const { strokeWidth, ...otherProps } = props;
-
+export const FbMobilePhoneSolid: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   return (
     <svg
       width="24"
       height="24"
       ref={ref}
-      {...otherProps}
+      {...props}
       xmlns="http://www.w3.org/2000/svg"
       fill="none"
       viewBox="0 0 14 20"
@@ -1982,22 +1908,21 @@ export const FbMobilePhoneSolid: TIcon = forwardRef((props: IIconProps, ref: TIc
     </svg>
   );
 });
+FbMobilePhoneSolid.displayName = "FbMobilePhoneSolid";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/solid/general/minus.svg
+ * /var/app/ignore/flowbite-icons/solid/general/minus.svg
  */
 
-export const FbMinusSolid: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
-  const { strokeWidth, ...otherProps } = props;
-
+export const FbMinusSolid: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   return (
     <svg
       width="24"
       height="24"
       ref={ref}
-      {...otherProps}
+      {...props}
       xmlns="http://www.w3.org/2000/svg"
       fill="none"
       viewBox="0 0 18 2"
@@ -2006,22 +1931,21 @@ export const FbMinusSolid: TIcon = forwardRef((props: IIconProps, ref: TIconRef)
     </svg>
   );
 });
+FbMinusSolid.displayName = "FbMinusSolid";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/solid/general/messages.svg
+ * /var/app/ignore/flowbite-icons/solid/general/messages.svg
  */
 
-export const FbMessagesSolid: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
-  const { strokeWidth, ...otherProps } = props;
-
+export const FbMessagesSolid: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   return (
     <svg
       width="24"
       height="24"
       ref={ref}
-      {...otherProps}
+      {...props}
       xmlns="http://www.w3.org/2000/svg"
       fill="none"
       viewBox="0 0 20 18"
@@ -2045,22 +1969,21 @@ export const FbMessagesSolid: TIcon = forwardRef((props: IIconProps, ref: TIconR
     </svg>
   );
 });
+FbMessagesSolid.displayName = "FbMessagesSolid";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/solid/general/message-caption.svg
+ * /var/app/ignore/flowbite-icons/solid/general/message-caption.svg
  */
 
-export const FbMessageCaptionSolid: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
-  const { strokeWidth, ...otherProps } = props;
-
+export const FbMessageCaptionSolid: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   return (
     <svg
       width="24"
       height="24"
       ref={ref}
-      {...otherProps}
+      {...props}
       xmlns="http://www.w3.org/2000/svg"
       fill="none"
       viewBox="0 0 20 18"
@@ -2072,22 +1995,21 @@ export const FbMessageCaptionSolid: TIcon = forwardRef((props: IIconProps, ref: 
     </svg>
   );
 });
+FbMessageCaptionSolid.displayName = "FbMessageCaptionSolid";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/solid/general/map-pin.svg
+ * /var/app/ignore/flowbite-icons/solid/general/map-pin.svg
  */
 
-export const FbMapPinSolid: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
-  const { strokeWidth, ...otherProps } = props;
-
+export const FbMapPinSolid: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   return (
     <svg
       width="24"
       height="24"
       ref={ref}
-      {...otherProps}
+      {...props}
       xmlns="http://www.w3.org/2000/svg"
       fill="none"
       viewBox="0 0 14 20"
@@ -2099,22 +2021,21 @@ export const FbMapPinSolid: TIcon = forwardRef((props: IIconProps, ref: TIconRef
     </svg>
   );
 });
+FbMapPinSolid.displayName = "FbMapPinSolid";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/solid/general/map-pin-alt.svg
+ * /var/app/ignore/flowbite-icons/solid/general/map-pin-alt.svg
  */
 
-export const FbMapPinAltSolid: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
-  const { strokeWidth, ...otherProps } = props;
-
+export const FbMapPinAltSolid: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   return (
     <svg
       width="24"
       height="24"
       ref={ref}
-      {...otherProps}
+      {...props}
       xmlns="http://www.w3.org/2000/svg"
       fill="none"
       viewBox="0 0 16 20"
@@ -2126,22 +2047,21 @@ export const FbMapPinAltSolid: TIcon = forwardRef((props: IIconProps, ref: TIcon
     </svg>
   );
 });
+FbMapPinAltSolid.displayName = "FbMapPinAltSolid";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/solid/general/mail-box.svg
+ * /var/app/ignore/flowbite-icons/solid/general/mail-box.svg
  */
 
-export const FbMailBoxSolid: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
-  const { strokeWidth, ...otherProps } = props;
-
+export const FbMailBoxSolid: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   return (
     <svg
       width="24"
       height="24"
       ref={ref}
-      {...otherProps}
+      {...props}
       xmlns="http://www.w3.org/2000/svg"
       fill="none"
       viewBox="0 0 20 20"
@@ -2153,22 +2073,21 @@ export const FbMailBoxSolid: TIcon = forwardRef((props: IIconProps, ref: TIconRe
     </svg>
   );
 });
+FbMailBoxSolid.displayName = "FbMailBoxSolid";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/solid/general/lock.svg
+ * /var/app/ignore/flowbite-icons/solid/general/lock.svg
  */
 
-export const FbLockSolid: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
-  const { strokeWidth, ...otherProps } = props;
-
+export const FbLockSolid: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   return (
     <svg
       width="24"
       height="24"
       ref={ref}
-      {...otherProps}
+      {...props}
       xmlns="http://www.w3.org/2000/svg"
       fill="none"
       viewBox="0 0 16 20"
@@ -2180,20 +2099,19 @@ export const FbLockSolid: TIcon = forwardRef((props: IIconProps, ref: TIconRef) 
     </svg>
   );
 });
+FbLockSolid.displayName = "FbLockSolid";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/solid/general/lock-time.svg
+ * /var/app/ignore/flowbite-icons/solid/general/lock-time.svg
  */
 
-export const FbLockTimeSolid: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
-  const { strokeWidth, ...otherProps } = props;
-
+export const FbLockTimeSolid: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   return (
     <svg
       ref={ref}
-      {...otherProps}
+      {...props}
       xmlns="http://www.w3.org/2000/svg"
       width="19"
       height="20"
@@ -2211,22 +2129,21 @@ export const FbLockTimeSolid: TIcon = forwardRef((props: IIconProps, ref: TIconR
     </svg>
   );
 });
+FbLockTimeSolid.displayName = "FbLockTimeSolid";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/solid/general/lock-open.svg
+ * /var/app/ignore/flowbite-icons/solid/general/lock-open.svg
  */
 
-export const FbLockOpenSolid: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
-  const { strokeWidth, ...otherProps } = props;
-
+export const FbLockOpenSolid: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   return (
     <svg
       width="24"
       height="24"
       ref={ref}
-      {...otherProps}
+      {...props}
       xmlns="http://www.w3.org/2000/svg"
       fill="none"
       viewBox="0 0 20 20"
@@ -2238,22 +2155,21 @@ export const FbLockOpenSolid: TIcon = forwardRef((props: IIconProps, ref: TIconR
     </svg>
   );
 });
+FbLockOpenSolid.displayName = "FbLockOpenSolid";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/solid/general/link.svg
+ * /var/app/ignore/flowbite-icons/solid/general/link.svg
  */
 
-export const FbLinkSolid: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
-  const { strokeWidth, ...otherProps } = props;
-
+export const FbLinkSolid: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   return (
     <svg
       width="24"
       height="24"
       ref={ref}
-      {...otherProps}
+      {...props}
       xmlns="http://www.w3.org/2000/svg"
       fill="none"
       viewBox="0 0 18 18"
@@ -2265,20 +2181,19 @@ export const FbLinkSolid: TIcon = forwardRef((props: IIconProps, ref: TIconRef) 
     </svg>
   );
 });
+FbLinkSolid.displayName = "FbLinkSolid";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/solid/general/lightbulb.svg
+ * /var/app/ignore/flowbite-icons/solid/general/lightbulb.svg
  */
 
-export const FbLightbulbSolid: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
-  const { strokeWidth, ...otherProps } = props;
-
+export const FbLightbulbSolid: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   return (
     <svg
       ref={ref}
-      {...otherProps}
+      {...props}
       xmlns="http://www.w3.org/2000/svg"
       width="15"
       height="20"
@@ -2292,22 +2207,21 @@ export const FbLightbulbSolid: TIcon = forwardRef((props: IIconProps, ref: TIcon
     </svg>
   );
 });
+FbLightbulbSolid.displayName = "FbLightbulbSolid";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/solid/general/life-buoy.svg
+ * /var/app/ignore/flowbite-icons/solid/general/life-buoy.svg
  */
 
-export const FbLifeBuoySolid: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
-  const { strokeWidth, ...otherProps } = props;
-
+export const FbLifeBuoySolid: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   return (
     <svg
       width="24"
       height="24"
       ref={ref}
-      {...otherProps}
+      {...props}
       xmlns="http://www.w3.org/2000/svg"
       fill="none"
       viewBox="0 0 21 21"
@@ -2319,22 +2233,21 @@ export const FbLifeBuoySolid: TIcon = forwardRef((props: IIconProps, ref: TIconR
     </svg>
   );
 });
+FbLifeBuoySolid.displayName = "FbLifeBuoySolid";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/solid/general/layers.svg
+ * /var/app/ignore/flowbite-icons/solid/general/layers.svg
  */
 
-export const FbLayersSolid: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
-  const { strokeWidth, ...otherProps } = props;
-
+export const FbLayersSolid: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   return (
     <svg
       width="24"
       height="24"
       ref={ref}
-      {...otherProps}
+      {...props}
       xmlns="http://www.w3.org/2000/svg"
       fill="none"
       viewBox="0 0 20 20"
@@ -2347,22 +2260,21 @@ export const FbLayersSolid: TIcon = forwardRef((props: IIconProps, ref: TIconRef
     </svg>
   );
 });
+FbLayersSolid.displayName = "FbLayersSolid";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/solid/general/landmark.svg
+ * /var/app/ignore/flowbite-icons/solid/general/landmark.svg
  */
 
-export const FbLandmarkSolid: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
-  const { strokeWidth, ...otherProps } = props;
-
+export const FbLandmarkSolid: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   return (
     <svg
       width="24"
       height="24"
       ref={ref}
-      {...otherProps}
+      {...props}
       xmlns="http://www.w3.org/2000/svg"
       fill="none"
       viewBox="0 0 20 20"
@@ -2374,20 +2286,19 @@ export const FbLandmarkSolid: TIcon = forwardRef((props: IIconProps, ref: TIconR
     </svg>
   );
 });
+FbLandmarkSolid.displayName = "FbLandmarkSolid";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/solid/general/label.svg
+ * /var/app/ignore/flowbite-icons/solid/general/label.svg
  */
 
-export const FbLabelSolid: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
-  const { strokeWidth, ...otherProps } = props;
-
+export const FbLabelSolid: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   return (
     <svg
       ref={ref}
-      {...otherProps}
+      {...props}
       xmlns="http://www.w3.org/2000/svg"
       width="20"
       height="14"
@@ -2401,22 +2312,21 @@ export const FbLabelSolid: TIcon = forwardRef((props: IIconProps, ref: TIconRef)
     </svg>
   );
 });
+FbLabelSolid.displayName = "FbLabelSolid";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/solid/general/keyboard.svg
+ * /var/app/ignore/flowbite-icons/solid/general/keyboard.svg
  */
 
-export const FbKeyboardSolid: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
-  const { strokeWidth, ...otherProps } = props;
-
+export const FbKeyboardSolid: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   return (
     <svg
       width="24"
       height="24"
       ref={ref}
-      {...otherProps}
+      {...props}
       xmlns="http://www.w3.org/2000/svg"
       fill="none"
       viewBox="0 0 20 14"
@@ -2428,22 +2338,21 @@ export const FbKeyboardSolid: TIcon = forwardRef((props: IIconProps, ref: TIconR
     </svg>
   );
 });
+FbKeyboardSolid.displayName = "FbKeyboardSolid";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/solid/general/info-circle.svg
+ * /var/app/ignore/flowbite-icons/solid/general/info-circle.svg
  */
 
-export const FbInfoCircleSolid: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
-  const { strokeWidth, ...otherProps } = props;
-
+export const FbInfoCircleSolid: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   return (
     <svg
       width="24"
       height="24"
       ref={ref}
-      {...otherProps}
+      {...props}
       xmlns="http://www.w3.org/2000/svg"
       fill="none"
       viewBox="0 0 20 20"
@@ -2455,22 +2364,21 @@ export const FbInfoCircleSolid: TIcon = forwardRef((props: IIconProps, ref: TIco
     </svg>
   );
 });
+FbInfoCircleSolid.displayName = "FbInfoCircleSolid";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/solid/general/inbox.svg
+ * /var/app/ignore/flowbite-icons/solid/general/inbox.svg
  */
 
-export const FbInboxSolid: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
-  const { strokeWidth, ...otherProps } = props;
-
+export const FbInboxSolid: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   return (
     <svg
       width="24"
       height="24"
       ref={ref}
-      {...otherProps}
+      {...props}
       xmlns="http://www.w3.org/2000/svg"
       fill="none"
       viewBox="0 0 18 18"
@@ -2482,22 +2390,21 @@ export const FbInboxSolid: TIcon = forwardRef((props: IIconProps, ref: TIconRef)
     </svg>
   );
 });
+FbInboxSolid.displayName = "FbInboxSolid";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/solid/general/inbox-full.svg
+ * /var/app/ignore/flowbite-icons/solid/general/inbox-full.svg
  */
 
-export const FbInboxFullSolid: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
-  const { strokeWidth, ...otherProps } = props;
-
+export const FbInboxFullSolid: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   return (
     <svg
       width="24"
       height="24"
       ref={ref}
-      {...otherProps}
+      {...props}
       xmlns="http://www.w3.org/2000/svg"
       fill="none"
       viewBox="0 0 18 18"
@@ -2509,22 +2416,21 @@ export const FbInboxFullSolid: TIcon = forwardRef((props: IIconProps, ref: TIcon
     </svg>
   );
 });
+FbInboxFullSolid.displayName = "FbInboxFullSolid";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/solid/general/image.svg
+ * /var/app/ignore/flowbite-icons/solid/general/image.svg
  */
 
-export const FbImageSolid: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
-  const { strokeWidth, ...otherProps } = props;
-
+export const FbImageSolid: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   return (
     <svg
       width="24"
       height="24"
       ref={ref}
-      {...otherProps}
+      {...props}
       xmlns="http://www.w3.org/2000/svg"
       fill="none"
       viewBox="0 0 20 18"
@@ -2536,22 +2442,21 @@ export const FbImageSolid: TIcon = forwardRef((props: IIconProps, ref: TIconRef)
     </svg>
   );
 });
+FbImageSolid.displayName = "FbImageSolid";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/solid/general/hourglass.svg
+ * /var/app/ignore/flowbite-icons/solid/general/hourglass.svg
  */
 
-export const FbHourglassSolid: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
-  const { strokeWidth, ...otherProps } = props;
-
+export const FbHourglassSolid: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   return (
     <svg
       width="24"
       height="24"
       ref={ref}
-      {...otherProps}
+      {...props}
       xmlns="http://www.w3.org/2000/svg"
       fill="none"
       viewBox="0 0 16 20"
@@ -2563,22 +2468,21 @@ export const FbHourglassSolid: TIcon = forwardRef((props: IIconProps, ref: TIcon
     </svg>
   );
 });
+FbHourglassSolid.displayName = "FbHourglassSolid";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/solid/general/home.svg
+ * /var/app/ignore/flowbite-icons/solid/general/home.svg
  */
 
-export const FbHomeSolid: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
-  const { strokeWidth, ...otherProps } = props;
-
+export const FbHomeSolid: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   return (
     <svg
       width="24"
       height="24"
       ref={ref}
-      {...otherProps}
+      {...props}
       xmlns="http://www.w3.org/2000/svg"
       fill="none"
       viewBox="0 0 20 20"
@@ -2590,22 +2494,21 @@ export const FbHomeSolid: TIcon = forwardRef((props: IIconProps, ref: TIconRef) 
     </svg>
   );
 });
+FbHomeSolid.displayName = "FbHomeSolid";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/solid/general/heart.svg
+ * /var/app/ignore/flowbite-icons/solid/general/heart.svg
  */
 
-export const FbHeartSolid: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
-  const { strokeWidth, ...otherProps } = props;
-
+export const FbHeartSolid: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   return (
     <svg
       width="24"
       height="24"
       ref={ref}
-      {...otherProps}
+      {...props}
       xmlns="http://www.w3.org/2000/svg"
       fill="none"
       viewBox="0 0 20 18"
@@ -2617,22 +2520,21 @@ export const FbHeartSolid: TIcon = forwardRef((props: IIconProps, ref: TIconRef)
     </svg>
   );
 });
+FbHeartSolid.displayName = "FbHeartSolid";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/solid/general/grid.svg
+ * /var/app/ignore/flowbite-icons/solid/general/grid.svg
  */
 
-export const FbGridSolid: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
-  const { strokeWidth, ...otherProps } = props;
-
+export const FbGridSolid: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   return (
     <svg
       width="24"
       height="24"
       ref={ref}
-      {...otherProps}
+      {...props}
       xmlns="http://www.w3.org/2000/svg"
       fill="none"
       viewBox="0 0 18 18"
@@ -2644,22 +2546,21 @@ export const FbGridSolid: TIcon = forwardRef((props: IIconProps, ref: TIconRef) 
     </svg>
   );
 });
+FbGridSolid.displayName = "FbGridSolid";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/solid/general/grid-plus.svg
+ * /var/app/ignore/flowbite-icons/solid/general/grid-plus.svg
  */
 
-export const FbGridPlusSolid: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
-  const { strokeWidth, ...otherProps } = props;
-
+export const FbGridPlusSolid: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   return (
     <svg
       width="24"
       height="24"
       ref={ref}
-      {...otherProps}
+      {...props}
       xmlns="http://www.w3.org/2000/svg"
       fill="none"
       viewBox="0 0 18 18"
@@ -2671,22 +2572,21 @@ export const FbGridPlusSolid: TIcon = forwardRef((props: IIconProps, ref: TIconR
     </svg>
   );
 });
+FbGridPlusSolid.displayName = "FbGridPlusSolid";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/solid/general/globe.svg
+ * /var/app/ignore/flowbite-icons/solid/general/globe.svg
  */
 
-export const FbGlobeSolid: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
-  const { strokeWidth, ...otherProps } = props;
-
+export const FbGlobeSolid: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   return (
     <svg
       width="24"
       height="24"
       ref={ref}
-      {...otherProps}
+      {...props}
       xmlns="http://www.w3.org/2000/svg"
       fill="none"
       viewBox="0 0 20 20"
@@ -2698,22 +2598,21 @@ export const FbGlobeSolid: TIcon = forwardRef((props: IIconProps, ref: TIconRef)
     </svg>
   );
 });
+FbGlobeSolid.displayName = "FbGlobeSolid";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/solid/general/gift-box.svg
+ * /var/app/ignore/flowbite-icons/solid/general/gift-box.svg
  */
 
-export const FbGiftBoxSolid: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
-  const { strokeWidth, ...otherProps } = props;
-
+export const FbGiftBoxSolid: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   return (
     <svg
       width="24"
       height="24"
       ref={ref}
-      {...otherProps}
+      {...props}
       xmlns="http://www.w3.org/2000/svg"
       fill="none"
       viewBox="0 0 20 20"
@@ -2725,22 +2624,21 @@ export const FbGiftBoxSolid: TIcon = forwardRef((props: IIconProps, ref: TIconRe
     </svg>
   );
 });
+FbGiftBoxSolid.displayName = "FbGiftBoxSolid";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/solid/general/gear.svg
+ * /var/app/ignore/flowbite-icons/solid/general/gear.svg
  */
 
-export const FbGearSolid: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
-  const { strokeWidth, ...otherProps } = props;
-
+export const FbGearSolid: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   return (
     <svg
       width="24"
       height="24"
       ref={ref}
-      {...otherProps}
+      {...props}
       xmlns="http://www.w3.org/2000/svg"
       fill="none"
       viewBox="0 0 20 20"
@@ -2752,22 +2650,21 @@ export const FbGearSolid: TIcon = forwardRef((props: IIconProps, ref: TIconRef) 
     </svg>
   );
 });
+FbGearSolid.displayName = "FbGearSolid";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/solid/general/fire.svg
+ * /var/app/ignore/flowbite-icons/solid/general/fire.svg
  */
 
-export const FbFireSolid: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
-  const { strokeWidth, ...otherProps } = props;
-
+export const FbFireSolid: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   return (
     <svg
       width="24"
       height="24"
       ref={ref}
-      {...otherProps}
+      {...props}
       xmlns="http://www.w3.org/2000/svg"
       fill="none"
       viewBox="0 0 17 20"
@@ -2779,22 +2676,21 @@ export const FbFireSolid: TIcon = forwardRef((props: IIconProps, ref: TIconRef) 
     </svg>
   );
 });
+FbFireSolid.displayName = "FbFireSolid";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/solid/general/fingerprint.svg
+ * /var/app/ignore/flowbite-icons/solid/general/fingerprint.svg
  */
 
-export const FbFingerprintSolid: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
-  const { strokeWidth, ...otherProps } = props;
-
+export const FbFingerprintSolid: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   return (
     <svg
       width="24"
       height="24"
       ref={ref}
-      {...otherProps}
+      {...props}
       xmlns="http://www.w3.org/2000/svg"
       fill="none"
       viewBox="0 0 22 20"
@@ -2808,22 +2704,21 @@ export const FbFingerprintSolid: TIcon = forwardRef((props: IIconProps, ref: TIc
     </svg>
   );
 });
+FbFingerprintSolid.displayName = "FbFingerprintSolid";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/solid/general/filter.svg
+ * /var/app/ignore/flowbite-icons/solid/general/filter.svg
  */
 
-export const FbFilterSolid: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
-  const { strokeWidth, ...otherProps } = props;
-
+export const FbFilterSolid: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   return (
     <svg
       width="24"
       height="24"
       ref={ref}
-      {...otherProps}
+      {...props}
       xmlns="http://www.w3.org/2000/svg"
       fill="none"
       viewBox="0 0 20 18"
@@ -2835,22 +2730,21 @@ export const FbFilterSolid: TIcon = forwardRef((props: IIconProps, ref: TIconRef
     </svg>
   );
 });
+FbFilterSolid.displayName = "FbFilterSolid";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/solid/general/eye.svg
+ * /var/app/ignore/flowbite-icons/solid/general/eye.svg
  */
 
-export const FbEyeSolid: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
-  const { strokeWidth, ...otherProps } = props;
-
+export const FbEyeSolid: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   return (
     <svg
       width="24"
       height="24"
       ref={ref}
-      {...otherProps}
+      {...props}
       xmlns="http://www.w3.org/2000/svg"
       fill="none"
       viewBox="0 0 20 14"
@@ -2862,22 +2756,21 @@ export const FbEyeSolid: TIcon = forwardRef((props: IIconProps, ref: TIconRef) =
     </svg>
   );
 });
+FbEyeSolid.displayName = "FbEyeSolid";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/solid/general/eye-slash.svg
+ * /var/app/ignore/flowbite-icons/solid/general/eye-slash.svg
  */
 
-export const FbEyeSlashSolid: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
-  const { strokeWidth, ...otherProps } = props;
-
+export const FbEyeSlashSolid: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   return (
     <svg
       width="24"
       height="24"
       ref={ref}
-      {...otherProps}
+      {...props}
       xmlns="http://www.w3.org/2000/svg"
       fill="none"
       viewBox="0 0 20 20"
@@ -2890,22 +2783,21 @@ export const FbEyeSlashSolid: TIcon = forwardRef((props: IIconProps, ref: TIconR
     </svg>
   );
 });
+FbEyeSlashSolid.displayName = "FbEyeSlashSolid";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/solid/general/exclamation-circle.svg
+ * /var/app/ignore/flowbite-icons/solid/general/exclamation-circle.svg
  */
 
-export const FbExclamationCircleSolid: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
-  const { strokeWidth, ...otherProps } = props;
-
+export const FbExclamationCircleSolid: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   return (
     <svg
       width="24"
       height="24"
       ref={ref}
-      {...otherProps}
+      {...props}
       xmlns="http://www.w3.org/2000/svg"
       fill="none"
       viewBox="0 0 20 20"
@@ -2917,22 +2809,21 @@ export const FbExclamationCircleSolid: TIcon = forwardRef((props: IIconProps, re
     </svg>
   );
 });
+FbExclamationCircleSolid.displayName = "FbExclamationCircleSolid";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/solid/general/envelope.svg
+ * /var/app/ignore/flowbite-icons/solid/general/envelope.svg
  */
 
-export const FbEnvelopeSolid: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
-  const { strokeWidth, ...otherProps } = props;
-
+export const FbEnvelopeSolid: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   return (
     <svg
       width="24"
       height="24"
       ref={ref}
-      {...otherProps}
+      {...props}
       xmlns="http://www.w3.org/2000/svg"
       fill="none"
       viewBox="0 0 20 16"
@@ -2944,22 +2835,21 @@ export const FbEnvelopeSolid: TIcon = forwardRef((props: IIconProps, ref: TIconR
     </svg>
   );
 });
+FbEnvelopeSolid.displayName = "FbEnvelopeSolid";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/solid/general/envelope-open.svg
+ * /var/app/ignore/flowbite-icons/solid/general/envelope-open.svg
  */
 
-export const FbEnvelopeOpenSolid: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
-  const { strokeWidth, ...otherProps } = props;
-
+export const FbEnvelopeOpenSolid: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   return (
     <svg
       width="24"
       height="24"
       ref={ref}
-      {...otherProps}
+      {...props}
       xmlns="http://www.w3.org/2000/svg"
       fill="none"
       viewBox="0 0 20 20"
@@ -2971,22 +2861,21 @@ export const FbEnvelopeOpenSolid: TIcon = forwardRef((props: IIconProps, ref: TI
     </svg>
   );
 });
+FbEnvelopeOpenSolid.displayName = "FbEnvelopeOpenSolid";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/solid/general/ellipse-vertical.svg
+ * /var/app/ignore/flowbite-icons/solid/general/ellipse-vertical.svg
  */
 
-export const FbEllipseVerticalSolid: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
-  const { strokeWidth, ...otherProps } = props;
-
+export const FbEllipseVerticalSolid: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   return (
     <svg
       width="24"
       height="24"
       ref={ref}
-      {...otherProps}
+      {...props}
       xmlns="http://www.w3.org/2000/svg"
       fill="none"
       viewBox="0 0 4 15"
@@ -2998,22 +2887,21 @@ export const FbEllipseVerticalSolid: TIcon = forwardRef((props: IIconProps, ref:
     </svg>
   );
 });
+FbEllipseVerticalSolid.displayName = "FbEllipseVerticalSolid";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/solid/general/ellipse-horizontal.svg
+ * /var/app/ignore/flowbite-icons/solid/general/ellipse-horizontal.svg
  */
 
-export const FbEllipseHorizontalSolid: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
-  const { strokeWidth, ...otherProps } = props;
-
+export const FbEllipseHorizontalSolid: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   return (
     <svg
       width="24"
       height="24"
       ref={ref}
-      {...otherProps}
+      {...props}
       xmlns="http://www.w3.org/2000/svg"
       fill="none"
       viewBox="0 0 16 3"
@@ -3025,22 +2913,21 @@ export const FbEllipseHorizontalSolid: TIcon = forwardRef((props: IIconProps, re
     </svg>
   );
 });
+FbEllipseHorizontalSolid.displayName = "FbEllipseHorizontalSolid";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/solid/general/draw-square.svg
+ * /var/app/ignore/flowbite-icons/solid/general/draw-square.svg
  */
 
-export const FbDrawSquareSolid: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
-  const { strokeWidth, ...otherProps } = props;
-
+export const FbDrawSquareSolid: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   return (
     <svg
       width="24"
       height="24"
       ref={ref}
-      {...otherProps}
+      {...props}
       xmlns="http://www.w3.org/2000/svg"
       fill="none"
       viewBox="0 0 20 20"
@@ -3052,22 +2939,21 @@ export const FbDrawSquareSolid: TIcon = forwardRef((props: IIconProps, ref: TIco
     </svg>
   );
 });
+FbDrawSquareSolid.displayName = "FbDrawSquareSolid";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/solid/general/download.svg
+ * /var/app/ignore/flowbite-icons/solid/general/download.svg
  */
 
-export const FbDownloadSolid: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
-  const { strokeWidth, ...otherProps } = props;
-
+export const FbDownloadSolid: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   return (
     <svg
       width="24"
       height="24"
       ref={ref}
-      {...otherProps}
+      {...props}
       xmlns="http://www.w3.org/2000/svg"
       fill="none"
       viewBox="0 0 20 20"
@@ -3079,22 +2965,21 @@ export const FbDownloadSolid: TIcon = forwardRef((props: IIconProps, ref: TIconR
     </svg>
   );
 });
+FbDownloadSolid.displayName = "FbDownloadSolid";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/solid/general/dna.svg
+ * /var/app/ignore/flowbite-icons/solid/general/dna.svg
  */
 
-export const FbDnaSolid: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
-  const { strokeWidth, ...otherProps } = props;
-
+export const FbDnaSolid: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   return (
     <svg
       width="24"
       height="24"
       ref={ref}
-      {...otherProps}
+      {...props}
       xmlns="http://www.w3.org/2000/svg"
       fill="none"
       viewBox="0 0 12 20"
@@ -3106,22 +2991,21 @@ export const FbDnaSolid: TIcon = forwardRef((props: IIconProps, ref: TIconRef) =
     </svg>
   );
 });
+FbDnaSolid.displayName = "FbDnaSolid";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/solid/general/desktop-pc.svg
+ * /var/app/ignore/flowbite-icons/solid/general/desktop-pc.svg
  */
 
-export const FbDesktopPcSolid: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
-  const { strokeWidth, ...otherProps } = props;
-
+export const FbDesktopPcSolid: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   return (
     <svg
       width="24"
       height="24"
       ref={ref}
-      {...otherProps}
+      {...props}
       xmlns="http://www.w3.org/2000/svg"
       fill="none"
       viewBox="0 0 20 20"
@@ -3133,22 +3017,21 @@ export const FbDesktopPcSolid: TIcon = forwardRef((props: IIconProps, ref: TIcon
     </svg>
   );
 });
+FbDesktopPcSolid.displayName = "FbDesktopPcSolid";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/solid/general/database.svg
+ * /var/app/ignore/flowbite-icons/solid/general/database.svg
  */
 
-export const FbDatabaseSolid: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
-  const { strokeWidth, ...otherProps } = props;
-
+export const FbDatabaseSolid: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   return (
     <svg
       width="24"
       height="24"
       ref={ref}
-      {...otherProps}
+      {...props}
       xmlns="http://www.w3.org/2000/svg"
       fill="none"
       viewBox="0 0 16 20"
@@ -3160,20 +3043,19 @@ export const FbDatabaseSolid: TIcon = forwardRef((props: IIconProps, ref: TIconR
     </svg>
   );
 });
+FbDatabaseSolid.displayName = "FbDatabaseSolid";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/solid/general/column.svg
+ * /var/app/ignore/flowbite-icons/solid/general/column.svg
  */
 
-export const FbColumnSolid: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
-  const { strokeWidth, ...otherProps } = props;
-
+export const FbColumnSolid: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   return (
     <svg
       ref={ref}
-      {...otherProps}
+      {...props}
       xmlns="http://www.w3.org/2000/svg"
       width="20"
       height="16"
@@ -3187,22 +3069,21 @@ export const FbColumnSolid: TIcon = forwardRef((props: IIconProps, ref: TIconRef
     </svg>
   );
 });
+FbColumnSolid.displayName = "FbColumnSolid";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/solid/general/code.svg
+ * /var/app/ignore/flowbite-icons/solid/general/code.svg
  */
 
-export const FbCodeSolid: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
-  const { strokeWidth, ...otherProps } = props;
-
+export const FbCodeSolid: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   return (
     <svg
       width="24"
       height="24"
       ref={ref}
-      {...otherProps}
+      {...props}
       xmlns="http://www.w3.org/2000/svg"
       fill="none"
       viewBox="0 0 20 16"
@@ -3214,22 +3095,21 @@ export const FbCodeSolid: TIcon = forwardRef((props: IIconProps, ref: TIconRef) 
     </svg>
   );
 });
+FbCodeSolid.displayName = "FbCodeSolid";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/solid/general/code-pull-request.svg
+ * /var/app/ignore/flowbite-icons/solid/general/code-pull-request.svg
  */
 
-export const FbCodePullRequestSolid: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
-  const { strokeWidth, ...otherProps } = props;
-
+export const FbCodePullRequestSolid: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   return (
     <svg
       width="24"
       height="24"
       ref={ref}
-      {...otherProps}
+      {...props}
       xmlns="http://www.w3.org/2000/svg"
       fill="none"
       viewBox="0 0 18 22"
@@ -3241,22 +3121,21 @@ export const FbCodePullRequestSolid: TIcon = forwardRef((props: IIconProps, ref:
     </svg>
   );
 });
+FbCodePullRequestSolid.displayName = "FbCodePullRequestSolid";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/solid/general/code-merge.svg
+ * /var/app/ignore/flowbite-icons/solid/general/code-merge.svg
  */
 
-export const FbCodeMergeSolid: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
-  const { strokeWidth, ...otherProps } = props;
-
+export const FbCodeMergeSolid: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   return (
     <svg
       width="24"
       height="24"
       ref={ref}
-      {...otherProps}
+      {...props}
       xmlns="http://www.w3.org/2000/svg"
       fill="none"
       viewBox="0 0 15 22"
@@ -3268,22 +3147,21 @@ export const FbCodeMergeSolid: TIcon = forwardRef((props: IIconProps, ref: TIcon
     </svg>
   );
 });
+FbCodeMergeSolid.displayName = "FbCodeMergeSolid";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/solid/general/code-fork.svg
+ * /var/app/ignore/flowbite-icons/solid/general/code-fork.svg
  */
 
-export const FbCodeForkSolid: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
-  const { strokeWidth, ...otherProps } = props;
-
+export const FbCodeForkSolid: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   return (
     <svg
       width="24"
       height="24"
       ref={ref}
-      {...otherProps}
+      {...props}
       xmlns="http://www.w3.org/2000/svg"
       fill="none"
       viewBox="0 0 16 22"
@@ -3295,22 +3173,21 @@ export const FbCodeForkSolid: TIcon = forwardRef((props: IIconProps, ref: TIconR
     </svg>
   );
 });
+FbCodeForkSolid.displayName = "FbCodeForkSolid";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/solid/general/code-branch.svg
+ * /var/app/ignore/flowbite-icons/solid/general/code-branch.svg
  */
 
-export const FbCodeBranchSolid: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
-  const { strokeWidth, ...otherProps } = props;
-
+export const FbCodeBranchSolid: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   return (
     <svg
       width="24"
       height="24"
       ref={ref}
-      {...otherProps}
+      {...props}
       xmlns="http://www.w3.org/2000/svg"
       fill="none"
       viewBox="0 0 16 22"
@@ -3322,22 +3199,21 @@ export const FbCodeBranchSolid: TIcon = forwardRef((props: IIconProps, ref: TIco
     </svg>
   );
 });
+FbCodeBranchSolid.displayName = "FbCodeBranchSolid";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/solid/general/cloud-arrow-up.svg
+ * /var/app/ignore/flowbite-icons/solid/general/cloud-arrow-up.svg
  */
 
-export const FbCloudArrowUpSolid: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
-  const { strokeWidth, ...otherProps } = props;
-
+export const FbCloudArrowUpSolid: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   return (
     <svg
       width="24"
       height="24"
       ref={ref}
-      {...otherProps}
+      {...props}
       xmlns="http://www.w3.org/2000/svg"
       fill="none"
       viewBox="0 0 21 16"
@@ -3349,22 +3225,21 @@ export const FbCloudArrowUpSolid: TIcon = forwardRef((props: IIconProps, ref: TI
     </svg>
   );
 });
+FbCloudArrowUpSolid.displayName = "FbCloudArrowUpSolid";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/solid/general/close.svg
+ * /var/app/ignore/flowbite-icons/solid/general/close.svg
  */
 
-export const FbCloseSolid: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
-  const { strokeWidth, ...otherProps } = props;
-
+export const FbCloseSolid: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   return (
     <svg
       width="24"
       height="24"
       ref={ref}
-      {...otherProps}
+      {...props}
       xmlns="http://www.w3.org/2000/svg"
       fill="none"
       viewBox="0 0 16 16"
@@ -3376,22 +3251,21 @@ export const FbCloseSolid: TIcon = forwardRef((props: IIconProps, ref: TIconRef)
     </svg>
   );
 });
+FbCloseSolid.displayName = "FbCloseSolid";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/solid/general/close-circle.svg
+ * /var/app/ignore/flowbite-icons/solid/general/close-circle.svg
  */
 
-export const FbCloseCircleSolid: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
-  const { strokeWidth, ...otherProps } = props;
-
+export const FbCloseCircleSolid: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   return (
     <svg
       width="24"
       height="24"
       ref={ref}
-      {...otherProps}
+      {...props}
       xmlns="http://www.w3.org/2000/svg"
       fill="none"
       viewBox="0 0 20 20"
@@ -3403,22 +3277,21 @@ export const FbCloseCircleSolid: TIcon = forwardRef((props: IIconProps, ref: TIc
     </svg>
   );
 });
+FbCloseCircleSolid.displayName = "FbCloseCircleSolid";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/solid/general/clock.svg
+ * /var/app/ignore/flowbite-icons/solid/general/clock.svg
  */
 
-export const FbClockSolid: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
-  const { strokeWidth, ...otherProps } = props;
-
+export const FbClockSolid: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   return (
     <svg
       width="24"
       height="24"
       ref={ref}
-      {...otherProps}
+      {...props}
       xmlns="http://www.w3.org/2000/svg"
       fill="none"
       viewBox="0 0 20 20"
@@ -3430,20 +3303,19 @@ export const FbClockSolid: TIcon = forwardRef((props: IIconProps, ref: TIconRef)
     </svg>
   );
 });
+FbClockSolid.displayName = "FbClockSolid";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/solid/general/circle-plus.svg
+ * /var/app/ignore/flowbite-icons/solid/general/circle-plus.svg
  */
 
-export const FbCirclePlusSolid: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
-  const { strokeWidth, ...otherProps } = props;
-
+export const FbCirclePlusSolid: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   return (
     <svg
       ref={ref}
-      {...otherProps}
+      {...props}
       xmlns="http://www.w3.org/2000/svg"
       width="20"
       height="20"
@@ -3457,22 +3329,21 @@ export const FbCirclePlusSolid: TIcon = forwardRef((props: IIconProps, ref: TIco
     </svg>
   );
 });
+FbCirclePlusSolid.displayName = "FbCirclePlusSolid";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/solid/general/check.svg
+ * /var/app/ignore/flowbite-icons/solid/general/check.svg
  */
 
-export const FbCheckSolid: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
-  const { strokeWidth, ...otherProps } = props;
-
+export const FbCheckSolid: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   return (
     <svg
       width="24"
       height="24"
       ref={ref}
-      {...otherProps}
+      {...props}
       xmlns="http://www.w3.org/2000/svg"
       fill="none"
       viewBox="0 0 17 12"
@@ -3484,20 +3355,19 @@ export const FbCheckSolid: TIcon = forwardRef((props: IIconProps, ref: TIconRef)
     </svg>
   );
 });
+FbCheckSolid.displayName = "FbCheckSolid";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/solid/general/check-plus-circle.svg
+ * /var/app/ignore/flowbite-icons/solid/general/check-plus-circle.svg
  */
 
-export const FbCheckPlusCircleSolid: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
-  const { strokeWidth, ...otherProps } = props;
-
+export const FbCheckPlusCircleSolid: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   return (
     <svg
       ref={ref}
-      {...otherProps}
+      {...props}
       xmlns="http://www.w3.org/2000/svg"
       width="20"
       height="20"
@@ -3515,22 +3385,21 @@ export const FbCheckPlusCircleSolid: TIcon = forwardRef((props: IIconProps, ref:
     </svg>
   );
 });
+FbCheckPlusCircleSolid.displayName = "FbCheckPlusCircleSolid";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/solid/general/check-circle.svg
+ * /var/app/ignore/flowbite-icons/solid/general/check-circle.svg
  */
 
-export const FbCheckCircleSolid: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
-  const { strokeWidth, ...otherProps } = props;
-
+export const FbCheckCircleSolid: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   return (
     <svg
       width="24"
       height="24"
       ref={ref}
-      {...otherProps}
+      {...props}
       xmlns="http://www.w3.org/2000/svg"
       fill="none"
       viewBox="0 0 20 20"
@@ -3542,22 +3411,21 @@ export const FbCheckCircleSolid: TIcon = forwardRef((props: IIconProps, ref: TIc
     </svg>
   );
 });
+FbCheckCircleSolid.displayName = "FbCheckCircleSolid";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/solid/general/chart.svg
+ * /var/app/ignore/flowbite-icons/solid/general/chart.svg
  */
 
-export const FbChartSolid: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
-  const { strokeWidth, ...otherProps } = props;
-
+export const FbChartSolid: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   return (
     <svg
       width="24"
       height="24"
       ref={ref}
-      {...otherProps}
+      {...props}
       xmlns="http://www.w3.org/2000/svg"
       fill="none"
       viewBox="0 0 18 16"
@@ -3569,22 +3437,21 @@ export const FbChartSolid: TIcon = forwardRef((props: IIconProps, ref: TIconRef)
     </svg>
   );
 });
+FbChartSolid.displayName = "FbChartSolid";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/solid/general/chart-pie.svg
+ * /var/app/ignore/flowbite-icons/solid/general/chart-pie.svg
  */
 
-export const FbChartPieSolid: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
-  const { strokeWidth, ...otherProps } = props;
-
+export const FbChartPieSolid: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   return (
     <svg
       width="24"
       height="24"
       ref={ref}
-      {...otherProps}
+      {...props}
       xmlns="http://www.w3.org/2000/svg"
       fill="none"
       viewBox="0 0 22 21"
@@ -3596,22 +3463,21 @@ export const FbChartPieSolid: TIcon = forwardRef((props: IIconProps, ref: TIconR
     </svg>
   );
 });
+FbChartPieSolid.displayName = "FbChartPieSolid";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/solid/general/chart-mixed.svg
+ * /var/app/ignore/flowbite-icons/solid/general/chart-mixed.svg
  */
 
-export const FbChartMixedSolid: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
-  const { strokeWidth, ...otherProps } = props;
-
+export const FbChartMixedSolid: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   return (
     <svg
       width="24"
       height="24"
       ref={ref}
-      {...otherProps}
+      {...props}
       xmlns="http://www.w3.org/2000/svg"
       fill="none"
       viewBox="0 0 19 19"
@@ -3623,20 +3489,19 @@ export const FbChartMixedSolid: TIcon = forwardRef((props: IIconProps, ref: TIco
     </svg>
   );
 });
+FbChartMixedSolid.displayName = "FbChartMixedSolid";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/solid/general/chart-mixed-dollar.svg
+ * /var/app/ignore/flowbite-icons/solid/general/chart-mixed-dollar.svg
  */
 
-export const FbChartMixedDollarSolid: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
-  const { strokeWidth, ...otherProps } = props;
-
+export const FbChartMixedDollarSolid: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   return (
     <svg
       ref={ref}
-      {...otherProps}
+      {...props}
       xmlns="http://www.w3.org/2000/svg"
       width="19"
       height="20"
@@ -3650,22 +3515,21 @@ export const FbChartMixedDollarSolid: TIcon = forwardRef((props: IIconProps, ref
     </svg>
   );
 });
+FbChartMixedDollarSolid.displayName = "FbChartMixedDollarSolid";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/solid/general/chart-line-up.svg
+ * /var/app/ignore/flowbite-icons/solid/general/chart-line-up.svg
  */
 
-export const FbChartLineUpSolid: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
-  const { strokeWidth, ...otherProps } = props;
-
+export const FbChartLineUpSolid: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   return (
     <svg
       width="24"
       height="24"
       ref={ref}
-      {...otherProps}
+      {...props}
       xmlns="http://www.w3.org/2000/svg"
       fill="none"
       viewBox="0 0 18 16"
@@ -3677,22 +3541,21 @@ export const FbChartLineUpSolid: TIcon = forwardRef((props: IIconProps, ref: TIc
     </svg>
   );
 });
+FbChartLineUpSolid.displayName = "FbChartLineUpSolid";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/solid/general/chart-line-down.svg
+ * /var/app/ignore/flowbite-icons/solid/general/chart-line-down.svg
  */
 
-export const FbChartLineDownSolid: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
-  const { strokeWidth, ...otherProps } = props;
-
+export const FbChartLineDownSolid: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   return (
     <svg
       width="24"
       height="24"
       ref={ref}
-      {...otherProps}
+      {...props}
       xmlns="http://www.w3.org/2000/svg"
       fill="none"
       viewBox="0 0 18 16"
@@ -3704,14 +3567,15 @@ export const FbChartLineDownSolid: TIcon = forwardRef((props: IIconProps, ref: T
     </svg>
   );
 });
+FbChartLineDownSolid.displayName = "FbChartLineDownSolid";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/solid/general/chart-bars-3-from-left.svg
+ * /var/app/ignore/flowbite-icons/solid/general/chart-bars-3-from-left.svg
  */
 
-export const FbChartBars3FromLeftSolid: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
+export const FbChartBars3FromLeftSolid: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   const { strokeWidth, ...otherProps } = props;
 
   return (
@@ -3734,22 +3598,21 @@ export const FbChartBars3FromLeftSolid: TIcon = forwardRef((props: IIconProps, r
     </svg>
   );
 });
+FbChartBars3FromLeftSolid.displayName = "FbChartBars3FromLeftSolid";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/solid/general/calendar-week.svg
+ * /var/app/ignore/flowbite-icons/solid/general/calendar-week.svg
  */
 
-export const FbCalendarWeekSolid: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
-  const { strokeWidth, ...otherProps } = props;
-
+export const FbCalendarWeekSolid: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   return (
     <svg
       width="24"
       height="24"
       ref={ref}
-      {...otherProps}
+      {...props}
       xmlns="http://www.w3.org/2000/svg"
       fill="none"
       viewBox="0 0 20 20"
@@ -3761,20 +3624,19 @@ export const FbCalendarWeekSolid: TIcon = forwardRef((props: IIconProps, ref: TI
     </svg>
   );
 });
+FbCalendarWeekSolid.displayName = "FbCalendarWeekSolid";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/solid/general/calendar-plus.svg
+ * /var/app/ignore/flowbite-icons/solid/general/calendar-plus.svg
  */
 
-export const FbCalendarPlusSolid: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
-  const { strokeWidth, ...otherProps } = props;
-
+export const FbCalendarPlusSolid: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   return (
     <svg
       ref={ref}
-      {...otherProps}
+      {...props}
       xmlns="http://www.w3.org/2000/svg"
       width="21"
       height="21"
@@ -3788,22 +3650,21 @@ export const FbCalendarPlusSolid: TIcon = forwardRef((props: IIconProps, ref: TI
     </svg>
   );
 });
+FbCalendarPlusSolid.displayName = "FbCalendarPlusSolid";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/solid/general/calendar-month.svg
+ * /var/app/ignore/flowbite-icons/solid/general/calendar-month.svg
  */
 
-export const FbCalendarMonthSolid: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
-  const { strokeWidth, ...otherProps } = props;
-
+export const FbCalendarMonthSolid: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   return (
     <svg
       width="24"
       height="24"
       ref={ref}
-      {...otherProps}
+      {...props}
       xmlns="http://www.w3.org/2000/svg"
       fill="none"
       viewBox="0 0 20 20"
@@ -3815,22 +3676,21 @@ export const FbCalendarMonthSolid: TIcon = forwardRef((props: IIconProps, ref: T
     </svg>
   );
 });
+FbCalendarMonthSolid.displayName = "FbCalendarMonthSolid";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/solid/general/calendar-edit.svg
+ * /var/app/ignore/flowbite-icons/solid/general/calendar-edit.svg
  */
 
-export const FbCalendarEditSolid: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
-  const { strokeWidth, ...otherProps } = props;
-
+export const FbCalendarEditSolid: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   return (
     <svg
       width="24"
       height="24"
       ref={ref}
-      {...otherProps}
+      {...props}
       xmlns="http://www.w3.org/2000/svg"
       fill="none"
       viewBox="0 0 20 20"
@@ -3842,22 +3702,21 @@ export const FbCalendarEditSolid: TIcon = forwardRef((props: IIconProps, ref: TI
     </svg>
   );
 });
+FbCalendarEditSolid.displayName = "FbCalendarEditSolid";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/solid/general/bullhorn.svg
+ * /var/app/ignore/flowbite-icons/solid/general/bullhorn.svg
  */
 
-export const FbBullhornSolid: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
-  const { strokeWidth, ...otherProps } = props;
-
+export const FbBullhornSolid: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   return (
     <svg
       width="24"
       height="24"
       ref={ref}
-      {...otherProps}
+      {...props}
       xmlns="http://www.w3.org/2000/svg"
       fill="none"
       viewBox="0 0 18 19"
@@ -3869,20 +3728,19 @@ export const FbBullhornSolid: TIcon = forwardRef((props: IIconProps, ref: TIconR
     </svg>
   );
 });
+FbBullhornSolid.displayName = "FbBullhornSolid";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/solid/general/building.svg
+ * /var/app/ignore/flowbite-icons/solid/general/building.svg
  */
 
-export const FbBuildingSolid: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
-  const { strokeWidth, ...otherProps } = props;
-
+export const FbBuildingSolid: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   return (
     <svg
       ref={ref}
-      {...otherProps}
+      {...props}
       xmlns="http://www.w3.org/2000/svg"
       width="18"
       height="18"
@@ -3896,22 +3754,21 @@ export const FbBuildingSolid: TIcon = forwardRef((props: IIconProps, ref: TIconR
     </svg>
   );
 });
+FbBuildingSolid.displayName = "FbBuildingSolid";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/solid/general/bug.svg
+ * /var/app/ignore/flowbite-icons/solid/general/bug.svg
  */
 
-export const FbBugSolid: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
-  const { strokeWidth, ...otherProps } = props;
-
+export const FbBugSolid: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   return (
     <svg
       width="24"
       height="24"
       ref={ref}
-      {...otherProps}
+      {...props}
       xmlns="http://www.w3.org/2000/svg"
       fill="none"
       viewBox="0 0 19 20"
@@ -3923,22 +3780,21 @@ export const FbBugSolid: TIcon = forwardRef((props: IIconProps, ref: TIconRef) =
     </svg>
   );
 });
+FbBugSolid.displayName = "FbBugSolid";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/solid/general/briefcase.svg
+ * /var/app/ignore/flowbite-icons/solid/general/briefcase.svg
  */
 
-export const FbBriefcaseSolid: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
-  const { strokeWidth, ...otherProps } = props;
-
+export const FbBriefcaseSolid: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   return (
     <svg
       width="24"
       height="24"
       ref={ref}
-      {...otherProps}
+      {...props}
       xmlns="http://www.w3.org/2000/svg"
       fill="none"
       viewBox="0 0 20 20"
@@ -3950,22 +3806,21 @@ export const FbBriefcaseSolid: TIcon = forwardRef((props: IIconProps, ref: TIcon
     </svg>
   );
 });
+FbBriefcaseSolid.displayName = "FbBriefcaseSolid";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/solid/general/brain.svg
+ * /var/app/ignore/flowbite-icons/solid/general/brain.svg
  */
 
-export const FbBrainSolid: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
-  const { strokeWidth, ...otherProps } = props;
-
+export const FbBrainSolid: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   return (
     <svg
       width="24"
       height="24"
       ref={ref}
-      {...otherProps}
+      {...props}
       xmlns="http://www.w3.org/2000/svg"
       fill="none"
       viewBox="0 0 20 20"
@@ -3977,22 +3832,21 @@ export const FbBrainSolid: TIcon = forwardRef((props: IIconProps, ref: TIconRef)
     </svg>
   );
 });
+FbBrainSolid.displayName = "FbBrainSolid";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/solid/general/bookmark.svg
+ * /var/app/ignore/flowbite-icons/solid/general/bookmark.svg
  */
 
-export const FbBookmarkSolid: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
-  const { strokeWidth, ...otherProps } = props;
-
+export const FbBookmarkSolid: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   return (
     <svg
       width="24"
       height="24"
       ref={ref}
-      {...otherProps}
+      {...props}
       xmlns="http://www.w3.org/2000/svg"
       fill="none"
       viewBox="0 0 14 20"
@@ -4004,22 +3858,21 @@ export const FbBookmarkSolid: TIcon = forwardRef((props: IIconProps, ref: TIconR
     </svg>
   );
 });
+FbBookmarkSolid.displayName = "FbBookmarkSolid";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/solid/general/book.svg
+ * /var/app/ignore/flowbite-icons/solid/general/book.svg
  */
 
-export const FbBookSolid: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
-  const { strokeWidth, ...otherProps } = props;
-
+export const FbBookSolid: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   return (
     <svg
       width="24"
       height="24"
       ref={ref}
-      {...otherProps}
+      {...props}
       xmlns="http://www.w3.org/2000/svg"
       fill="none"
       viewBox="0 0 16 20"
@@ -4031,22 +3884,21 @@ export const FbBookSolid: TIcon = forwardRef((props: IIconProps, ref: TIconRef) 
     </svg>
   );
 });
+FbBookSolid.displayName = "FbBookSolid";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/solid/general/blender-phone.svg
+ * /var/app/ignore/flowbite-icons/solid/general/blender-phone.svg
  */
 
-export const FbBlenderPhoneSolid: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
-  const { strokeWidth, ...otherProps } = props;
-
+export const FbBlenderPhoneSolid: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   return (
     <svg
       width="24"
       height="24"
       ref={ref}
-      {...otherProps}
+      {...props}
       xmlns="http://www.w3.org/2000/svg"
       fill="none"
       viewBox="0 0 20 18"
@@ -4058,22 +3910,21 @@ export const FbBlenderPhoneSolid: TIcon = forwardRef((props: IIconProps, ref: TI
     </svg>
   );
 });
+FbBlenderPhoneSolid.displayName = "FbBlenderPhoneSolid";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/solid/general/bell.svg
+ * /var/app/ignore/flowbite-icons/solid/general/bell.svg
  */
 
-export const FbBellSolid: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
-  const { strokeWidth, ...otherProps } = props;
-
+export const FbBellSolid: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   return (
     <svg
       width="24"
       height="24"
       ref={ref}
-      {...otherProps}
+      {...props}
       xmlns="http://www.w3.org/2000/svg"
       fill="none"
       viewBox="0 0 14 20"
@@ -4085,22 +3936,21 @@ export const FbBellSolid: TIcon = forwardRef((props: IIconProps, ref: TIconRef) 
     </svg>
   );
 });
+FbBellSolid.displayName = "FbBellSolid";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/solid/general/bell-ring.svg
+ * /var/app/ignore/flowbite-icons/solid/general/bell-ring.svg
  */
 
-export const FbBellRingSolid: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
-  const { strokeWidth, ...otherProps } = props;
-
+export const FbBellRingSolid: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   return (
     <svg
       width="24"
       height="24"
       ref={ref}
-      {...otherProps}
+      {...props}
       xmlns="http://www.w3.org/2000/svg"
       fill="none"
       viewBox="0 0 20 20"
@@ -4112,22 +3962,21 @@ export const FbBellRingSolid: TIcon = forwardRef((props: IIconProps, ref: TIconR
     </svg>
   );
 });
+FbBellRingSolid.displayName = "FbBellRingSolid";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/solid/general/bell-active.svg
+ * /var/app/ignore/flowbite-icons/solid/general/bell-active.svg
  */
 
-export const FbBellActiveSolid: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
-  const { strokeWidth, ...otherProps } = props;
-
+export const FbBellActiveSolid: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   return (
     <svg
       width="24"
       height="24"
       ref={ref}
-      {...otherProps}
+      {...props}
       xmlns="http://www.w3.org/2000/svg"
       fill="none"
       viewBox="0 0 19 20"
@@ -4139,22 +3988,21 @@ export const FbBellActiveSolid: TIcon = forwardRef((props: IIconProps, ref: TIco
     </svg>
   );
 });
+FbBellActiveSolid.displayName = "FbBellActiveSolid";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/solid/general/bell-active-alt.svg
+ * /var/app/ignore/flowbite-icons/solid/general/bell-active-alt.svg
  */
 
-export const FbBellActiveAltSolid: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
-  const { strokeWidth, ...otherProps } = props;
-
+export const FbBellActiveAltSolid: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   return (
     <svg
       width="24"
       height="24"
       ref={ref}
-      {...otherProps}
+      {...props}
       xmlns="http://www.w3.org/2000/svg"
       fill="none"
       viewBox="0 0 20 20"
@@ -4166,22 +4014,21 @@ export const FbBellActiveAltSolid: TIcon = forwardRef((props: IIconProps, ref: T
     </svg>
   );
 });
+FbBellActiveAltSolid.displayName = "FbBellActiveAltSolid";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/solid/general/bars.svg
+ * /var/app/ignore/flowbite-icons/solid/general/bars.svg
  */
 
-export const FbBarsSolid: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
-  const { strokeWidth, ...otherProps } = props;
-
+export const FbBarsSolid: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   return (
     <svg
       width="24"
       height="24"
       ref={ref}
-      {...otherProps}
+      {...props}
       xmlns="http://www.w3.org/2000/svg"
       fill="none"
       viewBox="0 0 17 14"
@@ -4193,22 +4040,21 @@ export const FbBarsSolid: TIcon = forwardRef((props: IIconProps, ref: TIconRef) 
     </svg>
   );
 });
+FbBarsSolid.displayName = "FbBarsSolid";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/solid/general/badge-check.svg
+ * /var/app/ignore/flowbite-icons/solid/general/badge-check.svg
  */
 
-export const FbBadgeCheckSolid: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
-  const { strokeWidth, ...otherProps } = props;
-
+export const FbBadgeCheckSolid: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   return (
     <svg
       width="24"
       height="24"
       ref={ref}
-      {...otherProps}
+      {...props}
       xmlns="http://www.w3.org/2000/svg"
       fill="none"
       viewBox="0 0 20 20"
@@ -4224,22 +4070,21 @@ export const FbBadgeCheckSolid: TIcon = forwardRef((props: IIconProps, ref: TIco
     </svg>
   );
 });
+FbBadgeCheckSolid.displayName = "FbBadgeCheckSolid";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/solid/general/atom.svg
+ * /var/app/ignore/flowbite-icons/solid/general/atom.svg
  */
 
-export const FbAtomSolid: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
-  const { strokeWidth, ...otherProps } = props;
-
+export const FbAtomSolid: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   return (
     <svg
       width="24"
       height="24"
       ref={ref}
-      {...otherProps}
+      {...props}
       xmlns="http://www.w3.org/2000/svg"
       fill="none"
       viewBox="0 0 20 21"
@@ -4251,22 +4096,21 @@ export const FbAtomSolid: TIcon = forwardRef((props: IIconProps, ref: TIconRef) 
     </svg>
   );
 });
+FbAtomSolid.displayName = "FbAtomSolid";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/solid/general/arrow-up-right-square.svg
+ * /var/app/ignore/flowbite-icons/solid/general/arrow-up-right-square.svg
  */
 
-export const FbArrowUpRightSquareSolid: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
-  const { strokeWidth, ...otherProps } = props;
-
+export const FbArrowUpRightSquareSolid: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   return (
     <svg
       width="24"
       height="24"
       ref={ref}
-      {...otherProps}
+      {...props}
       xmlns="http://www.w3.org/2000/svg"
       fill="none"
       viewBox="0 0 18 18"
@@ -4278,22 +4122,21 @@ export const FbArrowUpRightSquareSolid: TIcon = forwardRef((props: IIconProps, r
     </svg>
   );
 });
+FbArrowUpRightSquareSolid.displayName = "FbArrowUpRightSquareSolid";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/solid/general/archive.svg
+ * /var/app/ignore/flowbite-icons/solid/general/archive.svg
  */
 
-export const FbArchiveSolid: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
-  const { strokeWidth, ...otherProps } = props;
-
+export const FbArchiveSolid: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   return (
     <svg
       width="24"
       height="24"
       ref={ref}
-      {...otherProps}
+      {...props}
       xmlns="http://www.w3.org/2000/svg"
       fill="none"
       viewBox="0 0 20 16"
@@ -4305,22 +4148,21 @@ export const FbArchiveSolid: TIcon = forwardRef((props: IIconProps, ref: TIconRe
     </svg>
   );
 });
+FbArchiveSolid.displayName = "FbArchiveSolid";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/solid/general/annotation.svg
+ * /var/app/ignore/flowbite-icons/solid/general/annotation.svg
  */
 
-export const FbAnnotationSolid: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
-  const { strokeWidth, ...otherProps } = props;
-
+export const FbAnnotationSolid: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   return (
     <svg
       width="24"
       height="24"
       ref={ref}
-      {...otherProps}
+      {...props}
       xmlns="http://www.w3.org/2000/svg"
       fill="none"
       viewBox="0 0 20 18"
@@ -4332,22 +4174,21 @@ export const FbAnnotationSolid: TIcon = forwardRef((props: IIconProps, ref: TIco
     </svg>
   );
 });
+FbAnnotationSolid.displayName = "FbAnnotationSolid";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/solid/general/adjustments-vertical.svg
+ * /var/app/ignore/flowbite-icons/solid/general/adjustments-vertical.svg
  */
 
-export const FbAdjustmentsVerticalSolid: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
-  const { strokeWidth, ...otherProps } = props;
-
+export const FbAdjustmentsVerticalSolid: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   return (
     <svg
       width="24"
       height="24"
       ref={ref}
-      {...otherProps}
+      {...props}
       xmlns="http://www.w3.org/2000/svg"
       fill="none"
       viewBox="0 0 20 20"
@@ -4359,23 +4200,22 @@ export const FbAdjustmentsVerticalSolid: TIcon = forwardRef((props: IIconProps, 
     </svg>
   );
 });
+FbAdjustmentsVerticalSolid.displayName = "FbAdjustmentsVerticalSolid";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/solid/general/adjustments-horizontal.svg
+ * /var/app/ignore/flowbite-icons/solid/general/adjustments-horizontal.svg
  */
 
 export const FbAdjustmentsHorizontalSolid: TIcon = forwardRef(
-  (props: IIconProps, ref: TIconRef) => {
-    const { strokeWidth, ...otherProps } = props;
-
+  (props: TIconProps, ref: TIconRef) => {
     return (
       <svg
         width="24"
         height="24"
         ref={ref}
-        {...otherProps}
+        {...props}
         xmlns="http://www.w3.org/2000/svg"
         fill="none"
         viewBox="0 0 20 20"
@@ -4388,22 +4228,21 @@ export const FbAdjustmentsHorizontalSolid: TIcon = forwardRef(
     );
   },
 );
+FbAdjustmentsHorizontalSolid.displayName = "FbAdjustmentsHorizontalSolid";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/solid/file-folders/folder.svg
+ * /var/app/ignore/flowbite-icons/solid/file-folders/folder.svg
  */
 
-export const FbFolderSolid: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
-  const { strokeWidth, ...otherProps } = props;
-
+export const FbFolderSolid: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   return (
     <svg
       width="24"
       height="24"
       ref={ref}
-      {...otherProps}
+      {...props}
       xmlns="http://www.w3.org/2000/svg"
       fill="none"
       viewBox="0 0 18 18"
@@ -4415,22 +4254,21 @@ export const FbFolderSolid: TIcon = forwardRef((props: IIconProps, ref: TIconRef
     </svg>
   );
 });
+FbFolderSolid.displayName = "FbFolderSolid";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/solid/file-folders/folder-plus.svg
+ * /var/app/ignore/flowbite-icons/solid/file-folders/folder-plus.svg
  */
 
-export const FbFolderPlusSolid: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
-  const { strokeWidth, ...otherProps } = props;
-
+export const FbFolderPlusSolid: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   return (
     <svg
       width="24"
       height="24"
       ref={ref}
-      {...otherProps}
+      {...props}
       xmlns="http://www.w3.org/2000/svg"
       fill="none"
       viewBox="0 0 18 18"
@@ -4442,22 +4280,21 @@ export const FbFolderPlusSolid: TIcon = forwardRef((props: IIconProps, ref: TIco
     </svg>
   );
 });
+FbFolderPlusSolid.displayName = "FbFolderPlusSolid";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/solid/file-folders/folder-open.svg
+ * /var/app/ignore/flowbite-icons/solid/file-folders/folder-open.svg
  */
 
-export const FbFolderOpenSolid: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
-  const { strokeWidth, ...otherProps } = props;
-
+export const FbFolderOpenSolid: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   return (
     <svg
       width="24"
       height="24"
       ref={ref}
-      {...otherProps}
+      {...props}
       xmlns="http://www.w3.org/2000/svg"
       fill="none"
       viewBox="0 0 20 18"
@@ -4469,22 +4306,21 @@ export const FbFolderOpenSolid: TIcon = forwardRef((props: IIconProps, ref: TIco
     </svg>
   );
 });
+FbFolderOpenSolid.displayName = "FbFolderOpenSolid";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/solid/file-folders/folder-duplicate.svg
+ * /var/app/ignore/flowbite-icons/solid/file-folders/folder-duplicate.svg
  */
 
-export const FbFolderDuplicateSolid: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
-  const { strokeWidth, ...otherProps } = props;
-
+export const FbFolderDuplicateSolid: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   return (
     <svg
       width="24"
       height="24"
       ref={ref}
-      {...otherProps}
+      {...props}
       xmlns="http://www.w3.org/2000/svg"
       fill="none"
       viewBox="0 0 19 19"
@@ -4496,20 +4332,19 @@ export const FbFolderDuplicateSolid: TIcon = forwardRef((props: IIconProps, ref:
     </svg>
   );
 });
+FbFolderDuplicateSolid.displayName = "FbFolderDuplicateSolid";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/solid/file-folders/folder-arrow-right.svg
+ * /var/app/ignore/flowbite-icons/solid/file-folders/folder-arrow-right.svg
  */
 
-export const FbFolderArrowRightSolid: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
-  const { strokeWidth, ...otherProps } = props;
-
+export const FbFolderArrowRightSolid: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   return (
     <svg
       ref={ref}
-      {...otherProps}
+      {...props}
       xmlns="http://www.w3.org/2000/svg"
       width="18"
       height="18"
@@ -4523,22 +4358,21 @@ export const FbFolderArrowRightSolid: TIcon = forwardRef((props: IIconProps, ref
     </svg>
   );
 });
+FbFolderArrowRightSolid.displayName = "FbFolderArrowRightSolid";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/solid/file-folders/file.svg
+ * /var/app/ignore/flowbite-icons/solid/file-folders/file.svg
  */
 
-export const FbFileSolid: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
-  const { strokeWidth, ...otherProps } = props;
-
+export const FbFileSolid: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   return (
     <svg
       width="24"
       height="24"
       ref={ref}
-      {...otherProps}
+      {...props}
       xmlns="http://www.w3.org/2000/svg"
       fill="none"
       viewBox="0 0 16 20"
@@ -4550,22 +4384,21 @@ export const FbFileSolid: TIcon = forwardRef((props: IIconProps, ref: TIconRef) 
     </svg>
   );
 });
+FbFileSolid.displayName = "FbFileSolid";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/solid/file-folders/file-zipper.svg
+ * /var/app/ignore/flowbite-icons/solid/file-folders/file-zipper.svg
  */
 
-export const FbFileZipperSolid: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
-  const { strokeWidth, ...otherProps } = props;
-
+export const FbFileZipperSolid: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   return (
     <svg
       width="24"
       height="24"
       ref={ref}
-      {...otherProps}
+      {...props}
       xmlns="http://www.w3.org/2000/svg"
       fill="none"
       viewBox="0 0 16 20"
@@ -4577,22 +4410,21 @@ export const FbFileZipperSolid: TIcon = forwardRef((props: IIconProps, ref: TIco
     </svg>
   );
 });
+FbFileZipperSolid.displayName = "FbFileZipperSolid";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/solid/file-folders/file-wordpress.svg
+ * /var/app/ignore/flowbite-icons/solid/file-folders/file-wordpress.svg
  */
 
-export const FbFileWordpressSolid: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
-  const { strokeWidth, ...otherProps } = props;
-
+export const FbFileWordpressSolid: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   return (
     <svg
       width="24"
       height="24"
       ref={ref}
-      {...otherProps}
+      {...props}
       xmlns="http://www.w3.org/2000/svg"
       fill="none"
       viewBox="0 0 16 20"
@@ -4604,22 +4436,21 @@ export const FbFileWordpressSolid: TIcon = forwardRef((props: IIconProps, ref: T
     </svg>
   );
 });
+FbFileWordpressSolid.displayName = "FbFileWordpressSolid";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/solid/file-folders/file-shield.svg
+ * /var/app/ignore/flowbite-icons/solid/file-folders/file-shield.svg
  */
 
-export const FbFileShieldSolid: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
-  const { strokeWidth, ...otherProps } = props;
-
+export const FbFileShieldSolid: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   return (
     <svg
       width="24"
       height="24"
       ref={ref}
-      {...otherProps}
+      {...props}
       xmlns="http://www.w3.org/2000/svg"
       fill="none"
       viewBox="0 0 20 21"
@@ -4631,20 +4462,19 @@ export const FbFileShieldSolid: TIcon = forwardRef((props: IIconProps, ref: TIco
     </svg>
   );
 });
+FbFileShieldSolid.displayName = "FbFileShieldSolid";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/solid/file-folders/file-search.svg
+ * /var/app/ignore/flowbite-icons/solid/file-folders/file-search.svg
  */
 
-export const FbFileSearchSolid: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
-  const { strokeWidth, ...otherProps } = props;
-
+export const FbFileSearchSolid: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   return (
     <svg
       ref={ref}
-      {...otherProps}
+      {...props}
       xmlns="http://www.w3.org/2000/svg"
       width="16"
       height="20"
@@ -4662,22 +4492,21 @@ export const FbFileSearchSolid: TIcon = forwardRef((props: IIconProps, ref: TIco
     </svg>
   );
 });
+FbFileSearchSolid.displayName = "FbFileSearchSolid";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/solid/file-folders/file-powerpoint.svg
+ * /var/app/ignore/flowbite-icons/solid/file-folders/file-powerpoint.svg
  */
 
-export const FbFilePowerpointSolid: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
-  const { strokeWidth, ...otherProps } = props;
-
+export const FbFilePowerpointSolid: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   return (
     <svg
       width="24"
       height="24"
       ref={ref}
-      {...otherProps}
+      {...props}
       xmlns="http://www.w3.org/2000/svg"
       fill="none"
       viewBox="0 0 20 20"
@@ -4690,22 +4519,21 @@ export const FbFilePowerpointSolid: TIcon = forwardRef((props: IIconProps, ref: 
     </svg>
   );
 });
+FbFilePowerpointSolid.displayName = "FbFilePowerpointSolid";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/solid/file-folders/file-plus.svg
+ * /var/app/ignore/flowbite-icons/solid/file-folders/file-plus.svg
  */
 
-export const FbFilePlusSolid: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
-  const { strokeWidth, ...otherProps } = props;
-
+export const FbFilePlusSolid: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   return (
     <svg
       width="24"
       height="24"
       ref={ref}
-      {...otherProps}
+      {...props}
       xmlns="http://www.w3.org/2000/svg"
       fill="none"
       viewBox="0 0 20 20"
@@ -4717,22 +4545,21 @@ export const FbFilePlusSolid: TIcon = forwardRef((props: IIconProps, ref: TIconR
     </svg>
   );
 });
+FbFilePlusSolid.displayName = "FbFilePlusSolid";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/solid/file-folders/file-pdf.svg
+ * /var/app/ignore/flowbite-icons/solid/file-folders/file-pdf.svg
  */
 
-export const FbFilePdfSolid: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
-  const { strokeWidth, ...otherProps } = props;
-
+export const FbFilePdfSolid: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   return (
     <svg
       width="24"
       height="24"
       ref={ref}
-      {...otherProps}
+      {...props}
       xmlns="http://www.w3.org/2000/svg"
       fill="none"
       viewBox="0 0 20 20"
@@ -4744,22 +4571,21 @@ export const FbFilePdfSolid: TIcon = forwardRef((props: IIconProps, ref: TIconRe
     </svg>
   );
 });
+FbFilePdfSolid.displayName = "FbFilePdfSolid";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/solid/file-folders/file-paste.svg
+ * /var/app/ignore/flowbite-icons/solid/file-folders/file-paste.svg
  */
 
-export const FbFilePasteSolid: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
-  const { strokeWidth, ...otherProps } = props;
-
+export const FbFilePasteSolid: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   return (
     <svg
       width="24"
       height="24"
       ref={ref}
-      {...otherProps}
+      {...props}
       xmlns="http://www.w3.org/2000/svg"
       fill="none"
       viewBox="0 0 20 20"
@@ -4772,22 +4598,21 @@ export const FbFilePasteSolid: TIcon = forwardRef((props: IIconProps, ref: TIcon
     </svg>
   );
 });
+FbFilePasteSolid.displayName = "FbFilePasteSolid";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/solid/file-folders/file-music.svg
+ * /var/app/ignore/flowbite-icons/solid/file-folders/file-music.svg
  */
 
-export const FbFileMusicSolid: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
-  const { strokeWidth, ...otherProps } = props;
-
+export const FbFileMusicSolid: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   return (
     <svg
       width="24"
       height="24"
       ref={ref}
-      {...otherProps}
+      {...props}
       xmlns="http://www.w3.org/2000/svg"
       fill="none"
       viewBox="0 0 16 20"
@@ -4799,22 +4624,21 @@ export const FbFileMusicSolid: TIcon = forwardRef((props: IIconProps, ref: TIcon
     </svg>
   );
 });
+FbFileMusicSolid.displayName = "FbFileMusicSolid";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/solid/file-folders/file-lines.svg
+ * /var/app/ignore/flowbite-icons/solid/file-folders/file-lines.svg
  */
 
-export const FbFileLinesSolid: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
-  const { strokeWidth, ...otherProps } = props;
-
+export const FbFileLinesSolid: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   return (
     <svg
       width="24"
       height="24"
       ref={ref}
-      {...otherProps}
+      {...props}
       xmlns="http://www.w3.org/2000/svg"
       fill="none"
       viewBox="0 0 16 20"
@@ -4826,20 +4650,19 @@ export const FbFileLinesSolid: TIcon = forwardRef((props: IIconProps, ref: TIcon
     </svg>
   );
 });
+FbFileLinesSolid.displayName = "FbFileLinesSolid";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/solid/file-folders/file-invoice.svg
+ * /var/app/ignore/flowbite-icons/solid/file-folders/file-invoice.svg
  */
 
-export const FbFileInvoiceSolid: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
-  const { strokeWidth, ...otherProps } = props;
-
+export const FbFileInvoiceSolid: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   return (
     <svg
       ref={ref}
-      {...otherProps}
+      {...props}
       xmlns="http://www.w3.org/2000/svg"
       width="16"
       height="20"
@@ -4858,22 +4681,21 @@ export const FbFileInvoiceSolid: TIcon = forwardRef((props: IIconProps, ref: TIc
     </svg>
   );
 });
+FbFileInvoiceSolid.displayName = "FbFileInvoiceSolid";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/solid/file-folders/file-import.svg
+ * /var/app/ignore/flowbite-icons/solid/file-folders/file-import.svg
  */
 
-export const FbFileImportSolid: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
-  const { strokeWidth, ...otherProps } = props;
-
+export const FbFileImportSolid: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   return (
     <svg
       width="24"
       height="24"
       ref={ref}
-      {...otherProps}
+      {...props}
       xmlns="http://www.w3.org/2000/svg"
       fill="none"
       viewBox="0 0 16 20"
@@ -4885,22 +4707,21 @@ export const FbFileImportSolid: TIcon = forwardRef((props: IIconProps, ref: TIco
     </svg>
   );
 });
+FbFileImportSolid.displayName = "FbFileImportSolid";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/solid/file-folders/file-image.svg
+ * /var/app/ignore/flowbite-icons/solid/file-folders/file-image.svg
  */
 
-export const FbFileImageSolid: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
-  const { strokeWidth, ...otherProps } = props;
-
+export const FbFileImageSolid: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   return (
     <svg
       width="24"
       height="24"
       ref={ref}
-      {...otherProps}
+      {...props}
       xmlns="http://www.w3.org/2000/svg"
       fill="none"
       viewBox="0 0 16 20"
@@ -4912,22 +4733,21 @@ export const FbFileImageSolid: TIcon = forwardRef((props: IIconProps, ref: TIcon
     </svg>
   );
 });
+FbFileImageSolid.displayName = "FbFileImageSolid";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/solid/file-folders/file-export.svg
+ * /var/app/ignore/flowbite-icons/solid/file-folders/file-export.svg
  */
 
-export const FbFileExportSolid: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
-  const { strokeWidth, ...otherProps } = props;
-
+export const FbFileExportSolid: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   return (
     <svg
       width="24"
       height="24"
       ref={ref}
-      {...otherProps}
+      {...props}
       xmlns="http://www.w3.org/2000/svg"
       fill="none"
       viewBox="0 0 16 20"
@@ -4939,22 +4759,21 @@ export const FbFileExportSolid: TIcon = forwardRef((props: IIconProps, ref: TIco
     </svg>
   );
 });
+FbFileExportSolid.displayName = "FbFileExportSolid";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/solid/file-folders/file-edit.svg
+ * /var/app/ignore/flowbite-icons/solid/file-folders/file-edit.svg
  */
 
-export const FbFileEditSolid: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
-  const { strokeWidth, ...otherProps } = props;
-
+export const FbFileEditSolid: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   return (
     <svg
       width="24"
       height="24"
       ref={ref}
-      {...otherProps}
+      {...props}
       xmlns="http://www.w3.org/2000/svg"
       fill="none"
       viewBox="0 0 20 20"
@@ -4967,22 +4786,21 @@ export const FbFileEditSolid: TIcon = forwardRef((props: IIconProps, ref: TIconR
     </svg>
   );
 });
+FbFileEditSolid.displayName = "FbFileEditSolid";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/solid/file-folders/file-csv.svg
+ * /var/app/ignore/flowbite-icons/solid/file-folders/file-csv.svg
  */
 
-export const FbFileCsvSolid: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
-  const { strokeWidth, ...otherProps } = props;
-
+export const FbFileCsvSolid: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   return (
     <svg
       width="24"
       height="24"
       ref={ref}
-      {...otherProps}
+      {...props}
       xmlns="http://www.w3.org/2000/svg"
       fill="none"
       viewBox="0 0 20 20"
@@ -4994,22 +4812,21 @@ export const FbFileCsvSolid: TIcon = forwardRef((props: IIconProps, ref: TIconRe
     </svg>
   );
 });
+FbFileCsvSolid.displayName = "FbFileCsvSolid";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/solid/file-folders/file-copy.svg
+ * /var/app/ignore/flowbite-icons/solid/file-folders/file-copy.svg
  */
 
-export const FbFileCopySolid: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
-  const { strokeWidth, ...otherProps } = props;
-
+export const FbFileCopySolid: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   return (
     <svg
       width="24"
       height="24"
       ref={ref}
-      {...otherProps}
+      {...props}
       xmlns="http://www.w3.org/2000/svg"
       fill="none"
       viewBox="0 0 18 20"
@@ -5021,22 +4838,21 @@ export const FbFileCopySolid: TIcon = forwardRef((props: IIconProps, ref: TIconR
     </svg>
   );
 });
+FbFileCopySolid.displayName = "FbFileCopySolid";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/solid/file-folders/file-code.svg
+ * /var/app/ignore/flowbite-icons/solid/file-folders/file-code.svg
  */
 
-export const FbFileCodeSolid: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
-  const { strokeWidth, ...otherProps } = props;
-
+export const FbFileCodeSolid: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   return (
     <svg
       width="24"
       height="24"
       ref={ref}
-      {...otherProps}
+      {...props}
       xmlns="http://www.w3.org/2000/svg"
       fill="none"
       viewBox="0 0 16 20"
@@ -5048,22 +4864,21 @@ export const FbFileCodeSolid: TIcon = forwardRef((props: IIconProps, ref: TIconR
     </svg>
   );
 });
+FbFileCodeSolid.displayName = "FbFileCodeSolid";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/solid/file-folders/file-check.svg
+ * /var/app/ignore/flowbite-icons/solid/file-folders/file-check.svg
  */
 
-export const FbFileCheckSolid: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
-  const { strokeWidth, ...otherProps } = props;
-
+export const FbFileCheckSolid: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   return (
     <svg
       width="24"
       height="24"
       ref={ref}
-      {...otherProps}
+      {...props}
       xmlns="http://www.w3.org/2000/svg"
       fill="none"
       viewBox="0 0 16 20"
@@ -5075,22 +4890,21 @@ export const FbFileCheckSolid: TIcon = forwardRef((props: IIconProps, ref: TIcon
     </svg>
   );
 });
+FbFileCheckSolid.displayName = "FbFileCheckSolid";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/solid/file-folders/file-chart-bar.svg
+ * /var/app/ignore/flowbite-icons/solid/file-folders/file-chart-bar.svg
  */
 
-export const FbFileChartBarSolid: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
-  const { strokeWidth, ...otherProps } = props;
-
+export const FbFileChartBarSolid: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   return (
     <svg
       width="24"
       height="24"
       ref={ref}
-      {...otherProps}
+      {...props}
       xmlns="http://www.w3.org/2000/svg"
       fill="none"
       viewBox="0 0 16 20"
@@ -5102,22 +4916,21 @@ export const FbFileChartBarSolid: TIcon = forwardRef((props: IIconProps, ref: TI
     </svg>
   );
 });
+FbFileChartBarSolid.displayName = "FbFileChartBarSolid";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/solid/file-folders/file -video.svg
+ * /var/app/ignore/flowbite-icons/solid/file-folders/file -video.svg
  */
 
-export const FbFileVideoSolid: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
-  const { strokeWidth, ...otherProps } = props;
-
+export const FbFileVideoSolid: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   return (
     <svg
       width="24"
       height="24"
       ref={ref}
-      {...otherProps}
+      {...props}
       xmlns="http://www.w3.org/2000/svg"
       fill="none"
       viewBox="0 0 16 20"
@@ -5129,22 +4942,21 @@ export const FbFileVideoSolid: TIcon = forwardRef((props: IIconProps, ref: TIcon
     </svg>
   );
 });
+FbFileVideoSolid.displayName = "FbFileVideoSolid";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/solid/file-folders/copy.svg
+ * /var/app/ignore/flowbite-icons/solid/file-folders/copy.svg
  */
 
-export const FbCopySolid: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
-  const { strokeWidth, ...otherProps } = props;
-
+export const FbCopySolid: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   return (
     <svg
       width="24"
       height="24"
       ref={ref}
-      {...otherProps}
+      {...props}
       xmlns="http://www.w3.org/2000/svg"
       fill="none"
       viewBox="0 0 16 20"
@@ -5156,22 +4968,21 @@ export const FbCopySolid: TIcon = forwardRef((props: IIconProps, ref: TIconRef) 
     </svg>
   );
 });
+FbCopySolid.displayName = "FbCopySolid";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/solid/file-folders/clone.svg
+ * /var/app/ignore/flowbite-icons/solid/file-folders/clone.svg
  */
 
-export const FbCloneSolid: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
-  const { strokeWidth, ...otherProps } = props;
-
+export const FbCloneSolid: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   return (
     <svg
       width="24"
       height="24"
       ref={ref}
-      {...otherProps}
+      {...props}
       xmlns="http://www.w3.org/2000/svg"
       fill="none"
       viewBox="0 0 20 20"
@@ -5183,22 +4994,21 @@ export const FbCloneSolid: TIcon = forwardRef((props: IIconProps, ref: TIconRef)
     </svg>
   );
 });
+FbCloneSolid.displayName = "FbCloneSolid";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/solid/file-folders/clipboard.svg
+ * /var/app/ignore/flowbite-icons/solid/file-folders/clipboard.svg
  */
 
-export const FbClipboardSolid: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
-  const { strokeWidth, ...otherProps } = props;
-
+export const FbClipboardSolid: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   return (
     <svg
       width="24"
       height="24"
       ref={ref}
-      {...otherProps}
+      {...props}
       xmlns="http://www.w3.org/2000/svg"
       fill="none"
       viewBox="0 0 18 20"
@@ -5210,22 +5020,21 @@ export const FbClipboardSolid: TIcon = forwardRef((props: IIconProps, ref: TIcon
     </svg>
   );
 });
+FbClipboardSolid.displayName = "FbClipboardSolid";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/solid/file-folders/clipboard-list.svg
+ * /var/app/ignore/flowbite-icons/solid/file-folders/clipboard-list.svg
  */
 
-export const FbClipboardListSolid: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
-  const { strokeWidth, ...otherProps } = props;
-
+export const FbClipboardListSolid: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   return (
     <svg
       width="24"
       height="24"
       ref={ref}
-      {...otherProps}
+      {...props}
       xmlns="http://www.w3.org/2000/svg"
       fill="none"
       viewBox="0 0 18 20"
@@ -5237,22 +5046,21 @@ export const FbClipboardListSolid: TIcon = forwardRef((props: IIconProps, ref: T
     </svg>
   );
 });
+FbClipboardListSolid.displayName = "FbClipboardListSolid";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/solid/file-folders/clipboard-check.svg
+ * /var/app/ignore/flowbite-icons/solid/file-folders/clipboard-check.svg
  */
 
-export const FbClipboardCheckSolid: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
-  const { strokeWidth, ...otherProps } = props;
-
+export const FbClipboardCheckSolid: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   return (
     <svg
       width="24"
       height="24"
       ref={ref}
-      {...otherProps}
+      {...props}
       xmlns="http://www.w3.org/2000/svg"
       fill="none"
       viewBox="0 0 18 20"
@@ -5264,20 +5072,19 @@ export const FbClipboardCheckSolid: TIcon = forwardRef((props: IIconProps, ref: 
     </svg>
   );
 });
+FbClipboardCheckSolid.displayName = "FbClipboardCheckSolid";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/solid/file-folders/archive-download.svg
+ * /var/app/ignore/flowbite-icons/solid/file-folders/archive-download.svg
  */
 
-export const FbArchiveDownloadSolid: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
-  const { strokeWidth, ...otherProps } = props;
-
+export const FbArchiveDownloadSolid: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   return (
     <svg
       ref={ref}
-      {...otherProps}
+      {...props}
       xmlns="http://www.w3.org/2000/svg"
       width="18"
       height="15"
@@ -5291,22 +5098,21 @@ export const FbArchiveDownloadSolid: TIcon = forwardRef((props: IIconProps, ref:
     </svg>
   );
 });
+FbArchiveDownloadSolid.displayName = "FbArchiveDownloadSolid";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/solid/emoji/thumbs-up.svg
+ * /var/app/ignore/flowbite-icons/solid/emoji/thumbs-up.svg
  */
 
-export const FbThumbsUpSolid: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
-  const { strokeWidth, ...otherProps } = props;
-
+export const FbThumbsUpSolid: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   return (
     <svg
       width="24"
       height="24"
       ref={ref}
-      {...otherProps}
+      {...props}
       xmlns="http://www.w3.org/2000/svg"
       fill="none"
       viewBox="0 0 18 18"
@@ -5318,22 +5124,21 @@ export const FbThumbsUpSolid: TIcon = forwardRef((props: IIconProps, ref: TIconR
     </svg>
   );
 });
+FbThumbsUpSolid.displayName = "FbThumbsUpSolid";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/solid/emoji/thumbs-down.svg
+ * /var/app/ignore/flowbite-icons/solid/emoji/thumbs-down.svg
  */
 
-export const FbThumbsDownSolid: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
-  const { strokeWidth, ...otherProps } = props;
-
+export const FbThumbsDownSolid: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   return (
     <svg
       width="24"
       height="24"
       ref={ref}
-      {...otherProps}
+      {...props}
       xmlns="http://www.w3.org/2000/svg"
       fill="none"
       viewBox="0 0 18 18"
@@ -5345,22 +5150,21 @@ export const FbThumbsDownSolid: TIcon = forwardRef((props: IIconProps, ref: TIco
     </svg>
   );
 });
+FbThumbsDownSolid.displayName = "FbThumbsDownSolid";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/solid/emoji/face-star-struck.svg
+ * /var/app/ignore/flowbite-icons/solid/emoji/face-star-struck.svg
  */
 
-export const FbFaceStarStruckSolid: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
-  const { strokeWidth, ...otherProps } = props;
-
+export const FbFaceStarStruckSolid: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   return (
     <svg
       width="24"
       height="24"
       ref={ref}
-      {...otherProps}
+      {...props}
       xmlns="http://www.w3.org/2000/svg"
       fill="none"
       viewBox="0 0 20 20"
@@ -5372,22 +5176,21 @@ export const FbFaceStarStruckSolid: TIcon = forwardRef((props: IIconProps, ref: 
     </svg>
   );
 });
+FbFaceStarStruckSolid.displayName = "FbFaceStarStruckSolid";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/solid/emoji/face-mind-blow.svg
+ * /var/app/ignore/flowbite-icons/solid/emoji/face-mind-blow.svg
  */
 
-export const FbFaceMindBlowSolid: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
-  const { strokeWidth, ...otherProps } = props;
-
+export const FbFaceMindBlowSolid: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   return (
     <svg
       width="24"
       height="24"
       ref={ref}
-      {...otherProps}
+      {...props}
       xmlns="http://www.w3.org/2000/svg"
       fill="none"
       viewBox="0 0 20 20"
@@ -5399,22 +5202,21 @@ export const FbFaceMindBlowSolid: TIcon = forwardRef((props: IIconProps, ref: TI
     </svg>
   );
 });
+FbFaceMindBlowSolid.displayName = "FbFaceMindBlowSolid";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/solid/emoji/face-laugh.svg
+ * /var/app/ignore/flowbite-icons/solid/emoji/face-laugh.svg
  */
 
-export const FbFaceLaughSolid: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
-  const { strokeWidth, ...otherProps } = props;
-
+export const FbFaceLaughSolid: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   return (
     <svg
       width="24"
       height="24"
       ref={ref}
-      {...otherProps}
+      {...props}
       xmlns="http://www.w3.org/2000/svg"
       fill="none"
       viewBox="0 0 20 20"
@@ -5426,22 +5228,21 @@ export const FbFaceLaughSolid: TIcon = forwardRef((props: IIconProps, ref: TIcon
     </svg>
   );
 });
+FbFaceLaughSolid.displayName = "FbFaceLaughSolid";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/solid/emoji/face-grin.svg
+ * /var/app/ignore/flowbite-icons/solid/emoji/face-grin.svg
  */
 
-export const FbFaceGrinSolid: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
-  const { strokeWidth, ...otherProps } = props;
-
+export const FbFaceGrinSolid: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   return (
     <svg
       width="24"
       height="24"
       ref={ref}
-      {...otherProps}
+      {...props}
       xmlns="http://www.w3.org/2000/svg"
       fill="none"
       viewBox="0 0 20 20"
@@ -5453,22 +5254,21 @@ export const FbFaceGrinSolid: TIcon = forwardRef((props: IIconProps, ref: TIconR
     </svg>
   );
 });
+FbFaceGrinSolid.displayName = "FbFaceGrinSolid";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/solid/e-commerce/wallet.svg
+ * /var/app/ignore/flowbite-icons/solid/e-commerce/wallet.svg
  */
 
-export const FbWalletSolid: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
-  const { strokeWidth, ...otherProps } = props;
-
+export const FbWalletSolid: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   return (
     <svg
       width="24"
       height="24"
       ref={ref}
-      {...otherProps}
+      {...props}
       xmlns="http://www.w3.org/2000/svg"
       fill="none"
       viewBox="0 0 20 20"
@@ -5480,22 +5280,21 @@ export const FbWalletSolid: TIcon = forwardRef((props: IIconProps, ref: TIconRef
     </svg>
   );
 });
+FbWalletSolid.displayName = "FbWalletSolid";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/solid/e-commerce/user-headset.svg
+ * /var/app/ignore/flowbite-icons/solid/e-commerce/user-headset.svg
  */
 
-export const FbUserHeadsetSolid: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
-  const { strokeWidth, ...otherProps } = props;
-
+export const FbUserHeadsetSolid: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   return (
     <svg
       width="24"
       height="24"
       ref={ref}
-      {...otherProps}
+      {...props}
       xmlns="http://www.w3.org/2000/svg"
       fill="none"
       viewBox="0 0 20 20"
@@ -5507,22 +5306,21 @@ export const FbUserHeadsetSolid: TIcon = forwardRef((props: IIconProps, ref: TIc
     </svg>
   );
 });
+FbUserHeadsetSolid.displayName = "FbUserHeadsetSolid";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/solid/e-commerce/tag.svg
+ * /var/app/ignore/flowbite-icons/solid/e-commerce/tag.svg
  */
 
-export const FbTagSolid: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
-  const { strokeWidth, ...otherProps } = props;
-
+export const FbTagSolid: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   return (
     <svg
       width="24"
       height="24"
       ref={ref}
-      {...otherProps}
+      {...props}
       xmlns="http://www.w3.org/2000/svg"
       fill="none"
       viewBox="0 0 18 18"
@@ -5534,22 +5332,21 @@ export const FbTagSolid: TIcon = forwardRef((props: IIconProps, ref: TIconRef) =
     </svg>
   );
 });
+FbTagSolid.displayName = "FbTagSolid";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/solid/e-commerce/store.svg
+ * /var/app/ignore/flowbite-icons/solid/e-commerce/store.svg
  */
 
-export const FbStoreSolid: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
-  const { strokeWidth, ...otherProps } = props;
-
+export const FbStoreSolid: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   return (
     <svg
       width="24"
       height="24"
       ref={ref}
-      {...otherProps}
+      {...props}
       xmlns="http://www.w3.org/2000/svg"
       fill="none"
       viewBox="0 0 20 20"
@@ -5561,22 +5358,21 @@ export const FbStoreSolid: TIcon = forwardRef((props: IIconProps, ref: TIconRef)
     </svg>
   );
 });
+FbStoreSolid.displayName = "FbStoreSolid";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/solid/e-commerce/shopping-cart.svg
+ * /var/app/ignore/flowbite-icons/solid/e-commerce/shopping-cart.svg
  */
 
-export const FbShoppingCartSolid: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
-  const { strokeWidth, ...otherProps } = props;
-
+export const FbShoppingCartSolid: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   return (
     <svg
       width="24"
       height="24"
       ref={ref}
-      {...otherProps}
+      {...props}
       xmlns="http://www.w3.org/2000/svg"
       fill="none"
       viewBox="0 0 18 21"
@@ -5588,22 +5384,21 @@ export const FbShoppingCartSolid: TIcon = forwardRef((props: IIconProps, ref: TI
     </svg>
   );
 });
+FbShoppingCartSolid.displayName = "FbShoppingCartSolid";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/solid/e-commerce/scale-balance.svg
+ * /var/app/ignore/flowbite-icons/solid/e-commerce/scale-balance.svg
  */
 
-export const FbScaleBalanceSolid: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
-  const { strokeWidth, ...otherProps } = props;
-
+export const FbScaleBalanceSolid: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   return (
     <svg
       width="24"
       height="24"
       ref={ref}
-      {...otherProps}
+      {...props}
       xmlns="http://www.w3.org/2000/svg"
       fill="none"
       viewBox="0 0 20 20"
@@ -5615,22 +5410,21 @@ export const FbScaleBalanceSolid: TIcon = forwardRef((props: IIconProps, ref: TI
     </svg>
   );
 });
+FbScaleBalanceSolid.displayName = "FbScaleBalanceSolid";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/solid/e-commerce/sale-percent.svg
+ * /var/app/ignore/flowbite-icons/solid/e-commerce/sale-percent.svg
  */
 
-export const FbSalePercentSolid: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
-  const { strokeWidth, ...otherProps } = props;
-
+export const FbSalePercentSolid: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   return (
     <svg
       width="24"
       height="24"
       ref={ref}
-      {...otherProps}
+      {...props}
       xmlns="http://www.w3.org/2000/svg"
       fill="none"
       viewBox="0 0 20 20"
@@ -5642,22 +5436,21 @@ export const FbSalePercentSolid: TIcon = forwardRef((props: IIconProps, ref: TIc
     </svg>
   );
 });
+FbSalePercentSolid.displayName = "FbSalePercentSolid";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/solid/e-commerce/receipt.svg
+ * /var/app/ignore/flowbite-icons/solid/e-commerce/receipt.svg
  */
 
-export const FbReceiptSolid: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
-  const { strokeWidth, ...otherProps } = props;
-
+export const FbReceiptSolid: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   return (
     <svg
       width="24"
       height="24"
       ref={ref}
-      {...otherProps}
+      {...props}
       xmlns="http://www.w3.org/2000/svg"
       fill="none"
       viewBox="0 0 14 20"
@@ -5669,22 +5462,21 @@ export const FbReceiptSolid: TIcon = forwardRef((props: IIconProps, ref: TIconRe
     </svg>
   );
 });
+FbReceiptSolid.displayName = "FbReceiptSolid";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/solid/e-commerce/euro.svg
+ * /var/app/ignore/flowbite-icons/solid/e-commerce/euro.svg
  */
 
-export const FbEuroSolid: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
-  const { strokeWidth, ...otherProps } = props;
-
+export const FbEuroSolid: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   return (
     <svg
       width="24"
       height="24"
       ref={ref}
-      {...otherProps}
+      {...props}
       xmlns="http://www.w3.org/2000/svg"
       fill="none"
       viewBox="0 0 15 18"
@@ -5696,22 +5488,21 @@ export const FbEuroSolid: TIcon = forwardRef((props: IIconProps, ref: TIconRef) 
     </svg>
   );
 });
+FbEuroSolid.displayName = "FbEuroSolid";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/solid/e-commerce/dollar.svg
+ * /var/app/ignore/flowbite-icons/solid/e-commerce/dollar.svg
  */
 
-export const FbDollarSolid: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
-  const { strokeWidth, ...otherProps } = props;
-
+export const FbDollarSolid: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   return (
     <svg
       width="24"
       height="24"
       ref={ref}
-      {...otherProps}
+      {...props}
       xmlns="http://www.w3.org/2000/svg"
       fill="none"
       viewBox="0 0 11 20"
@@ -5723,22 +5514,21 @@ export const FbDollarSolid: TIcon = forwardRef((props: IIconProps, ref: TIconRef
     </svg>
   );
 });
+FbDollarSolid.displayName = "FbDollarSolid";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/solid/e-commerce/credit-card.svg
+ * /var/app/ignore/flowbite-icons/solid/e-commerce/credit-card.svg
  */
 
-export const FbCreditCardSolid: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
-  const { strokeWidth, ...otherProps } = props;
-
+export const FbCreditCardSolid: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   return (
     <svg
       width="24"
       height="24"
       ref={ref}
-      {...otherProps}
+      {...props}
       xmlns="http://www.w3.org/2000/svg"
       fill="none"
       viewBox="0 0 20 14"
@@ -5750,22 +5540,21 @@ export const FbCreditCardSolid: TIcon = forwardRef((props: IIconProps, ref: TIco
     </svg>
   );
 });
+FbCreditCardSolid.displayName = "FbCreditCardSolid";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/solid/e-commerce/cash.svg
+ * /var/app/ignore/flowbite-icons/solid/e-commerce/cash.svg
  */
 
-export const FbCashSolid: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
-  const { strokeWidth, ...otherProps } = props;
-
+export const FbCashSolid: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   return (
     <svg
       width="24"
       height="24"
       ref={ref}
-      {...otherProps}
+      {...props}
       xmlns="http://www.w3.org/2000/svg"
       fill="none"
       viewBox="0 0 20 16"
@@ -5785,22 +5574,21 @@ export const FbCashSolid: TIcon = forwardRef((props: IIconProps, ref: TIconRef) 
     </svg>
   );
 });
+FbCashSolid.displayName = "FbCashSolid";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/solid/e-commerce/cart-plus.svg
+ * /var/app/ignore/flowbite-icons/solid/e-commerce/cart-plus.svg
  */
 
-export const FbCartPlusSolid: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
-  const { strokeWidth, ...otherProps } = props;
-
+export const FbCartPlusSolid: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   return (
     <svg
       width="24"
       height="24"
       ref={ref}
-      {...otherProps}
+      {...props}
       xmlns="http://www.w3.org/2000/svg"
       fill="none"
       viewBox="0 0 20 20"
@@ -5812,22 +5600,21 @@ export const FbCartPlusSolid: TIcon = forwardRef((props: IIconProps, ref: TIconR
     </svg>
   );
 });
+FbCartPlusSolid.displayName = "FbCartPlusSolid";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/solid/e-commerce/cart-plus-alt.svg
+ * /var/app/ignore/flowbite-icons/solid/e-commerce/cart-plus-alt.svg
  */
 
-export const FbCartPlusAltSolid: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
-  const { strokeWidth, ...otherProps } = props;
-
+export const FbCartPlusAltSolid: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   return (
     <svg
       width="24"
       height="24"
       ref={ref}
-      {...otherProps}
+      {...props}
       xmlns="http://www.w3.org/2000/svg"
       fill="none"
       viewBox="0 0 20 21"
@@ -5839,22 +5626,21 @@ export const FbCartPlusAltSolid: TIcon = forwardRef((props: IIconProps, ref: TIc
     </svg>
   );
 });
+FbCartPlusAltSolid.displayName = "FbCartPlusAltSolid";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/solid/e-commerce/bag.svg
+ * /var/app/ignore/flowbite-icons/solid/e-commerce/bag.svg
  */
 
-export const FbBagSolid: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
-  const { strokeWidth, ...otherProps } = props;
-
+export const FbBagSolid: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   return (
     <svg
       width="24"
       height="24"
       ref={ref}
-      {...otherProps}
+      {...props}
       xmlns="http://www.w3.org/2000/svg"
       fill="none"
       viewBox="0 0 18 20"
@@ -5866,22 +5652,21 @@ export const FbBagSolid: TIcon = forwardRef((props: IIconProps, ref: TIconRef) =
     </svg>
   );
 });
+FbBagSolid.displayName = "FbBagSolid";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/solid/brands/youtube.svg
+ * /var/app/ignore/flowbite-icons/solid/brands/youtube.svg
  */
 
-export const FbYoutubeSolid: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
-  const { strokeWidth, ...otherProps } = props;
-
+export const FbYoutubeSolid: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   return (
     <svg
       width="24"
       height="24"
       ref={ref}
-      {...otherProps}
+      {...props}
       xmlns="http://www.w3.org/2000/svg"
       fill="none"
       viewBox="0 0 20 14"
@@ -5895,20 +5680,19 @@ export const FbYoutubeSolid: TIcon = forwardRef((props: IIconProps, ref: TIconRe
     </svg>
   );
 });
+FbYoutubeSolid.displayName = "FbYoutubeSolid";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/solid/brands/x-company.svg
+ * /var/app/ignore/flowbite-icons/solid/brands/x-company.svg
  */
 
-export const FbXCompanySolid: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
-  const { strokeWidth, ...otherProps } = props;
-
+export const FbXCompanySolid: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   return (
     <svg
       ref={ref}
-      {...otherProps}
+      {...props}
       xmlns="http://www.w3.org/2000/svg"
       width="20"
       height="20"
@@ -5922,20 +5706,19 @@ export const FbXCompanySolid: TIcon = forwardRef((props: IIconProps, ref: TIconR
     </svg>
   );
 });
+FbXCompanySolid.displayName = "FbXCompanySolid";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/solid/brands/vue.svg
+ * /var/app/ignore/flowbite-icons/solid/brands/vue.svg
  */
 
-export const FbVueSolid: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
-  const { strokeWidth, ...otherProps } = props;
-
+export const FbVueSolid: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   return (
     <svg
       ref={ref}
-      {...otherProps}
+      {...props}
       xmlns="http://www.w3.org/2000/svg"
       width="20"
       height="18"
@@ -5949,22 +5732,21 @@ export const FbVueSolid: TIcon = forwardRef((props: IIconProps, ref: TIconRef) =
     </svg>
   );
 });
+FbVueSolid.displayName = "FbVueSolid";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/solid/brands/twitter.svg
+ * /var/app/ignore/flowbite-icons/solid/brands/twitter.svg
  */
 
-export const FbTwitterSolid: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
-  const { strokeWidth, ...otherProps } = props;
-
+export const FbTwitterSolid: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   return (
     <svg
       width="24"
       height="24"
       ref={ref}
-      {...otherProps}
+      {...props}
       xmlns="http://www.w3.org/2000/svg"
       fill="none"
       viewBox="0 0 20 17"
@@ -5978,20 +5760,19 @@ export const FbTwitterSolid: TIcon = forwardRef((props: IIconProps, ref: TIconRe
     </svg>
   );
 });
+FbTwitterSolid.displayName = "FbTwitterSolid";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/solid/brands/tailwind.svg
+ * /var/app/ignore/flowbite-icons/solid/brands/tailwind.svg
  */
 
-export const FbTailwindSolid: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
-  const { strokeWidth, ...otherProps } = props;
-
+export const FbTailwindSolid: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   return (
     <svg
       ref={ref}
-      {...otherProps}
+      {...props}
       xmlns="http://www.w3.org/2000/svg"
       width="20"
       height="14"
@@ -6005,22 +5786,21 @@ export const FbTailwindSolid: TIcon = forwardRef((props: IIconProps, ref: TIconR
     </svg>
   );
 });
+FbTailwindSolid.displayName = "FbTailwindSolid";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/solid/brands/stackoverflow.svg
+ * /var/app/ignore/flowbite-icons/solid/brands/stackoverflow.svg
  */
 
-export const FbStackoverflowSolid: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
-  const { strokeWidth, ...otherProps } = props;
-
+export const FbStackoverflowSolid: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   return (
     <svg
       width="24"
       height="24"
       ref={ref}
-      {...otherProps}
+      {...props}
       xmlns="http://www.w3.org/2000/svg"
       fill="none"
       viewBox="0 0 18 21"
@@ -6032,20 +5812,19 @@ export const FbStackoverflowSolid: TIcon = forwardRef((props: IIconProps, ref: T
     </svg>
   );
 });
+FbStackoverflowSolid.displayName = "FbStackoverflowSolid";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/solid/brands/react.svg
+ * /var/app/ignore/flowbite-icons/solid/brands/react.svg
  */
 
-export const FbReactSolid: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
-  const { strokeWidth, ...otherProps } = props;
-
+export const FbReactSolid: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   return (
     <svg
       ref={ref}
-      {...otherProps}
+      {...props}
       xmlns="http://www.w3.org/2000/svg"
       width="20"
       height="18"
@@ -6063,14 +5842,15 @@ export const FbReactSolid: TIcon = forwardRef((props: IIconProps, ref: TIconRef)
     </svg>
   );
 });
+FbReactSolid.displayName = "FbReactSolid";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/solid/brands/npm.svg
+ * /var/app/ignore/flowbite-icons/solid/brands/npm.svg
  */
 
-export const FbNpmSolid: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
+export const FbNpmSolid: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   const { strokeWidth, ...otherProps } = props;
 
   return (
@@ -6094,22 +5874,21 @@ export const FbNpmSolid: TIcon = forwardRef((props: IIconProps, ref: TIconRef) =
     </svg>
   );
 });
+FbNpmSolid.displayName = "FbNpmSolid";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/solid/brands/linkedin.svg
+ * /var/app/ignore/flowbite-icons/solid/brands/linkedin.svg
  */
 
-export const FbLinkedinSolid: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
-  const { strokeWidth, ...otherProps } = props;
-
+export const FbLinkedinSolid: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   return (
     <svg
       width="24"
       height="24"
       ref={ref}
-      {...otherProps}
+      {...props}
       xmlns="http://www.w3.org/2000/svg"
       fill="none"
       viewBox="0 0 15 15"
@@ -6125,20 +5904,19 @@ export const FbLinkedinSolid: TIcon = forwardRef((props: IIconProps, ref: TIconR
     </svg>
   );
 });
+FbLinkedinSolid.displayName = "FbLinkedinSolid";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/solid/brands/html.svg
+ * /var/app/ignore/flowbite-icons/solid/brands/html.svg
  */
 
-export const FbHtmlSolid: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
-  const { strokeWidth, ...otherProps } = props;
-
+export const FbHtmlSolid: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   return (
     <svg
       ref={ref}
-      {...otherProps}
+      {...props}
       xmlns="http://www.w3.org/2000/svg"
       width="20"
       height="20"
@@ -6152,22 +5930,21 @@ export const FbHtmlSolid: TIcon = forwardRef((props: IIconProps, ref: TIconRef) 
     </svg>
   );
 });
+FbHtmlSolid.displayName = "FbHtmlSolid";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/solid/brands/google.svg
+ * /var/app/ignore/flowbite-icons/solid/brands/google.svg
  */
 
-export const FbGoogleSolid: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
-  const { strokeWidth, ...otherProps } = props;
-
+export const FbGoogleSolid: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   return (
     <svg
       width="24"
       height="24"
       ref={ref}
-      {...otherProps}
+      {...props}
       xmlns="http://www.w3.org/2000/svg"
       fill="none"
       viewBox="0 0 18 19"
@@ -6181,22 +5958,21 @@ export const FbGoogleSolid: TIcon = forwardRef((props: IIconProps, ref: TIconRef
     </svg>
   );
 });
+FbGoogleSolid.displayName = "FbGoogleSolid";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/solid/brands/github.svg
+ * /var/app/ignore/flowbite-icons/solid/brands/github.svg
  */
 
-export const FbGithubSolid: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
-  const { strokeWidth, ...otherProps } = props;
-
+export const FbGithubSolid: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   return (
     <svg
       width="24"
       height="24"
       ref={ref}
-      {...otherProps}
+      {...props}
       xmlns="http://www.w3.org/2000/svg"
       fill="none"
       viewBox="0 0 20 20"
@@ -6210,20 +5986,19 @@ export const FbGithubSolid: TIcon = forwardRef((props: IIconProps, ref: TIconRef
     </svg>
   );
 });
+FbGithubSolid.displayName = "FbGithubSolid";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/solid/brands/flowbite.svg
+ * /var/app/ignore/flowbite-icons/solid/brands/flowbite.svg
  */
 
-export const FbFlowbiteSolid: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
-  const { strokeWidth, ...otherProps } = props;
-
+export const FbFlowbiteSolid: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   return (
     <svg
       ref={ref}
-      {...otherProps}
+      {...props}
       xmlns="http://www.w3.org/2000/svg"
       width="22"
       height="22"
@@ -6249,22 +6024,21 @@ export const FbFlowbiteSolid: TIcon = forwardRef((props: IIconProps, ref: TIconR
     </svg>
   );
 });
+FbFlowbiteSolid.displayName = "FbFlowbiteSolid";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/solid/brands/facebook.svg
+ * /var/app/ignore/flowbite-icons/solid/brands/facebook.svg
  */
 
-export const FbFacebookSolid: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
-  const { strokeWidth, ...otherProps } = props;
-
+export const FbFacebookSolid: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   return (
     <svg
       width="24"
       height="24"
       ref={ref}
-      {...otherProps}
+      {...props}
       xmlns="http://www.w3.org/2000/svg"
       fill="none"
       viewBox="0 0 8 19"
@@ -6278,22 +6052,21 @@ export const FbFacebookSolid: TIcon = forwardRef((props: IIconProps, ref: TIconR
     </svg>
   );
 });
+FbFacebookSolid.displayName = "FbFacebookSolid";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/solid/brands/dropbox.svg
+ * /var/app/ignore/flowbite-icons/solid/brands/dropbox.svg
  */
 
-export const FbDropboxSolid: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
-  const { strokeWidth, ...otherProps } = props;
-
+export const FbDropboxSolid: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   return (
     <svg
       width="24"
       height="24"
       ref={ref}
-      {...otherProps}
+      {...props}
       xmlns="http://www.w3.org/2000/svg"
       fill="none"
       viewBox="0 0 20 19"
@@ -6305,22 +6078,21 @@ export const FbDropboxSolid: TIcon = forwardRef((props: IIconProps, ref: TIconRe
     </svg>
   );
 });
+FbDropboxSolid.displayName = "FbDropboxSolid";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/solid/brands/dribbble.svg
+ * /var/app/ignore/flowbite-icons/solid/brands/dribbble.svg
  */
 
-export const FbDribbbleSolid: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
-  const { strokeWidth, ...otherProps } = props;
-
+export const FbDribbbleSolid: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   return (
     <svg
       width="24"
       height="24"
       ref={ref}
-      {...otherProps}
+      {...props}
       xmlns="http://www.w3.org/2000/svg"
       fill="none"
       viewBox="0 0 20 20"
@@ -6334,22 +6106,21 @@ export const FbDribbbleSolid: TIcon = forwardRef((props: IIconProps, ref: TIconR
     </svg>
   );
 });
+FbDribbbleSolid.displayName = "FbDribbbleSolid";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/solid/brands/discord.svg
+ * /var/app/ignore/flowbite-icons/solid/brands/discord.svg
  */
 
-export const FbDiscordSolid: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
-  const { strokeWidth, ...otherProps } = props;
-
+export const FbDiscordSolid: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   return (
     <svg
       width="24"
       height="24"
       ref={ref}
-      {...otherProps}
+      {...props}
       xmlns="http://www.w3.org/2000/svg"
       fill="none"
       viewBox="0 0 21 16"
@@ -6361,20 +6132,19 @@ export const FbDiscordSolid: TIcon = forwardRef((props: IIconProps, ref: TIconRe
     </svg>
   );
 });
+FbDiscordSolid.displayName = "FbDiscordSolid";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/solid/brands/css.svg
+ * /var/app/ignore/flowbite-icons/solid/brands/css.svg
  */
 
-export const FbCssSolid: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
-  const { strokeWidth, ...otherProps } = props;
-
+export const FbCssSolid: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   return (
     <svg
       ref={ref}
-      {...otherProps}
+      {...props}
       xmlns="http://www.w3.org/2000/svg"
       width="20"
       height="20"
@@ -6388,20 +6158,19 @@ export const FbCssSolid: TIcon = forwardRef((props: IIconProps, ref: TIconRef) =
     </svg>
   );
 });
+FbCssSolid.displayName = "FbCssSolid";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/solid/brands/apple.svg
+ * /var/app/ignore/flowbite-icons/solid/brands/apple.svg
  */
 
-export const FbAppleSolid: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
-  const { strokeWidth, ...otherProps } = props;
-
+export const FbAppleSolid: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   return (
     <svg
       ref={ref}
-      {...otherProps}
+      {...props}
       xmlns="http://www.w3.org/2000/svg"
       width="18"
       height="21"
@@ -6415,22 +6184,21 @@ export const FbAppleSolid: TIcon = forwardRef((props: IIconProps, ref: TIconRef)
     </svg>
   );
 });
+FbAppleSolid.displayName = "FbAppleSolid";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/solid/arrows/sort-vertical.svg
+ * /var/app/ignore/flowbite-icons/solid/arrows/sort-vertical.svg
  */
 
-export const FbSortVerticalSolid: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
-  const { strokeWidth, ...otherProps } = props;
-
+export const FbSortVerticalSolid: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   return (
     <svg
       width="24"
       height="24"
       ref={ref}
-      {...otherProps}
+      {...props}
       xmlns="http://www.w3.org/2000/svg"
       fill="none"
       viewBox="0 0 14 20"
@@ -6442,22 +6210,21 @@ export const FbSortVerticalSolid: TIcon = forwardRef((props: IIconProps, ref: TI
     </svg>
   );
 });
+FbSortVerticalSolid.displayName = "FbSortVerticalSolid";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/solid/arrows/sort-horizontal.svg
+ * /var/app/ignore/flowbite-icons/solid/arrows/sort-horizontal.svg
  */
 
-export const FbSortHorizontalSolid: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
-  const { strokeWidth, ...otherProps } = props;
-
+export const FbSortHorizontalSolid: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   return (
     <svg
       width="24"
       height="24"
       ref={ref}
-      {...otherProps}
+      {...props}
       xmlns="http://www.w3.org/2000/svg"
       fill="none"
       viewBox="0 0 18 14"
@@ -6469,22 +6236,21 @@ export const FbSortHorizontalSolid: TIcon = forwardRef((props: IIconProps, ref: 
     </svg>
   );
 });
+FbSortHorizontalSolid.displayName = "FbSortHorizontalSolid";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/solid/arrows/share-all.svg
+ * /var/app/ignore/flowbite-icons/solid/arrows/share-all.svg
  */
 
-export const FbShareAllSolid: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
-  const { strokeWidth, ...otherProps } = props;
-
+export const FbShareAllSolid: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   return (
     <svg
       width="24"
       height="24"
       ref={ref}
-      {...otherProps}
+      {...props}
       xmlns="http://www.w3.org/2000/svg"
       fill="none"
       viewBox="0 0 21 15"
@@ -6496,20 +6262,19 @@ export const FbShareAllSolid: TIcon = forwardRef((props: IIconProps, ref: TIconR
     </svg>
   );
 });
+FbShareAllSolid.displayName = "FbShareAllSolid";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/solid/arrows/reply.svg
+ * /var/app/ignore/flowbite-icons/solid/arrows/reply.svg
  */
 
-export const FbReplySolid: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
-  const { strokeWidth, ...otherProps } = props;
-
+export const FbReplySolid: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   return (
     <svg
       ref={ref}
-      {...otherProps}
+      {...props}
       xmlns="http://www.w3.org/2000/svg"
       width="19"
       height="16"
@@ -6523,22 +6288,21 @@ export const FbReplySolid: TIcon = forwardRef((props: IIconProps, ref: TIconRef)
     </svg>
   );
 });
+FbReplySolid.displayName = "FbReplySolid";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/solid/arrows/reply-all.svg
+ * /var/app/ignore/flowbite-icons/solid/arrows/reply-all.svg
  */
 
-export const FbReplyAllSolid: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
-  const { strokeWidth, ...otherProps } = props;
-
+export const FbReplyAllSolid: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   return (
     <svg
       width="24"
       height="24"
       ref={ref}
-      {...otherProps}
+      {...props}
       xmlns="http://www.w3.org/2000/svg"
       fill="none"
       viewBox="0 0 20 14"
@@ -6550,22 +6314,21 @@ export const FbReplyAllSolid: TIcon = forwardRef((props: IIconProps, ref: TIconR
     </svg>
   );
 });
+FbReplyAllSolid.displayName = "FbReplyAllSolid";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/solid/arrows/minimize.svg
+ * /var/app/ignore/flowbite-icons/solid/arrows/minimize.svg
  */
 
-export const FbMinimizeSolid: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
-  const { strokeWidth, ...otherProps } = props;
-
+export const FbMinimizeSolid: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   return (
     <svg
       width="24"
       height="24"
       ref={ref}
-      {...otherProps}
+      {...props}
       xmlns="http://www.w3.org/2000/svg"
       fill="none"
       viewBox="0 0 20 20"
@@ -6577,22 +6340,21 @@ export const FbMinimizeSolid: TIcon = forwardRef((props: IIconProps, ref: TIconR
     </svg>
   );
 });
+FbMinimizeSolid.displayName = "FbMinimizeSolid";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/solid/arrows/forward.svg
+ * /var/app/ignore/flowbite-icons/solid/arrows/forward.svg
  */
 
-export const FbForwardSolid: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
-  const { strokeWidth, ...otherProps } = props;
-
+export const FbForwardSolid: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   return (
     <svg
       width="24"
       height="24"
       ref={ref}
-      {...otherProps}
+      {...props}
       xmlns="http://www.w3.org/2000/svg"
       fill="none"
       viewBox="0 0 19 17"
@@ -6604,22 +6366,21 @@ export const FbForwardSolid: TIcon = forwardRef((props: IIconProps, ref: TIconRe
     </svg>
   );
 });
+FbForwardSolid.displayName = "FbForwardSolid";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/solid/arrows/expand.svg
+ * /var/app/ignore/flowbite-icons/solid/arrows/expand.svg
  */
 
-export const FbExpandSolid: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
-  const { strokeWidth, ...otherProps } = props;
-
+export const FbExpandSolid: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   return (
     <svg
       width="24"
       height="24"
       ref={ref}
-      {...otherProps}
+      {...props}
       xmlns="http://www.w3.org/2000/svg"
       fill="none"
       viewBox="0 0 18 18"
@@ -6631,22 +6392,21 @@ export const FbExpandSolid: TIcon = forwardRef((props: IIconProps, ref: TIconRef
     </svg>
   );
 });
+FbExpandSolid.displayName = "FbExpandSolid";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/solid/arrows/cotate.svg
+ * /var/app/ignore/flowbite-icons/solid/arrows/cotate.svg
  */
 
-export const FbCotateSolid: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
-  const { strokeWidth, ...otherProps } = props;
-
+export const FbCotateSolid: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   return (
     <svg
       width="24"
       height="24"
       ref={ref}
-      {...otherProps}
+      {...props}
       xmlns="http://www.w3.org/2000/svg"
       fill="none"
       viewBox="0 0 18 20"
@@ -6658,22 +6418,21 @@ export const FbCotateSolid: TIcon = forwardRef((props: IIconProps, ref: TIconRef
     </svg>
   );
 });
+FbCotateSolid.displayName = "FbCotateSolid";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/solid/arrows/compress.svg
+ * /var/app/ignore/flowbite-icons/solid/arrows/compress.svg
  */
 
-export const FbCompressSolid: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
-  const { strokeWidth, ...otherProps } = props;
-
+export const FbCompressSolid: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   return (
     <svg
       width="24"
       height="24"
       ref={ref}
-      {...otherProps}
+      {...props}
       xmlns="http://www.w3.org/2000/svg"
       fill="none"
       viewBox="0 0 18 18"
@@ -6685,22 +6444,21 @@ export const FbCompressSolid: TIcon = forwardRef((props: IIconProps, ref: TIconR
     </svg>
   );
 });
+FbCompressSolid.displayName = "FbCompressSolid";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/solid/arrows/chevron-up.svg
+ * /var/app/ignore/flowbite-icons/solid/arrows/chevron-up.svg
  */
 
-export const FbChevronUpSolid: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
-  const { strokeWidth, ...otherProps } = props;
-
+export const FbChevronUpSolid: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   return (
     <svg
       width="24"
       height="24"
       ref={ref}
-      {...otherProps}
+      {...props}
       xmlns="http://www.w3.org/2000/svg"
       fill="none"
       viewBox="0 0 10 6"
@@ -6712,22 +6470,21 @@ export const FbChevronUpSolid: TIcon = forwardRef((props: IIconProps, ref: TIcon
     </svg>
   );
 });
+FbChevronUpSolid.displayName = "FbChevronUpSolid";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/solid/arrows/chevron-sort.svg
+ * /var/app/ignore/flowbite-icons/solid/arrows/chevron-sort.svg
  */
 
-export const FbChevronSortSolid: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
-  const { strokeWidth, ...otherProps } = props;
-
+export const FbChevronSortSolid: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   return (
     <svg
       width="24"
       height="24"
       ref={ref}
-      {...otherProps}
+      {...props}
       xmlns="http://www.w3.org/2000/svg"
       fill="none"
       viewBox="0 0 11 16"
@@ -6739,22 +6496,21 @@ export const FbChevronSortSolid: TIcon = forwardRef((props: IIconProps, ref: TIc
     </svg>
   );
 });
+FbChevronSortSolid.displayName = "FbChevronSortSolid";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/solid/arrows/chevron-right.svg
+ * /var/app/ignore/flowbite-icons/solid/arrows/chevron-right.svg
  */
 
-export const FbChevronRightSolid: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
-  const { strokeWidth, ...otherProps } = props;
-
+export const FbChevronRightSolid: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   return (
     <svg
       width="24"
       height="24"
       ref={ref}
-      {...otherProps}
+      {...props}
       xmlns="http://www.w3.org/2000/svg"
       fill="none"
       viewBox="0 0 6 10"
@@ -6766,22 +6522,21 @@ export const FbChevronRightSolid: TIcon = forwardRef((props: IIconProps, ref: TI
     </svg>
   );
 });
+FbChevronRightSolid.displayName = "FbChevronRightSolid";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/solid/arrows/chevron-left.svg
+ * /var/app/ignore/flowbite-icons/solid/arrows/chevron-left.svg
  */
 
-export const FbChevronLeftSolid: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
-  const { strokeWidth, ...otherProps } = props;
-
+export const FbChevronLeftSolid: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   return (
     <svg
       width="24"
       height="24"
       ref={ref}
-      {...otherProps}
+      {...props}
       xmlns="http://www.w3.org/2000/svg"
       fill="none"
       viewBox="0 0 6 10"
@@ -6793,22 +6548,21 @@ export const FbChevronLeftSolid: TIcon = forwardRef((props: IIconProps, ref: TIc
     </svg>
   );
 });
+FbChevronLeftSolid.displayName = "FbChevronLeftSolid";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/solid/arrows/chevron-down.svg
+ * /var/app/ignore/flowbite-icons/solid/arrows/chevron-down.svg
  */
 
-export const FbChevronDownSolid: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
-  const { strokeWidth, ...otherProps } = props;
-
+export const FbChevronDownSolid: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   return (
     <svg
       width="24"
       height="24"
       ref={ref}
-      {...otherProps}
+      {...props}
       xmlns="http://www.w3.org/2000/svg"
       fill="none"
       viewBox="0 0 10 6"
@@ -6820,22 +6574,21 @@ export const FbChevronDownSolid: TIcon = forwardRef((props: IIconProps, ref: TIc
     </svg>
   );
 });
+FbChevronDownSolid.displayName = "FbChevronDownSolid";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/solid/arrows/chervon-double-up.svg
+ * /var/app/ignore/flowbite-icons/solid/arrows/chervon-double-up.svg
  */
 
-export const FbChervonDoubleUpSolid: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
-  const { strokeWidth, ...otherProps } = props;
-
+export const FbChervonDoubleUpSolid: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   return (
     <svg
       width="24"
       height="24"
       ref={ref}
-      {...otherProps}
+      {...props}
       xmlns="http://www.w3.org/2000/svg"
       fill="none"
       viewBox="0 0 10 12"
@@ -6847,22 +6600,21 @@ export const FbChervonDoubleUpSolid: TIcon = forwardRef((props: IIconProps, ref:
     </svg>
   );
 });
+FbChervonDoubleUpSolid.displayName = "FbChervonDoubleUpSolid";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/solid/arrows/chervon-double-right.svg
+ * /var/app/ignore/flowbite-icons/solid/arrows/chervon-double-right.svg
  */
 
-export const FbChervonDoubleRightSolid: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
-  const { strokeWidth, ...otherProps } = props;
-
+export const FbChervonDoubleRightSolid: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   return (
     <svg
       width="24"
       height="24"
       ref={ref}
-      {...otherProps}
+      {...props}
       xmlns="http://www.w3.org/2000/svg"
       fill="none"
       viewBox="0 0 12 10"
@@ -6874,22 +6626,21 @@ export const FbChervonDoubleRightSolid: TIcon = forwardRef((props: IIconProps, r
     </svg>
   );
 });
+FbChervonDoubleRightSolid.displayName = "FbChervonDoubleRightSolid";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/solid/arrows/chervon-double-left.svg
+ * /var/app/ignore/flowbite-icons/solid/arrows/chervon-double-left.svg
  */
 
-export const FbChervonDoubleLeftSolid: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
-  const { strokeWidth, ...otherProps } = props;
-
+export const FbChervonDoubleLeftSolid: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   return (
     <svg
       width="24"
       height="24"
       ref={ref}
-      {...otherProps}
+      {...props}
       xmlns="http://www.w3.org/2000/svg"
       fill="none"
       viewBox="0 0 12 10"
@@ -6901,22 +6652,21 @@ export const FbChervonDoubleLeftSolid: TIcon = forwardRef((props: IIconProps, re
     </svg>
   );
 });
+FbChervonDoubleLeftSolid.displayName = "FbChervonDoubleLeftSolid";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/solid/arrows/chervon-double-down.svg
+ * /var/app/ignore/flowbite-icons/solid/arrows/chervon-double-down.svg
  */
 
-export const FbChervonDoubleDownSolid: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
-  const { strokeWidth, ...otherProps } = props;
-
+export const FbChervonDoubleDownSolid: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   return (
     <svg
       width="24"
       height="24"
       ref={ref}
-      {...otherProps}
+      {...props}
       xmlns="http://www.w3.org/2000/svg"
       fill="none"
       viewBox="0 0 10 12"
@@ -6928,22 +6678,21 @@ export const FbChervonDoubleDownSolid: TIcon = forwardRef((props: IIconProps, re
     </svg>
   );
 });
+FbChervonDoubleDownSolid.displayName = "FbChervonDoubleDownSolid";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/solid/arrows/caret-up.svg
+ * /var/app/ignore/flowbite-icons/solid/arrows/caret-up.svg
  */
 
-export const FbCaretUpSolid: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
-  const { strokeWidth, ...otherProps } = props;
-
+export const FbCaretUpSolid: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   return (
     <svg
       width="24"
       height="24"
       ref={ref}
-      {...otherProps}
+      {...props}
       xmlns="http://www.w3.org/2000/svg"
       fill="none"
       viewBox="0 0 16 10"
@@ -6955,22 +6704,21 @@ export const FbCaretUpSolid: TIcon = forwardRef((props: IIconProps, ref: TIconRe
     </svg>
   );
 });
+FbCaretUpSolid.displayName = "FbCaretUpSolid";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/solid/arrows/caret-sort.svg
+ * /var/app/ignore/flowbite-icons/solid/arrows/caret-sort.svg
  */
 
-export const FbCaretSortSolid: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
-  const { strokeWidth, ...otherProps } = props;
-
+export const FbCaretSortSolid: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   return (
     <svg
       width="24"
       height="24"
       ref={ref}
-      {...otherProps}
+      {...props}
       xmlns="http://www.w3.org/2000/svg"
       fill="none"
       viewBox="0 0 12 21"
@@ -6982,22 +6730,21 @@ export const FbCaretSortSolid: TIcon = forwardRef((props: IIconProps, ref: TIcon
     </svg>
   );
 });
+FbCaretSortSolid.displayName = "FbCaretSortSolid";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/solid/arrows/caret-right.svg
+ * /var/app/ignore/flowbite-icons/solid/arrows/caret-right.svg
  */
 
-export const FbCaretRightSolid: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
-  const { strokeWidth, ...otherProps } = props;
-
+export const FbCaretRightSolid: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   return (
     <svg
       width="24"
       height="24"
       ref={ref}
-      {...otherProps}
+      {...props}
       xmlns="http://www.w3.org/2000/svg"
       fill="none"
       viewBox="0 0 10 16"
@@ -7009,22 +6756,21 @@ export const FbCaretRightSolid: TIcon = forwardRef((props: IIconProps, ref: TIco
     </svg>
   );
 });
+FbCaretRightSolid.displayName = "FbCaretRightSolid";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/solid/arrows/caret-left.svg
+ * /var/app/ignore/flowbite-icons/solid/arrows/caret-left.svg
  */
 
-export const FbCaretLeftSolid: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
-  const { strokeWidth, ...otherProps } = props;
-
+export const FbCaretLeftSolid: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   return (
     <svg
       width="24"
       height="24"
       ref={ref}
-      {...otherProps}
+      {...props}
       xmlns="http://www.w3.org/2000/svg"
       fill="none"
       viewBox="0 0 10 16"
@@ -7036,22 +6782,21 @@ export const FbCaretLeftSolid: TIcon = forwardRef((props: IIconProps, ref: TIcon
     </svg>
   );
 });
+FbCaretLeftSolid.displayName = "FbCaretLeftSolid";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/solid/arrows/caret-down.svg
+ * /var/app/ignore/flowbite-icons/solid/arrows/caret-down.svg
  */
 
-export const FbCaretDownSolid: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
-  const { strokeWidth, ...otherProps } = props;
-
+export const FbCaretDownSolid: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   return (
     <svg
       width="24"
       height="24"
       ref={ref}
-      {...otherProps}
+      {...props}
       xmlns="http://www.w3.org/2000/svg"
       fill="none"
       viewBox="0 0 16 10"
@@ -7063,22 +6808,21 @@ export const FbCaretDownSolid: TIcon = forwardRef((props: IIconProps, ref: TIcon
     </svg>
   );
 });
+FbCaretDownSolid.displayName = "FbCaretDownSolid";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/solid/arrows/arrows-repeat.svg
+ * /var/app/ignore/flowbite-icons/solid/arrows/arrows-repeat.svg
  */
 
-export const FbArrowsRepeatSolid: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
-  const { strokeWidth, ...otherProps } = props;
-
+export const FbArrowsRepeatSolid: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   return (
     <svg
       width="24"
       height="24"
       ref={ref}
-      {...otherProps}
+      {...props}
       xmlns="http://www.w3.org/2000/svg"
       fill="none"
       viewBox="0 0 20 19"
@@ -7090,22 +6834,21 @@ export const FbArrowsRepeatSolid: TIcon = forwardRef((props: IIconProps, ref: TI
     </svg>
   );
 });
+FbArrowsRepeatSolid.displayName = "FbArrowsRepeatSolid";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/solid/arrows/arrows-repeat-1.svg
+ * /var/app/ignore/flowbite-icons/solid/arrows/arrows-repeat-1.svg
  */
 
-export const FbArrowsRepeat1Solid: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
-  const { strokeWidth, ...otherProps } = props;
-
+export const FbArrowsRepeat1Solid: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   return (
     <svg
       width="24"
       height="24"
       ref={ref}
-      {...otherProps}
+      {...props}
       xmlns="http://www.w3.org/2000/svg"
       fill="none"
       viewBox="0 0 20 19"
@@ -7117,22 +6860,21 @@ export const FbArrowsRepeat1Solid: TIcon = forwardRef((props: IIconProps, ref: T
     </svg>
   );
 });
+FbArrowsRepeat1Solid.displayName = "FbArrowsRepeat1Solid";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/solid/arrows/arrow-up.svg
+ * /var/app/ignore/flowbite-icons/solid/arrows/arrow-up.svg
  */
 
-export const FbArrowUpSolid: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
-  const { strokeWidth, ...otherProps } = props;
-
+export const FbArrowUpSolid: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   return (
     <svg
       width="24"
       height="24"
       ref={ref}
-      {...otherProps}
+      {...props}
       xmlns="http://www.w3.org/2000/svg"
       fill="none"
       viewBox="0 0 11 14"
@@ -7144,14 +6886,15 @@ export const FbArrowUpSolid: TIcon = forwardRef((props: IIconProps, ref: TIconRe
     </svg>
   );
 });
+FbArrowUpSolid.displayName = "FbArrowUpSolid";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/solid/arrows/arrow-up-from-bracket.svg
+ * /var/app/ignore/flowbite-icons/solid/arrows/arrow-up-from-bracket.svg
  */
 
-export const FbArrowUpFromBracketSolid: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
+export const FbArrowUpFromBracketSolid: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   const { strokeWidth, ...otherProps } = props;
 
   return (
@@ -7174,22 +6917,21 @@ export const FbArrowUpFromBracketSolid: TIcon = forwardRef((props: IIconProps, r
     </svg>
   );
 });
+FbArrowUpFromBracketSolid.displayName = "FbArrowUpFromBracketSolid";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/solid/arrows/arrow-up-down.svg
+ * /var/app/ignore/flowbite-icons/solid/arrows/arrow-up-down.svg
  */
 
-export const FbArrowUpDownSolid: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
-  const { strokeWidth, ...otherProps } = props;
-
+export const FbArrowUpDownSolid: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   return (
     <svg
       width="24"
       height="24"
       ref={ref}
-      {...otherProps}
+      {...props}
       xmlns="http://www.w3.org/2000/svg"
       fill="none"
       viewBox="0 0 16 20"
@@ -7201,22 +6943,21 @@ export const FbArrowUpDownSolid: TIcon = forwardRef((props: IIconProps, ref: TIc
     </svg>
   );
 });
+FbArrowUpDownSolid.displayName = "FbArrowUpDownSolid";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/solid/arrows/arrow-sort-letters.svg
+ * /var/app/ignore/flowbite-icons/solid/arrows/arrow-sort-letters.svg
  */
 
-export const FbArrowSortLettersSolid: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
-  const { strokeWidth, ...otherProps } = props;
-
+export const FbArrowSortLettersSolid: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   return (
     <svg
       width="24"
       height="24"
       ref={ref}
-      {...otherProps}
+      {...props}
       xmlns="http://www.w3.org/2000/svg"
       fill="none"
       viewBox="0 0 18 18"
@@ -7228,22 +6969,21 @@ export const FbArrowSortLettersSolid: TIcon = forwardRef((props: IIconProps, ref
     </svg>
   );
 });
+FbArrowSortLettersSolid.displayName = "FbArrowSortLettersSolid";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/solid/arrows/arrow-right.svg
+ * /var/app/ignore/flowbite-icons/solid/arrows/arrow-right.svg
  */
 
-export const FbArrowRightSolid: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
-  const { strokeWidth, ...otherProps } = props;
-
+export const FbArrowRightSolid: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   return (
     <svg
       width="24"
       height="24"
       ref={ref}
-      {...otherProps}
+      {...props}
       xmlns="http://www.w3.org/2000/svg"
       fill="none"
       viewBox="0 0 14 12"
@@ -7255,22 +6995,21 @@ export const FbArrowRightSolid: TIcon = forwardRef((props: IIconProps, ref: TIco
     </svg>
   );
 });
+FbArrowRightSolid.displayName = "FbArrowRightSolid";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/solid/arrows/arrow-right-to-bracket.svg
+ * /var/app/ignore/flowbite-icons/solid/arrows/arrow-right-to-bracket.svg
  */
 
-export const FbArrowRightToBracketSolid: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
-  const { strokeWidth, ...otherProps } = props;
-
+export const FbArrowRightToBracketSolid: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   return (
     <svg
       width="24"
       height="24"
       ref={ref}
-      {...otherProps}
+      {...props}
       xmlns="http://www.w3.org/2000/svg"
       fill="none"
       viewBox="0 0 18 16"
@@ -7282,23 +7021,22 @@ export const FbArrowRightToBracketSolid: TIcon = forwardRef((props: IIconProps, 
     </svg>
   );
 });
+FbArrowRightToBracketSolid.displayName = "FbArrowRightToBracketSolid";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/solid/arrows/arrow-right-from-bracket.svg
+ * /var/app/ignore/flowbite-icons/solid/arrows/arrow-right-from-bracket.svg
  */
 
 export const FbArrowRightFromBracketSolid: TIcon = forwardRef(
-  (props: IIconProps, ref: TIconRef) => {
-    const { strokeWidth, ...otherProps } = props;
-
+  (props: TIconProps, ref: TIconRef) => {
     return (
       <svg
         width="24"
         height="24"
         ref={ref}
-        {...otherProps}
+        {...props}
         xmlns="http://www.w3.org/2000/svg"
         fill="none"
         viewBox="0 0 16 16"
@@ -7311,22 +7049,21 @@ export const FbArrowRightFromBracketSolid: TIcon = forwardRef(
     );
   },
 );
+FbArrowRightFromBracketSolid.displayName = "FbArrowRightFromBracketSolid";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/solid/arrows/arrow-left.svg
+ * /var/app/ignore/flowbite-icons/solid/arrows/arrow-left.svg
  */
 
-export const FbArrowLeftSolid: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
-  const { strokeWidth, ...otherProps } = props;
-
+export const FbArrowLeftSolid: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   return (
     <svg
       width="24"
       height="24"
       ref={ref}
-      {...otherProps}
+      {...props}
       xmlns="http://www.w3.org/2000/svg"
       fill="none"
       viewBox="0 0 14 11"
@@ -7338,22 +7075,21 @@ export const FbArrowLeftSolid: TIcon = forwardRef((props: IIconProps, ref: TIcon
     </svg>
   );
 });
+FbArrowLeftSolid.displayName = "FbArrowLeftSolid";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/solid/arrows/arrow-down.svg
+ * /var/app/ignore/flowbite-icons/solid/arrows/arrow-down.svg
  */
 
-export const FbArrowDownSolid: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
-  const { strokeWidth, ...otherProps } = props;
-
+export const FbArrowDownSolid: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   return (
     <svg
       width="24"
       height="24"
       ref={ref}
-      {...otherProps}
+      {...props}
       xmlns="http://www.w3.org/2000/svg"
       fill="none"
       viewBox="0 0 11 14"
@@ -7365,22 +7101,21 @@ export const FbArrowDownSolid: TIcon = forwardRef((props: IIconProps, ref: TIcon
     </svg>
   );
 });
+FbArrowDownSolid.displayName = "FbArrowDownSolid";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/solid/arrows/arrow-down-to-braket.svg
+ * /var/app/ignore/flowbite-icons/solid/arrows/arrow-down-to-braket.svg
  */
 
-export const FbArrowDownToBraketSolid: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
-  const { strokeWidth, ...otherProps } = props;
-
+export const FbArrowDownToBraketSolid: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   return (
     <svg
       width="24"
       height="24"
       ref={ref}
-      {...otherProps}
+      {...props}
       xmlns="http://www.w3.org/2000/svg"
       fill="none"
       viewBox="0 0 16 18"
@@ -7392,20 +7127,19 @@ export const FbArrowDownToBraketSolid: TIcon = forwardRef((props: IIconProps, re
     </svg>
   );
 });
+FbArrowDownToBraketSolid.displayName = "FbArrowDownToBraketSolid";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/solid/arrows/arrow-big.svg
+ * /var/app/ignore/flowbite-icons/solid/arrows/arrow-big.svg
  */
 
-export const FbArrowBigSolid: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
-  const { strokeWidth, ...otherProps } = props;
-
+export const FbArrowBigSolid: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   return (
     <svg
       ref={ref}
-      {...otherProps}
+      {...props}
       xmlns="http://www.w3.org/2000/svg"
       width="21"
       height="16"
@@ -7419,22 +7153,21 @@ export const FbArrowBigSolid: TIcon = forwardRef((props: IIconProps, ref: TIconR
     </svg>
   );
 });
+FbArrowBigSolid.displayName = "FbArrowBigSolid";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/solid/arrows/angle-up.svg
+ * /var/app/ignore/flowbite-icons/solid/arrows/angle-up.svg
  */
 
-export const FbAngleUpSolid: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
-  const { strokeWidth, ...otherProps } = props;
-
+export const FbAngleUpSolid: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   return (
     <svg
       width="24"
       height="24"
       ref={ref}
-      {...otherProps}
+      {...props}
       xmlns="http://www.w3.org/2000/svg"
       fill="none"
       viewBox="0 0 14 8"
@@ -7446,22 +7179,21 @@ export const FbAngleUpSolid: TIcon = forwardRef((props: IIconProps, ref: TIconRe
     </svg>
   );
 });
+FbAngleUpSolid.displayName = "FbAngleUpSolid";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/solid/arrows/angle-right.svg
+ * /var/app/ignore/flowbite-icons/solid/arrows/angle-right.svg
  */
 
-export const FbAngleRightSolid: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
-  const { strokeWidth, ...otherProps } = props;
-
+export const FbAngleRightSolid: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   return (
     <svg
       width="24"
       height="24"
       ref={ref}
-      {...otherProps}
+      {...props}
       xmlns="http://www.w3.org/2000/svg"
       fill="none"
       viewBox="0 0 8 14"
@@ -7473,22 +7205,21 @@ export const FbAngleRightSolid: TIcon = forwardRef((props: IIconProps, ref: TIco
     </svg>
   );
 });
+FbAngleRightSolid.displayName = "FbAngleRightSolid";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/solid/arrows/angle-left.svg
+ * /var/app/ignore/flowbite-icons/solid/arrows/angle-left.svg
  */
 
-export const FbAngleLeftSolid: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
-  const { strokeWidth, ...otherProps } = props;
-
+export const FbAngleLeftSolid: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   return (
     <svg
       width="24"
       height="24"
       ref={ref}
-      {...otherProps}
+      {...props}
       xmlns="http://www.w3.org/2000/svg"
       fill="none"
       viewBox="0 0 8 14"
@@ -7500,22 +7231,21 @@ export const FbAngleLeftSolid: TIcon = forwardRef((props: IIconProps, ref: TIcon
     </svg>
   );
 });
+FbAngleLeftSolid.displayName = "FbAngleLeftSolid";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/solid/arrows/angle-down.svg
+ * /var/app/ignore/flowbite-icons/solid/arrows/angle-down.svg
  */
 
-export const FbAngleDownSolid: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
-  const { strokeWidth, ...otherProps } = props;
-
+export const FbAngleDownSolid: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   return (
     <svg
       width="24"
       height="24"
       ref={ref}
-      {...otherProps}
+      {...props}
       xmlns="http://www.w3.org/2000/svg"
       fill="none"
       viewBox="0 0 14 8"
@@ -7527,14 +7257,15 @@ export const FbAngleDownSolid: TIcon = forwardRef((props: IIconProps, ref: TIcon
     </svg>
   );
 });
+FbAngleDownSolid.displayName = "FbAngleDownSolid";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/outline/weather/sun.svg
+ * /var/app/ignore/flowbite-icons/outline/weather/sun.svg
  */
 
-export const FbSunOutline: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
+export const FbSunOutline: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   const { strokeWidth, ...otherProps } = props;
 
   return (
@@ -7557,14 +7288,15 @@ export const FbSunOutline: TIcon = forwardRef((props: IIconProps, ref: TIconRef)
     </svg>
   );
 });
+FbSunOutline.displayName = "FbSunOutline";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/outline/weather/moon.svg
+ * /var/app/ignore/flowbite-icons/outline/weather/moon.svg
  */
 
-export const FbMoonOutline: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
+export const FbMoonOutline: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   const { strokeWidth, ...otherProps } = props;
 
   return (
@@ -7587,14 +7319,15 @@ export const FbMoonOutline: TIcon = forwardRef((props: IIconProps, ref: TIconRef
     </svg>
   );
 });
+FbMoonOutline.displayName = "FbMoonOutline";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/outline/user/users.svg
+ * /var/app/ignore/flowbite-icons/outline/user/users.svg
  */
 
-export const FbUsersOutline: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
+export const FbUsersOutline: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   const { strokeWidth, ...otherProps } = props;
 
   return (
@@ -7617,14 +7350,15 @@ export const FbUsersOutline: TIcon = forwardRef((props: IIconProps, ref: TIconRe
     </svg>
   );
 });
+FbUsersOutline.displayName = "FbUsersOutline";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/outline/user/users-group.svg
+ * /var/app/ignore/flowbite-icons/outline/user/users-group.svg
  */
 
-export const FbUsersGroupOutline: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
+export const FbUsersGroupOutline: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   const { strokeWidth, ...otherProps } = props;
 
   return (
@@ -7647,14 +7381,15 @@ export const FbUsersGroupOutline: TIcon = forwardRef((props: IIconProps, ref: TI
     </svg>
   );
 });
+FbUsersGroupOutline.displayName = "FbUsersGroupOutline";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/outline/user/user.svg
+ * /var/app/ignore/flowbite-icons/outline/user/user.svg
  */
 
-export const FbUserOutline: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
+export const FbUserOutline: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   const { strokeWidth, ...otherProps } = props;
 
   return (
@@ -7677,22 +7412,21 @@ export const FbUserOutline: TIcon = forwardRef((props: IIconProps, ref: TIconRef
     </svg>
   );
 });
+FbUserOutline.displayName = "FbUserOutline";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/outline/user/user-settings.svg
+ * /var/app/ignore/flowbite-icons/outline/user/user-settings.svg
  */
 
-export const FbUserSettingsOutline: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
-  const { strokeWidth, ...otherProps } = props;
-
+export const FbUserSettingsOutline: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   return (
     <svg
       width="24"
       height="24"
       ref={ref}
-      {...otherProps}
+      {...props}
       xmlns="http://www.w3.org/2000/svg"
       fill="none"
       viewBox="0 0 19 17"
@@ -7708,14 +7442,15 @@ export const FbUserSettingsOutline: TIcon = forwardRef((props: IIconProps, ref: 
     </svg>
   );
 });
+FbUserSettingsOutline.displayName = "FbUserSettingsOutline";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/outline/user/user-remove.svg
+ * /var/app/ignore/flowbite-icons/outline/user/user-remove.svg
  */
 
-export const FbUserRemoveOutline: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
+export const FbUserRemoveOutline: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   const { strokeWidth, ...otherProps } = props;
 
   return (
@@ -7738,14 +7473,15 @@ export const FbUserRemoveOutline: TIcon = forwardRef((props: IIconProps, ref: TI
     </svg>
   );
 });
+FbUserRemoveOutline.displayName = "FbUserRemoveOutline";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/outline/user/user-edit.svg
+ * /var/app/ignore/flowbite-icons/outline/user/user-edit.svg
  */
 
-export const FbUserEditOutline: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
+export const FbUserEditOutline: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   const { strokeWidth, ...otherProps } = props;
 
   return (
@@ -7768,14 +7504,15 @@ export const FbUserEditOutline: TIcon = forwardRef((props: IIconProps, ref: TIco
     </svg>
   );
 });
+FbUserEditOutline.displayName = "FbUserEditOutline";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/outline/user/user-circle.svg
+ * /var/app/ignore/flowbite-icons/outline/user/user-circle.svg
  */
 
-export const FbUserCircleOutline: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
+export const FbUserCircleOutline: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   const { strokeWidth, ...otherProps } = props;
 
   return (
@@ -7798,14 +7535,15 @@ export const FbUserCircleOutline: TIcon = forwardRef((props: IIconProps, ref: TI
     </svg>
   );
 });
+FbUserCircleOutline.displayName = "FbUserCircleOutline";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/outline/user/user-add.svg
+ * /var/app/ignore/flowbite-icons/outline/user/user-add.svg
  */
 
-export const FbUserAddOutline: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
+export const FbUserAddOutline: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   const { strokeWidth, ...otherProps } = props;
 
   return (
@@ -7828,14 +7566,15 @@ export const FbUserAddOutline: TIcon = forwardRef((props: IIconProps, ref: TIcon
     </svg>
   );
 });
+FbUserAddOutline.displayName = "FbUserAddOutline";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/outline/user/profile-card.svg
+ * /var/app/ignore/flowbite-icons/outline/user/profile-card.svg
  */
 
-export const FbProfileCardOutline: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
+export const FbProfileCardOutline: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   const { strokeWidth, ...otherProps } = props;
 
   return (
@@ -7858,14 +7597,15 @@ export const FbProfileCardOutline: TIcon = forwardRef((props: IIconProps, ref: T
     </svg>
   );
 });
+FbProfileCardOutline.displayName = "FbProfileCardOutline";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/outline/user/adress-book.svg
+ * /var/app/ignore/flowbite-icons/outline/user/adress-book.svg
  */
 
-export const FbAdressBookOutline: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
+export const FbAddressBookOutline: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   const { strokeWidth, ...otherProps } = props;
 
   return (
@@ -7888,14 +7628,15 @@ export const FbAdressBookOutline: TIcon = forwardRef((props: IIconProps, ref: TI
     </svg>
   );
 });
+FbAddressBookOutline.displayName = "FbAddressBookOutline";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/outline/text/text-slash.svg
+ * /var/app/ignore/flowbite-icons/outline/text/text-slash.svg
  */
 
-export const FbTextSlashOutline: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
+export const FbTextSlashOutline: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   const { strokeWidth, ...otherProps } = props;
 
   return (
@@ -7918,14 +7659,15 @@ export const FbTextSlashOutline: TIcon = forwardRef((props: IIconProps, ref: TIc
     </svg>
   );
 });
+FbTextSlashOutline.displayName = "FbTextSlashOutline";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/outline/text/text-size.svg
+ * /var/app/ignore/flowbite-icons/outline/text/text-size.svg
  */
 
-export const FbTextSizeOutline: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
+export const FbTextSizeOutline: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   const { strokeWidth, ...otherProps } = props;
 
   return (
@@ -7948,14 +7690,15 @@ export const FbTextSizeOutline: TIcon = forwardRef((props: IIconProps, ref: TIco
     </svg>
   );
 });
+FbTextSizeOutline.displayName = "FbTextSizeOutline";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/outline/text/quote.svg
+ * /var/app/ignore/flowbite-icons/outline/text/quote.svg
  */
 
-export const FbQuoteOutline: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
+export const FbQuoteOutline: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   const { strokeWidth, ...otherProps } = props;
 
   return (
@@ -7978,14 +7721,15 @@ export const FbQuoteOutline: TIcon = forwardRef((props: IIconProps, ref: TIconRe
     </svg>
   );
 });
+FbQuoteOutline.displayName = "FbQuoteOutline";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/outline/text/paragraph.svg
+ * /var/app/ignore/flowbite-icons/outline/text/paragraph.svg
  */
 
-export const FbParagraphOutline: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
+export const FbParagraphOutline: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   const { strokeWidth, ...otherProps } = props;
 
   return (
@@ -8008,14 +7752,15 @@ export const FbParagraphOutline: TIcon = forwardRef((props: IIconProps, ref: TIc
     </svg>
   );
 });
+FbParagraphOutline.displayName = "FbParagraphOutline";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/outline/text/outdent.svg
+ * /var/app/ignore/flowbite-icons/outline/text/outdent.svg
  */
 
-export const FbOutdentOutline: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
+export const FbOutdentOutline: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   const { strokeWidth, ...otherProps } = props;
 
   return (
@@ -8038,14 +7783,15 @@ export const FbOutdentOutline: TIcon = forwardRef((props: IIconProps, ref: TIcon
     </svg>
   );
 });
+FbOutdentOutline.displayName = "FbOutdentOutline";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/outline/text/ordored-list.svg
+ * /var/app/ignore/flowbite-icons/outline/text/ordored-list.svg
  */
 
-export const FbOrdoredListOutline: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
+export const FbOrdoredListOutline: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   const { strokeWidth, ...otherProps } = props;
 
   return (
@@ -8068,14 +7814,15 @@ export const FbOrdoredListOutline: TIcon = forwardRef((props: IIconProps, ref: T
     </svg>
   );
 });
+FbOrdoredListOutline.displayName = "FbOrdoredListOutline";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/outline/text/list.svg
+ * /var/app/ignore/flowbite-icons/outline/text/list.svg
  */
 
-export const FbListOutline: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
+export const FbListOutline: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   const { strokeWidth, ...otherProps } = props;
 
   return (
@@ -8097,14 +7844,15 @@ export const FbListOutline: TIcon = forwardRef((props: IIconProps, ref: TIconRef
     </svg>
   );
 });
+FbListOutline.displayName = "FbListOutline";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/outline/text/letter-underline.svg
+ * /var/app/ignore/flowbite-icons/outline/text/letter-underline.svg
  */
 
-export const FbLetterUnderlineOutline: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
+export const FbLetterUnderlineOutline: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   const { strokeWidth, ...otherProps } = props;
 
   return (
@@ -8127,14 +7875,15 @@ export const FbLetterUnderlineOutline: TIcon = forwardRef((props: IIconProps, re
     </svg>
   );
 });
+FbLetterUnderlineOutline.displayName = "FbLetterUnderlineOutline";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/outline/text/letter-italic.svg
+ * /var/app/ignore/flowbite-icons/outline/text/letter-italic.svg
  */
 
-export const FbLetterItalicOutline: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
+export const FbLetterItalicOutline: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   const { strokeWidth, ...otherProps } = props;
 
   return (
@@ -8157,14 +7906,15 @@ export const FbLetterItalicOutline: TIcon = forwardRef((props: IIconProps, ref: 
     </svg>
   );
 });
+FbLetterItalicOutline.displayName = "FbLetterItalicOutline";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/outline/text/letter-bold.svg
+ * /var/app/ignore/flowbite-icons/outline/text/letter-bold.svg
  */
 
-export const FbLetterBoldOutline: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
+export const FbLetterBoldOutline: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   const { strokeWidth, ...otherProps } = props;
 
   return (
@@ -8187,14 +7937,15 @@ export const FbLetterBoldOutline: TIcon = forwardRef((props: IIconProps, ref: TI
     </svg>
   );
 });
+FbLetterBoldOutline.displayName = "FbLetterBoldOutline";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/outline/text/indent.svg
+ * /var/app/ignore/flowbite-icons/outline/text/indent.svg
  */
 
-export const FbIndentOutline: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
+export const FbIndentOutline: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   const { strokeWidth, ...otherProps } = props;
 
   return (
@@ -8217,14 +7968,15 @@ export const FbIndentOutline: TIcon = forwardRef((props: IIconProps, ref: TIconR
     </svg>
   );
 });
+FbIndentOutline.displayName = "FbIndentOutline";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/outline/text/align-center.svg
+ * /var/app/ignore/flowbite-icons/outline/text/align-center.svg
  */
 
-export const FbAlignCenterOutline: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
+export const FbAlignCenterOutline: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   const { strokeWidth, ...otherProps } = props;
 
   return (
@@ -8247,14 +7999,15 @@ export const FbAlignCenterOutline: TIcon = forwardRef((props: IIconProps, ref: T
     </svg>
   );
 });
+FbAlignCenterOutline.displayName = "FbAlignCenterOutline";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/outline/media/video-camera.svg
+ * /var/app/ignore/flowbite-icons/outline/media/video-camera.svg
  */
 
-export const FbVideoCameraOutline: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
+export const FbVideoCameraOutline: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   const { strokeWidth, ...otherProps } = props;
 
   return (
@@ -8277,14 +8030,15 @@ export const FbVideoCameraOutline: TIcon = forwardRef((props: IIconProps, ref: T
     </svg>
   );
 });
+FbVideoCameraOutline.displayName = "FbVideoCameraOutline";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/outline/media/shuffle.svg
+ * /var/app/ignore/flowbite-icons/outline/media/shuffle.svg
  */
 
-export const FbShuffleOutline: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
+export const FbShuffleOutline: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   const { strokeWidth, ...otherProps } = props;
 
   return (
@@ -8307,14 +8061,15 @@ export const FbShuffleOutline: TIcon = forwardRef((props: IIconProps, ref: TIcon
     </svg>
   );
 });
+FbShuffleOutline.displayName = "FbShuffleOutline";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/outline/media/rectangle-list.svg
+ * /var/app/ignore/flowbite-icons/outline/media/rectangle-list.svg
  */
 
-export const FbRectangleListOutline: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
+export const FbRectangleListOutline: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   const { strokeWidth, ...otherProps } = props;
 
   return (
@@ -8337,14 +8092,15 @@ export const FbRectangleListOutline: TIcon = forwardRef((props: IIconProps, ref:
     </svg>
   );
 });
+FbRectangleListOutline.displayName = "FbRectangleListOutline";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/outline/media/play.svg
+ * /var/app/ignore/flowbite-icons/outline/media/play.svg
  */
 
-export const FbPlayOutline: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
+export const FbPlayOutline: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   const { strokeWidth, ...otherProps } = props;
 
   return (
@@ -8367,14 +8123,15 @@ export const FbPlayOutline: TIcon = forwardRef((props: IIconProps, ref: TIconRef
     </svg>
   );
 });
+FbPlayOutline.displayName = "FbPlayOutline";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/outline/media/microphone.svg
+ * /var/app/ignore/flowbite-icons/outline/media/microphone.svg
  */
 
-export const FbMicrophoneOutline: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
+export const FbMicrophoneOutline: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   const { strokeWidth, ...otherProps } = props;
 
   return (
@@ -8397,14 +8154,15 @@ export const FbMicrophoneOutline: TIcon = forwardRef((props: IIconProps, ref: TI
     </svg>
   );
 });
+FbMicrophoneOutline.displayName = "FbMicrophoneOutline";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/outline/media/list-music.svg
+ * /var/app/ignore/flowbite-icons/outline/media/list-music.svg
  */
 
-export const FbListMusicOutline: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
+export const FbListMusicOutline: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   const { strokeWidth, ...otherProps } = props;
 
   return (
@@ -8427,14 +8185,15 @@ export const FbListMusicOutline: TIcon = forwardRef((props: IIconProps, ref: TIc
     </svg>
   );
 });
+FbListMusicOutline.displayName = "FbListMusicOutline";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/outline/media/headphones.svg
+ * /var/app/ignore/flowbite-icons/outline/media/headphones.svg
  */
 
-export const FbHeadphonesOutline: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
+export const FbHeadphonesOutline: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   const { strokeWidth, ...otherProps } = props;
 
   return (
@@ -8457,14 +8216,15 @@ export const FbHeadphonesOutline: TIcon = forwardRef((props: IIconProps, ref: TI
     </svg>
   );
 });
+FbHeadphonesOutline.displayName = "FbHeadphonesOutline";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/outline/media/forward-step.svg
+ * /var/app/ignore/flowbite-icons/outline/media/forward-step.svg
  */
 
-export const FbForwardStepOutline: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
+export const FbForwardStepOutline: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   const { strokeWidth, ...otherProps } = props;
 
   return (
@@ -8487,14 +8247,15 @@ export const FbForwardStepOutline: TIcon = forwardRef((props: IIconProps, ref: T
     </svg>
   );
 });
+FbForwardStepOutline.displayName = "FbForwardStepOutline";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/outline/media/computer-speaker.svg
+ * /var/app/ignore/flowbite-icons/outline/media/computer-speaker.svg
  */
 
-export const FbComputerSpeakerOutline: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
+export const FbComputerSpeakerOutline: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   const { strokeWidth, ...otherProps } = props;
 
   return (
@@ -8517,14 +8278,15 @@ export const FbComputerSpeakerOutline: TIcon = forwardRef((props: IIconProps, re
     </svg>
   );
 });
+FbComputerSpeakerOutline.displayName = "FbComputerSpeakerOutline";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/outline/media/clapperboard-play.svg
+ * /var/app/ignore/flowbite-icons/outline/media/clapperboard-play.svg
  */
 
-export const FbClapperboardPlayOutline: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
+export const FbClapperboardPlayOutline: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   const { strokeWidth, ...otherProps } = props;
 
   return (
@@ -8547,14 +8309,15 @@ export const FbClapperboardPlayOutline: TIcon = forwardRef((props: IIconProps, r
     </svg>
   );
 });
+FbClapperboardPlayOutline.displayName = "FbClapperboardPlayOutline";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/outline/media/circle-pause.svg
+ * /var/app/ignore/flowbite-icons/outline/media/circle-pause.svg
  */
 
-export const FbCirclePauseOutline: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
+export const FbCirclePauseOutline: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   const { strokeWidth, ...otherProps } = props;
 
   return (
@@ -8577,14 +8340,15 @@ export const FbCirclePauseOutline: TIcon = forwardRef((props: IIconProps, ref: T
     </svg>
   );
 });
+FbCirclePauseOutline.displayName = "FbCirclePauseOutline";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/outline/media/captioning.svg
+ * /var/app/ignore/flowbite-icons/outline/media/captioning.svg
  */
 
-export const FbCaptioningOutline: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
+export const FbCaptioningOutline: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   const { strokeWidth, ...otherProps } = props;
 
   return (
@@ -8607,14 +8371,15 @@ export const FbCaptioningOutline: TIcon = forwardRef((props: IIconProps, ref: TI
     </svg>
   );
 });
+FbCaptioningOutline.displayName = "FbCaptioningOutline";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/outline/media/camera-foto.svg
+ * /var/app/ignore/flowbite-icons/outline/media/camera-foto.svg
  */
 
-export const FbCameraFotoOutline: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
+export const FbCameraFotoOutline: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   const { strokeWidth, ...otherProps } = props;
 
   return (
@@ -8639,14 +8404,15 @@ export const FbCameraFotoOutline: TIcon = forwardRef((props: IIconProps, ref: TI
     </svg>
   );
 });
+FbCameraFotoOutline.displayName = "FbCameraFotoOutline";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/outline/media/backward-step.svg
+ * /var/app/ignore/flowbite-icons/outline/media/backward-step.svg
  */
 
-export const FbBackwardStepOutline: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
+export const FbBackwardStepOutline: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   const { strokeWidth, ...otherProps } = props;
 
   return (
@@ -8669,14 +8435,15 @@ export const FbBackwardStepOutline: TIcon = forwardRef((props: IIconProps, ref: 
     </svg>
   );
 });
+FbBackwardStepOutline.displayName = "FbBackwardStepOutline";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/outline/general/zoom-out.svg
+ * /var/app/ignore/flowbite-icons/outline/general/zoom-out.svg
  */
 
-export const FbZoomOutOutline: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
+export const FbZoomOutOutline: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   const { strokeWidth, ...otherProps } = props;
 
   return (
@@ -8699,14 +8466,15 @@ export const FbZoomOutOutline: TIcon = forwardRef((props: IIconProps, ref: TIcon
     </svg>
   );
 });
+FbZoomOutOutline.displayName = "FbZoomOutOutline";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/outline/general/zoom-in.svg
+ * /var/app/ignore/flowbite-icons/outline/general/zoom-in.svg
  */
 
-export const FbZoomInOutline: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
+export const FbZoomInOutline: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   const { strokeWidth, ...otherProps } = props;
 
   return (
@@ -8729,14 +8497,15 @@ export const FbZoomInOutline: TIcon = forwardRef((props: IIconProps, ref: TIconR
     </svg>
   );
 });
+FbZoomInOutline.displayName = "FbZoomInOutline";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/outline/general/x-circle.svg
+ * /var/app/ignore/flowbite-icons/outline/general/x-circle.svg
  */
 
-export const FbXCircleOutline: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
+export const FbXCircleOutline: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   const { strokeWidth, ...otherProps } = props;
 
   return (
@@ -8759,14 +8528,15 @@ export const FbXCircleOutline: TIcon = forwardRef((props: IIconProps, ref: TIcon
     </svg>
   );
 });
+FbXCircleOutline.displayName = "FbXCircleOutline";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/outline/general/window.svg
+ * /var/app/ignore/flowbite-icons/outline/general/window.svg
  */
 
-export const FbWindowOutline: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
+export const FbWindowOutline: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   const { strokeWidth, ...otherProps } = props;
 
   return (
@@ -8800,14 +8570,15 @@ export const FbWindowOutline: TIcon = forwardRef((props: IIconProps, ref: TIconR
     </svg>
   );
 });
+FbWindowOutline.displayName = "FbWindowOutline";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/outline/general/window-restore.svg
+ * /var/app/ignore/flowbite-icons/outline/general/window-restore.svg
  */
 
-export const FbWindowRestoreOutline: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
+export const FbWindowRestoreOutline: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   const { strokeWidth, ...otherProps } = props;
 
   return (
@@ -8830,14 +8601,15 @@ export const FbWindowRestoreOutline: TIcon = forwardRef((props: IIconProps, ref:
     </svg>
   );
 });
+FbWindowRestoreOutline.displayName = "FbWindowRestoreOutline";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/outline/general/wand-magic-sparkles.svg
+ * /var/app/ignore/flowbite-icons/outline/general/wand-magic-sparkles.svg
  */
 
-export const FbWandMagicSparklesOutline: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
+export const FbWandMagicSparklesOutline: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   const { strokeWidth, ...otherProps } = props;
 
   return (
@@ -8866,14 +8638,15 @@ export const FbWandMagicSparklesOutline: TIcon = forwardRef((props: IIconProps, 
     </svg>
   );
 });
+FbWandMagicSparklesOutline.displayName = "FbWandMagicSparklesOutline";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/outline/general/volume-up.svg
+ * /var/app/ignore/flowbite-icons/outline/general/volume-up.svg
  */
 
-export const FbVolumeUpOutline: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
+export const FbVolumeUpOutline: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   const { strokeWidth, ...otherProps } = props;
 
   return (
@@ -8896,14 +8669,15 @@ export const FbVolumeUpOutline: TIcon = forwardRef((props: IIconProps, ref: TIco
     </svg>
   );
 });
+FbVolumeUpOutline.displayName = "FbVolumeUpOutline";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/outline/general/volume-down.svg
+ * /var/app/ignore/flowbite-icons/outline/general/volume-down.svg
  */
 
-export const FbVolumeDownOutline: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
+export const FbVolumeDownOutline: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   const { strokeWidth, ...otherProps } = props;
 
   return (
@@ -8926,14 +8700,15 @@ export const FbVolumeDownOutline: TIcon = forwardRef((props: IIconProps, ref: TI
     </svg>
   );
 });
+FbVolumeDownOutline.displayName = "FbVolumeDownOutline";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/outline/general/upload.svg
+ * /var/app/ignore/flowbite-icons/outline/general/upload.svg
  */
 
-export const FbUploadOutline: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
+export const FbUploadOutline: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   const { strokeWidth, ...otherProps } = props;
 
   return (
@@ -8956,14 +8731,15 @@ export const FbUploadOutline: TIcon = forwardRef((props: IIconProps, ref: TIconR
     </svg>
   );
 });
+FbUploadOutline.displayName = "FbUploadOutline";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/outline/general/truck.svg
+ * /var/app/ignore/flowbite-icons/outline/general/truck.svg
  */
 
-export const FbTruckOutline: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
+export const FbTruckOutline: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   const { strokeWidth, ...otherProps } = props;
 
   return (
@@ -8986,14 +8762,15 @@ export const FbTruckOutline: TIcon = forwardRef((props: IIconProps, ref: TIconRe
     </svg>
   );
 });
+FbTruckOutline.displayName = "FbTruckOutline";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/outline/general/trash-bin.svg
+ * /var/app/ignore/flowbite-icons/outline/general/trash-bin.svg
  */
 
-export const FbTrashBinOutline: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
+export const FbTrashBinOutline: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   const { strokeWidth, ...otherProps } = props;
 
   return (
@@ -9016,14 +8793,15 @@ export const FbTrashBinOutline: TIcon = forwardRef((props: IIconProps, ref: TIco
     </svg>
   );
 });
+FbTrashBinOutline.displayName = "FbTrashBinOutline";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/outline/general/ticket.svg
+ * /var/app/ignore/flowbite-icons/outline/general/ticket.svg
  */
 
-export const FbTicketOutline: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
+export const FbTicketOutline: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   const { strokeWidth, ...otherProps } = props;
 
   return (
@@ -9046,14 +8824,15 @@ export const FbTicketOutline: TIcon = forwardRef((props: IIconProps, ref: TIconR
     </svg>
   );
 });
+FbTicketOutline.displayName = "FbTicketOutline";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/outline/general/terminal.svg
+ * /var/app/ignore/flowbite-icons/outline/general/terminal.svg
  */
 
-export const FbTerminalOutline: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
+export const FbTerminalOutline: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   const { strokeWidth, ...otherProps } = props;
 
   return (
@@ -9076,14 +8855,15 @@ export const FbTerminalOutline: TIcon = forwardRef((props: IIconProps, ref: TIco
     </svg>
   );
 });
+FbTerminalOutline.displayName = "FbTerminalOutline";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/outline/general/tablet.svg
+ * /var/app/ignore/flowbite-icons/outline/general/tablet.svg
  */
 
-export const FbTabletOutline: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
+export const FbTabletOutline: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   const { strokeWidth, ...otherProps } = props;
 
   return (
@@ -9106,22 +8886,21 @@ export const FbTabletOutline: TIcon = forwardRef((props: IIconProps, ref: TIconR
     </svg>
   );
 });
+FbTabletOutline.displayName = "FbTabletOutline";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/outline/general/table-row.svg
+ * /var/app/ignore/flowbite-icons/outline/general/table-row.svg
  */
 
-export const FbTableRowOutline: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
-  const { strokeWidth, ...otherProps } = props;
-
+export const FbTableRowOutline: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   return (
     <svg
       width="24"
       height="24"
       ref={ref}
-      {...otherProps}
+      {...props}
       xmlns="http://www.w3.org/2000/svg"
       fill="none"
       viewBox="0 0 20 14"
@@ -9133,14 +8912,15 @@ export const FbTableRowOutline: TIcon = forwardRef((props: IIconProps, ref: TIco
     </svg>
   );
 });
+FbTableRowOutline.displayName = "FbTableRowOutline";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/outline/general/table-column.svg
+ * /var/app/ignore/flowbite-icons/outline/general/table-column.svg
  */
 
-export const FbTableColumnOutline: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
+export const FbTableColumnOutline: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   const { strokeWidth, ...otherProps } = props;
 
   return (
@@ -9163,14 +8943,15 @@ export const FbTableColumnOutline: TIcon = forwardRef((props: IIconProps, ref: T
     </svg>
   );
 });
+FbTableColumnOutline.displayName = "FbTableColumnOutline";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/outline/general/swatchbook.svg
+ * /var/app/ignore/flowbite-icons/outline/general/swatchbook.svg
  */
 
-export const FbSwatchbookOutline: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
+export const FbSwatchbookOutline: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   const { strokeWidth, ...otherProps } = props;
 
   return (
@@ -9193,14 +8974,15 @@ export const FbSwatchbookOutline: TIcon = forwardRef((props: IIconProps, ref: TI
     </svg>
   );
 });
+FbSwatchbookOutline.displayName = "FbSwatchbookOutline";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/outline/general/star.svg
+ * /var/app/ignore/flowbite-icons/outline/general/star.svg
  */
 
-export const FbStarOutline: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
+export const FbStarOutline: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   const { strokeWidth, ...otherProps } = props;
 
   return (
@@ -9223,14 +9005,15 @@ export const FbStarOutline: TIcon = forwardRef((props: IIconProps, ref: TIconRef
     </svg>
   );
 });
+FbStarOutline.displayName = "FbStarOutline";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/outline/general/star-half.svg
+ * /var/app/ignore/flowbite-icons/outline/general/star-half.svg
  */
 
-export const FbStarHalfOutline: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
+export const FbStarHalfOutline: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   const { strokeWidth, ...otherProps } = props;
 
   return (
@@ -9253,14 +9036,15 @@ export const FbStarHalfOutline: TIcon = forwardRef((props: IIconProps, ref: TIco
     </svg>
   );
 });
+FbStarHalfOutline.displayName = "FbStarHalfOutline";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/outline/general/star-half-stroke.svg
+ * /var/app/ignore/flowbite-icons/outline/general/star-half-stroke.svg
  */
 
-export const FbStarHalfStrokeOutline: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
+export const FbStarHalfStrokeOutline: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   const { strokeWidth, ...otherProps } = props;
 
   return (
@@ -9282,14 +9066,15 @@ export const FbStarHalfStrokeOutline: TIcon = forwardRef((props: IIconProps, ref
     </svg>
   );
 });
+FbStarHalfStrokeOutline.displayName = "FbStarHalfStrokeOutline";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/outline/general/shield.svg
+ * /var/app/ignore/flowbite-icons/outline/general/shield.svg
  */
 
-export const FbShieldOutline: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
+export const FbShieldOutline: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   const { strokeWidth, ...otherProps } = props;
 
   return (
@@ -9312,14 +9097,15 @@ export const FbShieldOutline: TIcon = forwardRef((props: IIconProps, ref: TIconR
     </svg>
   );
 });
+FbShieldOutline.displayName = "FbShieldOutline";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/outline/general/shield-check.svg
+ * /var/app/ignore/flowbite-icons/outline/general/shield-check.svg
  */
 
-export const FbShieldCheckOutline: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
+export const FbShieldCheckOutline: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   const { strokeWidth, ...otherProps } = props;
 
   return (
@@ -9342,14 +9128,15 @@ export const FbShieldCheckOutline: TIcon = forwardRef((props: IIconProps, ref: T
     </svg>
   );
 });
+FbShieldCheckOutline.displayName = "FbShieldCheckOutline";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/outline/general/share-nodes.svg
+ * /var/app/ignore/flowbite-icons/outline/general/share-nodes.svg
  */
 
-export const FbShareNodesOutline: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
+export const FbShareNodesOutline: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   const { strokeWidth, ...otherProps } = props;
 
   return (
@@ -9372,14 +9159,15 @@ export const FbShareNodesOutline: TIcon = forwardRef((props: IIconProps, ref: TI
     </svg>
   );
 });
+FbShareNodesOutline.displayName = "FbShareNodesOutline";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/outline/general/search.svg
+ * /var/app/ignore/flowbite-icons/outline/general/search.svg
  */
 
-export const FbSearchOutline: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
+export const FbSearchOutline: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   const { strokeWidth, ...otherProps } = props;
 
   return (
@@ -9402,14 +9190,15 @@ export const FbSearchOutline: TIcon = forwardRef((props: IIconProps, ref: TIconR
     </svg>
   );
 });
+FbSearchOutline.displayName = "FbSearchOutline";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/outline/general/rule-combined.svg
+ * /var/app/ignore/flowbite-icons/outline/general/rule-combined.svg
  */
 
-export const FbRuleCombinedOutline: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
+export const FbRuleCombinedOutline: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   const { strokeWidth, ...otherProps } = props;
 
   return (
@@ -9432,14 +9221,15 @@ export const FbRuleCombinedOutline: TIcon = forwardRef((props: IIconProps, ref: 
     </svg>
   );
 });
+FbRuleCombinedOutline.displayName = "FbRuleCombinedOutline";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/outline/general/rocket.svg
+ * /var/app/ignore/flowbite-icons/outline/general/rocket.svg
  */
 
-export const FbRocketOutline: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
+export const FbRocketOutline: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   const { strokeWidth, ...otherProps } = props;
 
   return (
@@ -9462,14 +9252,15 @@ export const FbRocketOutline: TIcon = forwardRef((props: IIconProps, ref: TIconR
     </svg>
   );
 });
+FbRocketOutline.displayName = "FbRocketOutline";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/outline/general/question-circle.svg
+ * /var/app/ignore/flowbite-icons/outline/general/question-circle.svg
  */
 
-export const FbQuestionCircleOutline: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
+export const FbQuestionCircleOutline: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   const { strokeWidth, ...otherProps } = props;
 
   return (
@@ -9492,14 +9283,15 @@ export const FbQuestionCircleOutline: TIcon = forwardRef((props: IIconProps, ref
     </svg>
   );
 });
+FbQuestionCircleOutline.displayName = "FbQuestionCircleOutline";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/outline/general/printer.svg
+ * /var/app/ignore/flowbite-icons/outline/general/printer.svg
  */
 
-export const FbPrinterOutline: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
+export const FbPrinterOutline: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   const { strokeWidth, ...otherProps } = props;
 
   return (
@@ -9522,14 +9314,15 @@ export const FbPrinterOutline: TIcon = forwardRef((props: IIconProps, ref: TIcon
     </svg>
   );
 });
+FbPrinterOutline.displayName = "FbPrinterOutline";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/outline/general/plus.svg
+ * /var/app/ignore/flowbite-icons/outline/general/plus.svg
  */
 
-export const FbPlusOutline: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
+export const FbPlusOutline: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   const { strokeWidth, ...otherProps } = props;
 
   return (
@@ -9552,14 +9345,15 @@ export const FbPlusOutline: TIcon = forwardRef((props: IIconProps, ref: TIconRef
     </svg>
   );
 });
+FbPlusOutline.displayName = "FbPlusOutline";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/outline/general/phone.svg
+ * /var/app/ignore/flowbite-icons/outline/general/phone.svg
  */
 
-export const FbPhoneOutline: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
+export const FbPhoneOutline: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   const { strokeWidth, ...otherProps } = props;
 
   return (
@@ -9582,14 +9376,15 @@ export const FbPhoneOutline: TIcon = forwardRef((props: IIconProps, ref: TIconRe
     </svg>
   );
 });
+FbPhoneOutline.displayName = "FbPhoneOutline";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/outline/general/pen.svg
+ * /var/app/ignore/flowbite-icons/outline/general/pen.svg
  */
 
-export const FbPenOutline: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
+export const FbPenOutline: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   const { strokeWidth, ...otherProps } = props;
 
   return (
@@ -9612,14 +9407,15 @@ export const FbPenOutline: TIcon = forwardRef((props: IIconProps, ref: TIconRef)
     </svg>
   );
 });
+FbPenOutline.displayName = "FbPenOutline";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/outline/general/pen-nib.svg
+ * /var/app/ignore/flowbite-icons/outline/general/pen-nib.svg
  */
 
-export const FbPenNibOutline: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
+export const FbPenNibOutline: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   const { strokeWidth, ...otherProps } = props;
 
   return (
@@ -9646,14 +9442,15 @@ export const FbPenNibOutline: TIcon = forwardRef((props: IIconProps, ref: TIconR
     </svg>
   );
 });
+FbPenNibOutline.displayName = "FbPenNibOutline";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/outline/general/papper-plane.svg
+ * /var/app/ignore/flowbite-icons/outline/general/papper-plane.svg
  */
 
-export const FbPapperPlaneOutline: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
+export const FbPapperPlaneOutline: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   const { strokeWidth, ...otherProps } = props;
 
   return (
@@ -9676,14 +9473,15 @@ export const FbPapperPlaneOutline: TIcon = forwardRef((props: IIconProps, ref: T
     </svg>
   );
 });
+FbPapperPlaneOutline.displayName = "FbPapperPlaneOutline";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/outline/general/paper-clip.svg
+ * /var/app/ignore/flowbite-icons/outline/general/paper-clip.svg
  */
 
-export const FbPaperClipOutline: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
+export const FbPaperClipOutline: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   const { strokeWidth, ...otherProps } = props;
 
   return (
@@ -9705,14 +9503,15 @@ export const FbPaperClipOutline: TIcon = forwardRef((props: IIconProps, ref: TIc
     </svg>
   );
 });
+FbPaperClipOutline.displayName = "FbPaperClipOutline";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/outline/general/palette.svg
+ * /var/app/ignore/flowbite-icons/outline/general/palette.svg
  */
 
-export const FbPaletteOutline: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
+export const FbPaletteOutline: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   const { strokeWidth, ...otherProps } = props;
 
   return (
@@ -9735,14 +9534,15 @@ export const FbPaletteOutline: TIcon = forwardRef((props: IIconProps, ref: TIcon
     </svg>
   );
 });
+FbPaletteOutline.displayName = "FbPaletteOutline";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/outline/general/newspapper.svg
+ * /var/app/ignore/flowbite-icons/outline/general/newspapper.svg
  */
 
-export const FbNewspapperOutline: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
+export const FbNewspapperOutline: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   const { strokeWidth, ...otherProps } = props;
 
   return (
@@ -9765,14 +9565,15 @@ export const FbNewspapperOutline: TIcon = forwardRef((props: IIconProps, ref: TI
     </svg>
   );
 });
+FbNewspapperOutline.displayName = "FbNewspapperOutline";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/outline/general/mobile-phone.svg
+ * /var/app/ignore/flowbite-icons/outline/general/mobile-phone.svg
  */
 
-export const FbMobilePhoneOutline: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
+export const FbMobilePhoneOutline: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   const { strokeWidth, ...otherProps } = props;
 
   return (
@@ -9795,14 +9596,15 @@ export const FbMobilePhoneOutline: TIcon = forwardRef((props: IIconProps, ref: T
     </svg>
   );
 });
+FbMobilePhoneOutline.displayName = "FbMobilePhoneOutline";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/outline/general/minus.svg
+ * /var/app/ignore/flowbite-icons/outline/general/minus.svg
  */
 
-export const FbMinusOutline: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
+export const FbMinusOutline: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   const { strokeWidth, ...otherProps } = props;
 
   return (
@@ -9825,14 +9627,15 @@ export const FbMinusOutline: TIcon = forwardRef((props: IIconProps, ref: TIconRe
     </svg>
   );
 });
+FbMinusOutline.displayName = "FbMinusOutline";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/outline/general/messages.svg
+ * /var/app/ignore/flowbite-icons/outline/general/messages.svg
  */
 
-export const FbMessagesOutline: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
+export const FbMessagesOutline: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   const { strokeWidth, ...otherProps } = props;
 
   return (
@@ -9855,14 +9658,15 @@ export const FbMessagesOutline: TIcon = forwardRef((props: IIconProps, ref: TIco
     </svg>
   );
 });
+FbMessagesOutline.displayName = "FbMessagesOutline";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/outline/general/message-dots.svg
+ * /var/app/ignore/flowbite-icons/outline/general/message-dots.svg
  */
 
-export const FbMessageDotsOutline: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
+export const FbMessageDotsOutline: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   const { strokeWidth, ...otherProps } = props;
 
   return (
@@ -9885,14 +9689,15 @@ export const FbMessageDotsOutline: TIcon = forwardRef((props: IIconProps, ref: T
     </svg>
   );
 });
+FbMessageDotsOutline.displayName = "FbMessageDotsOutline";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/outline/general/message-caption.svg
+ * /var/app/ignore/flowbite-icons/outline/general/message-caption.svg
  */
 
-export const FbMessageCaptionOutline: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
+export const FbMessageCaptionOutline: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   const { strokeWidth, ...otherProps } = props;
 
   return (
@@ -9915,14 +9720,15 @@ export const FbMessageCaptionOutline: TIcon = forwardRef((props: IIconProps, ref
     </svg>
   );
 });
+FbMessageCaptionOutline.displayName = "FbMessageCaptionOutline";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/outline/general/map-pin.svg
+ * /var/app/ignore/flowbite-icons/outline/general/map-pin.svg
  */
 
-export const FbMapPinOutline: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
+export const FbMapPinOutline: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   const { strokeWidth, ...otherProps } = props;
 
   return (
@@ -9945,14 +9751,15 @@ export const FbMapPinOutline: TIcon = forwardRef((props: IIconProps, ref: TIconR
     </svg>
   );
 });
+FbMapPinOutline.displayName = "FbMapPinOutline";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/outline/general/map-location.svg
+ * /var/app/ignore/flowbite-icons/outline/general/map-location.svg
  */
 
-export const FbMapLocationOutline: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
+export const FbMapLocationOutline: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   const { strokeWidth, ...otherProps } = props;
 
   return (
@@ -9977,14 +9784,15 @@ export const FbMapLocationOutline: TIcon = forwardRef((props: IIconProps, ref: T
     </svg>
   );
 });
+FbMapLocationOutline.displayName = "FbMapLocationOutline";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/outline/general/mail-box.svg
+ * /var/app/ignore/flowbite-icons/outline/general/mail-box.svg
  */
 
-export const FbMailBoxOutline: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
+export const FbMailBoxOutline: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   const { strokeWidth, ...otherProps } = props;
 
   return (
@@ -10007,14 +9815,15 @@ export const FbMailBoxOutline: TIcon = forwardRef((props: IIconProps, ref: TIcon
     </svg>
   );
 });
+FbMailBoxOutline.displayName = "FbMailBoxOutline";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/outline/general/lock.svg
+ * /var/app/ignore/flowbite-icons/outline/general/lock.svg
  */
 
-export const FbLockOutline: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
+export const FbLockOutline: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   const { strokeWidth, ...otherProps } = props;
 
   return (
@@ -10037,14 +9846,15 @@ export const FbLockOutline: TIcon = forwardRef((props: IIconProps, ref: TIconRef
     </svg>
   );
 });
+FbLockOutline.displayName = "FbLockOutline";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/outline/general/lock-time.svg
+ * /var/app/ignore/flowbite-icons/outline/general/lock-time.svg
  */
 
-export const FbLockTimeOutline: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
+export const FbLockTimeOutline: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   const { strokeWidth, ...otherProps } = props;
 
   return (
@@ -10067,14 +9877,15 @@ export const FbLockTimeOutline: TIcon = forwardRef((props: IIconProps, ref: TIco
     </svg>
   );
 });
+FbLockTimeOutline.displayName = "FbLockTimeOutline";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/outline/general/lock-open.svg
+ * /var/app/ignore/flowbite-icons/outline/general/lock-open.svg
  */
 
-export const FbLockOpenOutline: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
+export const FbLockOpenOutline: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   const { strokeWidth, ...otherProps } = props;
 
   return (
@@ -10097,14 +9908,15 @@ export const FbLockOpenOutline: TIcon = forwardRef((props: IIconProps, ref: TIco
     </svg>
   );
 });
+FbLockOpenOutline.displayName = "FbLockOpenOutline";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/outline/general/link.svg
+ * /var/app/ignore/flowbite-icons/outline/general/link.svg
  */
 
-export const FbLinkOutline: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
+export const FbLinkOutline: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   const { strokeWidth, ...otherProps } = props;
 
   return (
@@ -10127,14 +9939,15 @@ export const FbLinkOutline: TIcon = forwardRef((props: IIconProps, ref: TIconRef
     </svg>
   );
 });
+FbLinkOutline.displayName = "FbLinkOutline";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/outline/general/lightbulb.svg
+ * /var/app/ignore/flowbite-icons/outline/general/lightbulb.svg
  */
 
-export const FbLightbulbOutline: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
+export const FbLightbulbOutline: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   const { strokeWidth, ...otherProps } = props;
 
   return (
@@ -10157,14 +9970,15 @@ export const FbLightbulbOutline: TIcon = forwardRef((props: IIconProps, ref: TIc
     </svg>
   );
 });
+FbLightbulbOutline.displayName = "FbLightbulbOutline";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/outline/general/life-buoy.svg
+ * /var/app/ignore/flowbite-icons/outline/general/life-buoy.svg
  */
 
-export const FbLifeBuoyOutline: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
+export const FbLifeBuoyOutline: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   const { strokeWidth, ...otherProps } = props;
 
   return (
@@ -10187,14 +10001,15 @@ export const FbLifeBuoyOutline: TIcon = forwardRef((props: IIconProps, ref: TIco
     </svg>
   );
 });
+FbLifeBuoyOutline.displayName = "FbLifeBuoyOutline";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/outline/general/layers.svg
+ * /var/app/ignore/flowbite-icons/outline/general/layers.svg
  */
 
-export const FbLayersOutline: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
+export const FbLayersOutline: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   const { strokeWidth, ...otherProps } = props;
 
   return (
@@ -10217,14 +10032,15 @@ export const FbLayersOutline: TIcon = forwardRef((props: IIconProps, ref: TIconR
     </svg>
   );
 });
+FbLayersOutline.displayName = "FbLayersOutline";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/outline/general/landmark.svg
+ * /var/app/ignore/flowbite-icons/outline/general/landmark.svg
  */
 
-export const FbLandmarkOutline: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
+export const FbLandmarkOutline: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   const { strokeWidth, ...otherProps } = props;
 
   return (
@@ -10247,14 +10063,15 @@ export const FbLandmarkOutline: TIcon = forwardRef((props: IIconProps, ref: TIco
     </svg>
   );
 });
+FbLandmarkOutline.displayName = "FbLandmarkOutline";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/outline/general/label.svg
+ * /var/app/ignore/flowbite-icons/outline/general/label.svg
  */
 
-export const FbLabelOutline: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
+export const FbLabelOutline: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   const { strokeWidth, ...otherProps } = props;
 
   return (
@@ -10277,22 +10094,21 @@ export const FbLabelOutline: TIcon = forwardRef((props: IIconProps, ref: TIconRe
     </svg>
   );
 });
+FbLabelOutline.displayName = "FbLabelOutline";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/outline/general/keyboard.svg
+ * /var/app/ignore/flowbite-icons/outline/general/keyboard.svg
  */
 
-export const FbKeyboardOutline: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
-  const { strokeWidth, ...otherProps } = props;
-
+export const FbKeyboardOutline: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   return (
     <svg
       width="24"
       height="24"
       ref={ref}
-      {...otherProps}
+      {...props}
       xmlns="http://www.w3.org/2000/svg"
       fill="none"
       viewBox="0 0 20 14"
@@ -10304,14 +10120,15 @@ export const FbKeyboardOutline: TIcon = forwardRef((props: IIconProps, ref: TIco
     </svg>
   );
 });
+FbKeyboardOutline.displayName = "FbKeyboardOutline";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/outline/general/info-circle.svg
+ * /var/app/ignore/flowbite-icons/outline/general/info-circle.svg
  */
 
-export const FbInfoCircleOutline: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
+export const FbInfoCircleOutline: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   const { strokeWidth, ...otherProps } = props;
 
   return (
@@ -10334,14 +10151,15 @@ export const FbInfoCircleOutline: TIcon = forwardRef((props: IIconProps, ref: TI
     </svg>
   );
 });
+FbInfoCircleOutline.displayName = "FbInfoCircleOutline";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/outline/general/inbox.svg
+ * /var/app/ignore/flowbite-icons/outline/general/inbox.svg
  */
 
-export const FbInboxOutline: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
+export const FbInboxOutline: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   const { strokeWidth, ...otherProps } = props;
 
   return (
@@ -10364,14 +10182,15 @@ export const FbInboxOutline: TIcon = forwardRef((props: IIconProps, ref: TIconRe
     </svg>
   );
 });
+FbInboxOutline.displayName = "FbInboxOutline";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/outline/general/inbox-full.svg
+ * /var/app/ignore/flowbite-icons/outline/general/inbox-full.svg
  */
 
-export const FbInboxFullOutline: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
+export const FbInboxFullOutline: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   const { strokeWidth, ...otherProps } = props;
 
   return (
@@ -10394,14 +10213,15 @@ export const FbInboxFullOutline: TIcon = forwardRef((props: IIconProps, ref: TIc
     </svg>
   );
 });
+FbInboxFullOutline.displayName = "FbInboxFullOutline";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/outline/general/image.svg
+ * /var/app/ignore/flowbite-icons/outline/general/image.svg
  */
 
-export const FbImageOutline: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
+export const FbImageOutline: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   const { strokeWidth, ...otherProps } = props;
 
   return (
@@ -10429,20 +10249,21 @@ export const FbImageOutline: TIcon = forwardRef((props: IIconProps, ref: TIconRe
         stroke="currentColor"
         strokeLinecap="round"
         strokeLinejoin="round"
-        strokeWidth="2"
+        strokeWidth={strokeWidth ?? 2}
         d="M13 5.5a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0ZM7.565 7.423 4.5 14h11.518l-2.516-3.71L11 13 7.565 7.423Z"
       />
     </svg>
   );
 });
+FbImageOutline.displayName = "FbImageOutline";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/outline/general/hourglass.svg
+ * /var/app/ignore/flowbite-icons/outline/general/hourglass.svg
  */
 
-export const FbHourglassOutline: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
+export const FbHourglassOutline: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   const { strokeWidth, ...otherProps } = props;
 
   return (
@@ -10465,14 +10286,15 @@ export const FbHourglassOutline: TIcon = forwardRef((props: IIconProps, ref: TIc
     </svg>
   );
 });
+FbHourglassOutline.displayName = "FbHourglassOutline";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/outline/general/home.svg
+ * /var/app/ignore/flowbite-icons/outline/general/home.svg
  */
 
-export const FbHomeOutline: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
+export const FbHomeOutline: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   const { strokeWidth, ...otherProps } = props;
 
   return (
@@ -10495,14 +10317,15 @@ export const FbHomeOutline: TIcon = forwardRef((props: IIconProps, ref: TIconRef
     </svg>
   );
 });
+FbHomeOutline.displayName = "FbHomeOutline";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/outline/general/heart.svg
+ * /var/app/ignore/flowbite-icons/outline/general/heart.svg
  */
 
-export const FbHeartOutline: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
+export const FbHeartOutline: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   const { strokeWidth, ...otherProps } = props;
 
   return (
@@ -10525,14 +10348,15 @@ export const FbHeartOutline: TIcon = forwardRef((props: IIconProps, ref: TIconRe
     </svg>
   );
 });
+FbHeartOutline.displayName = "FbHeartOutline";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/outline/general/grid.svg
+ * /var/app/ignore/flowbite-icons/outline/general/grid.svg
  */
 
-export const FbGridOutline: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
+export const FbGridOutline: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   const { strokeWidth, ...otherProps } = props;
 
   return (
@@ -10555,14 +10379,15 @@ export const FbGridOutline: TIcon = forwardRef((props: IIconProps, ref: TIconRef
     </svg>
   );
 });
+FbGridOutline.displayName = "FbGridOutline";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/outline/general/grid-plus.svg
+ * /var/app/ignore/flowbite-icons/outline/general/grid-plus.svg
  */
 
-export const FbGridPlusOutline: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
+export const FbGridPlusOutline: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   const { strokeWidth, ...otherProps } = props;
 
   return (
@@ -10585,14 +10410,15 @@ export const FbGridPlusOutline: TIcon = forwardRef((props: IIconProps, ref: TIco
     </svg>
   );
 });
+FbGridPlusOutline.displayName = "FbGridPlusOutline";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/outline/general/globe.svg
+ * /var/app/ignore/flowbite-icons/outline/general/globe.svg
  */
 
-export const FbGlobeOutline: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
+export const FbGlobeOutline: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   const { strokeWidth, ...otherProps } = props;
 
   return (
@@ -10615,14 +10441,15 @@ export const FbGlobeOutline: TIcon = forwardRef((props: IIconProps, ref: TIconRe
     </svg>
   );
 });
+FbGlobeOutline.displayName = "FbGlobeOutline";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/outline/general/gift-box.svg
+ * /var/app/ignore/flowbite-icons/outline/general/gift-box.svg
  */
 
-export const FbGiftBoxOutline: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
+export const FbGiftBoxOutline: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   const { strokeWidth, ...otherProps } = props;
 
   return (
@@ -10645,14 +10472,15 @@ export const FbGiftBoxOutline: TIcon = forwardRef((props: IIconProps, ref: TIcon
     </svg>
   );
 });
+FbGiftBoxOutline.displayName = "FbGiftBoxOutline";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/outline/general/flag.svg
+ * /var/app/ignore/flowbite-icons/outline/general/flag.svg
  */
 
-export const FbFlagOutline: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
+export const FbFlagOutline: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   const { strokeWidth, ...otherProps } = props;
 
   return (
@@ -10675,14 +10503,15 @@ export const FbFlagOutline: TIcon = forwardRef((props: IIconProps, ref: TIconRef
     </svg>
   );
 });
+FbFlagOutline.displayName = "FbFlagOutline";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/outline/general/fire.svg
+ * /var/app/ignore/flowbite-icons/outline/general/fire.svg
  */
 
-export const FbFireOutline: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
+export const FbFireOutline: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   const { strokeWidth, ...otherProps } = props;
 
   return (
@@ -10705,14 +10534,15 @@ export const FbFireOutline: TIcon = forwardRef((props: IIconProps, ref: TIconRef
     </svg>
   );
 });
+FbFireOutline.displayName = "FbFireOutline";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/outline/general/fingerprint.svg
+ * /var/app/ignore/flowbite-icons/outline/general/fingerprint.svg
  */
 
-export const FbFingerprintOutline: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
+export const FbFingerprintOutline: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   const { strokeWidth, ...otherProps } = props;
 
   return (
@@ -10735,14 +10565,15 @@ export const FbFingerprintOutline: TIcon = forwardRef((props: IIconProps, ref: T
     </svg>
   );
 });
+FbFingerprintOutline.displayName = "FbFingerprintOutline";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/outline/general/filter.svg
+ * /var/app/ignore/flowbite-icons/outline/general/filter.svg
  */
 
-export const FbFilterOutline: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
+export const FbFilterOutline: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   const { strokeWidth, ...otherProps } = props;
 
   return (
@@ -10765,14 +10596,15 @@ export const FbFilterOutline: TIcon = forwardRef((props: IIconProps, ref: TIconR
     </svg>
   );
 });
+FbFilterOutline.displayName = "FbFilterOutline";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/outline/general/eye.svg
+ * /var/app/ignore/flowbite-icons/outline/general/eye.svg
  */
 
-export const FbEyeOutline: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
+export const FbEyeOutline: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   const { strokeWidth, ...otherProps } = props;
 
   return (
@@ -10797,14 +10629,15 @@ export const FbEyeOutline: TIcon = forwardRef((props: IIconProps, ref: TIconRef)
     </svg>
   );
 });
+FbEyeOutline.displayName = "FbEyeOutline";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/outline/general/eye-slash.svg
+ * /var/app/ignore/flowbite-icons/outline/general/eye-slash.svg
  */
 
-export const FbEyeSlashOutline: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
+export const FbEyeSlashOutline: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   const { strokeWidth, ...otherProps } = props;
 
   return (
@@ -10827,14 +10660,15 @@ export const FbEyeSlashOutline: TIcon = forwardRef((props: IIconProps, ref: TIco
     </svg>
   );
 });
+FbEyeSlashOutline.displayName = "FbEyeSlashOutline";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/outline/general/exclamation-circle.svg
+ * /var/app/ignore/flowbite-icons/outline/general/exclamation-circle.svg
  */
 
-export const FbExclamationCircleOutline: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
+export const FbExclamationCircleOutline: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   const { strokeWidth, ...otherProps } = props;
 
   return (
@@ -10857,14 +10691,15 @@ export const FbExclamationCircleOutline: TIcon = forwardRef((props: IIconProps, 
     </svg>
   );
 });
+FbExclamationCircleOutline.displayName = "FbExclamationCircleOutline";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/outline/general/envelope.svg
+ * /var/app/ignore/flowbite-icons/outline/general/envelope.svg
  */
 
-export const FbEnvelopeOutline: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
+export const FbEnvelopeOutline: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   const { strokeWidth, ...otherProps } = props;
 
   return (
@@ -10887,14 +10722,15 @@ export const FbEnvelopeOutline: TIcon = forwardRef((props: IIconProps, ref: TIco
     </svg>
   );
 });
+FbEnvelopeOutline.displayName = "FbEnvelopeOutline";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/outline/general/envelope-open.svg
+ * /var/app/ignore/flowbite-icons/outline/general/envelope-open.svg
  */
 
-export const FbEnvelopeOpenOutline: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
+export const FbEnvelopeOpenOutline: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   const { strokeWidth, ...otherProps } = props;
 
   return (
@@ -10917,14 +10753,15 @@ export const FbEnvelopeOpenOutline: TIcon = forwardRef((props: IIconProps, ref: 
     </svg>
   );
 });
+FbEnvelopeOpenOutline.displayName = "FbEnvelopeOpenOutline";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/outline/general/edit.svg
+ * /var/app/ignore/flowbite-icons/outline/general/edit.svg
  */
 
-export const FbEditOutline: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
+export const FbEditOutline: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   const { strokeWidth, ...otherProps } = props;
 
   return (
@@ -10947,14 +10784,15 @@ export const FbEditOutline: TIcon = forwardRef((props: IIconProps, ref: TIconRef
     </svg>
   );
 });
+FbEditOutline.displayName = "FbEditOutline";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/outline/general/draw-square.svg
+ * /var/app/ignore/flowbite-icons/outline/general/draw-square.svg
  */
 
-export const FbDrawSquareOutline: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
+export const FbDrawSquareOutline: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   const { strokeWidth, ...otherProps } = props;
 
   return (
@@ -10977,14 +10815,15 @@ export const FbDrawSquareOutline: TIcon = forwardRef((props: IIconProps, ref: TI
     </svg>
   );
 });
+FbDrawSquareOutline.displayName = "FbDrawSquareOutline";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/outline/general/download.svg
+ * /var/app/ignore/flowbite-icons/outline/general/download.svg
  */
 
-export const FbDownloadOutline: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
+export const FbDownloadOutline: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   const { strokeWidth, ...otherProps } = props;
 
   return (
@@ -11007,22 +10846,21 @@ export const FbDownloadOutline: TIcon = forwardRef((props: IIconProps, ref: TIco
     </svg>
   );
 });
+FbDownloadOutline.displayName = "FbDownloadOutline";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/outline/general/dots-vertical.svg
+ * /var/app/ignore/flowbite-icons/outline/general/dots-vertical.svg
  */
 
-export const FbDotsVerticalOutline: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
-  const { strokeWidth, ...otherProps } = props;
-
+export const FbDotsVerticalOutline: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   return (
     <svg
       width="24"
       height="24"
       ref={ref}
-      {...otherProps}
+      {...props}
       xmlns="http://www.w3.org/2000/svg"
       fill="none"
       viewBox="0 0 4 16"
@@ -11030,28 +10868,27 @@ export const FbDotsVerticalOutline: TIcon = forwardRef((props: IIconProps, ref: 
       <path
         stroke="currentColor"
         strokeLinecap="round"
-        strokeWidth="3"
+        stroke-width="3"
         d="M1.5 2h.01M1.5 8h.01m-.01 6h.01"
       />
     </svg>
   );
 });
+FbDotsVerticalOutline.displayName = "FbDotsVerticalOutline";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/outline/general/dots-horizontal.svg
+ * /var/app/ignore/flowbite-icons/outline/general/dots-horizontal.svg
  */
 
-export const FbDotsHorizontalOutline: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
-  const { strokeWidth, ...otherProps } = props;
-
+export const FbDotsHorizontalOutline: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   return (
     <svg
       width="24"
       height="24"
       ref={ref}
-      {...otherProps}
+      {...props}
       xmlns="http://www.w3.org/2000/svg"
       fill="none"
       viewBox="0 0 17 4"
@@ -11059,20 +10896,21 @@ export const FbDotsHorizontalOutline: TIcon = forwardRef((props: IIconProps, ref
       <path
         stroke="currentColor"
         strokeLinecap="round"
-        strokeWidth="3"
+        stroke-width="3"
         d="M2.49 2h.01m6 0h.01m5.99 0h.01"
       />
     </svg>
   );
 });
+FbDotsHorizontalOutline.displayName = "FbDotsHorizontalOutline";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/outline/general/dna.svg
+ * /var/app/ignore/flowbite-icons/outline/general/dna.svg
  */
 
-export const FbDnaOutline: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
+export const FbDnaOutline: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   const { strokeWidth, ...otherProps } = props;
 
   return (
@@ -11095,14 +10933,15 @@ export const FbDnaOutline: TIcon = forwardRef((props: IIconProps, ref: TIconRef)
     </svg>
   );
 });
+FbDnaOutline.displayName = "FbDnaOutline";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/outline/general/desktop-pc.svg
+ * /var/app/ignore/flowbite-icons/outline/general/desktop-pc.svg
  */
 
-export const FbDesktopPcOutline: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
+export const FbDesktopPcOutline: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   const { strokeWidth, ...otherProps } = props;
 
   return (
@@ -11125,14 +10964,15 @@ export const FbDesktopPcOutline: TIcon = forwardRef((props: IIconProps, ref: TIc
     </svg>
   );
 });
+FbDesktopPcOutline.displayName = "FbDesktopPcOutline";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/outline/general/database.svg
+ * /var/app/ignore/flowbite-icons/outline/general/database.svg
  */
 
-export const FbDatabaseOutline: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
+export const FbDatabaseOutline: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   const { strokeWidth, ...otherProps } = props;
 
   return (
@@ -11155,14 +10995,15 @@ export const FbDatabaseOutline: TIcon = forwardRef((props: IIconProps, ref: TIco
     </svg>
   );
 });
+FbDatabaseOutline.displayName = "FbDatabaseOutline";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/outline/general/command.svg
+ * /var/app/ignore/flowbite-icons/outline/general/command.svg
  */
 
-export const FbCommandOutline: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
+export const FbCommandOutline: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   const { strokeWidth, ...otherProps } = props;
 
   return (
@@ -11185,14 +11026,15 @@ export const FbCommandOutline: TIcon = forwardRef((props: IIconProps, ref: TIcon
     </svg>
   );
 });
+FbCommandOutline.displayName = "FbCommandOutline";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/outline/general/column.svg
+ * /var/app/ignore/flowbite-icons/outline/general/column.svg
  */
 
-export const FbColumnOutline: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
+export const FbColumnOutline: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   const { strokeWidth, ...otherProps } = props;
 
   return (
@@ -11215,14 +11057,15 @@ export const FbColumnOutline: TIcon = forwardRef((props: IIconProps, ref: TIconR
     </svg>
   );
 });
+FbColumnOutline.displayName = "FbColumnOutline";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/outline/general/cog.svg
+ * /var/app/ignore/flowbite-icons/outline/general/cog.svg
  */
 
-export const FbCogOutline: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
+export const FbCogOutline: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   const { strokeWidth, ...otherProps } = props;
 
   return (
@@ -11247,14 +11090,15 @@ export const FbCogOutline: TIcon = forwardRef((props: IIconProps, ref: TIconRef)
     </svg>
   );
 });
+FbCogOutline.displayName = "FbCogOutline";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/outline/general/code.svg
+ * /var/app/ignore/flowbite-icons/outline/general/code.svg
  */
 
-export const FbCodeOutline: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
+export const FbCodeOutline: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   const { strokeWidth, ...otherProps } = props;
 
   return (
@@ -11277,14 +11121,15 @@ export const FbCodeOutline: TIcon = forwardRef((props: IIconProps, ref: TIconRef
     </svg>
   );
 });
+FbCodeOutline.displayName = "FbCodeOutline";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/outline/general/code-pull-request.svg
+ * /var/app/ignore/flowbite-icons/outline/general/code-pull-request.svg
  */
 
-export const FbCodePullRequestOutline: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
+export const FbCodePullRequestOutline: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   const { strokeWidth, ...otherProps } = props;
 
   return (
@@ -11307,14 +11152,15 @@ export const FbCodePullRequestOutline: TIcon = forwardRef((props: IIconProps, re
     </svg>
   );
 });
+FbCodePullRequestOutline.displayName = "FbCodePullRequestOutline";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/outline/general/code-merge.svg
+ * /var/app/ignore/flowbite-icons/outline/general/code-merge.svg
  */
 
-export const FbCodeMergeOutline: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
+export const FbCodeMergeOutline: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   const { strokeWidth, ...otherProps } = props;
 
   return (
@@ -11337,14 +11183,15 @@ export const FbCodeMergeOutline: TIcon = forwardRef((props: IIconProps, ref: TIc
     </svg>
   );
 });
+FbCodeMergeOutline.displayName = "FbCodeMergeOutline";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/outline/general/code-fork.svg
+ * /var/app/ignore/flowbite-icons/outline/general/code-fork.svg
  */
 
-export const FbCodeForkOutline: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
+export const FbCodeForkOutline: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   const { strokeWidth, ...otherProps } = props;
 
   return (
@@ -11367,14 +11214,15 @@ export const FbCodeForkOutline: TIcon = forwardRef((props: IIconProps, ref: TIco
     </svg>
   );
 });
+FbCodeForkOutline.displayName = "FbCodeForkOutline";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/outline/general/code-branch.svg
+ * /var/app/ignore/flowbite-icons/outline/general/code-branch.svg
  */
 
-export const FbCodeBranchOutline: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
+export const FbCodeBranchOutline: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   const { strokeWidth, ...otherProps } = props;
 
   return (
@@ -11397,14 +11245,15 @@ export const FbCodeBranchOutline: TIcon = forwardRef((props: IIconProps, ref: TI
     </svg>
   );
 });
+FbCodeBranchOutline.displayName = "FbCodeBranchOutline";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/outline/general/cloud-arrow-up.svg
+ * /var/app/ignore/flowbite-icons/outline/general/cloud-arrow-up.svg
  */
 
-export const FbCloudArrowUpOutline: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
+export const FbCloudArrowUpOutline: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   const { strokeWidth, ...otherProps } = props;
 
   return (
@@ -11427,14 +11276,15 @@ export const FbCloudArrowUpOutline: TIcon = forwardRef((props: IIconProps, ref: 
     </svg>
   );
 });
+FbCloudArrowUpOutline.displayName = "FbCloudArrowUpOutline";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/outline/general/close.svg
+ * /var/app/ignore/flowbite-icons/outline/general/close.svg
  */
 
-export const FbCloseOutline: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
+export const FbCloseOutline: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   const { strokeWidth, ...otherProps } = props;
 
   return (
@@ -11457,14 +11307,15 @@ export const FbCloseOutline: TIcon = forwardRef((props: IIconProps, ref: TIconRe
     </svg>
   );
 });
+FbCloseOutline.displayName = "FbCloseOutline";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/outline/general/clock.svg
+ * /var/app/ignore/flowbite-icons/outline/general/clock.svg
  */
 
-export const FbClockOutline: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
+export const FbClockOutline: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   const { strokeWidth, ...otherProps } = props;
 
   return (
@@ -11486,14 +11337,15 @@ export const FbClockOutline: TIcon = forwardRef((props: IIconProps, ref: TIconRe
     </svg>
   );
 });
+FbClockOutline.displayName = "FbClockOutline";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/outline/general/circle-plus.svg
+ * /var/app/ignore/flowbite-icons/outline/general/circle-plus.svg
  */
 
-export const FbCirclePlusOutline: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
+export const FbCirclePlusOutline: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   const { strokeWidth, ...otherProps } = props;
 
   return (
@@ -11516,14 +11368,15 @@ export const FbCirclePlusOutline: TIcon = forwardRef((props: IIconProps, ref: TI
     </svg>
   );
 });
+FbCirclePlusOutline.displayName = "FbCirclePlusOutline";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/outline/general/check.svg
+ * /var/app/ignore/flowbite-icons/outline/general/check.svg
  */
 
-export const FbCheckOutline: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
+export const FbCheckOutline: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   const { strokeWidth, ...otherProps } = props;
 
   return (
@@ -11546,14 +11399,15 @@ export const FbCheckOutline: TIcon = forwardRef((props: IIconProps, ref: TIconRe
     </svg>
   );
 });
+FbCheckOutline.displayName = "FbCheckOutline";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/outline/general/check-plus-circle.svg
+ * /var/app/ignore/flowbite-icons/outline/general/check-plus-circle.svg
  */
 
-export const FbCheckPlusCircleOutline: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
+export const FbCheckPlusCircleOutline: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   const { strokeWidth, ...otherProps } = props;
 
   return (
@@ -11576,14 +11430,15 @@ export const FbCheckPlusCircleOutline: TIcon = forwardRef((props: IIconProps, re
     </svg>
   );
 });
+FbCheckPlusCircleOutline.displayName = "FbCheckPlusCircleOutline";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/outline/general/check-circle.svg
+ * /var/app/ignore/flowbite-icons/outline/general/check-circle.svg
  */
 
-export const FbCheckCircleOutline: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
+export const FbCheckCircleOutline: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   const { strokeWidth, ...otherProps } = props;
 
   return (
@@ -11606,14 +11461,15 @@ export const FbCheckCircleOutline: TIcon = forwardRef((props: IIconProps, ref: T
     </svg>
   );
 });
+FbCheckCircleOutline.displayName = "FbCheckCircleOutline";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/outline/general/chart.svg
+ * /var/app/ignore/flowbite-icons/outline/general/chart.svg
  */
 
-export const FbChartOutline: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
+export const FbChartOutline: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   const { strokeWidth, ...otherProps } = props;
 
   return (
@@ -11636,14 +11492,15 @@ export const FbChartOutline: TIcon = forwardRef((props: IIconProps, ref: TIconRe
     </svg>
   );
 });
+FbChartOutline.displayName = "FbChartOutline";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/outline/general/chart-pie.svg
+ * /var/app/ignore/flowbite-icons/outline/general/chart-pie.svg
  */
 
-export const FbChartPieOutline: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
+export const FbChartPieOutline: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   const { strokeWidth, ...otherProps } = props;
 
   return (
@@ -11668,14 +11525,15 @@ export const FbChartPieOutline: TIcon = forwardRef((props: IIconProps, ref: TIco
     </svg>
   );
 });
+FbChartPieOutline.displayName = "FbChartPieOutline";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/outline/general/chart-mixed.svg
+ * /var/app/ignore/flowbite-icons/outline/general/chart-mixed.svg
  */
 
-export const FbChartMixedOutline: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
+export const FbChartMixedOutline: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   const { strokeWidth, ...otherProps } = props;
 
   return (
@@ -11698,14 +11556,15 @@ export const FbChartMixedOutline: TIcon = forwardRef((props: IIconProps, ref: TI
     </svg>
   );
 });
+FbChartMixedOutline.displayName = "FbChartMixedOutline";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/outline/general/chart-mixed-dollar.svg
+ * /var/app/ignore/flowbite-icons/outline/general/chart-mixed-dollar.svg
  */
 
-export const FbChartMixedDollarOutline: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
+export const FbChartMixedDollarOutline: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   const { strokeWidth, ...otherProps } = props;
 
   return (
@@ -11728,14 +11587,15 @@ export const FbChartMixedDollarOutline: TIcon = forwardRef((props: IIconProps, r
     </svg>
   );
 });
+FbChartMixedDollarOutline.displayName = "FbChartMixedDollarOutline";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/outline/general/chart-line-up.svg
+ * /var/app/ignore/flowbite-icons/outline/general/chart-line-up.svg
  */
 
-export const FbChartLineUpOutline: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
+export const FbChartLineUpOutline: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   const { strokeWidth, ...otherProps } = props;
 
   return (
@@ -11758,14 +11618,15 @@ export const FbChartLineUpOutline: TIcon = forwardRef((props: IIconProps, ref: T
     </svg>
   );
 });
+FbChartLineUpOutline.displayName = "FbChartLineUpOutline";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/outline/general/chart-bars-3-from-left.svg
+ * /var/app/ignore/flowbite-icons/outline/general/chart-bars-3-from-left.svg
  */
 
-export const FbChartBars3FromLeftOutline: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
+export const FbChartBars3FromLeftOutline: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   const { strokeWidth, ...otherProps } = props;
 
   return (
@@ -11788,14 +11649,15 @@ export const FbChartBars3FromLeftOutline: TIcon = forwardRef((props: IIconProps,
     </svg>
   );
 });
+FbChartBars3FromLeftOutline.displayName = "FbChartBars3FromLeftOutline";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/outline/general/calendar-week.svg
+ * /var/app/ignore/flowbite-icons/outline/general/calendar-week.svg
  */
 
-export const FbCalendarWeekOutline: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
+export const FbCalendarWeekOutline: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   const { strokeWidth, ...otherProps } = props;
 
   return (
@@ -11818,22 +11680,21 @@ export const FbCalendarWeekOutline: TIcon = forwardRef((props: IIconProps, ref: 
     </svg>
   );
 });
+FbCalendarWeekOutline.displayName = "FbCalendarWeekOutline";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/outline/general/calendar-month.svg
+ * /var/app/ignore/flowbite-icons/outline/general/calendar-month.svg
  */
 
-export const FbCalendarMonthOutline: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
-  const { strokeWidth, ...otherProps } = props;
-
+export const FbCalendarMonthOutline: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   return (
     <svg
       width="24"
       height="24"
       ref={ref}
-      {...otherProps}
+      {...props}
       xmlns="http://www.w3.org/2000/svg"
       fill="none"
       viewBox="0 0 20 20"
@@ -11845,14 +11706,15 @@ export const FbCalendarMonthOutline: TIcon = forwardRef((props: IIconProps, ref:
     </svg>
   );
 });
+FbCalendarMonthOutline.displayName = "FbCalendarMonthOutline";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/outline/general/calendar-edit.svg
+ * /var/app/ignore/flowbite-icons/outline/general/calendar-edit.svg
  */
 
-export const FbCalendarEditOutline: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
+export const FbCalendarEditOutline: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   const { strokeWidth, ...otherProps } = props;
 
   return (
@@ -11875,14 +11737,15 @@ export const FbCalendarEditOutline: TIcon = forwardRef((props: IIconProps, ref: 
     </svg>
   );
 });
+FbCalendarEditOutline.displayName = "FbCalendarEditOutline";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/outline/general/bullhorn.svg
+ * /var/app/ignore/flowbite-icons/outline/general/bullhorn.svg
  */
 
-export const FbBullhornOutline: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
+export const FbBullhornOutline: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   const { strokeWidth, ...otherProps } = props;
 
   return (
@@ -11905,14 +11768,15 @@ export const FbBullhornOutline: TIcon = forwardRef((props: IIconProps, ref: TIco
     </svg>
   );
 });
+FbBullhornOutline.displayName = "FbBullhornOutline";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/outline/general/building.svg
+ * /var/app/ignore/flowbite-icons/outline/general/building.svg
  */
 
-export const FbBuildingOutline: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
+export const FbBuildingOutline: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   const { strokeWidth, ...otherProps } = props;
 
   return (
@@ -11935,14 +11799,15 @@ export const FbBuildingOutline: TIcon = forwardRef((props: IIconProps, ref: TIco
     </svg>
   );
 });
+FbBuildingOutline.displayName = "FbBuildingOutline";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/outline/general/bug.svg
+ * /var/app/ignore/flowbite-icons/outline/general/bug.svg
  */
 
-export const FbBugOutline: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
+export const FbBugOutline: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   const { strokeWidth, ...otherProps } = props;
 
   return (
@@ -11965,20 +11830,19 @@ export const FbBugOutline: TIcon = forwardRef((props: IIconProps, ref: TIconRef)
     </svg>
   );
 });
+FbBugOutline.displayName = "FbBugOutline";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/outline/general/briefcase.svg
+ * /var/app/ignore/flowbite-icons/outline/general/briefcase.svg
  */
 
-export const FbBriefcaseOutline: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
-  const { strokeWidth, ...otherProps } = props;
-
+export const FbBriefcaseOutline: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   return (
     <svg
       ref={ref}
-      {...otherProps}
+      {...props}
       xmlns="http://www.w3.org/2000/svg"
       width="20"
       height="20"
@@ -11992,14 +11856,15 @@ export const FbBriefcaseOutline: TIcon = forwardRef((props: IIconProps, ref: TIc
     </svg>
   );
 });
+FbBriefcaseOutline.displayName = "FbBriefcaseOutline";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/outline/general/brain.svg
+ * /var/app/ignore/flowbite-icons/outline/general/brain.svg
  */
 
-export const FbBrainOutline: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
+export const FbBrainOutline: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   const { strokeWidth, ...otherProps } = props;
 
   return (
@@ -12022,14 +11887,15 @@ export const FbBrainOutline: TIcon = forwardRef((props: IIconProps, ref: TIconRe
     </svg>
   );
 });
+FbBrainOutline.displayName = "FbBrainOutline";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/outline/general/bookmark.svg
+ * /var/app/ignore/flowbite-icons/outline/general/bookmark.svg
  */
 
-export const FbBookmarkOutline: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
+export const FbBookmarkOutline: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   const { strokeWidth, ...otherProps } = props;
 
   return (
@@ -12052,14 +11918,15 @@ export const FbBookmarkOutline: TIcon = forwardRef((props: IIconProps, ref: TIco
     </svg>
   );
 });
+FbBookmarkOutline.displayName = "FbBookmarkOutline";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/outline/general/book.svg
+ * /var/app/ignore/flowbite-icons/outline/general/book.svg
  */
 
-export const FbBookOutline: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
+export const FbBookOutline: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   const { strokeWidth, ...otherProps } = props;
 
   return (
@@ -12082,14 +11949,15 @@ export const FbBookOutline: TIcon = forwardRef((props: IIconProps, ref: TIconRef
     </svg>
   );
 });
+FbBookOutline.displayName = "FbBookOutline";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/outline/general/book-open.svg
+ * /var/app/ignore/flowbite-icons/outline/general/book-open.svg
  */
 
-export const FbBookOpenOutline: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
+export const FbBookOpenOutline: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   const { strokeWidth, ...otherProps } = props;
 
   return (
@@ -12112,14 +11980,15 @@ export const FbBookOpenOutline: TIcon = forwardRef((props: IIconProps, ref: TIco
     </svg>
   );
 });
+FbBookOpenOutline.displayName = "FbBookOpenOutline";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/outline/general/blender-phone.svg
+ * /var/app/ignore/flowbite-icons/outline/general/blender-phone.svg
  */
 
-export const FbBlenderPhoneOutline: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
+export const FbBlenderPhoneOutline: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   const { strokeWidth, ...otherProps } = props;
 
   return (
@@ -12142,14 +12011,15 @@ export const FbBlenderPhoneOutline: TIcon = forwardRef((props: IIconProps, ref: 
     </svg>
   );
 });
+FbBlenderPhoneOutline.displayName = "FbBlenderPhoneOutline";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/outline/general/bell.svg
+ * /var/app/ignore/flowbite-icons/outline/general/bell.svg
  */
 
-export const FbBellOutline: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
+export const FbBellOutline: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   const { strokeWidth, ...otherProps } = props;
 
   return (
@@ -12172,14 +12042,15 @@ export const FbBellOutline: TIcon = forwardRef((props: IIconProps, ref: TIconRef
     </svg>
   );
 });
+FbBellOutline.displayName = "FbBellOutline";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/outline/general/bell-ring.svg
+ * /var/app/ignore/flowbite-icons/outline/general/bell-ring.svg
  */
 
-export const FbBellRingOutline: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
+export const FbBellRingOutline: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   const { strokeWidth, ...otherProps } = props;
 
   return (
@@ -12202,14 +12073,15 @@ export const FbBellRingOutline: TIcon = forwardRef((props: IIconProps, ref: TIco
     </svg>
   );
 });
+FbBellRingOutline.displayName = "FbBellRingOutline";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/outline/general/bell-active.svg
+ * /var/app/ignore/flowbite-icons/outline/general/bell-active.svg
  */
 
-export const FbBellActiveOutline: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
+export const FbBellActiveOutline: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   const { strokeWidth, ...otherProps } = props;
 
   return (
@@ -12232,14 +12104,15 @@ export const FbBellActiveOutline: TIcon = forwardRef((props: IIconProps, ref: TI
     </svg>
   );
 });
+FbBellActiveOutline.displayName = "FbBellActiveOutline";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/outline/general/bell-active-alt.svg
+ * /var/app/ignore/flowbite-icons/outline/general/bell-active-alt.svg
  */
 
-export const FbBellActiveAltOutline: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
+export const FbBellActiveAltOutline: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   const { strokeWidth, ...otherProps } = props;
 
   return (
@@ -12262,14 +12135,15 @@ export const FbBellActiveAltOutline: TIcon = forwardRef((props: IIconProps, ref:
     </svg>
   );
 });
+FbBellActiveAltOutline.displayName = "FbBellActiveAltOutline";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/outline/general/bars.svg
+ * /var/app/ignore/flowbite-icons/outline/general/bars.svg
  */
 
-export const FbBarsOutline: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
+export const FbBarsOutline: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   const { strokeWidth, ...otherProps } = props;
 
   return (
@@ -12292,14 +12166,15 @@ export const FbBarsOutline: TIcon = forwardRef((props: IIconProps, ref: TIconRef
     </svg>
   );
 });
+FbBarsOutline.displayName = "FbBarsOutline";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/outline/general/badge-check.svg
+ * /var/app/ignore/flowbite-icons/outline/general/badge-check.svg
  */
 
-export const FbBadgeCheckOutline: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
+export const FbBadgeCheckOutline: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   const { strokeWidth, ...otherProps } = props;
 
   return (
@@ -12322,14 +12197,15 @@ export const FbBadgeCheckOutline: TIcon = forwardRef((props: IIconProps, ref: TI
     </svg>
   );
 });
+FbBadgeCheckOutline.displayName = "FbBadgeCheckOutline";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/outline/general/atom.svg
+ * /var/app/ignore/flowbite-icons/outline/general/atom.svg
  */
 
-export const FbAtomOutline: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
+export const FbAtomOutline: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   const { strokeWidth, ...otherProps } = props;
 
   return (
@@ -12351,15 +12227,16 @@ export const FbAtomOutline: TIcon = forwardRef((props: IIconProps, ref: TIconRef
     </svg>
   );
 });
+FbAtomOutline.displayName = "FbAtomOutline";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/outline/general/arrow-up-right-from-square.svg
+ * /var/app/ignore/flowbite-icons/outline/general/arrow-up-right-from-square.svg
  */
 
 export const FbArrowUpRightFromSquareOutline: TIcon = forwardRef(
-  (props: IIconProps, ref: TIconRef) => {
+  (props: TIconProps, ref: TIconRef) => {
     const { strokeWidth, ...otherProps } = props;
 
     return (
@@ -12383,14 +12260,15 @@ export const FbArrowUpRightFromSquareOutline: TIcon = forwardRef(
     );
   },
 );
+FbArrowUpRightFromSquareOutline.displayName = "FbArrowUpRightFromSquareOutline";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/outline/general/archive.svg
+ * /var/app/ignore/flowbite-icons/outline/general/archive.svg
  */
 
-export const FbArchiveOutline: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
+export const FbArchiveOutline: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   const { strokeWidth, ...otherProps } = props;
 
   return (
@@ -12412,14 +12290,15 @@ export const FbArchiveOutline: TIcon = forwardRef((props: IIconProps, ref: TIcon
     </svg>
   );
 });
+FbArchiveOutline.displayName = "FbArchiveOutline";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/outline/general/annotation.svg
+ * /var/app/ignore/flowbite-icons/outline/general/annotation.svg
  */
 
-export const FbAnnotationOutline: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
+export const FbAnnotationOutline: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   const { strokeWidth, ...otherProps } = props;
 
   return (
@@ -12442,15 +12321,16 @@ export const FbAnnotationOutline: TIcon = forwardRef((props: IIconProps, ref: TI
     </svg>
   );
 });
+FbAnnotationOutline.displayName = "FbAnnotationOutline";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/outline/general/adjustments-vertical.svg
+ * /var/app/ignore/flowbite-icons/outline/general/adjustments-vertical.svg
  */
 
 export const FbAdjustmentsVerticalOutline: TIcon = forwardRef(
-  (props: IIconProps, ref: TIconRef) => {
+  (props: TIconProps, ref: TIconRef) => {
     const { strokeWidth, ...otherProps } = props;
 
     return (
@@ -12474,15 +12354,16 @@ export const FbAdjustmentsVerticalOutline: TIcon = forwardRef(
     );
   },
 );
+FbAdjustmentsVerticalOutline.displayName = "FbAdjustmentsVerticalOutline";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/outline/general/adjustments-horizontal.svg
+ * /var/app/ignore/flowbite-icons/outline/general/adjustments-horizontal.svg
  */
 
 export const FbAdjustmentsHorizontalOutline: TIcon = forwardRef(
-  (props: IIconProps, ref: TIconRef) => {
+  (props: TIconProps, ref: TIconRef) => {
     const { strokeWidth, ...otherProps } = props;
 
     return (
@@ -12506,14 +12387,15 @@ export const FbAdjustmentsHorizontalOutline: TIcon = forwardRef(
     );
   },
 );
+FbAdjustmentsHorizontalOutline.displayName = "FbAdjustmentsHorizontalOutline";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/outline/file-folders/folder.svg
+ * /var/app/ignore/flowbite-icons/outline/file-folders/folder.svg
  */
 
-export const FbFolderOutline: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
+export const FbFolderOutline: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   const { strokeWidth, ...otherProps } = props;
 
   return (
@@ -12536,14 +12418,15 @@ export const FbFolderOutline: TIcon = forwardRef((props: IIconProps, ref: TIconR
     </svg>
   );
 });
+FbFolderOutline.displayName = "FbFolderOutline";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/outline/file-folders/folder-plus.svg
+ * /var/app/ignore/flowbite-icons/outline/file-folders/folder-plus.svg
  */
 
-export const FbFolderPlusOutline: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
+export const FbFolderPlusOutline: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   const { strokeWidth, ...otherProps } = props;
 
   return (
@@ -12566,14 +12449,15 @@ export const FbFolderPlusOutline: TIcon = forwardRef((props: IIconProps, ref: TI
     </svg>
   );
 });
+FbFolderPlusOutline.displayName = "FbFolderPlusOutline";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/outline/file-folders/folder-open.svg
+ * /var/app/ignore/flowbite-icons/outline/file-folders/folder-open.svg
  */
 
-export const FbFolderOpenOutline: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
+export const FbFolderOpenOutline: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   const { strokeWidth, ...otherProps } = props;
 
   return (
@@ -12596,14 +12480,15 @@ export const FbFolderOpenOutline: TIcon = forwardRef((props: IIconProps, ref: TI
     </svg>
   );
 });
+FbFolderOpenOutline.displayName = "FbFolderOpenOutline";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/outline/file-folders/folder-duplicate.svg
+ * /var/app/ignore/flowbite-icons/outline/file-folders/folder-duplicate.svg
  */
 
-export const FbFolderDuplicateOutline: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
+export const FbFolderDuplicateOutline: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   const { strokeWidth, ...otherProps } = props;
 
   return (
@@ -12625,14 +12510,15 @@ export const FbFolderDuplicateOutline: TIcon = forwardRef((props: IIconProps, re
     </svg>
   );
 });
+FbFolderDuplicateOutline.displayName = "FbFolderDuplicateOutline";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/outline/file-folders/folder-arrow-right.svg
+ * /var/app/ignore/flowbite-icons/outline/file-folders/folder-arrow-right.svg
  */
 
-export const FbFolderArrowRightOutline: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
+export const FbFolderArrowRightOutline: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   const { strokeWidth, ...otherProps } = props;
 
   return (
@@ -12655,14 +12541,15 @@ export const FbFolderArrowRightOutline: TIcon = forwardRef((props: IIconProps, r
     </svg>
   );
 });
+FbFolderArrowRightOutline.displayName = "FbFolderArrowRightOutline";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/outline/file-folders/file.svg
+ * /var/app/ignore/flowbite-icons/outline/file-folders/file.svg
  */
 
-export const FbFileOutline: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
+export const FbFileOutline: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   const { strokeWidth, ...otherProps } = props;
 
   return (
@@ -12684,22 +12571,21 @@ export const FbFileOutline: TIcon = forwardRef((props: IIconProps, ref: TIconRef
     </svg>
   );
 });
+FbFileOutline.displayName = "FbFileOutline";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/outline/file-folders/file-zip.svg
+ * /var/app/ignore/flowbite-icons/outline/file-folders/file-zip.svg
  */
 
-export const FbFileZipOutline: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
-  const { strokeWidth, ...otherProps } = props;
-
+export const FbFileZipOutline: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   return (
     <svg
       width="24"
       height="24"
       ref={ref}
-      {...otherProps}
+      {...props}
       xmlns="http://www.w3.org/2000/svg"
       fill="none"
       viewBox="0 0 16 20"
@@ -12711,14 +12597,15 @@ export const FbFileZipOutline: TIcon = forwardRef((props: IIconProps, ref: TIcon
     </svg>
   );
 });
+FbFileZipOutline.displayName = "FbFileZipOutline";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/outline/file-folders/file-word.svg
+ * /var/app/ignore/flowbite-icons/outline/file-folders/file-word.svg
  */
 
-export const FbFileWordOutline: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
+export const FbFileWordOutline: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   const { strokeWidth, ...otherProps } = props;
 
   return (
@@ -12741,14 +12628,15 @@ export const FbFileWordOutline: TIcon = forwardRef((props: IIconProps, ref: TIco
     </svg>
   );
 });
+FbFileWordOutline.displayName = "FbFileWordOutline";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/outline/file-folders/file-video.svg
+ * /var/app/ignore/flowbite-icons/outline/file-folders/file-video.svg
  */
 
-export const FbFileVideoOutline: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
+export const FbFileVideoOutline: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   const { strokeWidth, ...otherProps } = props;
 
   return (
@@ -12771,14 +12659,15 @@ export const FbFileVideoOutline: TIcon = forwardRef((props: IIconProps, ref: TIc
     </svg>
   );
 });
+FbFileVideoOutline.displayName = "FbFileVideoOutline";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/outline/file-folders/file-shield.svg
+ * /var/app/ignore/flowbite-icons/outline/file-folders/file-shield.svg
  */
 
-export const FbFileShieldOutline: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
+export const FbFileShieldOutline: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   const { strokeWidth, ...otherProps } = props;
 
   return (
@@ -12801,14 +12690,15 @@ export const FbFileShieldOutline: TIcon = forwardRef((props: IIconProps, ref: TI
     </svg>
   );
 });
+FbFileShieldOutline.displayName = "FbFileShieldOutline";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/outline/file-folders/file-search.svg
+ * /var/app/ignore/flowbite-icons/outline/file-folders/file-search.svg
  */
 
-export const FbFileSearchOutline: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
+export const FbFileSearchOutline: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   const { strokeWidth, ...otherProps } = props;
 
   return (
@@ -12831,14 +12721,15 @@ export const FbFileSearchOutline: TIcon = forwardRef((props: IIconProps, ref: TI
     </svg>
   );
 });
+FbFileSearchOutline.displayName = "FbFileSearchOutline";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/outline/file-folders/file-ppt.svg
+ * /var/app/ignore/flowbite-icons/outline/file-folders/file-ppt.svg
  */
 
-export const FbFilePptOutline: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
+export const FbFilePptOutline: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   const { strokeWidth, ...otherProps } = props;
 
   return (
@@ -12861,14 +12752,15 @@ export const FbFilePptOutline: TIcon = forwardRef((props: IIconProps, ref: TIcon
     </svg>
   );
 });
+FbFilePptOutline.displayName = "FbFilePptOutline";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/outline/file-folders/file-pen.svg
+ * /var/app/ignore/flowbite-icons/outline/file-folders/file-pen.svg
  */
 
-export const FbFilePenOutline: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
+export const FbFilePenOutline: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   const { strokeWidth, ...otherProps } = props;
 
   return (
@@ -12891,14 +12783,15 @@ export const FbFilePenOutline: TIcon = forwardRef((props: IIconProps, ref: TIcon
     </svg>
   );
 });
+FbFilePenOutline.displayName = "FbFilePenOutline";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/outline/file-folders/file-pdf.svg
+ * /var/app/ignore/flowbite-icons/outline/file-folders/file-pdf.svg
  */
 
-export const FbFilePdfOutline: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
+export const FbFilePdfOutline: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   const { strokeWidth, ...otherProps } = props;
 
   return (
@@ -12921,14 +12814,15 @@ export const FbFilePdfOutline: TIcon = forwardRef((props: IIconProps, ref: TIcon
     </svg>
   );
 });
+FbFilePdfOutline.displayName = "FbFilePdfOutline";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/outline/file-folders/file-paste.svg
+ * /var/app/ignore/flowbite-icons/outline/file-folders/file-paste.svg
  */
 
-export const FbFilePasteOutline: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
+export const FbFilePasteOutline: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   const { strokeWidth, ...otherProps } = props;
 
   return (
@@ -12951,14 +12845,15 @@ export const FbFilePasteOutline: TIcon = forwardRef((props: IIconProps, ref: TIc
     </svg>
   );
 });
+FbFilePasteOutline.displayName = "FbFilePasteOutline";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/outline/file-folders/file-music.svg
+ * /var/app/ignore/flowbite-icons/outline/file-folders/file-music.svg
  */
 
-export const FbFileMusicOutline: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
+export const FbFileMusicOutline: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   const { strokeWidth, ...otherProps } = props;
 
   return (
@@ -12981,14 +12876,15 @@ export const FbFileMusicOutline: TIcon = forwardRef((props: IIconProps, ref: TIc
     </svg>
   );
 });
+FbFileMusicOutline.displayName = "FbFileMusicOutline";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/outline/file-folders/file-lines.svg
+ * /var/app/ignore/flowbite-icons/outline/file-folders/file-lines.svg
  */
 
-export const FbFileLinesOutline: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
+export const FbFileLinesOutline: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   const { strokeWidth, ...otherProps } = props;
 
   return (
@@ -13011,14 +12907,15 @@ export const FbFileLinesOutline: TIcon = forwardRef((props: IIconProps, ref: TIc
     </svg>
   );
 });
+FbFileLinesOutline.displayName = "FbFileLinesOutline";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/outline/file-folders/file-invoice.svg
+ * /var/app/ignore/flowbite-icons/outline/file-folders/file-invoice.svg
  */
 
-export const FbFileInvoiceOutline: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
+export const FbFileInvoiceOutline: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   const { strokeWidth, ...otherProps } = props;
 
   return (
@@ -13041,14 +12938,15 @@ export const FbFileInvoiceOutline: TIcon = forwardRef((props: IIconProps, ref: T
     </svg>
   );
 });
+FbFileInvoiceOutline.displayName = "FbFileInvoiceOutline";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/outline/file-folders/file-import.svg
+ * /var/app/ignore/flowbite-icons/outline/file-folders/file-import.svg
  */
 
-export const FbFileImportOutline: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
+export const FbFileImportOutline: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   const { strokeWidth, ...otherProps } = props;
 
   return (
@@ -13071,14 +12969,15 @@ export const FbFileImportOutline: TIcon = forwardRef((props: IIconProps, ref: TI
     </svg>
   );
 });
+FbFileImportOutline.displayName = "FbFileImportOutline";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/outline/file-folders/file-image.svg
+ * /var/app/ignore/flowbite-icons/outline/file-folders/file-image.svg
  */
 
-export const FbFileImageOutline: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
+export const FbFileImageOutline: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   const { strokeWidth, ...otherProps } = props;
 
   return (
@@ -13105,14 +13004,15 @@ export const FbFileImageOutline: TIcon = forwardRef((props: IIconProps, ref: TIc
     </svg>
   );
 });
+FbFileImageOutline.displayName = "FbFileImageOutline";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/outline/file-folders/file-export.svg
+ * /var/app/ignore/flowbite-icons/outline/file-folders/file-export.svg
  */
 
-export const FbFileExportOutline: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
+export const FbFileExportOutline: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   const { strokeWidth, ...otherProps } = props;
 
   return (
@@ -13135,14 +13035,15 @@ export const FbFileExportOutline: TIcon = forwardRef((props: IIconProps, ref: TI
     </svg>
   );
 });
+FbFileExportOutline.displayName = "FbFileExportOutline";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/outline/file-folders/file-csv.svg
+ * /var/app/ignore/flowbite-icons/outline/file-folders/file-csv.svg
  */
 
-export const FbFileCsvOutline: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
+export const FbFileCsvOutline: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   const { strokeWidth, ...otherProps } = props;
 
   return (
@@ -13165,14 +13066,15 @@ export const FbFileCsvOutline: TIcon = forwardRef((props: IIconProps, ref: TIcon
     </svg>
   );
 });
+FbFileCsvOutline.displayName = "FbFileCsvOutline";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/outline/file-folders/file-copy.svg
+ * /var/app/ignore/flowbite-icons/outline/file-folders/file-copy.svg
  */
 
-export const FbFileCopyOutline: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
+export const FbFileCopyOutline: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   const { strokeWidth, ...otherProps } = props;
 
   return (
@@ -13195,14 +13097,15 @@ export const FbFileCopyOutline: TIcon = forwardRef((props: IIconProps, ref: TIco
     </svg>
   );
 });
+FbFileCopyOutline.displayName = "FbFileCopyOutline";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/outline/file-folders/file-code.svg
+ * /var/app/ignore/flowbite-icons/outline/file-folders/file-code.svg
  */
 
-export const FbFileCodeOutline: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
+export const FbFileCodeOutline: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   const { strokeWidth, ...otherProps } = props;
 
   return (
@@ -13225,14 +13128,15 @@ export const FbFileCodeOutline: TIcon = forwardRef((props: IIconProps, ref: TIco
     </svg>
   );
 });
+FbFileCodeOutline.displayName = "FbFileCodeOutline";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/outline/file-folders/file-clone.svg
+ * /var/app/ignore/flowbite-icons/outline/file-folders/file-clone.svg
  */
 
-export const FbFileCloneOutline: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
+export const FbFileCloneOutline: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   const { strokeWidth, ...otherProps } = props;
 
   return (
@@ -13255,14 +13159,15 @@ export const FbFileCloneOutline: TIcon = forwardRef((props: IIconProps, ref: TIc
     </svg>
   );
 });
+FbFileCloneOutline.displayName = "FbFileCloneOutline";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/outline/file-folders/file-circle-plus.svg
+ * /var/app/ignore/flowbite-icons/outline/file-folders/file-circle-plus.svg
  */
 
-export const FbFileCirclePlusOutline: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
+export const FbFileCirclePlusOutline: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   const { strokeWidth, ...otherProps } = props;
 
   return (
@@ -13285,14 +13190,15 @@ export const FbFileCirclePlusOutline: TIcon = forwardRef((props: IIconProps, ref
     </svg>
   );
 });
+FbFileCirclePlusOutline.displayName = "FbFileCirclePlusOutline";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/outline/file-folders/file-check.svg
+ * /var/app/ignore/flowbite-icons/outline/file-folders/file-check.svg
  */
 
-export const FbFileCheckOutline: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
+export const FbFileCheckOutline: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   const { strokeWidth, ...otherProps } = props;
 
   return (
@@ -13315,14 +13221,15 @@ export const FbFileCheckOutline: TIcon = forwardRef((props: IIconProps, ref: TIc
     </svg>
   );
 });
+FbFileCheckOutline.displayName = "FbFileCheckOutline";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/outline/file-folders/file-chart-bar.svg
+ * /var/app/ignore/flowbite-icons/outline/file-folders/file-chart-bar.svg
  */
 
-export const FbFileChartBarOutline: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
+export const FbFileChartBarOutline: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   const { strokeWidth, ...otherProps } = props;
 
   return (
@@ -13345,14 +13252,15 @@ export const FbFileChartBarOutline: TIcon = forwardRef((props: IIconProps, ref: 
     </svg>
   );
 });
+FbFileChartBarOutline.displayName = "FbFileChartBarOutline";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/outline/file-folders/clipboard.svg
+ * /var/app/ignore/flowbite-icons/outline/file-folders/clipboard.svg
  */
 
-export const FbClipboardOutline: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
+export const FbClipboardOutline: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   const { strokeWidth, ...otherProps } = props;
 
   return (
@@ -13375,22 +13283,21 @@ export const FbClipboardOutline: TIcon = forwardRef((props: IIconProps, ref: TIc
     </svg>
   );
 });
+FbClipboardOutline.displayName = "FbClipboardOutline";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/outline/file-folders/clipboard-list.svg
+ * /var/app/ignore/flowbite-icons/outline/file-folders/clipboard-list.svg
  */
 
-export const FbClipboardListOutline: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
-  const { strokeWidth, ...otherProps } = props;
-
+export const FbClipboardListOutline: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   return (
     <svg
       width="24"
       height="24"
       ref={ref}
-      {...otherProps}
+      {...props}
       xmlns="http://www.w3.org/2000/svg"
       fill="none"
       viewBox="0 0 18 20"
@@ -13402,14 +13309,15 @@ export const FbClipboardListOutline: TIcon = forwardRef((props: IIconProps, ref:
     </svg>
   );
 });
+FbClipboardListOutline.displayName = "FbClipboardListOutline";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/outline/file-folders/clipboard-check.svg
+ * /var/app/ignore/flowbite-icons/outline/file-folders/clipboard-check.svg
  */
 
-export const FbClipboardCheckOutline: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
+export const FbClipboardCheckOutline: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   const { strokeWidth, ...otherProps } = props;
 
   return (
@@ -13432,14 +13340,15 @@ export const FbClipboardCheckOutline: TIcon = forwardRef((props: IIconProps, ref
     </svg>
   );
 });
+FbClipboardCheckOutline.displayName = "FbClipboardCheckOutline";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/outline/file-folders/archive-download.svg
+ * /var/app/ignore/flowbite-icons/outline/file-folders/archive-download.svg
  */
 
-export const FbArchiveDownloadOutline: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
+export const FbArchiveDownloadOutline: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   const { strokeWidth, ...otherProps } = props;
 
   return (
@@ -13462,14 +13371,15 @@ export const FbArchiveDownloadOutline: TIcon = forwardRef((props: IIconProps, re
     </svg>
   );
 });
+FbArchiveDownloadOutline.displayName = "FbArchiveDownloadOutline";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/outline/emoji/thumbs-up.svg
+ * /var/app/ignore/flowbite-icons/outline/emoji/thumbs-up.svg
  */
 
-export const FbThumbsUpOutline: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
+export const FbThumbsUpOutline: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   const { strokeWidth, ...otherProps } = props;
 
   return (
@@ -13492,14 +13402,15 @@ export const FbThumbsUpOutline: TIcon = forwardRef((props: IIconProps, ref: TIco
     </svg>
   );
 });
+FbThumbsUpOutline.displayName = "FbThumbsUpOutline";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/outline/emoji/thumbs-down.svg
+ * /var/app/ignore/flowbite-icons/outline/emoji/thumbs-down.svg
  */
 
-export const FbThumbsDownOutline: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
+export const FbThumbsDownOutline: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   const { strokeWidth, ...otherProps } = props;
 
   return (
@@ -13522,14 +13433,15 @@ export const FbThumbsDownOutline: TIcon = forwardRef((props: IIconProps, ref: TI
     </svg>
   );
 });
+FbThumbsDownOutline.displayName = "FbThumbsDownOutline";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/outline/emoji/face-laugh.svg
+ * /var/app/ignore/flowbite-icons/outline/emoji/face-laugh.svg
  */
 
-export const FbFaceLaughOutline: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
+export const FbFaceLaughOutline: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   const { strokeWidth, ...otherProps } = props;
 
   return (
@@ -13552,22 +13464,21 @@ export const FbFaceLaughOutline: TIcon = forwardRef((props: IIconProps, ref: TIc
     </svg>
   );
 });
+FbFaceLaughOutline.displayName = "FbFaceLaughOutline";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/outline/emoji/face-grin.svg
+ * /var/app/ignore/flowbite-icons/outline/emoji/face-grin.svg
  */
 
-export const FbFaceGrinOutline: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
-  const { strokeWidth, ...otherProps } = props;
-
+export const FbFaceGrinOutline: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   return (
     <svg
       width="24"
       height="24"
       ref={ref}
-      {...otherProps}
+      {...props}
       xmlns="http://www.w3.org/2000/svg"
       fill="none"
       viewBox="0 0 20 20"
@@ -13579,22 +13490,21 @@ export const FbFaceGrinOutline: TIcon = forwardRef((props: IIconProps, ref: TIco
     </svg>
   );
 });
+FbFaceGrinOutline.displayName = "FbFaceGrinOutline";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/outline/emoji/face-grin-stars.svg
+ * /var/app/ignore/flowbite-icons/outline/emoji/face-grin-stars.svg
  */
 
-export const FbFaceGrinStarsOutline: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
-  const { strokeWidth, ...otherProps } = props;
-
+export const FbFaceGrinStarsOutline: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   return (
     <svg
       width="24"
       height="24"
       ref={ref}
-      {...otherProps}
+      {...props}
       xmlns="http://www.w3.org/2000/svg"
       fill="none"
       viewBox="0 0 20 20"
@@ -13606,22 +13516,21 @@ export const FbFaceGrinStarsOutline: TIcon = forwardRef((props: IIconProps, ref:
     </svg>
   );
 });
+FbFaceGrinStarsOutline.displayName = "FbFaceGrinStarsOutline";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/outline/emoji/face-explode.svg
+ * /var/app/ignore/flowbite-icons/outline/emoji/face-explode.svg
  */
 
-export const FbFaceExplodeOutline: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
-  const { strokeWidth, ...otherProps } = props;
-
+export const FbFaceExplodeOutline: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   return (
     <svg
       width="24"
       height="24"
       ref={ref}
-      {...otherProps}
+      {...props}
       xmlns="http://www.w3.org/2000/svg"
       fill="none"
       viewBox="0 0 20 20"
@@ -13633,14 +13542,15 @@ export const FbFaceExplodeOutline: TIcon = forwardRef((props: IIconProps, ref: T
     </svg>
   );
 });
+FbFaceExplodeOutline.displayName = "FbFaceExplodeOutline";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/outline/e-commerce/wallet.svg
+ * /var/app/ignore/flowbite-icons/outline/e-commerce/wallet.svg
  */
 
-export const FbWalletOutline: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
+export const FbWalletOutline: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   const { strokeWidth, ...otherProps } = props;
 
   return (
@@ -13663,14 +13573,15 @@ export const FbWalletOutline: TIcon = forwardRef((props: IIconProps, ref: TIconR
     </svg>
   );
 });
+FbWalletOutline.displayName = "FbWalletOutline";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/outline/e-commerce/user-headset.svg
+ * /var/app/ignore/flowbite-icons/outline/e-commerce/user-headset.svg
  */
 
-export const FbUserHeadsetOutline: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
+export const FbUserHeadsetOutline: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   const { strokeWidth, ...otherProps } = props;
 
   return (
@@ -13693,14 +13604,15 @@ export const FbUserHeadsetOutline: TIcon = forwardRef((props: IIconProps, ref: T
     </svg>
   );
 });
+FbUserHeadsetOutline.displayName = "FbUserHeadsetOutline";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/outline/e-commerce/tag.svg
+ * /var/app/ignore/flowbite-icons/outline/e-commerce/tag.svg
  */
 
-export const FbTagOutline: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
+export const FbTagOutline: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   const { strokeWidth, ...otherProps } = props;
 
   return (
@@ -13723,22 +13635,21 @@ export const FbTagOutline: TIcon = forwardRef((props: IIconProps, ref: TIconRef)
     </svg>
   );
 });
+FbTagOutline.displayName = "FbTagOutline";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/outline/e-commerce/store.svg
+ * /var/app/ignore/flowbite-icons/outline/e-commerce/store.svg
  */
 
-export const FbStoreOutline: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
-  const { strokeWidth, ...otherProps } = props;
-
+export const FbStoreOutline: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   return (
     <svg
       width="24"
       height="24"
       ref={ref}
-      {...otherProps}
+      {...props}
       xmlns="http://www.w3.org/2000/svg"
       fill="none"
       viewBox="0 0 20 20"
@@ -13750,14 +13661,15 @@ export const FbStoreOutline: TIcon = forwardRef((props: IIconProps, ref: TIconRe
     </svg>
   );
 });
+FbStoreOutline.displayName = "FbStoreOutline";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/outline/e-commerce/shopping-bag.svg
+ * /var/app/ignore/flowbite-icons/outline/e-commerce/shopping-bag.svg
  */
 
-export const FbShoppingBagOutline: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
+export const FbShoppingBagOutline: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   const { strokeWidth, ...otherProps } = props;
 
   return (
@@ -13780,14 +13692,15 @@ export const FbShoppingBagOutline: TIcon = forwardRef((props: IIconProps, ref: T
     </svg>
   );
 });
+FbShoppingBagOutline.displayName = "FbShoppingBagOutline";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/outline/e-commerce/scale-balanced.svg
+ * /var/app/ignore/flowbite-icons/outline/e-commerce/scale-balanced.svg
  */
 
-export const FbScaleBalancedOutline: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
+export const FbScaleBalancedOutline: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   const { strokeWidth, ...otherProps } = props;
 
   return (
@@ -13810,14 +13723,15 @@ export const FbScaleBalancedOutline: TIcon = forwardRef((props: IIconProps, ref:
     </svg>
   );
 });
+FbScaleBalancedOutline.displayName = "FbScaleBalancedOutline";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/outline/e-commerce/sale-percent.svg
+ * /var/app/ignore/flowbite-icons/outline/e-commerce/sale-percent.svg
  */
 
-export const FbSalePercentOutline: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
+export const FbSalePercentOutline: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   const { strokeWidth, ...otherProps } = props;
 
   return (
@@ -13840,14 +13754,15 @@ export const FbSalePercentOutline: TIcon = forwardRef((props: IIconProps, ref: T
     </svg>
   );
 });
+FbSalePercentOutline.displayName = "FbSalePercentOutline";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/outline/e-commerce/receipt.svg
+ * /var/app/ignore/flowbite-icons/outline/e-commerce/receipt.svg
  */
 
-export const FbReceiptOutline: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
+export const FbReceiptOutline: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   const { strokeWidth, ...otherProps } = props;
 
   return (
@@ -13870,14 +13785,15 @@ export const FbReceiptOutline: TIcon = forwardRef((props: IIconProps, ref: TIcon
     </svg>
   );
 });
+FbReceiptOutline.displayName = "FbReceiptOutline";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/outline/e-commerce/euro.svg
+ * /var/app/ignore/flowbite-icons/outline/e-commerce/euro.svg
  */
 
-export const FbEuroOutline: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
+export const FbEuroOutline: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   const { strokeWidth, ...otherProps } = props;
 
   return (
@@ -13900,14 +13816,15 @@ export const FbEuroOutline: TIcon = forwardRef((props: IIconProps, ref: TIconRef
     </svg>
   );
 });
+FbEuroOutline.displayName = "FbEuroOutline";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/outline/e-commerce/dollar.svg
+ * /var/app/ignore/flowbite-icons/outline/e-commerce/dollar.svg
  */
 
-export const FbDollarOutline: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
+export const FbDollarOutline: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   const { strokeWidth, ...otherProps } = props;
 
   return (
@@ -13930,14 +13847,15 @@ export const FbDollarOutline: TIcon = forwardRef((props: IIconProps, ref: TIconR
     </svg>
   );
 });
+FbDollarOutline.displayName = "FbDollarOutline";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/outline/e-commerce/credit-card.svg
+ * /var/app/ignore/flowbite-icons/outline/e-commerce/credit-card.svg
  */
 
-export const FbCreditCardOutline: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
+export const FbCreditCardOutline: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   const { strokeWidth, ...otherProps } = props;
 
   return (
@@ -13960,14 +13878,15 @@ export const FbCreditCardOutline: TIcon = forwardRef((props: IIconProps, ref: TI
     </svg>
   );
 });
+FbCreditCardOutline.displayName = "FbCreditCardOutline";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/outline/e-commerce/cash.svg
+ * /var/app/ignore/flowbite-icons/outline/e-commerce/cash.svg
  */
 
-export const FbCashOutline: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
+export const FbCashOutline: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   const { strokeWidth, ...otherProps } = props;
 
   return (
@@ -13990,14 +13909,15 @@ export const FbCashOutline: TIcon = forwardRef((props: IIconProps, ref: TIconRef
     </svg>
   );
 });
+FbCashOutline.displayName = "FbCashOutline";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/outline/e-commerce/cart.svg
+ * /var/app/ignore/flowbite-icons/outline/e-commerce/cart.svg
  */
 
-export const FbCartOutline: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
+export const FbCartOutline: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   const { strokeWidth, ...otherProps } = props;
 
   return (
@@ -14020,14 +13940,15 @@ export const FbCartOutline: TIcon = forwardRef((props: IIconProps, ref: TIconRef
     </svg>
   );
 });
+FbCartOutline.displayName = "FbCartOutline";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/outline/e-commerce/cart-plus.svg
+ * /var/app/ignore/flowbite-icons/outline/e-commerce/cart-plus.svg
  */
 
-export const FbCartPlusOutline: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
+export const FbCartPlusOutline: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   const { strokeWidth, ...otherProps } = props;
 
   return (
@@ -14050,14 +13971,15 @@ export const FbCartPlusOutline: TIcon = forwardRef((props: IIconProps, ref: TIco
     </svg>
   );
 });
+FbCartPlusOutline.displayName = "FbCartPlusOutline";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/outline/e-commerce/cart-plus-alt.svg
+ * /var/app/ignore/flowbite-icons/outline/e-commerce/cart-plus-alt.svg
  */
 
-export const FbCartPlusAltOutline: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
+export const FbCartPlusAltOutline: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   const { strokeWidth, ...otherProps } = props;
 
   return (
@@ -14080,14 +14002,15 @@ export const FbCartPlusAltOutline: TIcon = forwardRef((props: IIconProps, ref: T
     </svg>
   );
 });
+FbCartPlusAltOutline.displayName = "FbCartPlusAltOutline";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/outline/arrows/undo.svg
+ * /var/app/ignore/flowbite-icons/outline/arrows/undo.svg
  */
 
-export const FbUndoOutline: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
+export const FbUndoOutline: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   const { strokeWidth, ...otherProps } = props;
 
   return (
@@ -14110,14 +14033,15 @@ export const FbUndoOutline: TIcon = forwardRef((props: IIconProps, ref: TIconRef
     </svg>
   );
 });
+FbUndoOutline.displayName = "FbUndoOutline";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/outline/arrows/sort.svg
+ * /var/app/ignore/flowbite-icons/outline/arrows/sort.svg
  */
 
-export const FbSortOutline: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
+export const FbSortOutline: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   const { strokeWidth, ...otherProps } = props;
 
   return (
@@ -14140,14 +14064,15 @@ export const FbSortOutline: TIcon = forwardRef((props: IIconProps, ref: TIconRef
     </svg>
   );
 });
+FbSortOutline.displayName = "FbSortOutline";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/outline/arrows/share-all.svg
+ * /var/app/ignore/flowbite-icons/outline/arrows/share-all.svg
  */
 
-export const FbShareAllOutline: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
+export const FbShareAllOutline: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   const { strokeWidth, ...otherProps } = props;
 
   return (
@@ -14170,14 +14095,15 @@ export const FbShareAllOutline: TIcon = forwardRef((props: IIconProps, ref: TIco
     </svg>
   );
 });
+FbShareAllOutline.displayName = "FbShareAllOutline";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/outline/arrows/rotate.svg
+ * /var/app/ignore/flowbite-icons/outline/arrows/rotate.svg
  */
 
-export const FbRotateOutline: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
+export const FbRotateOutline: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   const { strokeWidth, ...otherProps } = props;
 
   return (
@@ -14200,14 +14126,15 @@ export const FbRotateOutline: TIcon = forwardRef((props: IIconProps, ref: TIconR
     </svg>
   );
 });
+FbRotateOutline.displayName = "FbRotateOutline";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/outline/arrows/reply.svg
+ * /var/app/ignore/flowbite-icons/outline/arrows/reply.svg
  */
 
-export const FbReplyOutline: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
+export const FbReplyOutline: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   const { strokeWidth, ...otherProps } = props;
 
   return (
@@ -14230,14 +14157,15 @@ export const FbReplyOutline: TIcon = forwardRef((props: IIconProps, ref: TIconRe
     </svg>
   );
 });
+FbReplyOutline.displayName = "FbReplyOutline";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/outline/arrows/reply-all.svg
+ * /var/app/ignore/flowbite-icons/outline/arrows/reply-all.svg
  */
 
-export const FbReplyAllOutline: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
+export const FbReplyAllOutline: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   const { strokeWidth, ...otherProps } = props;
 
   return (
@@ -14260,14 +14188,15 @@ export const FbReplyAllOutline: TIcon = forwardRef((props: IIconProps, ref: TIco
     </svg>
   );
 });
+FbReplyAllOutline.displayName = "FbReplyAllOutline";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/outline/arrows/redo.svg
+ * /var/app/ignore/flowbite-icons/outline/arrows/redo.svg
  */
 
-export const FbRedoOutline: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
+export const FbRedoOutline: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   const { strokeWidth, ...otherProps } = props;
 
   return (
@@ -14290,14 +14219,15 @@ export const FbRedoOutline: TIcon = forwardRef((props: IIconProps, ref: TIconRef
     </svg>
   );
 });
+FbRedoOutline.displayName = "FbRedoOutline";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/outline/arrows/minimize.svg
+ * /var/app/ignore/flowbite-icons/outline/arrows/minimize.svg
  */
 
-export const FbMinimizeOutline: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
+export const FbMinimizeOutline: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   const { strokeWidth, ...otherProps } = props;
 
   return (
@@ -14320,14 +14250,15 @@ export const FbMinimizeOutline: TIcon = forwardRef((props: IIconProps, ref: TIco
     </svg>
   );
 });
+FbMinimizeOutline.displayName = "FbMinimizeOutline";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/outline/arrows/forward.svg
+ * /var/app/ignore/flowbite-icons/outline/arrows/forward.svg
  */
 
-export const FbForwardOutline: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
+export const FbForwardOutline: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   const { strokeWidth, ...otherProps } = props;
 
   return (
@@ -14350,14 +14281,15 @@ export const FbForwardOutline: TIcon = forwardRef((props: IIconProps, ref: TIcon
     </svg>
   );
 });
+FbForwardOutline.displayName = "FbForwardOutline";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/outline/arrows/expand.svg
+ * /var/app/ignore/flowbite-icons/outline/arrows/expand.svg
  */
 
-export const FbExpandOutline: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
+export const FbExpandOutline: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   const { strokeWidth, ...otherProps } = props;
 
   return (
@@ -14380,14 +14312,15 @@ export const FbExpandOutline: TIcon = forwardRef((props: IIconProps, ref: TIconR
     </svg>
   );
 });
+FbExpandOutline.displayName = "FbExpandOutline";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/outline/arrows/compress.svg
+ * /var/app/ignore/flowbite-icons/outline/arrows/compress.svg
  */
 
-export const FbCompressOutline: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
+export const FbCompressOutline: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   const { strokeWidth, ...otherProps } = props;
 
   return (
@@ -14410,14 +14343,15 @@ export const FbCompressOutline: TIcon = forwardRef((props: IIconProps, ref: TIco
     </svg>
   );
 });
+FbCompressOutline.displayName = "FbCompressOutline";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/outline/arrows/chevron-up.svg
+ * /var/app/ignore/flowbite-icons/outline/arrows/chevron-up.svg
  */
 
-export const FbChevronUpOutline: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
+export const FbChevronUpOutline: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   const { strokeWidth, ...otherProps } = props;
 
   return (
@@ -14440,14 +14374,15 @@ export const FbChevronUpOutline: TIcon = forwardRef((props: IIconProps, ref: TIc
     </svg>
   );
 });
+FbChevronUpOutline.displayName = "FbChevronUpOutline";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/outline/arrows/chevron-sort.svg
+ * /var/app/ignore/flowbite-icons/outline/arrows/chevron-sort.svg
  */
 
-export const FbChevronSortOutline: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
+export const FbChevronSortOutline: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   const { strokeWidth, ...otherProps } = props;
 
   return (
@@ -14470,14 +14405,15 @@ export const FbChevronSortOutline: TIcon = forwardRef((props: IIconProps, ref: T
     </svg>
   );
 });
+FbChevronSortOutline.displayName = "FbChevronSortOutline";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/outline/arrows/chevron-right.svg
+ * /var/app/ignore/flowbite-icons/outline/arrows/chevron-right.svg
  */
 
-export const FbChevronRightOutline: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
+export const FbChevronRightOutline: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   const { strokeWidth, ...otherProps } = props;
 
   return (
@@ -14500,14 +14436,15 @@ export const FbChevronRightOutline: TIcon = forwardRef((props: IIconProps, ref: 
     </svg>
   );
 });
+FbChevronRightOutline.displayName = "FbChevronRightOutline";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/outline/arrows/chevron-left.svg
+ * /var/app/ignore/flowbite-icons/outline/arrows/chevron-left.svg
  */
 
-export const FbChevronLeftOutline: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
+export const FbChevronLeftOutline: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   const { strokeWidth, ...otherProps } = props;
 
   return (
@@ -14530,14 +14467,15 @@ export const FbChevronLeftOutline: TIcon = forwardRef((props: IIconProps, ref: T
     </svg>
   );
 });
+FbChevronLeftOutline.displayName = "FbChevronLeftOutline";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/outline/arrows/chevron-down.svg
+ * /var/app/ignore/flowbite-icons/outline/arrows/chevron-down.svg
  */
 
-export const FbChevronDownOutline: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
+export const FbChevronDownOutline: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   const { strokeWidth, ...otherProps } = props;
 
   return (
@@ -14560,14 +14498,15 @@ export const FbChevronDownOutline: TIcon = forwardRef((props: IIconProps, ref: T
     </svg>
   );
 });
+FbChevronDownOutline.displayName = "FbChevronDownOutline";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/outline/arrows/chevron-double-up.svg
+ * /var/app/ignore/flowbite-icons/outline/arrows/chevron-double-up.svg
  */
 
-export const FbChevronDoubleUpOutline: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
+export const FbChevronDoubleUpOutline: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   const { strokeWidth, ...otherProps } = props;
 
   return (
@@ -14590,14 +14529,15 @@ export const FbChevronDoubleUpOutline: TIcon = forwardRef((props: IIconProps, re
     </svg>
   );
 });
+FbChevronDoubleUpOutline.displayName = "FbChevronDoubleUpOutline";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/outline/arrows/chevron-double-right.svg
+ * /var/app/ignore/flowbite-icons/outline/arrows/chevron-double-right.svg
  */
 
-export const FbChevronDoubleRightOutline: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
+export const FbChevronDoubleRightOutline: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   const { strokeWidth, ...otherProps } = props;
 
   return (
@@ -14620,14 +14560,15 @@ export const FbChevronDoubleRightOutline: TIcon = forwardRef((props: IIconProps,
     </svg>
   );
 });
+FbChevronDoubleRightOutline.displayName = "FbChevronDoubleRightOutline";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/outline/arrows/chevron-double-left.svg
+ * /var/app/ignore/flowbite-icons/outline/arrows/chevron-double-left.svg
  */
 
-export const FbChevronDoubleLeftOutline: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
+export const FbChevronDoubleLeftOutline: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   const { strokeWidth, ...otherProps } = props;
 
   return (
@@ -14650,14 +14591,15 @@ export const FbChevronDoubleLeftOutline: TIcon = forwardRef((props: IIconProps, 
     </svg>
   );
 });
+FbChevronDoubleLeftOutline.displayName = "FbChevronDoubleLeftOutline";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/outline/arrows/chevron-double-down.svg
+ * /var/app/ignore/flowbite-icons/outline/arrows/chevron-double-down.svg
  */
 
-export const FbChevronDoubleDownOutline: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
+export const FbChevronDoubleDownOutline: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   const { strokeWidth, ...otherProps } = props;
 
   return (
@@ -14680,14 +14622,15 @@ export const FbChevronDoubleDownOutline: TIcon = forwardRef((props: IIconProps, 
     </svg>
   );
 });
+FbChevronDoubleDownOutline.displayName = "FbChevronDoubleDownOutline";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/outline/arrows/caret-up.svg
+ * /var/app/ignore/flowbite-icons/outline/arrows/caret-up.svg
  */
 
-export const FbCaretUpOutline: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
+export const FbCaretUpOutline: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   const { strokeWidth, ...otherProps } = props;
 
   return (
@@ -14710,14 +14653,15 @@ export const FbCaretUpOutline: TIcon = forwardRef((props: IIconProps, ref: TIcon
     </svg>
   );
 });
+FbCaretUpOutline.displayName = "FbCaretUpOutline";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/outline/arrows/caret-sort.svg
+ * /var/app/ignore/flowbite-icons/outline/arrows/caret-sort.svg
  */
 
-export const FbCaretSortOutline: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
+export const FbCaretSortOutline: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   const { strokeWidth, ...otherProps } = props;
 
   return (
@@ -14740,14 +14684,15 @@ export const FbCaretSortOutline: TIcon = forwardRef((props: IIconProps, ref: TIc
     </svg>
   );
 });
+FbCaretSortOutline.displayName = "FbCaretSortOutline";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/outline/arrows/caret-right.svg
+ * /var/app/ignore/flowbite-icons/outline/arrows/caret-right.svg
  */
 
-export const FbCaretRightOutline: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
+export const FbCaretRightOutline: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   const { strokeWidth, ...otherProps } = props;
 
   return (
@@ -14770,14 +14715,15 @@ export const FbCaretRightOutline: TIcon = forwardRef((props: IIconProps, ref: TI
     </svg>
   );
 });
+FbCaretRightOutline.displayName = "FbCaretRightOutline";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/outline/arrows/caret-left.svg
+ * /var/app/ignore/flowbite-icons/outline/arrows/caret-left.svg
  */
 
-export const FbCaretLeftOutline: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
+export const FbCaretLeftOutline: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   const { strokeWidth, ...otherProps } = props;
 
   return (
@@ -14800,14 +14746,15 @@ export const FbCaretLeftOutline: TIcon = forwardRef((props: IIconProps, ref: TIc
     </svg>
   );
 });
+FbCaretLeftOutline.displayName = "FbCaretLeftOutline";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/outline/arrows/caret-down.svg
+ * /var/app/ignore/flowbite-icons/outline/arrows/caret-down.svg
  */
 
-export const FbCaretDownOutline: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
+export const FbCaretDownOutline: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   const { strokeWidth, ...otherProps } = props;
 
   return (
@@ -14830,14 +14777,15 @@ export const FbCaretDownOutline: TIcon = forwardRef((props: IIconProps, ref: TIc
     </svg>
   );
 });
+FbCaretDownOutline.displayName = "FbCaretDownOutline";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/outline/arrows/arrows-repeat.svg
+ * /var/app/ignore/flowbite-icons/outline/arrows/arrows-repeat.svg
  */
 
-export const FbArrowsRepeatOutline: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
+export const FbArrowsRepeatOutline: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   const { strokeWidth, ...otherProps } = props;
 
   return (
@@ -14860,14 +14808,15 @@ export const FbArrowsRepeatOutline: TIcon = forwardRef((props: IIconProps, ref: 
     </svg>
   );
 });
+FbArrowsRepeatOutline.displayName = "FbArrowsRepeatOutline";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/outline/arrows/arrows-repeat-1.svg
+ * /var/app/ignore/flowbite-icons/outline/arrows/arrows-repeat-1.svg
  */
 
-export const FbArrowsRepeat1Outline: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
+export const FbArrowsRepeat1Outline: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   const { strokeWidth, ...otherProps } = props;
 
   return (
@@ -14890,14 +14839,15 @@ export const FbArrowsRepeat1Outline: TIcon = forwardRef((props: IIconProps, ref:
     </svg>
   );
 });
+FbArrowsRepeat1Outline.displayName = "FbArrowsRepeat1Outline";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/outline/arrows/arrow-up.svg
+ * /var/app/ignore/flowbite-icons/outline/arrows/arrow-up.svg
  */
 
-export const FbArrowUpOutline: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
+export const FbArrowUpOutline: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   const { strokeWidth, ...otherProps } = props;
 
   return (
@@ -14920,15 +14870,16 @@ export const FbArrowUpOutline: TIcon = forwardRef((props: IIconProps, ref: TIcon
     </svg>
   );
 });
+FbArrowUpOutline.displayName = "FbArrowUpOutline";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/outline/arrows/arrow-up-right-down-left.svg
+ * /var/app/ignore/flowbite-icons/outline/arrows/arrow-up-right-down-left.svg
  */
 
 export const FbArrowUpRightDownLeftOutline: TIcon = forwardRef(
-  (props: IIconProps, ref: TIconRef) => {
+  (props: TIconProps, ref: TIconRef) => {
     const { strokeWidth, ...otherProps } = props;
 
     return (
@@ -14952,14 +14903,15 @@ export const FbArrowUpRightDownLeftOutline: TIcon = forwardRef(
     );
   },
 );
+FbArrowUpRightDownLeftOutline.displayName = "FbArrowUpRightDownLeftOutline";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/outline/arrows/arrow-up-from-bracket.svg
+ * /var/app/ignore/flowbite-icons/outline/arrows/arrow-up-from-bracket.svg
  */
 
-export const FbArrowUpFromBracketOutline: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
+export const FbArrowUpFromBracketOutline: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   const { strokeWidth, ...otherProps } = props;
 
   return (
@@ -14982,14 +14934,15 @@ export const FbArrowUpFromBracketOutline: TIcon = forwardRef((props: IIconProps,
     </svg>
   );
 });
+FbArrowUpFromBracketOutline.displayName = "FbArrowUpFromBracketOutline";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/outline/arrows/arrow-up-down.svg
+ * /var/app/ignore/flowbite-icons/outline/arrows/arrow-up-down.svg
  */
 
-export const FbArrowUpDownOutline: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
+export const FbArrowUpDownOutline: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   const { strokeWidth, ...otherProps } = props;
 
   return (
@@ -15012,14 +14965,15 @@ export const FbArrowUpDownOutline: TIcon = forwardRef((props: IIconProps, ref: T
     </svg>
   );
 });
+FbArrowUpDownOutline.displayName = "FbArrowUpDownOutline";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/outline/arrows/arrow-sort-letters.svg
+ * /var/app/ignore/flowbite-icons/outline/arrows/arrow-sort-letters.svg
  */
 
-export const FbArrowSortLettersOutline: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
+export const FbArrowSortLettersOutline: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   const { strokeWidth, ...otherProps } = props;
 
   return (
@@ -15042,14 +14996,15 @@ export const FbArrowSortLettersOutline: TIcon = forwardRef((props: IIconProps, r
     </svg>
   );
 });
+FbArrowSortLettersOutline.displayName = "FbArrowSortLettersOutline";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/outline/arrows/arrow-right.svg
+ * /var/app/ignore/flowbite-icons/outline/arrows/arrow-right.svg
  */
 
-export const FbArrowRightOutline: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
+export const FbArrowRightOutline: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   const { strokeWidth, ...otherProps } = props;
 
   return (
@@ -15072,15 +15027,16 @@ export const FbArrowRightOutline: TIcon = forwardRef((props: IIconProps, ref: TI
     </svg>
   );
 });
+FbArrowRightOutline.displayName = "FbArrowRightOutline";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/outline/arrows/arrow-right-to-bracket.svg
+ * /var/app/ignore/flowbite-icons/outline/arrows/arrow-right-to-bracket.svg
  */
 
 export const FbArrowRightToBracketOutline: TIcon = forwardRef(
-  (props: IIconProps, ref: TIconRef) => {
+  (props: TIconProps, ref: TIconRef) => {
     const { strokeWidth, ...otherProps } = props;
 
     return (
@@ -15104,14 +15060,15 @@ export const FbArrowRightToBracketOutline: TIcon = forwardRef(
     );
   },
 );
+FbArrowRightToBracketOutline.displayName = "FbArrowRightToBracketOutline";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/outline/arrows/arrow-right-big.svg
+ * /var/app/ignore/flowbite-icons/outline/arrows/arrow-right-big.svg
  */
 
-export const FbArrowRightBigOutline: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
+export const FbArrowRightBigOutline: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   const { strokeWidth, ...otherProps } = props;
 
   return (
@@ -15134,15 +15091,16 @@ export const FbArrowRightBigOutline: TIcon = forwardRef((props: IIconProps, ref:
     </svg>
   );
 });
+FbArrowRightBigOutline.displayName = "FbArrowRightBigOutline";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/outline/arrows/arrow-right-arrow-left.svg
+ * /var/app/ignore/flowbite-icons/outline/arrows/arrow-right-arrow-left.svg
  */
 
 export const FbArrowRightArrowLeftOutline: TIcon = forwardRef(
-  (props: IIconProps, ref: TIconRef) => {
+  (props: TIconProps, ref: TIconRef) => {
     const { strokeWidth, ...otherProps } = props;
 
     return (
@@ -15166,14 +15124,15 @@ export const FbArrowRightArrowLeftOutline: TIcon = forwardRef(
     );
   },
 );
+FbArrowRightArrowLeftOutline.displayName = "FbArrowRightArrowLeftOutline";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/outline/arrows/arrow-left.svg
+ * /var/app/ignore/flowbite-icons/outline/arrows/arrow-left.svg
  */
 
-export const FbArrowLeftOutline: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
+export const FbArrowLeftOutline: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   const { strokeWidth, ...otherProps } = props;
 
   return (
@@ -15196,14 +15155,15 @@ export const FbArrowLeftOutline: TIcon = forwardRef((props: IIconProps, ref: TIc
     </svg>
   );
 });
+FbArrowLeftOutline.displayName = "FbArrowLeftOutline";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/outline/arrows/arrow-left-to-bracket.svg
+ * /var/app/ignore/flowbite-icons/outline/arrows/arrow-left-to-bracket.svg
  */
 
-export const FbArrowLeftToBracketOutline: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
+export const FbArrowLeftToBracketOutline: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   const { strokeWidth, ...otherProps } = props;
 
   return (
@@ -15226,14 +15186,15 @@ export const FbArrowLeftToBracketOutline: TIcon = forwardRef((props: IIconProps,
     </svg>
   );
 });
+FbArrowLeftToBracketOutline.displayName = "FbArrowLeftToBracketOutline";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/outline/arrows/arrow-down.svg
+ * /var/app/ignore/flowbite-icons/outline/arrows/arrow-down.svg
  */
 
-export const FbArrowDownOutline: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
+export const FbArrowDownOutline: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   const { strokeWidth, ...otherProps } = props;
 
   return (
@@ -15256,14 +15217,15 @@ export const FbArrowDownOutline: TIcon = forwardRef((props: IIconProps, ref: TIc
     </svg>
   );
 });
+FbArrowDownOutline.displayName = "FbArrowDownOutline";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/outline/arrows/arrow-down-to-bracket.svg
+ * /var/app/ignore/flowbite-icons/outline/arrows/arrow-down-to-bracket.svg
  */
 
-export const FbArrowDownToBracketOutline: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
+export const FbArrowDownToBracketOutline: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   const { strokeWidth, ...otherProps } = props;
 
   return (
@@ -15286,14 +15248,15 @@ export const FbArrowDownToBracketOutline: TIcon = forwardRef((props: IIconProps,
     </svg>
   );
 });
+FbArrowDownToBracketOutline.displayName = "FbArrowDownToBracketOutline";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/outline/arrows/angle-top.svg
+ * /var/app/ignore/flowbite-icons/outline/arrows/angle-top.svg
  */
 
-export const FbAngleTopOutline: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
+export const FbAngleTopOutline: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   const { strokeWidth, ...otherProps } = props;
 
   return (
@@ -15316,14 +15279,15 @@ export const FbAngleTopOutline: TIcon = forwardRef((props: IIconProps, ref: TIco
     </svg>
   );
 });
+FbAngleTopOutline.displayName = "FbAngleTopOutline";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/outline/arrows/angle-right.svg
+ * /var/app/ignore/flowbite-icons/outline/arrows/angle-right.svg
  */
 
-export const FbAngleRightOutline: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
+export const FbAngleRightOutline: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   const { strokeWidth, ...otherProps } = props;
 
   return (
@@ -15346,14 +15310,15 @@ export const FbAngleRightOutline: TIcon = forwardRef((props: IIconProps, ref: TI
     </svg>
   );
 });
+FbAngleRightOutline.displayName = "FbAngleRightOutline";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/outline/arrows/angle-left.svg
+ * /var/app/ignore/flowbite-icons/outline/arrows/angle-left.svg
  */
 
-export const FbAngleLeftOutline: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
+export const FbAngleLeftOutline: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   const { strokeWidth, ...otherProps } = props;
 
   return (
@@ -15376,14 +15341,15 @@ export const FbAngleLeftOutline: TIcon = forwardRef((props: IIconProps, ref: TIc
     </svg>
   );
 });
+FbAngleLeftOutline.displayName = "FbAngleLeftOutline";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * flowbite-icons/outline/arrows/angle-down.svg
+ * /var/app/ignore/flowbite-icons/outline/arrows/angle-down.svg
  */
 
-export const FbAngleDownOutline: TIcon = forwardRef((props: IIconProps, ref: TIconRef) => {
+export const FbAngleDownOutline: TIcon = forwardRef((props: TIconProps, ref: TIconRef) => {
   const { strokeWidth, ...otherProps } = props;
 
   return (
@@ -15406,3 +15372,4 @@ export const FbAngleDownOutline: TIcon = forwardRef((props: IIconProps, ref: TIc
     </svg>
   );
 });
+FbAngleDownOutline.displayName = "FbAngleDownOutline";

@@ -35,9 +35,9 @@ services:
       # codice sorgente
       - .:/var/app
       # confiurazione git
-      - ~/.gitconfig:/home/dev/.gitconfig:ro
+      #- ~/.gitconfig:/home/dev/.gitconfig:ro
       # configurazione github cli
-      - ~/.config/gh:/home/dev/.config/gh:ro
+      #- ~/.config/gh:/home/dev/.config/gh:ro
     environment:
       - TZ=Europe/Rome
     depends_on:
@@ -50,7 +50,7 @@ services:
     networks:
       docker-lms:
         aliases:
-            - mysql.docker
+          - mysql.docker
     image: mysql:8.0.35-debian
     container_name: mysql-lms
     volumes:
@@ -69,7 +69,7 @@ services:
     networks:
       docker-lms:
         aliases:
-            - phpmyadmin.docker
+          - phpmyadmin.docker
     image: phpmyadmin/phpmyadmin:5.2.1
     container_name: phpmyadmin-lms
     ports:

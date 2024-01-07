@@ -2,7 +2,7 @@
 const config = {
   parser: "@typescript-eslint/parser",
   parserOptions: {
-    project: true,
+    project: ["./tsconfig.json", "./tsconfig.scripts.json"],
   },
   plugins: ["@typescript-eslint"],
   extends: [
@@ -12,6 +12,9 @@ const config = {
     "prettier",
   ],
   rules: {
+    // variabili dichiarate ma non usate sono seganlate come "waringin" e non come "errore"
+    "@typescript-eslint/no-unused-vars": ["warn", { varsIgnorePattern: "^_" }],
+
     // These opinionated rules are enabled in stylistic-type-checked above.
     // Feel free to reconfigure them to your own preference.
     // "@typescript-eslint/array-type": "off",

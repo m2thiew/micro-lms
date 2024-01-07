@@ -71,11 +71,12 @@
       "settings": {
         "javascript.suggest.paths": false,
         "typescript.suggest.paths": false,
+        "typescript.format.enable": false,
         "debug.javascript.unmapMissingSources": true,
         "editor.defaultFormatter": "esbenp.prettier-vscode",
         "editor.formatOnSave": true,
         "editor.codeActionsOnSave": {
-          "source.fixAll": "always",
+          "source.fixAll": "never",
           "source.sortImports": "explicit"
         },
         "editor.quickSuggestions": {

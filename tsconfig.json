@@ -9,27 +9,35 @@
     "isolatedModules": true,
     "incremental": true,
     "jsx": "preserve",
+
     /* opzioni di compilazione */
     "module": "ESNext",
     "moduleResolution": "bundler",
     "target": "ES2022",
+
     /* librerie e plugin */
-    "lib": ["dom", "dom.iterable", "ES2022"],
+    "lib": ["ES2022", "dom", "dom.iterable"],
     "plugins": [
       {
         "name": "next"
       }
     ],
+
     /* parametri strict */
     "strict": true,
     "checkJs": true,
     "noUncheckedIndexedAccess": true,
+    "noUnusedLocals": false, // le variabili non usate sono controllate da ESLint
+    "noUnusedParameters": false, // le variabili non usate sono controllate da ESLint
+
     /* percorsi */
     "baseUrl": ".",
     "paths": {
       "@/*": ["./src/*"]
     }
   },
+
+  /* file controllati da TS */
   "include": [
     ".eslintrc.cjs",
     "prettier.config.js",
@@ -42,5 +50,5 @@
     "**/*.mjs",
     ".next/types/**/*.ts"
   ],
-  "exclude": ["**/node_modules", "**/.*/", "./scripts/**"]
+  "exclude": ["**/node_modules", "./scripts/**"]
 }
