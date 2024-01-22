@@ -50,5 +50,5 @@
     "**/*.mjs",
     ".next/types/**/*.ts"
   ],
-  "exclude": ["**/node_modules", "./scripts/**"]
+  "exclude": ["next.config.js", "**/node_modules", "./scripts/**"]
 }

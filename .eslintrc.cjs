@@ -4,7 +4,7 @@ const config = {
   parserOptions: {
     project: ["./tsconfig.json", "./tsconfig.scripts.json"],
   },
-  plugins: ["@typescript-eslint"],
+  plugins: ["@typescript-eslint", "import"],
   extends: [
     "next/core-web-vitals",
     "plugin:@typescript-eslint/strict-type-checked",
@@ -15,24 +15,24 @@ const config = {
     // variabili dichiarate ma non usate sono seganlate come "waringin" e non come "errore"
     "@typescript-eslint/no-unused-vars": ["warn", { varsIgnorePattern: "^_" }],
 
-    // These opinionated rules are enabled in stylistic-type-checked above.
-    // Feel free to reconfigure them to your own preference.
-    // "@typescript-eslint/array-type": "off",
-    // "@typescript-eslint/consistent-type-definitions": "off",
-    // "@typescript-eslint/consistent-type-imports": [
-    //   "warn",
-    //   {
-    //     prefer: "type-imports",
-    //     fixStyle: "inline-type-imports",
-    //   },
-    // ],
-    // "@typescript-eslint/no-unused-vars": ["warn", { argsIgnorePattern: "^_" }],
-    // "@typescript-eslint/no-misused-promises": [
-    //   2,
-    //   {
-    //     checksVoidReturn: { attributes: false },
-    //   },
-    // ],
+    // se si importa un elemento da usare solo come tipo, allora deve essere importato come "type"
+    "@typescript-eslint/consistent-type-imports": [
+      "error",
+      {
+        prefer: "type-imports",
+        fixStyle: "inline-type-imports",
+      },
+    ],
+
+    // obbliga ad usare "type" anzichè "interface".
+    "@typescript-eslint/consistent-type-definitions": ["warn", "type"],
+
+    // impedisce di usare import con ".." (è prefribile specificare il
+    // percorso partendo da "@/...")
+    // "import/no-relative-parent-imports": ["error"],
+
+    // // segnala eventuali cicli creati con gli "import"
+    // "import/no-cycle": ["error", { ignoreExternal: true }],
   },
 };
 

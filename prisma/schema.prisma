@@ -9,22 +9,33 @@ datasource db {
   provider          = "mysql"
   url               = env("DATABASE_URL")
   shadowDatabaseUrl = env("SHADOW_DATABASE_URL")
+  relationMode      = "foreignKeys"
 }
 
 enum Role {
-  learner
-  admin
+  LEARNER
+  ADMIN
 }
 
 model Learner {
-  id        Int      @id @default(autoincrement()) @db.Int()
-  active    Boolean  @default(true) @db.TinyInt()
-  createdAt DateTime @default(now()) @db.Timestamp(0)
-  updatedAt DateTime @default(now()) @updatedAt @db.Timestamp(0)
-  name      String   @default("") @db.Char(255)
-  surname   String   @default("") @db.Char(255)
-  email     String   @default("") @db.Char(255)
-  username  String   @default("") @db.Char(255)
-  password  String   @default("") @db.Char(255)
-  role      Role     @default(learner)
+  id        Int       @id @default(autoincrement()) @db.Int()
+  createdAt DateTime  @default(now()) @db.Timestamp(0)
+  updatedAt DateTime  @default(now()) @updatedAt @db.Timestamp(0)
+  name      String    @default("") @db.Char(255)
+  surname   String    @default("") @db.Char(255)
+  email     String    @default("") @db.Char(255)
+  password  String    @default("") @db.Char(255)
+  role      Role      @default(LEARNER)
+  Session   Session[]
+}
+
+model Session {
+  id           Int      @id @default(autoincrement()) @db.Int()
+  createdAt    DateTime @default(now()) @db.Timestamp(0)
+  updatedAt    DateTime @default(now()) @updatedAt @db.Timestamp(0)
+  token        String   @default("") @db.Char(255)
+  refreshToken String   @default("") @db.Char(255)
+  expiresAt    DateTime @default(now()) @db.Timestamp(0)
+  Learner      Learner  @relation(fields: [learnerId], references: [id])
+  learnerId    Int      @unique @default(0) @db.Int()
 }

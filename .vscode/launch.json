@@ -12,10 +12,11 @@
       "serverReadyAction": {
         "pattern": "- Local:.+(https?://.+)",
         "uriFormat": "%s",
-        "action": "debugWithChrome",
-        "webRoot": "${workspaceFolder}"
+        "action": "debugWithChrome"
+        //"webRoot": "${workspaceFolder}"
       },
-      "localRoot": "${workspaceFolder}"
+      "localRoot": "${workspaceFolder}",
+      "skipFiles": ["${workspaceRoot}/node_modules/**/*", "<node_internals>/**"]
     }
   ]
 }

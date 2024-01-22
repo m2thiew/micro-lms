@@ -354,3 +354,134 @@ Librerie da usare durante lo sviluppo:
   - ultima istanza, si copia il svg e si esporta un componente creato a mano in "frontend/icons"
 - contex per DI...
 - Eslint strict...
+
+
+## Link per indagine sull'uso del barrell file
+
+https://adrianfaciu.dev/posts/barrel-files/
+https://uglow.medium.com/burn-the-barrel-c282578f21b6
+https://marvinh.dev/blog/speeding-up-javascript-ecosystem-part-7/
+https://steven-lemon182.medium.com/are-typescript-barrel-files-an-anti-pattern-72a713004250
+
+https://www.codemzy.com/blog/nodejs-file-folder-structure
+https://profy.dev/article/react-folder-structure
+https://blog.webdevsimplified.com/2022-07/react-folder-structure/
+
+
+https://github.com/microsoft/TypeScript/issues/46817
+https://github.com/microsoft/TypeScript/issues/45953
+https://github.com/import-js/eslint-plugin-import/issues/2384
+
+
+https://stackoverflow.com/questions/64995811/eslint-no-restricted-imports-prevent-an-import-from-from-path-ending-with-patt
+
+
+```
+# cartelle globali
+backend/
+  database  # oggetto/configurazione database globale
+  features  # le features
+  router    # router globale per le api
+  trcp      # oggetto/configurazione trpc globale
+
+frontedn/
+  features  # le features
+  icons     # icone globali
+  trcp      # client trpc globale
+
+sharer/
+  features  # le feature
+  utils     # funzioni globali (devono funzionare sia lato fornted, sia lato backend)
+
+# cartella feature
+backend/feature/login/api.ts
+frontend/feature/login/context.ts
+frontend/feature/login/components/form.ts
+frontend/feature/login/components/status.ts
+frontend/feature/login/utils/token-storage.ts
+shared/feature/login/schema.ts
+shared/feature/utils/jwt-manage.ts
+```
+
+## struttura del progetto
+
+- ogni cosa dovrebbe prima essere creata come "fetature" dentro le apposita cartelle `backend/features`, `frontend/features` e `shared/features`
+- nessuna feature e/o libreria dovrebbe essere piazzata direttamente dentro `backend/`, `frontend/` e `shared/`
+- dentro `backend/`, `frontend/` e `shared/` vi sono delle "categorie standard".
+- il dominio delle "categorie standard" non è legato specificatamente a nessuna feature, può quindi essere utilizzata indistintamente in tutte le feature e anche ad un livello "globale".
+- le "categorie standard" di una feature e/o di un livello globale sono:
+
+| categoria    | descrizione                                                                 | scope                     | cartella e/o file                  |
+| ------------ | --------------------------------------------------------------------------- | ------------------------- | ---------------------------------- |
+| `components` | componenti react dotati di logica (p.e. chiamate API)                       | frontend                  | sempre cartella                    |
+| `ui`         | componenti react senza logica (nessuna chiamata API)                        | frontend                  | sempre cartella                    |
+| `lib`        | esportazione di librerie configurate da usare globalmente                   | frontend, backend, shared | sempre cartella                    |
+| `utils`      | raccolta di funzioni usate dalla feature e/o globalmente                    | frontend, backend, shared | prima file, eventualmente cartella |
+| `schema`     | schemi zod usati per la validazione                                         | shared                    | prima file, eventualmente cartella |
+| `types`      | eventuali tipi che possono essere usati fuori dalla feature e/o globalmente | frontend, backend, shared | prima file, eventualmente cartella |
+| `api`        | implementazioni chiamate api lato server                                    | backend                   | prima file, eventualmente cartella |
+
+
+## regole per creare i file di ogni categoria
+
+- dentro ogni feature e/o a livello globale, implementare le categorie standard creando:
+  - un singolo file con il nome della `[categoria]` (p.e. "api.ts")
+  - una cartella con il nome della `[categoria]` e un file con un nome e/o concetto specifico (p.e. "components/form.ts")
+- se non ci sono nomi e/o concetti specifici per una categoria, allora creare sempre un singolo file (p.e. "api.ts", "schema.ts", etc.)
+- eventualmente, se procedento nello sviluppo emergeranno dei concetti/nomi per specializzare il contenuto di una categoria, allora si passerà da un singolo file a una combinazione di cartella + vari file. Per esempio:
+  - da `api.ts`
+  - a `api/auth.ts` + `api/status.ts`
+- nel decidere il nome da assegnare a un file e/o cartella, evitare di ripetere il nome della feature e della categoria. Per esempio:
+  - `login/api/login-api.ts` il nome del file ripete nuovamnte "login" (la feature) e "api" (la categoria)
+- se non si riesce a decidere un nome di un file specifico che non ripeta di nuovo il nome della feature / della categoria, allora significa che è meglio creare un singolo file con il nome della categoria.
+- le categorie `components`, `ui` e `utils` sono quelle dove solitamente si vuole sempre poi specificare un nome / un concetto specifico. Tali categorie, quindi, devono essere sempre create direttamente come cartelle + vari file. Per esempio:
+  - `components/form.tsx`
+  - `ui/status.tsx`
+  - `utils/token-storage.ts`
+
+Vari esempi
+
+| percorso                                  | scope   | corretto? | descrizione                                                            |
+| ----------------------------------------- | ------- | --------- | ---------------------------------------------------------------------- |
+| `backend/lib/database.ts`                 | globale | sì        | l'applicazione ha un solo DB, quindi vi è un solo file                 |
+| `backend/lib/database/micro-lms.ts`       | globale | sì        | l'applicazione ha un solo DB, il nome di tale DB è "micro-lms"         |
+| *cartella con 2 file:*                    |         |           |                                                                        |
+| - `backend/lib/database/db1.ts`           | globale | sì        | l'applicazione ha due db, questo file è per il datbase "db1"           |
+| - `backend/lib/database/db2.ts`           | globale | sì        | l'applicazione ha due db, questo file è per il datbase "db2"           |
+| `backend/lib/database/database.ts`        | globale | **NO**    | ripeto due volte "database"                                            |
+| `backend/lib/database/db.ts`              | globale | **NO**    | la parola "db" è generica, non indica un concetto e/o nome specifico   |
+| `backend/features/login/api.ts`           | feature | sì        | implementa le chiamate api per la feature "login"                      |
+| *cartella con 2 file:*                    |         |           |                                                                        |
+| - `backend/features/login/api/auth.ts`    | feature | sì        | implementa le chiamate api di "login" specifiche per l'accesso         |
+| - `backend/features/login/api/status.ts`  | feature | sì        | implementa le chiamate api di "login" specifiche per lo stato di login |
+| `backend/features/login/api/api.ts`       | feature | **NO**    | ripeto due volte "api"                                                 |
+| `backend/features/login/api/login-api.ts` | feature | **NO**    | ripeto due volte sia "login", sia "api"                                |
+| `backend/features/login/api/call.ts`      | feature | **NO**    | la parola "call" è genrica, non indica un concetto e/o nome specifico  |
+
+## Considerazioni sulla categoria "utils"
+
+- le `utils` dovrebbero sempre essere prima create all'interno del contesto `shared`, prevendendo quindi che le funzioni definite possano essere eseguite in egual modo sia lato frontend, sia lato backend
+- qualora una funzione sia legata ad una funzione/oggetto disponibile solo da un lato specifico, allora in tale caso la definizione deve essere spostata all'interno di `frontend` oppure `backend`. Per esempio:
+
+Vari esempi
+
+| util                                             | scope    | descrizione                                                                                                    |
+| ------------------------------------------------ | -------- | -------------------------------------------------------------------------------------------------------------- |
+| `shared/features/login/utils/jwt.ts`             | shared   | funzioni per generare / leggere i token JWT. Funziona uguale sia lato frontend che backend                     |
+| `backend/features/login/utils/session.ts`        | backend  | funzioni per gestire la sessione lato server, richiedono l'utilizzo del DB (presente solo lato backend)        |
+| `frontent/features/login/utils/token-storage.ts` | frontend | funzioni salvare il token nel browser, richiedono l'utilizzo del "local sotrage" (presente solo lato frontend) |
+
+## NON utilizzo dei file barrell (index.ts)
+
+- dentro le cartelle di una feature NON si utilizza il file di barrell (index.ts). I motivi sono:
+  - impedisce di ottimizzare il bundle perchè webpack / altre utility finiscono per includere e processare tutto ciò che viene esportato dal file (anche quando in realtà non viene poi effettivamente usato).
+  - Per risolvere il punto di cui sopra, bisognrebbe usare un index.ts non a livello di modulo ma almeno a livello di ciascuna parte (p.e. `login/api/index.ts`, `login/utils/index.ts`). A quel punto però diventano veramente tanti file da mantenere
+  - se da dentro il modulo si include il file di barrell, si verifica una "dependency cycle". Il sintomo più evidente della presenza di una dependency cicle è quando un codice fallisce solo a livello di runtime indicando che uno degli oggetti inclusi con "import ..." è `undefined`.
+  - Il punto sopra non è aiutato dal fatto che VSCode tenda in automatico ad completare gli import usando sempre il barrell file, anche quando si sta lavorando dentro il modulo.
+- nonostante non si usi il barrell file, usando la struttura della cartella + file per specializzazioni, si ottengono comunnque delle import molto leggibili.
+esempio:
+```
+import { ... } from "@/backend/feature/login/api"
+import { ... } from "@/shared/feature/login/utils/jwt"
+import { ... } from "@/shared/feature/login/schema"
+```

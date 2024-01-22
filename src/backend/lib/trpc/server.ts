@@ -1,18 +1,25 @@
 /**
- * Inizializzazione di tRPC lato server.
+ * src/backend/lib/trpc/server.ts
+ *
+ * Inizializza il server tRPC
+ *
+ * @author  Matteo Marcoli <matteo.marcoli@studenti.unimi.it>
+ * @company Università degli studi di Milano
+ * @project micro-lms
  */
 
-import { PrismaClient } from "@prisma/client";
+console.log("trcp server");
+debugger; //,,,,
+
+import { type PrismaClient } from "@prisma/client";
 import { initTRPC } from "@trpc/server";
-import { CreateNextContextOptions } from "@trpc/server/adapters/next";
-import { NextApiRequest, NextApiResponse } from "next";
+import { type CreateNextContextOptions } from "@trpc/server/adapters/next";
+import { type NextApiRequest, type NextApiResponse } from "next";
 import SuperJSON from "superjson";
 import { ZodError } from "zod";
-import { db } from "..";
+import { db } from "../database";
 
-// --------------------------------------------------------------------------------------------------------------------
-
-type APIContext = {
+export type APIContext = {
   db: PrismaClient;
   req: NextApiRequest;
   res: NextApiResponse;
@@ -26,7 +33,7 @@ type APIContext = {
  * @returns contesto con risorse per TRPC
  */
 
-export const createTRPCAPIContext = (opts: CreateNextContextOptions): APIContext => {
+export const createTRPCServerAPIContext = (opts: CreateNextContextOptions): APIContext => {
   // Estrae la richiesta e risposta HTTP.
   const { res, req } = opts;
 

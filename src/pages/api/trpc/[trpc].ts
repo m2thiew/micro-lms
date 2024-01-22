@@ -3,12 +3,16 @@
  * a "[sito]/api/trpc/"
  */
 
-import { apiRouter, createTRPCAPIContext } from "@/backend";
+console.log("api [trcp]");
+debugger; //,,,,
+
+import { apiServerRouter } from "@/backend/lib/router";
+import { createTRPCServerAPIContext } from "@/backend/lib/trpc/server";
 import { createNextApiHandler } from "@trpc/server/adapters/next";
 
 export default createNextApiHandler({
-  router: apiRouter,
-  createContext: createTRPCAPIContext,
+  router: apiServerRouter,
+  createContext: createTRPCServerAPIContext,
   onError: (opts) => {
     const { ctx, error, input, path, req, type } = opts;
     console.error("ERROR NextJS - rilevato errore", error.message);

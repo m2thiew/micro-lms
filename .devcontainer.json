@@ -1,7 +1,7 @@
 // For format details, see https://aka.ms/devcontainer.json. For config options, see the
 // README at: https://github.com/devcontainers/templates/tree/main/src/docker-existing-docker-compose
 {
-  "name": "micro-lms (docker-compose)",
+  "name": "micro-lms",
 
   // Update the 'dockerComposeFile' list if you have more compose files or use different names.
   // The .devcontainer/docker-compose.yml file contains any overrides you need/want to make.
@@ -66,15 +66,31 @@
         "EditorConfig.EditorConfig",
         "Prisma.prisma",
         "bradlc.vscode-tailwindcss",
-        "christian-kohler.npm-intellisense"
+        "christian-kohler.npm-intellisense",
+        "WallabyJs.console-ninja"
       ],
       "settings": {
+        // colora in modo distinto la barra di stato in basso a sinistra
+        // per questo progetto.
+        "workbench.colorCustomizations": {
+          "statusBarItem.remoteBackground": "#0058fc",
+          "statusBarItem.remoteHoverBackground": "#0065fc"
+        },
+
+        // disabilito i suggerimenti di VSCode per usare quelli della estensione "Path intellisense"
         "javascript.suggest.paths": false,
         "typescript.suggest.paths": false,
+
+        // Indica a VSCode di usare la versione di Typescript installata nel progetto.
+        "typescript.tsdk": "node_modules/typescript/lib",
+
+        // si utilizza Tailwind come formattatore per (quasi) tutti i file.
         "typescript.format.enable": false,
-        "debug.javascript.unmapMissingSources": true,
         "editor.defaultFormatter": "esbenp.prettier-vscode",
         "editor.formatOnSave": true,
+
+        // al salvataggio di un file, VSCode ordina gli import ma evita di rimuovere
+        // gli "import" non usati.
         "editor.codeActionsOnSave": {
           "source.fixAll": "never",
           "source.sortImports": "explicit"
@@ -84,12 +100,18 @@
           "comments": "off",
           "strings": "off"
         },
+
+        // si utilizza tailwind per i file CSS
         "files.associations": {
           "*.css": "tailwindcss"
         },
+
+        // si indica a tailwind di trattare clsx("...") come il contenuto di className="...."
         "tailwindCSS.experimental.classRegex": [
           ["clsx\\(([^)]*)\\)", "(?:'|\"|`)([^']*)(?:'|\"|`)"]
         ],
+
+        // esclusione file per ottimizzare le prestazioni.
         "telemetry.enableTelemetry": false,
         "search.exclude": {
           "**/.next": true,
@@ -107,15 +129,34 @@
           "**/out/**": true,
           "**/.npm/**": true
         },
+
+        // per i file di prisma si utilizza l'apposita estensione
         "[prisma]": {
           "editor.defaultFormatter": "Prisma.prisma"
         },
+        "prisma.fileWatcher": true,
+
+        // per i file di prisma si utilizza l'apposita estensione
         "[markdown]": {
           "editor.defaultFormatter": "yzhang.markdown-all-in-one"
         },
-        "workbench.colorCustomizations": {
-          "statusBarItem.remoteBackground": "#3a3ae2",
-          "statusBarItem.remoteHoverBackground": "#4a4ae4"
+
+        // mostra un righello al 100° carattere (dopo il quale Prettier formatterà
+        // il codice)
+        "[typescript]": {
+          "editor.rulers": [99]
+        },
+        "[typescriptreact]": {
+          "editor.rulers": [99]
+        },
+        "[javascript]": {
+          "editor.rulers": [99]
+        },
+        "[javascriptreact]": {
+          "editor.rulers": [99]
+        },
+        "[json]": {
+          "editor.rulers": [99]
         }
       }
     }

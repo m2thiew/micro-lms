@@ -1,5 +1,11 @@
 /**
+ * src/frontend/ui/icons/FlowbiteIconsExperiment.tsx
+ *
  * Esporta come componenti le icone disponibili su https://flowbite.com/icons/
+ *
+ * @author  Matteo Marcoli <matteo.marcoli@studenti.unimi.it>
+ * @company Università degli studi di Milano
+ * @project micro-lms
  */
 
 import clsx from "clsx";
@@ -9,7 +15,7 @@ import { forwardRef } from "react";
  * Proprietà delle icone SVG.
  */
 
-interface IIconProps extends React.SVGProps<SVGSVGElement> {}
+/*interface IIconProps extends React.SVGProps<SVGSVGElement> {}
 type TIconRef = React.Ref<SVGSVGElement>;
 
 // ------------------------------------------------------------------------------------------------
@@ -56,4 +62,4 @@ export const FbAddressBookOutline = forwardRef((props: IIconProps, ref: TIconRef
       />
     </svg>
   );
-});
+});*/

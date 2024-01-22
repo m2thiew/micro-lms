@@ -1,8 +1,10 @@
 /**
  * Home page della applicazione
  */
-import { FbArrowRightOutline } from "@/frontend";
-import { Carousel, CustomFlowbiteTheme } from "flowbite-react";
+
+import { TestPopup } from "@/frontend/features/login/components/popup-form";
+import { FbArrowRightOutline } from "@/frontend/ui/icons/FlowbiteIcons";
+import { Carousel, type CustomFlowbiteTheme } from "flowbite-react";
 import Image from "next/image";
 import { default as assetCarousel01 } from "/public/assets/carousel01.png";
 import { default as assetCarousel02 } from "/public/assets/carousel02.png";
@@ -51,6 +53,8 @@ export default function Home() {
                 Le mie pillole
                 <FbArrowRightOutline className="ml-2 h-3.5 w-3.5" />
               </a>
+
+              <TestPopup></TestPopup>
             </div>
           </div>
 

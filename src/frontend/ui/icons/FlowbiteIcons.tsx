@@ -1,5 +1,11 @@
 /**
+ * src/frontend/ui/icons/FlowbiteIcons.tsx
+ *
  * Esporta come componenti le icone disponibili su https://flowbite.com/icons/
+ *
+ * @author  Matteo Marcoli <matteo.marcoli@studenti.unimi.it>
+ * @company Università degli studi di Milano
+ * @project micro-lms
  */
 
 import { forwardRef } from "react";
