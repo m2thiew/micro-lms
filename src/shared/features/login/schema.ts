@@ -17,11 +17,11 @@ import { z } from "zod";
  * Parametri per il login.
  */
 
-export const schemaDoLogin = z.object({
+export const doLoginSchema = z.object({
   email: z.string().min(3).email().trim(),
   password: z.string().min(3).trim(),
 });
-export type schemaDoLogin = z.infer<typeof schemaDoLogin>;
+export type doLoginSchema = z.infer<typeof doLoginSchema>;
 
 // ------------------------------------------------------------------------------------------------
 
@@ -29,8 +29,10 @@ export type schemaDoLogin = z.infer<typeof schemaDoLogin>;
  * Contenuto di un token.
  */
 
-export const schemaTokenPayload = z.object({
+export const tokenPayloadSchema = z.object({
+  name: z.string().min(3).trim(),
+  surname: z.string().min(3).trim(),
   email: z.string().min(3).email().trim(),
   role: z.nativeEnum(Role),
 });
-export type schemaTokenPayload = z.infer<typeof schemaTokenPayload>;
+export type tokenPayloadSchema = z.infer<typeof tokenPayloadSchema>;

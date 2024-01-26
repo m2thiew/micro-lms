@@ -1,25 +1,67 @@
 /**
- * Componenti che espongono il form di popup per eseguire il login.
+ * src/frontend/features/login/contex/popup-form.tsx
+ *
+ * Contesto che espone il form popup di login (apribile/ chiudibile da qualsiasi pagina
+ * della applicazione)
+ *
+ * @author  Matteo Marcoli <matteo.marcoli@studenti.unimi.it>
+ * @company Università degli studi di Milano
+ * @project micro-lms
  */
 
 import { doLoginSchema } from "@/shared/features/login/schema";
 import { returnSyncHandler } from "@/shared/utils/async";
+import { doNothingSync } from "@/shared/utils/void";
 import { zodResolver } from "@hookform/resolvers/zod";
 import clsx from "clsx";
 import { Alert, Modal } from "flowbite-react";
-import { useState } from "react";
+import React, { useContext, useState } from "react";
 import { useForm } from "react-hook-form";
-import { useLoginStatus } from "../context/status";
+import { useLoginStatus } from "./status";
 
 // ------------------------------------------------------------------------------------------------
 
-export const TestPopup = () => {
-  const [show, setShow] = useState<boolean>(false);
+// Proprietà passate al contesto.
+type ProviderProps = {
+  children: React.ReactNode;
+};
+
+// Funzioni esposte dal contesto.
+type LoginPopupFormContex = {
+  open: () => void;
+  close: () => void;
+  toggle: () => void;
+  isOpen: boolean;
+};
+
+// Valore di default.
+const defaultValue: LoginPopupFormContex = {
+  open: doNothingSync,
+  close: doNothingSync,
+  toggle: doNothingSync,
+  isOpen: false,
+};
+
+// ------------------------------------------------------------------------------------------------
+
+/**
+ * Contesto per esporre il form di login popup.
+ */
+
+export const LoginPopupFormContex = React.createContext<LoginPopupFormContex>(defaultValue);
+
+// ------------------------------------------------------------------------------------------------
+
+/**
+ * Implementazione del contesto.
+ */
+
+export const LoginPopupFormProvider = (props: ProviderProps): React.JSX.Element => {
+  // visibilità del popup.
+  const [isOpen, setOpen] = useState<boolean>(false);
 
   // stato del login.
   const login = useLoginStatus();
-
-  const isLoggedIn = !!login.data;
 
   // messaggio di caricamento in corso.
   const AlertLoadig = <Alert color="info">caricamento...</Alert>;
@@ -27,36 +69,53 @@ export const TestPopup = () => {
   // messaggio di errore.
   const AlertError = <Alert color="failure">{login.error}</Alert>;
 
+  // funzioni esposte per aprire/chiudere il popup.
+  const open = () => {
+    setOpen(true);
+  };
+  const close = () => {
+    setOpen(false);
+  };
+  const toggle = () => {
+    setOpen(!isOpen);
+  };
+
+  const value: LoginPopupFormContex = {
+    open,
+    close,
+    toggle,
+    isOpen,
+  };
+
   return (
-    <>
-      <a
-        className="cursor-pointer rounded-md bg-blue-500 px-2 py-4 text-white hover:bg-blue-700 hover:ring-2"
-        onClick={() => {
-          setShow(true);
-        }}
-      >
-        Accedi
-      </a>
+    <LoginPopupFormContex.Provider value={value}>
       <Modal
-        show={show}
+        show={isOpen}
         onClose={() => {
-          setShow(false);
+          setOpen(false);
         }}
       >
-        <Modal.Header>header</Modal.Header>
+        <Modal.Header>Login</Modal.Header>
         <Modal.Body>
           {login.isLoading ? AlertLoadig : login.error ? AlertError : undefined}
 
-          {isLoggedIn ? <FormDoLogout /> : <FormDoLogin />}
+          {login.isLoggedIn ? <FormDoLogout /> : <FormDoLogin />}
         </Modal.Body>
       </Modal>
-    </>
+      {props.children}
+    </LoginPopupFormContex.Provider>
   );
 };
 
 // ------------------------------------------------------------------------------------------------
 
-export const FormDoLogin = () => {
+/**
+ * Espone il form per inserire email e password per eseguire il login
+ *
+ * @returns form di login
+ */
+
+export const FormDoLogin = (): React.JSX.Element => {
   // stato del login.
   const login = useLoginStatus();
 
@@ -136,7 +195,13 @@ export const FormDoLogin = () => {
 
 // ------------------------------------------------------------------------------------------------
 
-export const FormDoLogout = () => {
+/**
+ * Espone le informazioni dell'utente loggato e il pulsante per il logout
+ *
+ * @returns dati dell'utente & pulsante logout
+ */
+
+export const FormDoLogout = (): React.JSX.Element => {
   // stato del login.
   const login = useLoginStatus();
 
@@ -171,4 +236,16 @@ export const FormDoLogout = () => {
       </div>
     </>
   );
+};
+
+// ------------------------------------------------------------------------------------------------
+
+/**
+ * Hook per usare il contesto del form popup di login
+ *
+ * @returns contesto form popup di login
+ */
+
+export const useLoginPopupForm = () => {
+  return useContext(LoginPopupFormContex);
 };

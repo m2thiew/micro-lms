@@ -1,4 +1,6 @@
-import { LoginProvider } from "@/frontend/features/login/context";
+import { HeaderContent } from "@/frontend/components/header";
+import { LoginPopupFormProvider } from "@/frontend/features/login/context/popup-form";
+import { LoginStatusProvider } from "@/frontend/features/login/context/status";
 import { apiClient } from "@/frontend/lib/trpc/client";
 import "@/styles/tailwind.css";
 import type { AppProps, AppType } from "next/app";
@@ -16,16 +18,16 @@ const App: AppType = ({ Component, pageProps }: AppProps) => {
   // template base del corpo della applicazione
   const layout = (
     <>
-      <LoginProvider>
-        <header className="m-0 h-24 w-full bg-blue-500 p-0 text-white">
-          <div className="flex items-center justify-center">
-            <p>Header</p>
-          </div>
-        </header>
-        <main className="m-0 p-0 text-gray-500">
-          <Component {...pageProps} />
-        </main>
-      </LoginProvider>
+      <LoginStatusProvider>
+        <LoginPopupFormProvider>
+          <header className="m-0 h-24 w-full bg-blue-500 p-0 text-white">
+            <HeaderContent></HeaderContent>
+          </header>
+          <main className="m-0 p-0 text-gray-500">
+            <Component {...pageProps} />
+          </main>
+        </LoginPopupFormProvider>
+      </LoginStatusProvider>
     </>
   );
 

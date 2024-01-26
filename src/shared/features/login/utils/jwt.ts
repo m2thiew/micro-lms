@@ -19,7 +19,7 @@ import {
   type JWTHeaderParameters,
   type JWTPayload,
 } from "jose";
-import { schemaTokenPayload } from "../schema";
+import { tokenPayloadSchema } from "../schema";
 
 // type guard per JWTPayload
 
@@ -49,7 +49,7 @@ export type JWTDecoded = {
 
 // type per dati di login leggibili dal token JWT.
 
-export type LoginData = schemaTokenPayload & {
+export type LoginData = tokenPayloadSchema & {
   expire: Date;
 };
 
@@ -179,7 +179,7 @@ export const getLoginDataFromToken = (payload: JWTPayload): LoginData | undefine
   //
   try {
     // Trasforma il payload generico nel payload specifico per il login.
-    const loginData = schemaTokenPayload.parse(payload);
+    const loginData = tokenPayloadSchema.parse(payload);
 
     // estrae la data di scadenza del token.
     const timestampExpire = payload.exp;

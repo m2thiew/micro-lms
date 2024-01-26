@@ -9,7 +9,7 @@
  * @project micro-lms
  */
 
-import { schemaTokenPayload } from "@/shared/features/login/schema";
+import { tokenPayloadSchema } from "@/shared/features/login/schema";
 import { verifyToken } from "@/shared/features/login/utils/jwt";
 import { type $Enums } from "@prisma/client";
 import { TRPCError } from "@trpc/server";
@@ -77,7 +77,7 @@ export const requireLearnerLoggedIn = createAPIMiddleware(async ({ ctx, next }) 
   if (!verification) throw new TRPCError({ code: "UNAUTHORIZED" });
 
   // il token è valido. Estra l'username (email) e il ruolo dell'utente.
-  const payload = schemaTokenPayload.parse(verification.payload);
+  const payload = tokenPayloadSchema.parse(verification.payload);
   const { email, role } = payload;
 
   // esegue una query per verificare se esiste l'utente con la sessione corrispondente

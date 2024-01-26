@@ -9,12 +9,13 @@ import {
   type JWTDecoded,
   type LoginData,
 } from "@/shared/features/login/utils/jwt";
+import { doNothingAsync } from "@/shared/utils/void";
 import React, { useContext, useEffect, useState } from "react";
 import {
   deleteTokenFromStorage,
   getTokenFromStorage,
   setTokenInStorage,
-} from "./utils/token-storage";
+} from "../utils/token-storage";
 
 // Variabile di ambiente Frontend.
 
@@ -25,12 +26,14 @@ type LoginState =
   | {
       token?: undefined;
       data?: undefined;
+      isLoggedIn: false;
       isLoading: boolean;
       error: string | undefined;
     }
   | {
       token: string;
       data: LoginData;
+      isLoggedIn: true;
       isLoading: boolean;
       error: string | undefined;
     };
@@ -42,24 +45,21 @@ type LoginFunctions = {
 };
 
 // dati & funzioni esposti dal contesto
-type LoginContext = LoginState & LoginFunctions;
+type LoginStatusContext = LoginState & LoginFunctions;
 
 // Proprietà passate al contesto.
-type LoginProviderProps = {
+type ProviderProps = {
   children: React.ReactNode;
 };
 
 // valore di default del contesto.
-const defaultValue: LoginContext = {
+const defaultValue: LoginStatusContext = {
   token: undefined,
   isLoading: true,
   error: undefined,
-  doLogin: async () => {
-    /* nessuna azione */
-  },
-  doLogout: async () => {
-    /* nessuna azione */
-  },
+  doLogin: doNothingAsync,
+  doLogout: doNothingAsync,
+  isLoggedIn: false,
 };
 
 // ------------------------------------------------------------------------------------------------
@@ -68,7 +68,7 @@ const defaultValue: LoginContext = {
  * Contesto per gestire lo stato di login dell'utente.
  */
 
-export const LoginContext = React.createContext<LoginContext>(defaultValue);
+export const LoginStatusContext = React.createContext<LoginStatusContext>(defaultValue);
 
 // ------------------------------------------------------------------------------------------------
 
@@ -76,7 +76,7 @@ export const LoginContext = React.createContext<LoginContext>(defaultValue);
  * Implementazione del contesto.
  */
 
-export const LoginProvider = (props: LoginProviderProps): React.JSX.Element => {
+export const LoginStatusProvider = (props: ProviderProps): React.JSX.Element => {
   // Senza la chiave pubblica, il login non può funzionare.
   if (!jwtPublicKey) {
     throw new Error("missing pubkey");
@@ -132,7 +132,7 @@ export const LoginProvider = (props: LoginProviderProps): React.JSX.Element => {
   // ----------------------------------------------------------------------------------------------
 
   /**
-   * Funzione che esegue il login.
+   * Funzione esposta che esegue il login.
    */
 
   const doLogin = async (username: string, password: string): Promise<void> => {
@@ -167,7 +167,7 @@ export const LoginProvider = (props: LoginProviderProps): React.JSX.Element => {
   // ----------------------------------------------------------------------------------------------
 
   /**
-   * Funzione che esegue il logout.
+   * Funzione esposta che esegue il logout.
    */
 
   const doLogout = async (): Promise<void> => {
@@ -204,13 +204,15 @@ export const LoginProvider = (props: LoginProviderProps): React.JSX.Element => {
 
   const { children } = props;
 
-  const tokenAndData = token && data ? { token, data } : {};
+  const tokenAndData =
+    token && data ? { token, data, isLoggedIn: true as const } : { isLoggedIn: false as const };
+
   const state: LoginState = { ...tokenAndData, isLoading, error };
   const functions: LoginFunctions = { doLogin, doLogout };
 
-  const value: LoginContext = { ...state, ...functions };
+  const value: LoginStatusContext = { ...state, ...functions };
 
-  return <LoginContext.Provider value={value}>{children}</LoginContext.Provider>;
+  return <LoginStatusContext.Provider value={value}>{children}</LoginStatusContext.Provider>;
 };
 
 // ----------------------------------------------------------------------------------------------
@@ -219,6 +221,6 @@ export const LoginProvider = (props: LoginProviderProps): React.JSX.Element => {
  * Hook per utilizzare il contesto.
  */
 
-export const useLogin = () => {
-  return useContext(LoginContext);
+export const useLoginStatus = () => {
+  return useContext(LoginStatusContext);
 };

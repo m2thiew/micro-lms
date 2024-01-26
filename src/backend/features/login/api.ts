@@ -14,7 +14,7 @@ import {
   publicAPIProcedure,
 } from "@/backend/lib/trpc/procedures";
 import { createAPIRouter } from "@/backend/lib/trpc/server";
-import { schemaDoLogin, schemaTokenPayload } from "@/shared/features/login/schema";
+import { doLoginSchema, tokenPayloadSchema } from "@/shared/features/login/schema";
 import { generateTokens } from "@/shared/features/login/utils/jwt";
 import { TRPCError } from "@trpc/server";
 import { default as crypto } from "crypto";
@@ -37,7 +37,7 @@ type testReturn = "success" | "fail";
  */
 
 const doLogin = publicAPIProcedure
-  .input(schemaDoLogin)
+  .input(doLoginSchema)
   .mutation(async ({ ctx, input }): Promise<doLoginReturn> => {
     // Verifica la presenza delle chiavi per cifrare/decifrare i token
     const jwtPrivateKey = process.env.JWT_PRIVATE_KEY;
@@ -56,6 +56,8 @@ const doLogin = publicAPIProcedure
     const learner = await db.learner.findFirst({
       select: {
         id: true,
+        name: true,
+        surname: true,
         email: true,
         role: true,
       },
@@ -69,7 +71,9 @@ const doLogin = publicAPIProcedure
 
     // Utente trovato. Genero il JWT e il refresh token.
 
-    const payload = schemaTokenPayload.parse({
+    const payload = tokenPayloadSchema.parse({
+      name: learner.name,
+      surname: learner.surname,
       email: learner.email,
       role: learner.role,
     });

@@ -19,7 +19,7 @@
   // Per evitare conflitti mentre si scrive il codice, tutti gli snippet sono richiamabili
   // tramite un prefisso "sss"
   "----": {
-    "scope": "javascript,typescript",
+    "scope": "javascript,typescript,javascriptreact,typescriptreact",
     "prefix": "sss----",
     "body": [
       "// ------------------------------------------------------------------------------------------------"
@@ -28,6 +28,7 @@
     "isFileTemplate": false
   },
   "FILEHEADER": {
+    "scope": "javascript,typescript,javascriptreact,typescriptreact",
     "prefix": "sssFILEHEADER",
     "body": [
       "/**",
