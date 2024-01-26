@@ -33,7 +33,7 @@ model Session {
   id           Int      @id @default(autoincrement()) @db.Int()
   createdAt    DateTime @default(now()) @db.Timestamp(0)
   updatedAt    DateTime @default(now()) @updatedAt @db.Timestamp(0)
-  token        String   @default("") @db.Char(255)
+  token        String   @db.Text()
   refreshToken String   @default("") @db.Char(255)
   expiresAt    DateTime @default(now()) @db.Timestamp(0)
   Learner      Learner  @relation(fields: [learnerId], references: [id])

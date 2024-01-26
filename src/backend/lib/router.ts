@@ -13,9 +13,6 @@ import { createAPIRouter } from "@/backend/lib/trpc/server";
 import { helloApi } from "../features/hello/api";
 import { loginApi } from "../features/login/api";
 
-console.log("router server");
-debugger; //,,,,
-
 export const apiServerRouter = createAPIRouter({
   hello: helloApi,
   login: loginApi,

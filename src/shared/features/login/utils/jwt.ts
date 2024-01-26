@@ -9,7 +9,16 @@
  */
 
 import { default as crypto } from "crypto";
-import { default as jose, type JWTHeaderParameters, type JWTPayload } from "jose";
+import {
+  SignJWT,
+  compactVerify,
+  decodeJwt,
+  importPKCS8,
+  importSPKI,
+  jwtVerify,
+  type JWTHeaderParameters,
+  type JWTPayload,
+} from "jose";
 import { schemaTokenPayload } from "../schema";
 
 // type guard per JWTPayload
@@ -46,8 +55,8 @@ export type LoginData = schemaTokenPayload & {
 
 // Costanti per generare i token.
 
-export const TOKEN_MAX_AGE = 120 as const;
-export const REFRESH_TOKEN_MAX_AGE = 300 as const;
+export const TOKEN_MAX_AGE = 3600 as const;
+export const REFRESH_TOKEN_MAX_AGE = 86400 as const;
 export const TOKEN_ALGORITHM = "RS256" as const;
 
 // ------------------------------------------------------------------------------------------------
@@ -62,9 +71,8 @@ export const TOKEN_ALGORITHM = "RS256" as const;
 
 export const generateTokens = async (jwtPrivateKey: string, payload: Record<string, unknown>) => {
   // generazione token JWT.
-
-  const privateKey = await jose.importPKCS8(jwtPrivateKey, TOKEN_ALGORITHM);
-  const token = await new jose.SignJWT(payload)
+  const privateKey = await importPKCS8(jwtPrivateKey, TOKEN_ALGORITHM);
+  const token = await new SignJWT(payload)
     .setProtectedHeader({ alg: TOKEN_ALGORITHM })
     .setIssuedAt()
     .setExpirationTime(`${TOKEN_MAX_AGE} seconds`)
@@ -95,10 +103,10 @@ export const verifyToken = async (
   jwtPublicKey: string,
   token: string,
 ): Promise<JWTDecoded | undefined> => {
-  const publicKey = await jose.importSPKI(jwtPublicKey, TOKEN_ALGORITHM);
+  const publicKey = await importSPKI(jwtPublicKey, TOKEN_ALGORITHM);
 
   try {
-    const { payload, protectedHeader } = await jose.jwtVerify(token, publicKey, {
+    const { payload, protectedHeader } = await jwtVerify(token, publicKey, {
       algorithms: [TOKEN_ALGORITHM],
     });
 
@@ -122,13 +130,13 @@ export const verifyTokenSign = async (
   jwtPublicKey: string,
   token: string,
 ): Promise<JWTDecoded | undefined> => {
-  const publicKey = await jose.importSPKI(jwtPublicKey, TOKEN_ALGORITHM);
+  const publicKey = await importSPKI(jwtPublicKey, TOKEN_ALGORITHM);
 
   try {
     // "compact" indica un generico JWS (contenuto firmato). È necessario uno step intermedio
     // per ottenere l'oggetto JSON
 
-    const { payload: uint8Payload, protectedHeader } = await jose.compactVerify(token, publicKey, {
+    const { payload: uint8Payload, protectedHeader } = await compactVerify(token, publicKey, {
       algorithms: [TOKEN_ALGORITHM],
     });
 
@@ -155,7 +163,7 @@ export const verifyTokenSign = async (
  */
 
 export const decodeToken = (token: string) => {
-  return jose.decodeJwt(token);
+  return decodeJwt(token);
 };
 
 // ------------------------------------------------------------------------------------------------
@@ -176,7 +184,8 @@ export const getLoginDataFromToken = (payload: JWTPayload): LoginData | undefine
     // estrae la data di scadenza del token.
     const timestampExpire = payload.exp;
 
-    const expire = timestampExpire ? new Date(timestampExpire) : new Date(Date.now());
+    // creo l'oggetto data basto sul timestamp (lato JS i timestamp sono in millisecondi).
+    const expire = timestampExpire ? new Date(timestampExpire * 1000) : new Date(Date.now());
 
     // restituisce i dati.
     return {

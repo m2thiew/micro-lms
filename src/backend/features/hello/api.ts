@@ -8,9 +8,6 @@
  * @project micro-lms
  */
 
-console.log("api-hello");
-debugger; //,,,,
-
 import { z } from "zod";
 
 import { publicAPIProcedure } from "@/backend/lib/trpc/procedures";

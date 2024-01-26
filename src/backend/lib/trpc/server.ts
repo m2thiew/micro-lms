@@ -8,9 +8,6 @@
  * @project micro-lms
  */
 
-console.log("trcp server");
-debugger; //,,,,
-
 import { type PrismaClient } from "@prisma/client";
 import { initTRPC } from "@trpc/server";
 import { type CreateNextContextOptions } from "@trpc/server/adapters/next";

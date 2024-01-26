@@ -8,9 +8,6 @@
  * @project micro-lms
  */
 
-console.log("api-login");
-debugger; //,,,,
-
 import {
   adminAPIProcedure,
   loggedInAPIProcedure,
@@ -81,7 +78,7 @@ const doLogin = publicAPIProcedure
 
     // Salvo in datbase la nuova sessione.
 
-    const _session = db.session.upsert({
+    const _session = await db.session.upsert({
       create: {
         token: token,
         refreshToken: refreshToken,

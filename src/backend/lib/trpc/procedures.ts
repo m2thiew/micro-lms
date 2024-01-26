@@ -12,9 +12,6 @@
 import { requireAdminLoggedIn, requireLearnerLoggedIn } from "./middleware";
 import { trpcAPIContextHandler } from "./server";
 
-console.log("trcp procedured");
-debugger; //,,,,
-
 // import { requireAdminLoggedIn, requireLearnerLoggedIn } from "@/backend/features/login";
 
 // ------------------------------------------------------------------------------------------------
@@ -24,8 +21,6 @@ debugger; //,,,,
  */
 
 export const publicAPIProcedure = trpcAPIContextHandler.procedure;
-
-console.debug("PROCEDURES", publicAPIProcedure); //,,,
 
 // ------------------------------------------------------------------------------------------------
 

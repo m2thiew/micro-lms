@@ -21,13 +21,11 @@ export const TestPopup = () => {
 
   const isLoggedIn = !!login.data;
 
-  console.log("TestPopup", login);
-
   // messaggio di caricamento in corso.
   const AlertLoadig = <Alert color="info">caricamento...</Alert>;
 
   // messaggio di errore.
-  const AlertError = <Alert color={"error"}>{login.error}</Alert>;
+  const AlertError = <Alert color="failure">{login.error}</Alert>;
 
   return (
     <>
@@ -160,7 +158,7 @@ export const FormDoLogout = () => {
           Il tuo ruolo: <b>{role}</b>
         </p>
         <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">
-          scadenza del login: <b>{expire.toLocaleDateString()}</b>
+          scadenza del login: <b>{expire.toLocaleString()}</b>
         </p>
         <a
           className="inline-flex items-center rounded-lg bg-blue-700 px-3 py-2 text-center text-sm font-medium text-white hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300"

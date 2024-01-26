@@ -1,5 +1,6 @@
 // plugin per rilevare i "dependency cycle" e segnalarli come errori.
 const CircularDependencyPlugin = require("circular-dependency-plugin");
+const fs = require("fs");
 
 const pluginDetectCycles = new CircularDependencyPlugin({
   include: /src/,

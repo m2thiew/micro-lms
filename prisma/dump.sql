@@ -14,21 +14,42 @@ DROP TABLE IF EXISTS `Learner`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `Learner` (
   `id` int NOT NULL AUTO_INCREMENT,
-  `active` tinyint(1) NOT NULL DEFAULT '1',
   `createdAt` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `updatedAt` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `name` char(255) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
-  `surname` char(255) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
-  `email` char(255) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
-  `username` char(255) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
-  `password` char(255) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
+  `name` char(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
+  `surname` char(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
+  `email` char(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
+  `password` char(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
+  `role` enum('LEARNER','ADMIN') COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT 'LEARNER',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 LOCK TABLES `Learner` WRITE;
 /*!40000 ALTER TABLE `Learner` DISABLE KEYS */;
+INSERT INTO `Learner` VALUES (1,'2024-01-26 18:36:54','2024-01-26 18:36:54','Admin','Micro LMS','admin@microlms.org','21232f297a57a5a743894a0e4a801fc3','ADMIN');
 /*!40000 ALTER TABLE `Learner` ENABLE KEYS */;
+UNLOCK TABLES;
+DROP TABLE IF EXISTS `Session`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `Session` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `createdAt` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `updatedAt` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `token` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `refreshToken` char(255) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
+  `expiresAt` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `learnerId` int NOT NULL DEFAULT '0',
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `Session_learnerId_key` (`learnerId`),
+  CONSTRAINT `Session_learnerId_fkey` FOREIGN KEY (`learnerId`) REFERENCES `Learner` (`id`) ON DELETE RESTRICT ON UPDATE CASCADE
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+LOCK TABLES `Session` WRITE;
+/*!40000 ALTER TABLE `Session` DISABLE KEYS */;
+/*!40000 ALTER TABLE `Session` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 

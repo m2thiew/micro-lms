@@ -97,6 +97,8 @@ export const LoginProvider = (props: LoginProviderProps): React.JSX.Element => {
   // eventuale errore nelle funzioni.
   const [error, setError] = useState<string | undefined>(undefined);
 
+  // console.log("login contex", token, decodedToken, isLoading, error);
+
   // la decodifica del token viene ricalcolata ogni volta che cambia il token.
   // essendo l'operazione "verifyToken" asincrona, devo eseguire la operazione
   // dentro un "useEffect".

@@ -1,10 +1,13 @@
 /**
+ * src/pages/api/trpc/[trpc].ts
+ *
  * Definisce che NextJS deve utilizzare tRPC per gestire tutte le chiamate dirette
  * a "[sito]/api/trpc/"
+ *
+ * @author  Matteo Marcoli <matteo.marcoli@studenti.unimi.it>
+ * @company Università degli studi di Milano
+ * @project micro-lms
  */
-
-console.log("api [trcp]");
-debugger; //,,,,
 
 import { apiServerRouter } from "@/backend/lib/router";
 import { createTRPCServerAPIContext } from "@/backend/lib/trpc/server";

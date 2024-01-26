@@ -9,9 +9,6 @@
  * @project micro-lms
  */
 
-console.log("login-middleware");
-debugger; //,,,,
-
 import { schemaTokenPayload } from "@/shared/features/login/schema";
 import { verifyToken } from "@/shared/features/login/utils/jwt";
 import { type $Enums } from "@prisma/client";
