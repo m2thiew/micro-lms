@@ -1,4 +1,4 @@
-import { HeaderContent } from "@/frontend/components/header";
+import { Header } from "@/frontend/components/header";
 import { LoginPopupFormProvider } from "@/frontend/features/login/context/popup-form";
 import { LoginStatusProvider } from "@/frontend/features/login/context/status";
 import { apiClient } from "@/frontend/lib/trpc/client";
@@ -20,9 +20,7 @@ const App: AppType = ({ Component, pageProps }: AppProps) => {
     <>
       <LoginStatusProvider>
         <LoginPopupFormProvider>
-          <header className="m-0 h-24 w-full bg-blue-500 p-0 text-white">
-            <HeaderContent></HeaderContent>
-          </header>
+          <Header></Header>
           <main className="m-0 p-0 text-gray-500">
             <Component {...pageProps} />
           </main>

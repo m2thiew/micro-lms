@@ -3,7 +3,7 @@
  */
 
 import { useLoginPopupForm } from "@/frontend/features/login/context/popup-form";
-import { FbArrowRightOutline } from "@/frontend/ui/icons/FlowbiteIcons";
+import { FbArrowRightOutline } from "@/frontend/ui/icons/flowbite";
 import { Carousel, type CustomFlowbiteTheme } from "flowbite-react";
 import Image from "next/image";
 import { default as assetCarousel01 } from "/public/assets/carousel01.png";
