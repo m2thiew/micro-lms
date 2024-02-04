@@ -16,8 +16,8 @@ import {
 import { createAPIRouter } from "@/backend/lib/trpc/server";
 import { doLoginSchema, tokenPayloadSchema } from "@/shared/features/login/schema";
 import { generateTokens } from "@/shared/features/login/utils/jwt";
+import { getMd5 } from "@/shared/utils/crypto";
 import { TRPCError } from "@trpc/server";
-import { default as crypto } from "crypto";
 
 // Risposte delle API-
 
@@ -51,7 +51,7 @@ const doLogin = publicAPIProcedure
 
     // verifica se il login è valido.
 
-    const hashedPasswod = crypto.createHash("md5").update(input.password).digest("hex");
+    const hashedPasswod = getMd5(input.password);
 
     const learner = await db.learner.findFirst({
       select: {

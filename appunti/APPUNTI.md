@@ -485,3 +485,120 @@ import { ... } from "@/backend/feature/login/api"
 import { ... } from "@/shared/feature/login/utils/jwt"
 import { ... } from "@/shared/feature/login/schema"
 ```
+
+# Prisma e zod
+
+https://github.com/microsoft/TypeScript/wiki/Coding-guidelines
+
+ha senso generare degli schemi da primsa => zod?
+Dove li userei?
+
+mi farebbe risparmiare tempo da qualche parte?
+
+Learner è la tabella in DB
+ma in realtà nel codice vorrei far circolare meno informazioni
+come faccio
+
+LearnerBaseData?
+LearnerFullData?
+LearnerInfo?
+LearnerShallow?
+LearnerBasic?
+LearnerMinimal
+
+opppure
+Learner <= dati di un learner necessari per lo 80% delle azioni
+LearnerFull <= dati completi di un learner, necessario per specifiche azioni
+LearnerPreview <= dati basilari necessari a mostrare un preview del learner.
+
+lato frontend potrei usare il type "Learner" creato da Primsa => ma sarebbe una ANOMALIA
+in fatti, il frontend non dovrebbe conoscere le classi del database backedn
+c'è quindi sempre la necessità di avere un intermediario shared che definisca i dati con cui
+backend e frontend si scambiano
+mi creerà problemi lato backend il fatto che ci sia "Learner" (tipo delle share) e 
+"Learner" (tipo del DB di Primsa)?
+Non ha senso avere un file "types": molto meglio usare sempre zod e esportare sia 
+{tipo}Schema, sia Tipo. p.e.
+
+learnerSchema = ...
+type Learner
+
+// nel codie
+
+const learner = learnerSchema.parse()
+
+const learner: LearnerData
+VS.
+const learner: Learner
+VS.
+const learner: LearnerPreview
+VS.
+const learner: LearnerInfo
+VS.
+const learner: LearnerSummary
+VS.
+const learner: LearnerPublicData ()
+
+
+const learnerFullData: LearnerFullData
+VS.
+const learnerAdminData: LearnerAdminData
+VS.
+const learnerManageData: learnerManageData
+VS.
+const learnerModel: LearnerModel
+
+https://stackoverflow.com/questions/70155912/restful-api-best-practice-for-admin-and-user-scope
+
+di fatto è una questione tra diversi "scope" (admin vs user, dove user è "visibile a tutti").
+
+le api che sto creando adesso non sono "learner" per tutti, sono "learnerAdmin" (solo per gli amministratori)
+
+const learnerAdminData: LearnerAdminData
+const learner: LearnerPublicData
+const learner: Learner
+
+const learnerPriceAdmindata: LearnerPriceAdminData
+const learnerPrice: LearnerPricePublicData
+const learnerPrice: LearnerPrice
+
+ci vedo bene una regola:
+se è presente il nome di una "resource" (come è chiamata nelle API REST), allora è
+sottintesi che si tratta di "dati pubblici", con quindi implicito il suffisso "PublicData"
+p.e. "type Learner" equivale a "type LearnerPublicData".
+
+Di fatto, per ogni risorsa è sempre implicito che esista una risorsa con contesto pubblico
+e una risorsa con contesto "admin". Alune risorse, potrebbero avere anche ulteriori contesti.
+
+const learner: LearnerFollowerData
+const learner: LearnerPriceFollowerData
+
+---
+
+
+alternativa?
+const learner: LearnerDataForAdmin
+const learner: LearnerDataForPublic
+const learner: LearnerData
+
+const learnerPriceDataForAdmin: LearnerPriceDataForAdmin
+const learnerPrice: LearnerPriceDataForPublic
+const learnerPrice: LearnerPrice
+
+---
+
+no, direi che non suona bene
+
+p.e. "LearnerPriceAdminData" funziona bene perchè scoroportato diventa:
+"LearnerPrice" + "AdminData"
+"gli [AdminData] di [LearnerPrice]"
+"i dati da amministratore dei prezzi dei learner"
+
+# props e ref per React
+
+https://stackoverflow.com/questions/55892409/how-to-extend-html-attributes-in-react-with-typescript
+
+https://dmitripavlutin.com/react-forwardref/
+
+https://echobind.com/post/conditionally-render-fields-using-react-hook-form
+

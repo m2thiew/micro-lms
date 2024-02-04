@@ -9,12 +9,14 @@
  * @project micro-lms
  */
 
-import { type SyntheticEvent } from "react";
+import { type BaseSyntheticEvent } from "react";
 
 // Definizione di handler (funzioni usate sugli eventi "onClick", "onChange", "onSubmit", etc.)
 
-type AsyncHandler = (event: SyntheticEvent | undefined) => Promise<void>;
-type SyncHandler = (event: SyntheticEvent | undefined) => void;
+export type AsyncHandler = (
+  e?: BaseSyntheticEvent<object, unknown, unknown> | undefined,
+) => Promise<void>;
+export type SyncHandler = (e?: BaseSyntheticEvent<object, unknown, unknown> | undefined) => void;
 
 // ------------------------------------------------------------------------------------------------
 
@@ -27,8 +29,10 @@ type SyncHandler = (event: SyntheticEvent | undefined) => void;
  */
 
 export const returnSyncHandler = (asyncHandler: AsyncHandler): SyncHandler => {
-  const syncHandler: SyncHandler = (event: SyntheticEvent | undefined): void => {
-    asyncHandler(event).catch((error) => {
+  const syncHandler: SyncHandler = (
+    e?: BaseSyntheticEvent<object, unknown, unknown> | undefined,
+  ): void => {
+    asyncHandler(e).catch((error) => {
       console.error(error);
     });
   };

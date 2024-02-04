@@ -1,8 +1,11 @@
 import { Header } from "@/frontend/components/header";
 import { LoginPopupFormProvider } from "@/frontend/features/login/context/popup-form";
 import { LoginStatusProvider } from "@/frontend/features/login/context/status";
+import { registerAgGridModules } from "@/frontend/lib/ag-grid";
 import { apiClient } from "@/frontend/lib/trpc/client";
 import "@/styles/tailwind.css";
+import "@ag-grid-community/styles/ag-grid.css";
+import "@ag-grid-community/styles/ag-theme-quartz.css";
 import type { AppProps, AppType } from "next/app";
 
 /**
@@ -14,7 +17,9 @@ import type { AppProps, AppType } from "next/app";
  */
 
 const App: AppType = ({ Component, pageProps }: AppProps) => {
-  //
+  // setup AgGrid.
+  registerAgGridModules();
+
   // template base del corpo della applicazione
   const layout = (
     <>
