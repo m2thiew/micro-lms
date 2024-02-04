@@ -22,12 +22,12 @@ CREATE TABLE `Learner` (
   `password` char(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
   `role` enum('LEARNER','ADMIN') COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT 'LEARNER',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 LOCK TABLES `Learner` WRITE;
 /*!40000 ALTER TABLE `Learner` DISABLE KEYS */;
-INSERT INTO `Learner` VALUES (1,'2024-01-26 18:36:54','2024-01-26 18:36:54','Admin','Micro LMS','admin@microlms.org','21232f297a57a5a743894a0e4a801fc3','ADMIN');
+INSERT INTO `Learner` VALUES (1,'2024-01-26 18:36:54','2024-01-26 18:36:54','Admin','Micro LMS','admin@microlms.org','21232f297a57a5a743894a0e4a801fc3','ADMIN'),(2,'2024-01-30 20:16:14','2024-02-04 19:13:12','Matteo','Marcoli','m2thiew@gmail.com','1009a29397d6bc1d8faa9e24deeb8a76','LEARNER'),(7,'2024-02-04 19:14:12','2024-02-04 19:14:32','Luca','Sigalini','luca.sigalini@megaitaliamedia.it','25d55ad283aa400af464c76d713c07ad','LEARNER');
 /*!40000 ALTER TABLE `Learner` ENABLE KEYS */;
 UNLOCK TABLES;
 DROP TABLE IF EXISTS `Session`;
@@ -44,11 +44,12 @@ CREATE TABLE `Session` (
   PRIMARY KEY (`id`),
   UNIQUE KEY `Session_learnerId_key` (`learnerId`),
   CONSTRAINT `Session_learnerId_fkey` FOREIGN KEY (`learnerId`) REFERENCES `Learner` (`id`) ON DELETE RESTRICT ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 LOCK TABLES `Session` WRITE;
 /*!40000 ALTER TABLE `Session` DISABLE KEYS */;
+INSERT INTO `Session` VALUES (6,'2024-01-27 19:10:21','2024-02-04 19:10:46','eyJhbGciOiJSUzI1NiJ9.eyJuYW1lIjoiQWRtaW4iLCJzdXJuYW1lIjoiTWljcm8gTE1TIiwiZW1haWwiOiJhZG1pbkBtaWNyb2xtcy5vcmciLCJyb2xlIjoiQURNSU4iLCJpYXQiOjE3MDcwNzc0NDYsImV4cCI6MTcwNzA4MTA0Nn0.hLvKcKnK78DCO_wyqZB1ncYCT8xZJLQjAKTzV7hjf4CRYXVCjbYVUNzyeFh0CpDX7Pr4P3CnhWjSGH1n-vmwEE0PonkWyHYhBqdYOSGQJ0QB8Ueohwr6e6dE5djtK6Gndt9hcYFL3vWBP7uyq64c_vBuoiFSCb9wJP3vSMXylP5YL5QS-M8z-EuVfSJNRNhycCCGg1NYFc-fMvCU519sd62rbcn2tTqnZOy62ywUG2mkJqMQwTofqwRc8Hu94X8rqfprN_oqLXSKnP0ZrAhlIhtm9ygRQs56_8LTM9V75BlMqPAYZQKnj5tHr5JGQRbBaThWH3TlNxK0OAbsw3aubg','9f517eb39406c7c7','2024-01-27 19:10:21',1);
 /*!40000 ALTER TABLE `Session` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
