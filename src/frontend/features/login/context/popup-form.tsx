@@ -148,8 +148,7 @@ export const FormDoLogin = (): React.JSX.Element => {
 
   return (
     <>
-      <div className="relative block max-w-sm items-center rounded-lg border border-gray-100 bg-white p-6 shadow-md dark:border-gray-800 dark:bg-gray-800 dark:hover:bg-gray-700">
-        <div className="bottom-0 left-0 right-0 top-0 bg-gray-500/50"></div>
+      <div className="relative block max-w-sm items-center rounded-lg border border-gray-100 bg-white p-6 shadow-md">
         <form className="mx-auto max-w-sm" onSubmit={returnSyncHandler(onSubmit)}>
           <div className="mb-5">
             <label

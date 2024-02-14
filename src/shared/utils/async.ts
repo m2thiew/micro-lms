@@ -27,7 +27,6 @@ export type SyncHandler = (e?: BaseSyntheticEvent<object, unknown, unknown> | un
  *
  * @param asyncHandler handler async da eseguire. Può essere presente il parametro "event"
  */
-
 export const returnSyncHandler = (asyncHandler: AsyncHandler): SyncHandler => {
   const syncHandler: SyncHandler = (
     e?: BaseSyntheticEvent<object, unknown, unknown> | undefined,
@@ -38,4 +37,14 @@ export const returnSyncHandler = (asyncHandler: AsyncHandler): SyncHandler => {
   };
 
   return syncHandler;
+};
+
+// ------------------------------------------------------------------------------------------------
+
+/**
+ * funzione vuota per i "catch()" delle Promise
+ * @param err errore della Promise
+ */
+export const voidCatch = (err: unknown): void => {
+  console.error(err);
 };

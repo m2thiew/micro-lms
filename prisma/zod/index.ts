@@ -16,11 +16,19 @@ export const LearnerScalarFieldEnumSchema = z.enum(['id','createdAt','updatedAt'
 
 export const SessionScalarFieldEnumSchema = z.enum(['id','createdAt','updatedAt','token','refreshToken','expiresAt','learnerId']);
 
+export const PillScalarFieldEnumSchema = z.enum(['id','createdAt','updatedAt','title','description']);
+
+export const FileScalarFieldEnumSchema = z.enum(['id','createdAt','updatedAt','name','type','pillId']);
+
 export const SortOrderSchema = z.enum(['asc','desc']);
 
 export const RoleSchema = z.enum(['LEARNER','ADMIN']);
 
 export type RoleType = `${z.infer<typeof RoleSchema>}`
+
+export const FileTypeSchema = z.enum(['IMAGE','VIDEO']);
+
+export type FileTypeType = `${z.infer<typeof FileTypeSchema>}`
 
 /////////////////////////////////////////
 // MODELS
@@ -58,3 +66,32 @@ export const SessionSchema = z.object({
 })
 
 export type Session = z.infer<typeof SessionSchema>
+
+/////////////////////////////////////////
+// PILL SCHEMA
+/////////////////////////////////////////
+
+export const PillSchema = z.object({
+  id: z.number().int(),
+  createdAt: z.coerce.date(),
+  updatedAt: z.coerce.date(),
+  title: z.string(),
+  description: z.string(),
+})
+
+export type Pill = z.infer<typeof PillSchema>
+
+/////////////////////////////////////////
+// FILE SCHEMA
+/////////////////////////////////////////
+
+export const FileSchema = z.object({
+  type: FileTypeSchema,
+  id: z.number().int(),
+  createdAt: z.coerce.date(),
+  updatedAt: z.coerce.date(),
+  name: z.string(),
+  pillId: z.number().int(),
+})
+
+export type File = z.infer<typeof FileSchema>

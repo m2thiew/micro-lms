@@ -49,3 +49,27 @@ model Session {
   Learner      Learner  @relation(fields: [learnerId], references: [id])
   learnerId    Int      @unique @default(0) @db.Int()
 }
+
+model Pill {
+  id          Int      @id @default(autoincrement()) @db.Int()
+  createdAt   DateTime @default(now()) @db.Timestamp(0)
+  updatedAt   DateTime @default(now()) @updatedAt @db.Timestamp(0)
+  title       String   @default("") @db.Char(255)
+  description String   @db.Text()
+  File        File[]
+}
+
+enum FileType {
+  IMAGE
+  VIDEO
+}
+
+model File {
+  id        Int      @id @default(autoincrement()) @db.Int()
+  createdAt DateTime @default(now()) @db.Timestamp(0)
+  updatedAt DateTime @default(now()) @updatedAt @db.Timestamp(0)
+  name      String   @unique @default("") @db.Char(255)
+  type      FileType @default(IMAGE)
+  Pill      Pill     @relation(fields: [pillId], references: [id])
+  pillId    Int      @default(0) @db.Int()
+}

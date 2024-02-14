@@ -36,7 +36,7 @@ export const NewButton = React.forwardRef<HTMLAnchorElement, ButtonProps>(
     const children = props.children;
 
     return (
-      <Link {...props} ref={ref} href={href} className={className}>
+      <Link {...props} ref={ref} href={href} className={className} role="button">
         {icon}
         {children}
       </Link>
@@ -63,7 +63,7 @@ export const EditButton = React.forwardRef<HTMLAnchorElement, ButtonProps>(
     const children = props.children;
 
     return (
-      <Link {...props} ref={ref} href={href} className={className}>
+      <Link {...props} ref={ref} href={href} className={className} role="button">
         {icon}
         {children}
       </Link>
@@ -90,7 +90,7 @@ export const DeleteButton = React.forwardRef<HTMLAnchorElement, ButtonProps>(
     const children = props.children;
 
     return (
-      <Link {...props} ref={ref} href={href} className={className}>
+      <Link {...props} ref={ref} href={href} className={className} role="button">
         {icon}
         {children}
       </Link>
@@ -98,3 +98,53 @@ export const DeleteButton = React.forwardRef<HTMLAnchorElement, ButtonProps>(
   },
 );
 DeleteButton.displayName = "DeleteButton";
+
+// ------------------------------------------------------------------------------------------------
+
+/**
+ * Pulsante outline.
+ */
+
+export const OutlineButton = React.forwardRef<HTMLAnchorElement, ButtonProps>(
+  (props, ref): React.JSX.Element => {
+    const href = props.href ?? "#";
+    const className = twMerge(
+      "inline-flex items-center px-5 py-2.5 text-lg font-medium  text-blue-600 hover:bg-gray-200 text-center rounded-lg",
+      props.className,
+    );
+
+    const children = props.children;
+
+    return (
+      <Link {...props} ref={ref} href={href} className={className} role="button">
+        {children}
+      </Link>
+    );
+  },
+);
+OutlineButton.displayName = "OutlineButton";
+
+// ------------------------------------------------------------------------------------------------
+
+/**
+ * Pulsante solido.
+ */
+
+export const SolidButton = React.forwardRef<HTMLAnchorElement, ButtonProps>(
+  (props, ref): React.JSX.Element => {
+    const href = props.href ?? "#";
+    const className = twMerge(
+      "ml-2 rounded-lg bg-blue-700 px-5 py-2.5 text-lg font-medium text-white hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300 ",
+      props.className,
+    );
+
+    const children = props.children;
+
+    return (
+      <Link {...props} ref={ref} href={href} className={className} role="button">
+        {children}
+      </Link>
+    );
+  },
+);
+SolidButton.displayName = "SolidButton";

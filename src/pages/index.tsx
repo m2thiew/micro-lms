@@ -3,6 +3,7 @@
  */
 
 import { useLoginPopupForm } from "@/frontend/features/login/context/popup-form";
+import { carouselCustomTheme } from "@/frontend/lib/flowbite";
 import { FbArrowRightOutline } from "@/frontend/ui/icons/flowbite";
 import { Carousel, type CustomFlowbiteTheme } from "flowbite-react";
 import Image from "next/image";
@@ -10,17 +11,7 @@ import { default as assetCarousel01 } from "/public/assets/carousel01.png";
 import { default as assetCarousel02 } from "/public/assets/carousel02.png";
 import { default as assetCarousel03 } from "/public/assets/carousel03.png";
 
-// Personalizzazione apsetot carousel.
-
-const themeCarousel: CustomFlowbiteTheme["carousel"] = {
-  root: {
-    base: "relative w-full h-full",
-    leftControl:
-      "bg-gray-500/50 absolute rounded-xl rounded-tr-none rounded-br-none top-0 left-0 flex h-full items-center justify-center px-4 focus:outline-none",
-    rightControl:
-      "bg-gray-500/50 absolute rounded-xl rounded-tl-none rounded-bl-none top-0 right-0 flex h-full items-center justify-center px-4 focus:outline-none",
-  },
-};
+// ------------------------------------------------------------------------------------------------
 
 export default function Home() {
   const loginPopupForm = useLoginPopupForm();
@@ -62,7 +53,7 @@ export default function Home() {
           </div>
 
           <div className="flex-1">
-            <Carousel theme={themeCarousel} className="h-80 rounded-xl bg-white">
+            <Carousel theme={carouselCustomTheme} className="h-80 rounded-xl bg-white">
               <Image src={assetCarousel01} alt="carousel 01" className="h-80 w-auto" />
               <Image src={assetCarousel02} alt="carousel 02" className="h-80 w-auto" />
               <Image src={assetCarousel03} alt="carousel 03" className="h-80 w-auto" />

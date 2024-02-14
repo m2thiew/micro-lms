@@ -3,7 +3,7 @@ const CircularDependencyPlugin = require("circular-dependency-plugin");
 const fs = require("fs");
 
 const pluginDetectCycles = new CircularDependencyPlugin({
-  include: /src/,
+  include: /^src\//,
   failOnError: true,
 });
 
