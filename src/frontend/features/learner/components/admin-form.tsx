@@ -145,7 +145,7 @@ export const AdminLearnerUpdateForm = ({ id }: UpdateProps) => {
     setDataLoaded(true);
   }
 
-  // esposizione (creazione).
+  // esposizione (update).
   return (
     <AdminLearnerFormContent
       mode="update"

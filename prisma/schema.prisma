@@ -56,7 +56,7 @@ model Pill {
   updatedAt   DateTime      @default(now()) @updatedAt @db.Timestamp(0)
   title       String        @default("") @db.Char(255)
   description String        @db.Text()
-  thumpPath   String        @default("") @db.Char(255)
+  thumbPath   String        @default("") @db.Char(255)
   PillContent PillContent[]
 }
 

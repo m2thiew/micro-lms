@@ -8,7 +8,7 @@
  * @project micro-lms
  */
 
-import { sanitizeFileName } from "@/shared/utils/file";
+import { sanitizeBasename } from "@/shared/utils/file";
 import { buildRelativePath } from "@/shared/utils/url";
 import path, { resolve } from "path";
 
@@ -30,9 +30,7 @@ export const SESSION_DIR_NAME = "session" as const;
  * @param paths uno o più cartelle / percorsi da concatenare
  * @returns percorso di archiviazione file sul server
  */
-export const buildServerStoragePath = (
-  ...args: (string | number | symbol | undefined)[]
-): string => {
+export const toServerPath = (...args: (string | number | symbol | undefined)[]): string => {
   // converte in stringa gli argomenti passati
   const stringArgs = args.map((a) => (a ? a.toString() : ""));
 
@@ -45,7 +43,7 @@ export const buildServerStoragePath = (
   const allPaths = joinedArgs.split(path.sep);
 
   // pulisce i cartteri non consentiti da ogni path.
-  const sanitizedPaths = allPaths.map(sanitizeFileName);
+  const sanitizedPaths = allPaths.map(sanitizeBasename);
 
   // se non già presente, aggiunge all'inizio la cartella base per i file salvati sul server.
   const baseDir = UPLOAD_BASE_DIR.replace("/", "");
@@ -61,7 +59,7 @@ export const buildServerStoragePath = (
  * @param paths uno o più cartelle / percorsi da concatenare
  * @returns percorso temporaneo sul server
  */
-export const buildServerTmpPath = (...args: (string | number | symbol | undefined)[]): string => {
+export const toServerTmpPath = (...args: (string | number | symbol | undefined)[]): string => {
   // converte in stringa gli argomenti passati
   const stringArgs = args.map((a) => (a ? a.toString() : ""));
 
@@ -74,7 +72,7 @@ export const buildServerTmpPath = (...args: (string | number | symbol | undefine
   const allPaths = joinedArgs.split(path.sep);
 
   // pulisce i cartteri non consentiti da ogni path.
-  const sanitizedPaths = allPaths.map(sanitizeFileName);
+  const sanitizedPaths = allPaths.map(sanitizeBasename);
 
   // se non già presente, aggiunge all'inizio la cartella base per i file temporanei sul server.
   const baseDir = UPLOAD_TMP_DIR.replace("/", "");
@@ -103,7 +101,7 @@ export const getSessionDirName = (name: string, session: string): string => {
  * @param serverPath percorso a un file su un server
  * @returns path relativo del percorso
  */
-export const returnUrlPath = (serverPath: string) => {
+export const toUrlPath = (serverPath: string) => {
   const resolvedBasePath = path.resolve(UPLOAD_BASE_DIR);
 
   // rimove i riferimenti alla cartella "public" del server.

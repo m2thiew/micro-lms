@@ -16,7 +16,7 @@ export const LearnerScalarFieldEnumSchema = z.enum(['id','createdAt','updatedAt'
 
 export const SessionScalarFieldEnumSchema = z.enum(['id','createdAt','updatedAt','token','refreshToken','expiresAt','learnerId']);
 
-export const PillScalarFieldEnumSchema = z.enum(['id','createdAt','updatedAt','title','description','thumpPath']);
+export const PillScalarFieldEnumSchema = z.enum(['id','createdAt','updatedAt','title','description','thumbPath']);
 
 export const PillContentScalarFieldEnumSchema = z.enum(['id','createdAt','updatedAt','path','pillId']);
 
@@ -73,7 +73,7 @@ export const PillSchema = z.object({
   updatedAt: z.coerce.date(),
   title: z.string(),
   description: z.string(),
-  thumpPath: z.string(),
+  thumbPath: z.string(),
 })
 
 export type Pill = z.infer<typeof PillSchema>

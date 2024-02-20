@@ -8,7 +8,7 @@
  * @project micro-lms
  */
 
-import { FileUploadInput } from "@/frontend/features/pill/components/file-upload";
+import { FileUploadInput } from "@/frontend/components/file-upload";
 import { uploadPillContentConfig, uploadPillThumbConfig } from "@/shared/features/pill/schema";
 import { DateTime } from "luxon";
 import { useMemo } from "react";

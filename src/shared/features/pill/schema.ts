@@ -38,10 +38,16 @@ const { id, createdAt, updatedAt, title, description, thumbPath, content } = pil
 // Definizione campi per upload dei file.
 
 const thumbPathUpload = z
-  .array(z.string().trim())
-  .length(1)
-  .transform((value): string => value.at(0) ?? "")
-  .nullish();
+  .string()
+  .trim()
+  .nullish()
+  .or(
+    z
+      .array(z.string().trim())
+      .length(1)
+      .transform((value): string => value.at(0) ?? "")
+      .nullish(),
+  );
 
 const contentUpload = z.array(z.string().trim()).nonempty();
 

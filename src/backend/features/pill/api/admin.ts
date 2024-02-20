@@ -10,7 +10,7 @@
 
 import { adminAPIProcedure } from "@/backend/lib/trpc/procedures";
 import { createAPIRouter } from "@/backend/lib/trpc/server";
-import { SESSION_DIR_NAME, buildServerStoragePath, returnUrlPath } from "@/backend/utils/upload";
+import { SESSION_DIR_NAME, toServerPath, toUrlPath } from "@/backend/utils/upload";
 import {
   adminPillApiCreateSchema,
   adminPillApiDeleteSchema,
@@ -44,8 +44,9 @@ type MoveOperation = {
  * @returns pillole con aggiunta la proprietà "content"
  */
 const addPillContent = async (pill: Pill, db: PrismaClient): Promise<PillAdminData> => {
-  const pillContent = await db.content.findMany({
+  const pillContent = await db.pillContent.findMany({
     select: { path: true },
+    where: { pillId: pill.id },
     orderBy: { id: "asc" },
   });
 
@@ -133,7 +134,7 @@ const list = adminAPIProcedure.query(async ({ ctx }): Promise<PillAdminData[]> =
       updatedAt: true,
       title: true,
       description: true,
-      thumpPath: true,
+      thumbPath: true,
     },
   });
 
@@ -162,7 +163,7 @@ const get = adminAPIProcedure
         updatedAt: true,
         title: true,
         description: true,
-        thumpPath: true,
+        thumbPath: true,
       },
       where: {
         id: input.id,
@@ -212,26 +213,26 @@ const create = adminAPIProcedure
       let thumbPath = "";
       if (input.thumbPath) {
         const thumbMove: MoveOperation = {
-          from: buildServerStoragePath(input.thumbPath),
-          to: buildServerStoragePath(thumbDir, pillDirName, basename(input.thumbPath)),
+          from: toServerPath(input.thumbPath),
+          to: toServerPath(thumbDir, pillDirName, basename(input.thumbPath)),
         };
 
         console.log(thumbMove);
 
         const thumbMoved = execFileMoves(thumbMove).at(0);
-        thumbPath = thumbMoved ? returnUrlPath(thumbMoved) : "";
+        thumbPath = thumbMoved ? toUrlPath(thumbMoved) : "";
       }
 
       const contentMoves = input.content.map((contentPath): MoveOperation => {
         return {
-          from: buildServerStoragePath(contentPath),
-          to: buildServerStoragePath(contentDir, pillDirName, basename(contentPath)),
+          from: toServerPath(contentPath),
+          to: toServerPath(contentDir, pillDirName, basename(contentPath)),
         };
       });
 
       console.log(contentMoves);
 
-      const contentMoved = execFileMoves(...contentMoves).map(returnUrlPath);
+      const contentMoved = execFileMoves(...contentMoves).map(toUrlPath);
       const content: [string, ...string[]] = [contentMoved.shift() ?? "", ...contentMoved];
 
       // i file sono stati spostati con successo. Aggiorno i percorsi dei file in database.
@@ -243,8 +244,8 @@ const create = adminAPIProcedure
 
       const newPillWithFiles = await tx.pill.update({
         data: {
-          thumpPath: thumbPath,
-          Content: {
+          thumbPath: thumbPath,
+          PillContent: {
             createMany: { data: contendData },
           },
         },
@@ -276,31 +277,10 @@ export const update = adminAPIProcedure
     // la funzione "execFileMoves" elimina anche i file già copiati in caso di errore.
 
     return await db.$transaction(async (tx): Promise<PillAdminData> => {
-      // predisposizione righe di contenuto per la pillola
-      const contents = input.content.map((c) => {
-        return { path: c };
-      });
-
-      // aggiornamento spillola.
-      const updatedPill = await tx.pill.update({
-        data: {
-          title: input.title,
-          description: input.description,
-          thumpPath: input.thumbPath ? input.thumbPath.at(0) : "",
-          Content: {
-            deleteMany: { pillId: input.id },
-            createMany: { data: contents },
-          },
-        },
-        where: {
-          id: input.id,
-        },
-      });
-
       // operazioni sui file.
-      const allMoves: MoveOperation[] = [];
       const { uploadDir: thumbDir } = uploadPillThumbConfig;
       const { uploadDir: contentDir } = uploadPillContentConfig;
+      const pillDirName = input.id.toString().padStart(3, "0");
 
       // verifica l'upload di nuovi file.
       const isNewThumb = input.thumbPath && input.thumbPath.includes(SESSION_DIR_NAME);
@@ -309,41 +289,68 @@ export const update = adminAPIProcedure
 
       // elimina le cartelle dei file modificati (verrano ricreate successivamente).
       if (isThumbDeleted || isNewThumb) {
-        const pillThumbDir = buildServerStoragePath(thumbDir, input.id);
-        rmSync(pillThumbDir, { recursive: true });
+        const pillThumbDir = toServerPath(thumbDir, pillDirName);
+        if (existsSync(pillThumbDir)) rmSync(pillThumbDir, { recursive: true });
       }
       if (isNewContent) {
-        const pillContentDir = buildServerStoragePath(contentDir, input.id);
-        rmSync(pillContentDir, { recursive: true });
+        const pillContentDir = toServerPath(contentDir, pillDirName);
+        if (existsSync(pillContentDir)) rmSync(pillContentDir, { recursive: true });
       }
 
-      // calcolo delle operazioni di spostamento file da eseguire.
-      // le operazioni si eseguono solo per i nuovi file.
-      if (input.thumbPath) {
+      // sposta i file caricati nella cartella ufficiale.
+      let thumbPath = input.thumbPath ?? "";
+      if (input.thumbPath && isNewThumb) {
         const thumbMove: MoveOperation = {
-          from: buildServerStoragePath(input.thumbPath),
-          to: buildServerStoragePath(thumbDir, input.id, basename(input.thumbPath)),
+          from: toServerPath(input.thumbPath),
+          to: toServerPath(thumbDir, pillDirName, basename(input.thumbPath)),
         };
 
-        if (isNewThumb) allMoves.push(thumbMove);
+        console.log(thumbMove);
+
+        const thumbMoved = execFileMoves(thumbMove).at(0);
+        thumbPath = thumbMoved ? toUrlPath(thumbMoved) : "";
       }
 
-      const contentMoves = input.content.map((contentPath): MoveOperation => {
-        return {
-          from: buildServerStoragePath(contentPath),
-          to: buildServerStoragePath(contentDir, input.id, basename(contentPath)),
-        };
+      let content: [string, ...string[]] = input.content;
+      if (isNewContent) {
+        const contentMoves = input.content.map((contentPath): MoveOperation => {
+          return {
+            from: toServerPath(contentPath),
+            to: toServerPath(contentDir, pillDirName, basename(contentPath)),
+          };
+        });
+
+        console.log(contentMoves);
+
+        const contentMoved = execFileMoves(...contentMoves).map(toUrlPath);
+        content = [contentMoved.shift() ?? "", ...contentMoved];
+      }
+
+      // predisposizione righe conttenuto per DB.
+      const contentRows = content.map((c) => {
+        return { path: c };
       });
 
-      if (isNewContent) allMoves.push(...contentMoves);
+      // aggiornamento pillola.
+      const updatedPill = await tx.pill.update({
+        data: {
+          title: input.title,
+          description: input.description,
+          thumbPath: thumbPath,
+          PillContent: {
+            deleteMany: { pillId: input.id },
+            createMany: { data: contentRows },
+          },
+        },
+        where: {
+          id: input.id,
+        },
+      });
 
-      // esegue tutte le operazioni di spostamento file in un blocco unico.
-      execFileMoves(allMoves);
-
-      // restituisce la pillola creata.
+      // restituisce la pillola modificata.
       return {
         ...updatedPill,
-        content: input.content,
+        content,
       };
     });
   });
@@ -371,8 +378,8 @@ const execDelete = adminAPIProcedure
           updatedAt: true,
           title: true,
           description: true,
-          thumpPath: true,
-          Content: {
+          thumbPath: true,
+          PillContent: {
             select: {
               path: true,
             },
@@ -385,21 +392,22 @@ const execDelete = adminAPIProcedure
       // const allMoves: MoveOperation[] = [];
       const { uploadDir: thumbDir } = uploadPillThumbConfig;
       const { uploadDir: contentDir } = uploadPillContentConfig;
+      const pillDirName = input.id.toString().padStart(3, "0");
 
       // elimina del tutto le cartelle dei file.
-      const pillThumbDir = buildServerStoragePath(thumbDir, input.id);
-      rmSync(pillThumbDir, { recursive: true });
+      const pillThumbDir = toServerPath(thumbDir, pillDirName);
+      if (existsSync(pillThumbDir)) rmSync(pillThumbDir, { recursive: true });
 
-      const pillContentDir = buildServerStoragePath(contentDir, input.id);
-      rmSync(pillContentDir, { recursive: true });
+      const pillContentDir = toServerPath(contentDir, pillDirName);
+      if (existsSync(pillContentDir)) rmSync(pillContentDir, { recursive: true });
 
       // estrae i vecchi contenuti della pillola elimanta.
-      const deletedContent = deletedPill.Content.map((contentTable) => contentTable.path);
+      const deletedContent = deletedPill.PillContent.map((contentTable) => contentTable.path);
       const content: [string, ...string[]] = [deletedContent.shift() ?? "", ...deletedContent];
 
       return {
         ...deletedPill,
-        content: content,
+        content,
       };
     });
   });

@@ -11,18 +11,20 @@
 // ------------------------------------------------------------------------------------------------
 
 /**
- * Sostituzioni per pulire i caratteri non consentiti nei nomi dei file.
- * @param filename  nome del file originale
+ * Sostituzioni per pulire i caratteri non consentiti nei "basename" (nome + estensione) dei file.
+ * @param basename  nome del file originale (N.B. deve includere anche l'eventuale estensione)
  * @returns   nome del file ripulito
  */
-export const sanitizeFileName = (filename: string): string => {
+export const sanitizeBasename = (basename: string): string => {
   // divide il nome dalla estensione.
-  const [name, ext] = filename.split(".", 2);
+  const dotSplit = basename.split(".");
 
-  const nameToSanitize = name ?? "";
+  // si rimuove l'estensione (l'ultima parte recuperata dividendo per il .)
+  const ext = dotSplit.length > 1 ? dotSplit.pop() : undefined;
+  const filename = dotSplit.join(".");
 
   // sostituisce tutti gli spazi con un trattino
-  const noSpaces = nameToSanitize.replace(/\s\.\_\+\*/g, "-");
+  const noSpaces = filename.replace(/[\s\.\_\+\*]/g, "-");
 
   // seleziona e cancella tutti i caratteri che non siano lettere, numeri e trattini (-).
   const onlyChars = noSpaces.replace(/[^A-z0-9\-]/g, "");

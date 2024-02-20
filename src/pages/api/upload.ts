@@ -11,13 +11,13 @@
 import {
   SESSION_DIR_NAME,
   UPLOAD_TMP_DIR,
-  buildServerStoragePath,
   getSessionDirName,
-  returnUrlPath,
+  toServerPath,
+  toUrlPath,
 } from "@/backend/utils/upload";
 import { mime } from "@/shared/lib/mime";
 import { uploadConfigs, type UploadConfig, type UploadedFile } from "@/shared/lib/upload";
-import { sanitizeFileName } from "@/shared/utils/file";
+import { sanitizeBasename } from "@/shared/utils/file";
 import { buildRelativePath } from "@/shared/utils/url";
 import { default as formidable } from "formidable";
 import { copyFileSync, existsSync, mkdirSync, readdirSync, rmSync, statSync, unlinkSync } from "fs";
@@ -37,16 +37,17 @@ import { setTimeout } from "timers/promises";
  */
 const handleFileUpload = (tmpFile: formidable.File, destinationDir: string): UploadedFile => {
   // pulisce il nome originale del file oppure ne calcola uno nuovo.
-  const { name } = path.parse(tmpFile.originalFilename ?? "");
+  const sanitizedName = sanitizeBasename(tmpFile.originalFilename ?? "");
+  const { name } = path.parse(sanitizedName);
   const now = DateTime.now();
   const dateName = now.toFormat("yyyyMMdd-HHmmss");
 
   // calcolo del nuovo nome del file.
   const ext = mime.getExtension(tmpFile.mimetype ?? "");
-  const newFilename = `${name ? sanitizeFileName(name) : dateName}.${ext}`;
+  const newBasename = `${name ? name : dateName}.${ext}`;
 
   // calcolo percorso del file sul server & percorso relativo (per url)
-  const newFileServerPath = buildServerStoragePath(destinationDir, newFilename);
+  const newFileServerPath = toServerPath(destinationDir, newBasename);
 
   console.log(destinationDir, newFileServerPath);
 
@@ -59,8 +60,8 @@ const handleFileUpload = (tmpFile: formidable.File, destinationDir: string): Upl
 
     // restituire le informazioni del nuovo file caricato.
     const newUploadedFile: UploadedFile = {
-      filename: newFilename,
-      path: returnUrlPath(newFileServerPath),
+      filename: newBasename,
+      path: toUrlPath(newFileServerPath),
       mimetype: tmpFile.mimetype ?? undefined,
       size: tmpFile.size,
     };
@@ -120,7 +121,7 @@ const processUploadedFiles = async (req: NextApiRequest, res: NextApiResponse) =
 
     // Provvede a creare e/o a svuotare la cartelle temporanea in cui posizionare i file.
     const sessionDirName = getSessionDirName(name, session);
-    const sessionDirServerPath = buildServerStoragePath(SESSION_DIR_NAME, sessionDirName);
+    const sessionDirServerPath = toServerPath(SESSION_DIR_NAME, sessionDirName);
 
     // crea la cartella di sessione upload.
     if (!existsSync(sessionDirServerPath)) {
@@ -134,7 +135,7 @@ const processUploadedFiles = async (req: NextApiRequest, res: NextApiResponse) =
     });
 
     // elimina le altre cartelle di sessione più vecchie di due ore.
-    const sessionBaseDirServerPath = buildServerStoragePath(SESSION_DIR_NAME);
+    const sessionBaseDirServerPath = toServerPath(SESSION_DIR_NAME);
     const twoHoursAgo = DateTime.now().minus({ hour: 2 });
 
     readdirSync(sessionBaseDirServerPath).forEach((sessionDir) => {

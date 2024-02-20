@@ -602,3 +602,15 @@ https://dmitripavlutin.com/react-forwardref/
 
 https://echobind.com/post/conditionally-render-fields-using-react-hook-form
 
+TODO:
+- immagine di default pillole
+- elenco delle pillole
+- eliminazione pillole
+- dump dei file delle pillole (epsortazione / ripristino)
+- crezione "assegnazione pillola"
+- modifica "assegnazione pillola"
+- elenco "assegnazioni"
+- elenco pillole learner
+- visulizzazione pillola learner
+- track visualizzazione learner
+- viusalizzazione track lato admin

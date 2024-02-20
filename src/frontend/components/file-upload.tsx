@@ -8,7 +8,7 @@
  * @project micro-lms
  */
 
-import { carouselCustomTheme, carouselFileUploadInputTheme } from "@/frontend/lib/flowbite";
+import { carouselFileUploadInputTheme } from "@/frontend/lib/flowbite";
 import { OutlineButton } from "@/frontend/ui/buttons";
 import { getUploadSession } from "@/frontend/utils/session";
 
@@ -17,7 +17,7 @@ import { uploadedFilesSchema, type UploadConfig } from "@/shared/lib/upload";
 import { buildPublicUrl } from "@/shared/utils/url";
 import { Alert, Carousel } from "flowbite-react";
 
-import React, { forwardRef, useEffect, useRef, useState } from "react";
+import React, { forwardRef, useEffect, useState } from "react";
 import { twMerge } from "tailwind-merge";
 
 // esperimenti...
@@ -292,7 +292,13 @@ export const FileUploadInput = forwardRef((props: FileUploadInputProps, ref: Fil
     const filesAsString = files ? files.toString() : "";
 
     if (props.onChange && valueAsString != filesAsString) {
-      setFiles(props.value !== undefined ? props.value : null);
+      const filesFromValue: FileValue = props.value
+        ? props.value instanceof Array
+          ? props.value
+          : [props.value]
+        : null;
+
+      setFiles(filesFromValue);
     }
   }, [props.onChange, props.value, files]);
 
