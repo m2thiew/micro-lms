@@ -45,4 +45,8 @@ export const carouselFileUploadInputTheme: CustomFlowbiteTheme["carousel"] = {
     base: "flex h-full snap-mandatory overflow-y-hidden overflow-x-scroll scroll-smooth rounded-lg snap-x indiana-scroll-container indiana-scroll-container--hide-scrollbars",
     snap: "",
   },
+  indicators: {
+    wrapper:
+      "absolute bottom-5 bg-gray-500/75 py-1 px-2 rounded-md left-1/2 flex -translate-x-1/2 space-x-3",
+  },
 };

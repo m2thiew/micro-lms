@@ -9,7 +9,7 @@
  */
 
 import { z } from "zod";
-import { uploadPillContentConfig, uploadPillThumbConf } from "../features/pill/schema";
+import { uploadPillContentConfig, uploadPillThumbConfig } from "../features/pill/schema";
 
 // ------------------------------------------------------------------------------------------------
 
@@ -47,6 +47,6 @@ export const uploadedFilesSchema = uploadedFileSchema.array();
  * Raccolta indicizzata di tutte le configurazioni di upload.
  */
 export const uploadConfigs: Record<string, UploadConfig> = {
-  [uploadPillThumbConf.id]: uploadPillThumbConf,
+  [uploadPillThumbConfig.id]: uploadPillThumbConfig,
   [uploadPillContentConfig.id]: uploadPillContentConfig,
 } as const;

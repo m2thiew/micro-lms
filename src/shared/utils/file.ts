@@ -16,16 +16,25 @@
  * @returns   nome del file ripulito
  */
 export const sanitizeFileName = (filename: string): string => {
+  // divide il nome dalla estensione.
+  const [name, ext] = filename.split(".", 2);
+
+  const nameToSanitize = name ?? "";
+
   // sostituisce tutti gli spazi con un trattino
-  const noSpaces = filename.replace(/\s\.\_\+\*/g, "-");
+  const noSpaces = nameToSanitize.replace(/\s\.\_\+\*/g, "-");
 
   // seleziona e cancella tutti i caratteri che non siano lettere, numeri e trattini (-).
   const onlyChars = noSpaces.replace(/[^A-z0-9\-]/g, "");
 
   // rimuove eventuali trattini doppi.
-
   const noDobleDash = onlyChars.replace(/\-{2,}/g, "-");
 
-  // restituisce il nome convertito in minuscolo
-  return noDobleDash.toLocaleLowerCase();
+  // converte in minuscolo il nome.
+  const lowerCase = noDobleDash.toLocaleLowerCase();
+
+  // riaggiunge l'estensione.
+  const restoredExtension = ext ? `${lowerCase}.${ext}` : lowerCase;
+
+  return restoredExtension;
 };

@@ -8,13 +8,19 @@
  * @project micro-lms
  */
 
-import { UPLOAD_TMP_DIR, buildServerStoragePath } from "@/backend/lib/upload";
+import {
+  SESSION_DIR_NAME,
+  UPLOAD_TMP_DIR,
+  buildServerStoragePath,
+  getSessionDirName,
+  returnUrlPath,
+} from "@/backend/utils/upload";
 import { mime } from "@/shared/lib/mime";
 import { uploadConfigs, type UploadConfig, type UploadedFile } from "@/shared/lib/upload";
 import { sanitizeFileName } from "@/shared/utils/file";
 import { buildRelativePath } from "@/shared/utils/url";
 import { default as formidable } from "formidable";
-import { copyFileSync, existsSync, mkdirSync, unlinkSync } from "fs";
+import { copyFileSync, existsSync, mkdirSync, readdirSync, rmSync, statSync, unlinkSync } from "fs";
 import { DateTime } from "luxon";
 import { type NextApiRequest, type NextApiResponse } from "next";
 import path from "path";
@@ -29,11 +35,7 @@ import { setTimeout } from "timers/promises";
  * @param tmpDir  eventuale cartella aggiuntiva da creare per l'upload
  * @returns informazioni del file caricato
  */
-const handleFileUpload = (
-  tmpFile: formidable.File,
-  config: UploadConfig,
-  tmpDir?: string,
-): UploadedFile => {
+const handleFileUpload = (tmpFile: formidable.File, destinationDir: string): UploadedFile => {
   // pulisce il nome originale del file oppure ne calcola uno nuovo.
   const { name } = path.parse(tmpFile.originalFilename ?? "");
   const now = DateTime.now();
@@ -43,21 +45,12 @@ const handleFileUpload = (
   const ext = mime.getExtension(tmpFile.mimetype ?? "");
   const newFilename = `${name ? sanitizeFileName(name) : dateName}.${ext}`;
 
-  // calcolo percorso di destinazione del file.
-  const destinationDirRelativePath = buildRelativePath(config.uploadDir, tmpDir);
+  // calcolo percorso del file sul server & percorso relativo (per url)
+  const newFileServerPath = buildServerStoragePath(destinationDir, newFilename);
 
-  const newFileServerDir = buildServerStoragePath(destinationDirRelativePath);
-  const newFileServerPath = buildServerStoragePath(destinationDirRelativePath, newFilename);
-  const newFileRelativePath = buildRelativePath(destinationDirRelativePath, newFilename);
-
-  console.log(destinationDirRelativePath, newFileServerDir, newFileServerPath, newFileRelativePath);
+  console.log(destinationDir, newFileServerPath);
 
   try {
-    // crea la eventuale cartella richiesta.
-    if (!existsSync(newFileServerDir)) {
-      mkdirSync(newFileServerDir, { recursive: true });
-    }
-
     // copia il file nel percorso di destinazione.
     copyFileSync(tmpFile.filepath, newFileServerPath);
 
@@ -67,10 +60,12 @@ const handleFileUpload = (
     // restituire le informazioni del nuovo file caricato.
     const newUploadedFile: UploadedFile = {
       filename: newFilename,
-      path: newFileRelativePath,
+      path: returnUrlPath(newFileServerPath),
       mimetype: tmpFile.mimetype ?? undefined,
       size: tmpFile.size,
     };
+
+    console.log(newUploadedFile);
 
     return newUploadedFile;
   } catch (err) {
@@ -100,13 +95,10 @@ const processUploadedFiles = async (req: NextApiRequest, res: NextApiResponse) =
   });
 
   try {
-    console.log(req.body);
     // parse del corpo della richiesta.
     const promise = form.parse(req);
-    console.log(promise);
-    const parsed = await promise;
 
-    console.log(parsed);
+    const parsed = await promise;
 
     // separazione campi standard form VS. file caricati con form
     const [fields, files] = parsed;
@@ -115,21 +107,51 @@ const processUploadedFiles = async (req: NextApiRequest, res: NextApiResponse) =
     const configId = fields.configId?.at(0);
     if (!configId) throw new Error("configId not found");
 
-    console.log(configId, uploadConfigs);
-
     const config = uploadConfigs[configId];
     if (!config) throw new Error(`configId "${configId}" is not valid`);
 
-    console.log(configId);
+    // recupera il nome del campo.
+    const name = fields.name?.at(0);
+    if (!name) throw new Error("name not found");
 
-    // recupera l'eventuale cartella temporanea da creare.
-    const tmpDirValue = fields.tmpDir?.at(0);
-    const tmpDir = tmpDirValue ? sanitizeFileName(tmpDirValue) : undefined;
+    // recupera la sessione.
+    const session = fields.session?.at(0);
+    if (!session) throw new Error("session not found");
 
-    console.log(configId, config, tmpDir);
+    // Provvede a creare e/o a svuotare la cartelle temporanea in cui posizionare i file.
+    const sessionDirName = getSessionDirName(name, session);
+    const sessionDirServerPath = buildServerStoragePath(SESSION_DIR_NAME, sessionDirName);
 
-    // i file da caricare devono essere indicati all'interno dell'input "files"
+    // crea la cartella di sessione upload.
+    if (!existsSync(sessionDirServerPath)) {
+      mkdirSync(sessionDirServerPath, { recursive: true });
+    }
+
+    // svuota i file precedentemente caricati dalla cartella di sessione.
+    readdirSync(sessionDirServerPath).forEach((sessionFile) => {
+      const pathToFile = path.join(sessionDirServerPath, sessionFile);
+      rmSync(pathToFile, { recursive: true });
+    });
+
+    // elimina le altre cartelle di sessione più vecchie di due ore.
+    const sessionBaseDirServerPath = buildServerStoragePath(SESSION_DIR_NAME);
+    const twoHoursAgo = DateTime.now().minus({ hour: 2 });
+
+    readdirSync(sessionBaseDirServerPath).forEach((sessionDir) => {
+      if (sessionDir != sessionDirName) {
+        const pathToDir = path.join(sessionBaseDirServerPath, sessionDir);
+
+        const stat = statSync(pathToDir);
+        const birthTime = DateTime.fromMillis(stat.birthtimeMs);
+
+        if (birthTime < twoHoursAgo) {
+          rmSync(pathToDir, { recursive: true });
+        }
+      }
+    });
+
     if (files.files) {
+      // i file da caricare devono essere indicati all'interno dell'input "files"
       // esclude i file che non previsti dalla configurazione.
 
       const validMimes = config.accept.map((accept) => accept.replace("/*", "/"));
@@ -142,7 +164,7 @@ const processUploadedFiles = async (req: NextApiRequest, res: NextApiResponse) =
 
       // salva singolarmente ogni file.
       const uploadedFiles = validFiles.map((file) => {
-        return handleFileUpload(file, config, tmpDir);
+        return handleFileUpload(file, sessionDirServerPath);
       });
 
       // restituisce le informazioni dei file caricati.

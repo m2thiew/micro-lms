@@ -18,6 +18,12 @@ export type AsyncHandler = (
 ) => Promise<void>;
 export type SyncHandler = (e?: BaseSyntheticEvent<object, unknown, unknown> | undefined) => void;
 
+export const isAsyncHandler = (obj: unknown): obj is AsyncHandler => {
+  if (obj && typeof obj === "object") return obj instanceof Promise;
+
+  return false;
+};
+
 // ------------------------------------------------------------------------------------------------
 
 /**
@@ -25,18 +31,22 @@ export type SyncHandler = (e?: BaseSyntheticEvent<object, unknown, unknown> | un
  * sincrona che esegue la funzione originale.
  * Questo codice nasce principalmente per usare "react-hook-form" nel campo "onSubmit".
  *
- * @param asyncHandler handler async da eseguire. Può essere presente il parametro "event"
+ * @param handler handler async da eseguire. Può essere presente il parametro "event"
  */
-export const returnSyncHandler = (asyncHandler: AsyncHandler): SyncHandler => {
-  const syncHandler: SyncHandler = (
-    e?: BaseSyntheticEvent<object, unknown, unknown> | undefined,
-  ): void => {
-    asyncHandler(e).catch((error) => {
-      console.error(error);
-    });
-  };
+export const returnSyncHandler = (handler: AsyncHandler | SyncHandler): SyncHandler => {
+  if (isAsyncHandler(handler)) {
+    const syncHandler: SyncHandler = (
+      e?: BaseSyntheticEvent<object, unknown, unknown> | undefined,
+    ): void => {
+      handler(e).catch((error) => {
+        console.error(error);
+      });
+    };
 
-  return syncHandler;
+    return syncHandler;
+  } else {
+    return handler;
+  }
 };
 
 // ------------------------------------------------------------------------------------------------

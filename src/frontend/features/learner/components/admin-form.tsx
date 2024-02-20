@@ -82,7 +82,7 @@ export const AdminLearnerCreateForm = () => {
       });
   });
 
-  // esposizione (creazione).
+  // esposizione (create).
   return (
     <AdminLearnerFormContent
       mode="create"
@@ -123,7 +123,6 @@ export const AdminLearnerUpdateForm = ({ id }: UpdateProps) => {
 
   // azione di submit (update).
   const onSubmit = form.handleSubmit((input) => {
-    console.log("onSubmitUpdate");
     // chiamata API per modificare l'utente.
     learnerUpdate
       .mutateAsync({ id, ...input })

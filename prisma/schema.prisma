@@ -51,25 +51,22 @@ model Session {
 }
 
 model Pill {
-  id          Int      @id @default(autoincrement()) @db.Int()
-  createdAt   DateTime @default(now()) @db.Timestamp(0)
-  updatedAt   DateTime @default(now()) @updatedAt @db.Timestamp(0)
-  title       String   @default("") @db.Char(255)
-  description String   @db.Text()
-  File        File[]
+  id          Int           @id @default(autoincrement()) @db.Int()
+  createdAt   DateTime      @default(now()) @db.Timestamp(0)
+  updatedAt   DateTime      @default(now()) @updatedAt @db.Timestamp(0)
+  title       String        @default("") @db.Char(255)
+  description String        @db.Text()
+  thumpPath   String        @default("") @db.Char(255)
+  PillContent PillContent[]
 }
 
-enum FileType {
-  IMAGE
-  VIDEO
-}
-
-model File {
+model PillContent {
   id        Int      @id @default(autoincrement()) @db.Int()
   createdAt DateTime @default(now()) @db.Timestamp(0)
   updatedAt DateTime @default(now()) @updatedAt @db.Timestamp(0)
-  name      String   @unique @default("") @db.Char(255)
-  type      FileType @default(IMAGE)
+  path      String   @default("") @db.Char(255)
   Pill      Pill     @relation(fields: [pillId], references: [id])
   pillId    Int      @default(0) @db.Int()
+
+  @@unique([pillId, path])
 }

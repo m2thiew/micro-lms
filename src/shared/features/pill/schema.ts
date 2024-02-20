@@ -9,6 +9,137 @@
  */
 
 import { type UploadConfig } from "@/shared/lib/upload";
+import { z } from "zod";
+
+// ------------------------------------------------------------------------------------------------
+
+/**
+ * Definizione campi con relativi vincoli.
+ */
+
+export const pillContentFields = {
+  path: z.string().trim(),
+} as const;
+
+const { path } = pillContentFields;
+
+export const pillFields = {
+  id: z.number().int(),
+  createdAt: z.coerce.date(),
+  updatedAt: z.coerce.date(),
+  title: z.string().trim().min(3),
+  description: z.string().trim().min(10).or(z.string().length(0)),
+  thumbPath: z.string().trim().nullish(),
+  content: z.array(z.string().trim()).nonempty(),
+} as const;
+
+const { id, createdAt, updatedAt, title, description, thumbPath, content } = pillFields;
+
+// Definizione campi per upload dei file.
+
+const thumbPathUpload = z
+  .array(z.string().trim())
+  .length(1)
+  .transform((value): string => value.at(0) ?? "")
+  .nullish();
+
+const contentUpload = z.array(z.string().trim()).nonempty();
+
+// ------------------------------------------------------------------------------------------------
+
+/**
+ * Dati di una pillola visbili agli amministratori.
+ */
+
+export const pillAdminData = z.object({
+  id,
+  createdAt,
+  updatedAt,
+  title,
+  description,
+  thumbPath,
+  content,
+});
+export type PillAdminData = z.infer<typeof pillAdminData>;
+
+// ------------------------------------------------------------------------------------------------
+
+/**
+ * Input per API "adminPill.get"
+ */
+
+export const adminPillApiGetSchema = z.object({
+  id,
+});
+export type AdminPillApiGetInput = z.infer<typeof adminPillApiGetSchema>;
+
+// ------------------------------------------------------------------------------------------------
+
+/**
+ * Input per API "adminLearner.create"
+ */
+
+export const adminPillApiCreateSchema = z.object({
+  title,
+  description,
+  thumbPath,
+  content,
+});
+export type AdminPillApiCreateInput = z.infer<typeof adminPillApiCreateSchema>;
+
+// ------------------------------------------------------------------------------------------------
+
+/**
+ * Input per API "adminLearner.update"
+ */
+
+export const adminPillApiUpdateSchema = z.object({
+  id,
+  title,
+  description,
+  thumbPath,
+  content,
+});
+export type AdminPillApiUpdateInput = z.infer<typeof adminPillApiUpdateSchema>;
+
+// ------------------------------------------------------------------------------------------------
+
+/**
+ * Input per API "adminPill.delete"
+ */
+
+export const adminPillApiDeleteSchema = z.object({
+  id,
+});
+export type AdminPillApiDeleteInput = z.infer<typeof adminPillApiDeleteSchema>;
+
+// ------------------------------------------------------------------------------------------------
+
+/**
+ * Input per form creazione pillola.
+ */
+
+export const adminPillFormCreateSchema = z.object({
+  title,
+  description: description.or(z.string().length(0)),
+  thumbPath: thumbPathUpload,
+  content: contentUpload,
+});
+export type AdminPillFormCreateInput = z.infer<typeof adminPillFormCreateSchema>;
+
+// ------------------------------------------------------------------------------------------------
+
+/**
+ * Input per API "adminLearner.update"
+ */
+
+export const adminPillFormUpdateSchema = z.object({
+  title,
+  description: description.or(z.string().length(0)),
+  thumbPath: thumbPathUpload,
+  content: contentUpload,
+});
+export type AdminPillFormUpdateInput = z.infer<typeof adminPillFormUpdateSchema>;
 
 // ------------------------------------------------------------------------------------------------
 
@@ -16,10 +147,10 @@ import { type UploadConfig } from "@/shared/lib/upload";
  * Configurazione upload thumb pillole.
  */
 
-export const uploadPillThumbConf: UploadConfig = {
+export const uploadPillThumbConfig: UploadConfig = {
   id: "pillThumb",
   accept: ["image/*"],
-  uploadDir: "thumbs/",
+  uploadDir: "thumb/",
 } as const;
 
 // ------------------------------------------------------------------------------------------------
@@ -34,3 +165,5 @@ export const uploadPillContentConfig: UploadConfig = {
   multiple: true,
   uploadDir: "content/",
 } as const;
+
+// ------------------------------------------------------------------------------------------------

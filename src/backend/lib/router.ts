@@ -13,11 +13,13 @@ import { createAPIRouter } from "@/backend/lib/trpc/server";
 import { helloApi } from "../features/hello/api";
 import { adminLearnerApi } from "../features/learner/api/admin";
 import { loginApi } from "../features/login/api";
+import { adminPillApi } from "../features/pill/api/admin";
 
 export const apiServerRouter = createAPIRouter({
   hello: helloApi,
   login: loginApi,
   adminLearner: adminLearnerApi,
+  adminPill: adminPillApi,
 });
 
 // --------------------------------------------------------------------------------------------------------------------

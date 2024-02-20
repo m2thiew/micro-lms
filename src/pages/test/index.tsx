@@ -9,7 +9,7 @@
  */
 
 import { FileUploadInput } from "@/frontend/features/pill/components/file-upload";
-import { uploadPillContentConfig, uploadPillThumbConf } from "@/shared/features/pill/schema";
+import { uploadPillContentConfig, uploadPillThumbConfig } from "@/shared/features/pill/schema";
 import { DateTime } from "luxon";
 import { useMemo } from "react";
 
@@ -23,7 +23,7 @@ export const UploadPage = () => {
         <FileUploadInput
           name="thumb"
           value="default.jpg"
-          config={uploadPillThumbConf}
+          config={uploadPillThumbConfig}
           tmpDir={tmpDir}
         />
         <hr className="my-8" />

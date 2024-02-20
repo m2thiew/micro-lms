@@ -10,70 +10,113 @@
 
 import { carouselCustomTheme, carouselFileUploadInputTheme } from "@/frontend/lib/flowbite";
 import { OutlineButton } from "@/frontend/ui/buttons";
+import { getUploadSession } from "@/frontend/utils/session";
+
 import { mime } from "@/shared/lib/mime";
 import { uploadedFilesSchema, type UploadConfig } from "@/shared/lib/upload";
 import { buildPublicUrl } from "@/shared/utils/url";
 import { Alert, Carousel } from "flowbite-react";
-import React, { useEffect, useRef, useState } from "react";
-import { type UseFormReturn } from "react-hook-form";
 
-type ImageFileInputProps = {
+import React, { forwardRef, useEffect, useRef, useState } from "react";
+import { twMerge } from "tailwind-merge";
+
+// esperimenti...
+
+// type ImageFileInputProps<
+//   N extends string,
+//   V extends string[] = string[],
+//   I extends Record<string, V> = Record<string, V>,
+// > = {
+//   readonly name: N;
+//   readonly form?: UseFormReturn<I>;
+//   readonly value?: string | string[];
+//   readonly config: UploadConfig;
+//   readonly tmpDir?: string;
+// };
+
+// type ObjectWithFileUpload<Key extends string> = {
+//   [k in Key]: string[] | undefined;
+// } & Record<string, unknown>;
+
+// type FileUploadInputProps<TName extends string, TInputs extends ObjectWithFileUpload<TName>> = {
+//   readonly name: Path<TInputs>;
+//   readonly form?: UseFormReturn<TInputs>;
+//   readonly value?: string | string[];
+//   readonly config: UploadConfig;
+//   readonly tmpDir?: string;
+// };
+
+// possibili valori restituiti dall'input.
+// si usa "null" anzichè "undefined" perchè il primo è preferito da "react-hook-form".
+type FileValue = string | string[] | null;
+
+/**
+ * al componente devono essere forniti:
+ * - "name" dell'input
+ * - eventuale valore già selezionato
+ * - configurazione dell'upload
+ * - eventuale "tmpDir" per l'upload
+ * - proprietà passate da Controller.render di react-hook-form
+ */
+type FileUploadInputProps = {
   readonly name: string;
-  readonly form?: UseFormReturn;
-  readonly value?: string | string[];
+  readonly value?: FileValue;
   readonly config: UploadConfig;
-  readonly tmpDir?: string;
+  readonly onChange?: (newValue: FileValue) => void;
+  readonly onBlur?: () => void;
+  readonly disabled?: boolean;
+  readonly className?: string;
 };
+
+type FileRef = React.Ref<HTMLInputElement>;
 
 // ------------------------------------------------------------------------------------------------
 
-export const FileUploadInput = (props: ImageFileInputProps) => {
-  // input HTML
-  const refFileInput = useRef<HTMLInputElement>(null);
-
+/**
+ * Componente che gestisce l'upload di uno o più file.
+ */
+export const FileUploadInput = forwardRef((props: FileUploadInputProps, ref: FileRef) => {
   // gestione del file.
-  const defaultFiles = props.value
+  const defaultFiles: FileValue = props.value
     ? props.value instanceof Array
       ? props.value
       : [props.value]
-    : undefined;
+    : null;
 
-  const [inputValues, setInputValues] = useState<File[] | undefined>(undefined);
-  const [files, setFiles] = useState<string[] | undefined>(defaultFiles);
+  const [filesToUpload, setFilesToUpload] = useState<File[] | undefined>(undefined);
+  const [files, setFiles] = useState<FileValue>(defaultFiles);
   const [isUploading, setUploading] = useState<boolean>(false);
   const [uploadError, setUploadError] = useState<string | undefined>(undefined);
 
   const mode = props.config.multiple ? ("multiple" as const) : ("single" as const);
   const singleFile = files?.at(0);
+  const multipleFiles = files ? (files instanceof Array ? files : [files]) : [];
+
+  const disabled = props.disabled ?? isUploading;
 
   // compilando il campo di input, parte in automatico l'upload del file.
-
   useEffect(() => {
     const controller = new AbortController();
 
-    if (inputValues && !isUploading) {
+    if (filesToUpload && !isUploading) {
       // avvio upload.
       setUploading(true);
       setUploadError(undefined);
 
       // prepara la chiamata POST.
       const data = new FormData();
+      data.append("name", props.name);
+      data.append("session", getUploadSession());
 
-      inputValues.forEach((selectedFile) => {
+      filesToUpload.forEach((selectedFile) => {
         data.append("files", selectedFile);
       });
       data.append("configId", props.config.id);
-      if (props.tmpDir) {
-        data.append("tmpDir", props.tmpDir);
-      }
 
       // timeout di 30 secondi
       const timeout = setTimeout(() => {
-        console.log("abort");
         controller.abort();
       }, 30 * 1000);
-
-      console.log("http", inputValues, data);
 
       // chiamata HTTP di upload.
       fetch("/api/upload", {
@@ -84,17 +127,16 @@ export const FileUploadInput = (props: ImageFileInputProps) => {
         .then((response) => response.json())
         .then((json) => uploadedFilesSchema.parse(json))
         .then((uploadedFilesList) => {
-          if (uploadedFilesList[0]) {
-            // file caricato con successo
-
-            console.log(uploadedFilesList);
-
-            setFiles(uploadedFilesList.map((uploadedFile) => uploadedFile.path));
-          }
+          // file caricato con successo
+          const newFiles = uploadedFilesList.map((uploadedFile) => uploadedFile.path);
+          setFiles(newFiles);
 
           clearTimeout(timeout);
-          setInputValues(undefined);
+          setFilesToUpload(undefined);
           setUploading(false);
+
+          // passa il valore all'eventuale react-hook-form
+          if (props.onChange) props.onChange(newFiles);
         })
         .catch((err) => {
           if (err instanceof Error) {
@@ -102,7 +144,7 @@ export const FileUploadInput = (props: ImageFileInputProps) => {
           }
 
           clearTimeout(timeout);
-          setInputValues(undefined);
+          setFilesToUpload(undefined);
           setUploading(false);
         });
     }
@@ -112,7 +154,7 @@ export const FileUploadInput = (props: ImageFileInputProps) => {
     //   console.log("distruttore");
     //   controller.abort();
     // };
-  }, [inputValues, isUploading]);
+  }, [filesToUpload, isUploading]);
 
   // messaggi di avviso
   const uploadingAlert = isUploading ? (
@@ -142,7 +184,6 @@ export const FileUploadInput = (props: ImageFileInputProps) => {
             src={buildPublicUrl(file)}
             className="h-auto max-h-full w-auto rounded-md"
             onError={() => {
-              console.log("onErrror");
               setUploadError(`error loading "${file}"`);
             }}
             alt={file}
@@ -174,7 +215,7 @@ export const FileUploadInput = (props: ImageFileInputProps) => {
   const previewMultiple =
     mode == "multiple" && files ? (
       <Carousel theme={carouselFileUploadInputTheme} slide={false}>
-        {files.map(showFilePreview)}
+        {multipleFiles.map(showFilePreview)}
       </Carousel>
     ) : undefined;
 
@@ -184,19 +225,22 @@ export const FileUploadInput = (props: ImageFileInputProps) => {
   // input per caricare il file / mostrare il file caricato.
   const fileSelectInput = files ? (
     <input
-      ref={refFileInput}
+      ref={ref}
+      name={props.name}
       type="text"
       className="w-full flex-grow rounded-lg bg-gray-200"
       readOnly={true}
       value={files}
+      onBlur={props.onBlur}
     />
   ) : (
     <input
-      ref={refFileInput}
+      ref={ref}
+      name={props.name}
       type="file"
       className="w-full flex-grow rounded-lg bg-gray-200"
       value={""}
-      disabled={isUploading}
+      disabled={disabled}
       multiple={props.config.multiple}
       accept={props.config.accept.join(",")}
       capture={props.config.capture}
@@ -206,9 +250,10 @@ export const FileUploadInput = (props: ImageFileInputProps) => {
           const values: File[] = [];
           for (const selectedFile of filesList) values.push(selectedFile);
 
-          setInputValues(values);
+          setFilesToUpload(values);
         }
       }}
+      onBlur={props.onBlur}
     />
   );
 
@@ -217,9 +262,12 @@ export const FileUploadInput = (props: ImageFileInputProps) => {
     <div className="w-32">
       <OutlineButton
         onClick={() => {
-          setInputValues(undefined);
-          setFiles(undefined);
+          setFilesToUpload(undefined);
+          setFiles(null);
           setUploading(false);
+
+          // passa il valore all'eventuale react-hook-form
+          if (props.onChange) props.onChange(null);
         }}
       >
         rimuovi
@@ -227,22 +275,35 @@ export const FileUploadInput = (props: ImageFileInputProps) => {
     </div>
   ) : undefined;
 
-  // registrazione campo all'eventuale react-hook-form
-  useEffect(() => {
-    if (props.form) {
-      props.form.register(props.name);
-    }
-  }, [props.form, props.name]);
-
   // passaggio del valore all'eventuale react-hook-form.
+  // N.B. questo effect, in combinazione con l'effect successivo, causava un ciclo infitio!
+  // il problema è che props.onChange influenza il valore di props.value usato nel secondo effetc;
+  // il secondo effetc influenza files che è una dipendenza del primo effect.
+  // vi è quindi una dipendenza circolare.
+  // useEffect(() => {
+  //   if (props.onChange) {
+  //     props.onChange(files);
+  //   }
+  // }, [props.onChange, files]);
+
+  // forza il valore esposto dal campo a seguire il valore passato dall'eventuale react-hook-form.
   useEffect(() => {
-    if (props.form) {
-      props.form.setValue(props.name, files);
+    const valueAsString = props.value ? props.value.toString() : "";
+    const filesAsString = files ? files.toString() : "";
+
+    if (props.onChange && valueAsString != filesAsString) {
+      setFiles(props.value !== undefined ? props.value : null);
     }
-  }, [props.form, props.name, files]);
+  }, [props.onChange, props.value, files]);
+
+  // CSS per box contenitore
+  const className = twMerge(
+    "grid h-80 w-full grid-rows-4 rounded-lg border border-gray-300 bg-gray-50 p-6 shadow-md p-2.5 text-sm text-gray-900 focus:border-blue-500",
+    props.className,
+  );
 
   return (
-    <div className="grid h-80 w-full grid-rows-4 rounded-lg border border-gray-100 bg-white p-6 shadow-md">
+    <div className={className}>
       <div className="flex items-center gap-2">
         {fileSelectInput}
         {clearFileButton}
@@ -250,4 +311,5 @@ export const FileUploadInput = (props: ImageFileInputProps) => {
       <div className="row-span-3 flex items-center justify-center">{currentAlert ?? preview}</div>
     </div>
   );
-};
+});
+FileUploadInput.displayName = "FileUploadInput";
