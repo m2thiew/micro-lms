@@ -16,8 +16,8 @@
     "prisma-push": "dotenv -e .env.development -- prisma db push",
     "app-generate-jwt-keys": "scripts/app-generate-jwt-keys.sh",
     "app-init-db": "scripts/app-init-db.sh",
-    "app-export-db": "scripts/app-export-db.sh",
-    "app-import-db": "scripts/app-import-db.sh"
+    "app-export-data": "scripts/app-export-data.sh",
+    "app-import-data": "scripts/app-import-data.sh"
   },
   "dependencies": {
     "@ag-grid-community/client-side-row-model": "^31.0.3",
