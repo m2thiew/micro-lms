@@ -21,6 +21,7 @@ import {
   type PillAdminData,
 } from "@/shared/features/pill/schema";
 import { type Pill, type PrismaClient } from "@prisma/client";
+import { type PrismaClientOptions } from "@prisma/client/runtime/library";
 import { TRPCError } from "@trpc/server";
 import { copyFileSync, existsSync, mkdirSync, rmSync, unlinkSync } from "fs";
 import path, { basename } from "path";
@@ -35,6 +36,15 @@ type MoveOperation = {
   isMoved?: boolean;
 };
 
+type DB = PrismaClient;
+
+type DBTransaction = Omit<
+  PrismaClient<PrismaClientOptions, never>,
+  "$connect" | "$disconnect" | "$on" | "$transaction" | "$use" | "$extends"
+>;
+
+type DBInterface = DB | DBTransaction;
+
 // ------------------------------------------------------------------------------------------------
 
 /**
@@ -43,7 +53,7 @@ type MoveOperation = {
  * @param db connessione al DB
  * @returns pillole con aggiunta la proprietà "content"
  */
-const addPillContent = async (pill: Pill, db: PrismaClient): Promise<PillAdminData> => {
+const addPillContent = async (pill: Pill, db: DBInterface): Promise<PillAdminData> => {
   const pillContent = await db.pillContent.findMany({
     select: { path: true },
     where: { pillId: pill.id },
@@ -370,8 +380,8 @@ const execDelete = adminAPIProcedure
     // la funzione "execFileMoves" elimina anche i file già copiati in caso di errore.
 
     return await db.$transaction(async (tx): Promise<PillAdminData> => {
-      // eliminazione pillola da DB.
-      const deletedPill = await tx.pill.delete({
+      // recupero della pillola
+      const pill = await tx.pill.findUnique({
         select: {
           id: true,
           createdAt: true,
@@ -379,12 +389,24 @@ const execDelete = adminAPIProcedure
           title: true,
           description: true,
           thumbPath: true,
-          PillContent: {
-            select: {
-              path: true,
-            },
-          },
         },
+        where: {
+          id: input.id,
+        },
+      });
+
+      if (!pill) throw new TRPCError({ code: "NOT_FOUND" });
+
+      // aggiunta contenuti della pillola.
+      const pillWithContent = await addPillContent(pill, tx);
+
+      // eliminazione contenuti pillola.
+      await tx.pillContent.deleteMany({
+        where: { pillId: input.id },
+      });
+
+      // eliminazione pillola.
+      const deletedPill = await tx.pill.delete({
         where: { id: input.id },
       });
 
@@ -402,13 +424,10 @@ const execDelete = adminAPIProcedure
       if (existsSync(pillContentDir)) rmSync(pillContentDir, { recursive: true });
 
       // estrae i vecchi contenuti della pillola elimanta.
-      const deletedContent = deletedPill.PillContent.map((contentTable) => contentTable.path);
-      const content: [string, ...string[]] = [deletedContent.shift() ?? "", ...deletedContent];
+      // const deletedContent = deletedPill.PillContent.map((contentTable) => contentTable.path);
+      // const content: [string, ...string[]] = [deletedContent.shift() ?? "", ...deletedContent];
 
-      return {
-        ...deletedPill,
-        content,
-      };
+      return pillWithContent;
     });
   });
 
