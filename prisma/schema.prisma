@@ -28,15 +28,16 @@ enum Role {
 }
 
 model Learner {
-  id        Int       @id @default(autoincrement()) @db.Int()
-  createdAt DateTime  @default(now()) @db.Timestamp(0)
-  updatedAt DateTime  @default(now()) @updatedAt @db.Timestamp(0)
-  name      String    @default("") @db.Char(255)
-  surname   String    @default("") @db.Char(255)
-  email     String    @default("") @db.Char(255)
-  password  String    @default("") @db.Char(255)
-  role      Role      @default(LEARNER)
-  Session   Session[]
+  id           Int            @id @default(autoincrement()) @db.Int()
+  createdAt    DateTime       @default(now()) @db.Timestamp(0)
+  updatedAt    DateTime       @default(now()) @updatedAt @db.Timestamp(0)
+  name         String         @default("") @db.Char(255)
+  surname      String         @default("") @db.Char(255)
+  email        String         @default("") @db.Char(255)
+  password     String         @default("") @db.Char(255)
+  role         Role           @default(LEARNER)
+  Session      Session[]
+  Subscription Subscription[]
 }
 
 model Session {
@@ -51,13 +52,14 @@ model Session {
 }
 
 model Pill {
-  id          Int           @id @default(autoincrement()) @db.Int()
-  createdAt   DateTime      @default(now()) @db.Timestamp(0)
-  updatedAt   DateTime      @default(now()) @updatedAt @db.Timestamp(0)
-  title       String        @default("") @db.Char(255)
-  description String        @db.Text()
-  thumbPath   String        @default("") @db.Char(255)
-  PillContent PillContent[]
+  id           Int            @id @default(autoincrement()) @db.Int()
+  createdAt    DateTime       @default(now()) @db.Timestamp(0)
+  updatedAt    DateTime       @default(now()) @updatedAt @db.Timestamp(0)
+  title        String         @default("") @db.Char(255)
+  description  String         @db.Text()
+  thumbPath    String         @default("") @db.Char(255)
+  PillContent  PillContent[]
+  Subscription Subscription[]
 }
 
 model PillContent {
@@ -69,4 +71,16 @@ model PillContent {
   pillId    Int      @default(0) @db.Int()
 
   @@unique([pillId, path])
+}
+
+model Subscription {
+  id        Int      @id @default(autoincrement()) @db.Int()
+  createdAt DateTime @default(now()) @db.Timestamp(0)
+  updatedAt DateTime @default(now()) @updatedAt @db.Timestamp(0)
+  Learner   Learner  @relation(fields: [learnerId], references: [id])
+  learnerId Int      @default(0) @db.Int()
+  Pill      Pill     @relation(fields: [pillId], references: [id])
+  pillId    Int      @default(0) @db.Int()
+
+  @@unique([learnerId, pillId])
 }

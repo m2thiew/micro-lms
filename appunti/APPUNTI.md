@@ -608,6 +608,8 @@ TODO:
 - ~~eliminazione pillole~~
 - ~~dump dei file delle pillole (epsortazione / ripristino)~~
 - crezione "assegnazione pillola"
+  - gestione checkbox con zod e react-hook-form
+  - https://github.com/react-hook-form/react-hook-form/issues/476
 - modifica "assegnazione pillola"
 - elenco "assegnazioni"
 - elenco pillole learner

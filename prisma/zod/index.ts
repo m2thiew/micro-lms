@@ -20,6 +20,8 @@ export const PillScalarFieldEnumSchema = z.enum(['id','createdAt','updatedAt','t
 
 export const PillContentScalarFieldEnumSchema = z.enum(['id','createdAt','updatedAt','path','pillId']);
 
+export const SubscriptionScalarFieldEnumSchema = z.enum(['id','createdAt','updatedAt','learnerId','pillId']);
+
 export const SortOrderSchema = z.enum(['asc','desc']);
 
 export const RoleSchema = z.enum(['LEARNER','ADMIN']);
@@ -91,3 +93,17 @@ export const PillContentSchema = z.object({
 })
 
 export type PillContent = z.infer<typeof PillContentSchema>
+
+/////////////////////////////////////////
+// SUBSCRIPTION SCHEMA
+/////////////////////////////////////////
+
+export const SubscriptionSchema = z.object({
+  id: z.number().int(),
+  createdAt: z.coerce.date(),
+  updatedAt: z.coerce.date(),
+  learnerId: z.number().int(),
+  pillId: z.number().int(),
+})
+
+export type Subscription = z.infer<typeof SubscriptionSchema>
