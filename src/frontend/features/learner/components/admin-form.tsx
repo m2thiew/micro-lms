@@ -100,7 +100,6 @@ export const AdminLearnerCreateForm = () => {
  * @param props.id id learner da modificare
  * @returns form di modifica learner
  */
-
 export const AdminLearnerUpdateForm = ({ id }: UpdateProps) => {
   // navigazione.
   const router = useRouter();

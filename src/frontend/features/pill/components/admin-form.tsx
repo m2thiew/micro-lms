@@ -11,7 +11,6 @@
 import { apiClient } from "@/frontend/lib/trpc/client";
 import { ErrorCard, LoadingBar } from "@/frontend/ui/status";
 import {
-  AdminPillApiCreateInput,
   adminPillFormCreateSchema,
   adminPillFormUpdateSchema,
   uploadPillContentConfig,
@@ -23,11 +22,8 @@ import {
 import { returnSyncHandler, type SyncHandler } from "@/shared/utils/async";
 import { getFormErrorMessage } from "@/shared/utils/error";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { error } from "console";
-import { DateTime } from "luxon";
-import { register } from "module";
 import { useRouter } from "next/router";
-import { BaseSyntheticEvent, useEffect, useMemo, useState } from "react";
+import { useEffect, useState } from "react";
 import { Controller, useForm, type FieldErrors, type UseFormReturn } from "react-hook-form";
 import { FileUploadInput } from "../../../components/file-upload";
 
@@ -57,6 +53,10 @@ type FormContentProps =
 
 // ------------------------------------------------------------------------------------------------
 
+/**
+ * Setup form per creazione pillola
+ * @returns form per creazione pillola
+ */
 export const AdminPillCreateForm = () => {
   // navigazione.
   const router = useRouter();
@@ -105,6 +105,11 @@ export const AdminPillCreateForm = () => {
 
 // ------------------------------------------------------------------------------------------------
 
+/**
+ * setup form per modifica pillola
+ * @param props.id  id pillola da modificare
+ * @returns form per modifica pillola
+ */
 export const AdminPillUpdateForm = ({ id }: UpdateProps) => {
   // navigazione.
   const router = useRouter();
@@ -175,6 +180,11 @@ export const AdminPillUpdateForm = ({ id }: UpdateProps) => {
 
 // ------------------------------------------------------------------------------------------------
 
+/**
+ * espone il form di creazione/modifica pillola
+ * @param props settaggio del form
+ * @returns form crezione/modifica pillola
+ */
 const AdminPillFormContent = (props: FormContentProps) => {
   const { mode, id, data, form, errors, onSubmit } = props;
 

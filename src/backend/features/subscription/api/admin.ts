@@ -18,6 +18,9 @@ import {
 
 // ------------------------------------------------------------------------------------------------
 
+/**
+ * Restituisce le pillole assegnate a un learner.
+ */
 const get = adminAPIProcedure
   .input(adminSubscriptionApiGetSchema)
   .query(async ({ ctx, input }): Promise<SubscriptionAdminData> => {
@@ -37,6 +40,9 @@ const get = adminAPIProcedure
 
 // ------------------------------------------------------------------------------------------------
 
+/**
+ * Imposta le pillole assegnate a un learner.
+ */
 const set = adminAPIProcedure
   .input(adminSubscriptionApiSetSchema)
   .mutation(async ({ ctx, input }): Promise<SubscriptionAdminData> => {
@@ -66,6 +72,9 @@ const set = adminAPIProcedure
 
 // ------------------------------------------------------------------------------------------------
 
+/**
+ * definizione route "adminSubscription"
+ */
 export const adminSubscription = createAPIRouter({
   get,
   set,
