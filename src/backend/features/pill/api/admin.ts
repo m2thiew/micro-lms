@@ -25,6 +25,7 @@ import { type PrismaClientOptions } from "@prisma/client/runtime/library";
 import { TRPCError } from "@trpc/server";
 import { copyFileSync, existsSync, mkdirSync, rmSync, unlinkSync } from "fs";
 import path, { basename } from "path";
+import { fetchPillsAdminData } from "../utils/fetch";
 
 // ------------------------------------------------------------------------------------------------
 
@@ -136,23 +137,9 @@ const execFileMoves = (...fileMoves: MoveOperation[]): string[] => {
 const list = adminAPIProcedure.query(async ({ ctx }): Promise<PillAdminData[]> => {
   const { db } = ctx;
 
-  // dati della pillola
-  const pills = await db.pill.findMany({
-    select: {
-      id: true,
-      createdAt: true,
-      updatedAt: true,
-      title: true,
-      description: true,
-      thumbPath: true,
-    },
-  });
+  const pills = await fetchPillsAdminData(db);
 
-  // aggiunge i contenuti per tutte le pillole recuperate.
-  const addPillContentAsync = pills.map((p) => addPillContent(p, db));
-  const pillsWithContent = await Promise.all(addPillContentAsync);
-
-  return pillsWithContent;
+  return pills;
 });
 
 // ------------------------------------------------------------------------------------------------
@@ -165,27 +152,10 @@ const get = adminAPIProcedure
   .query(async ({ ctx, input }): Promise<PillAdminData> => {
     const { db } = ctx;
 
-    // recupero della pillola
-    const pill = await db.pill.findUnique({
-      select: {
-        id: true,
-        createdAt: true,
-        updatedAt: true,
-        title: true,
-        description: true,
-        thumbPath: true,
-      },
-      where: {
-        id: input.id,
-      },
-    });
-
+    const pill = (await fetchPillsAdminData(db, input.id)).at(0);
     if (!pill) throw new TRPCError({ code: "NOT_FOUND" });
 
-    // aggiunta contenuti della pillola.
-    const pillsWithContent = await addPillContent(pill, db);
-
-    return pillsWithContent;
+    return pill;
   });
 
 // ------------------------------------------------------------------------------------------------
@@ -204,19 +174,17 @@ const create = adminAPIProcedure
 
     return await db.$transaction(async (tx): Promise<PillAdminData> => {
       // inserimento nuova pillola (senza file).
-      const newPill = await tx.pill.create({
+      const newPillRow = await tx.pill.create({
         data: {
           title: input.title,
           description: input.description,
         },
       });
 
-      console.log(newPill);
-
       // operazioni sui file.
       const { uploadDir: thumbDir } = uploadPillThumbConfig;
       const { uploadDir: contentDir } = uploadPillContentConfig;
-      const pillDirName = newPill.id.toString().padStart(3, "0");
+      const pillDirName = newPillRow.id.toString().padStart(3, "0");
 
       // sposta i file caricati nella cartella ufficiale.
 
@@ -252,7 +220,7 @@ const create = adminAPIProcedure
         return { path };
       });
 
-      const newPillWithFiles = await tx.pill.update({
+      const newPillWithFilesRow = await tx.pill.update({
         data: {
           thumbPath: thumbPath,
           PillContent: {
@@ -260,15 +228,15 @@ const create = adminAPIProcedure
           },
         },
         where: {
-          id: newPill.id,
+          id: newPillRow.id,
         },
       });
 
       // restituisce la pillola creata.
-      return {
-        ...newPillWithFiles,
-        content,
-      };
+      const pill = (await fetchPillsAdminData(tx, newPillRow.id)).at(0);
+      if (!pill) throw new TRPCError({ code: "NOT_FOUND" });
+
+      return pill;
     });
   });
 
@@ -342,7 +310,7 @@ export const update = adminAPIProcedure
       });
 
       // aggiornamento pillola.
-      const updatedPill = await tx.pill.update({
+      const updatedPillRow = await tx.pill.update({
         data: {
           title: input.title,
           description: input.description,
@@ -358,10 +326,10 @@ export const update = adminAPIProcedure
       });
 
       // restituisce la pillola modificata.
-      return {
-        ...updatedPill,
-        content,
-      };
+      const pill = (await fetchPillsAdminData(tx, input.id)).at(0);
+      if (!pill) throw new TRPCError({ code: "NOT_FOUND" });
+
+      return pill;
     });
   });
 
@@ -381,24 +349,8 @@ const execDelete = adminAPIProcedure
 
     return await db.$transaction(async (tx): Promise<PillAdminData> => {
       // recupero della pillola
-      const pill = await tx.pill.findUnique({
-        select: {
-          id: true,
-          createdAt: true,
-          updatedAt: true,
-          title: true,
-          description: true,
-          thumbPath: true,
-        },
-        where: {
-          id: input.id,
-        },
-      });
-
+      const pill = (await fetchPillsAdminData(tx, input.id)).at(0);
       if (!pill) throw new TRPCError({ code: "NOT_FOUND" });
-
-      // aggiunta contenuti della pillola.
-      const pillWithContent = await addPillContent(pill, tx);
 
       // eliminazione contenuti pillola.
       await tx.pillContent.deleteMany({
@@ -406,7 +358,7 @@ const execDelete = adminAPIProcedure
       });
 
       // eliminazione pillola.
-      const deletedPill = await tx.pill.delete({
+      const deletedPillRow = await tx.pill.delete({
         where: { id: input.id },
       });
 
@@ -423,11 +375,7 @@ const execDelete = adminAPIProcedure
       const pillContentDir = toServerPath(contentDir, pillDirName);
       if (existsSync(pillContentDir)) rmSync(pillContentDir, { recursive: true });
 
-      // estrae i vecchi contenuti della pillola elimanta.
-      // const deletedContent = deletedPill.PillContent.map((contentTable) => contentTable.path);
-      // const content: [string, ...string[]] = [deletedContent.shift() ?? "", ...deletedContent];
-
-      return pillWithContent;
+      return pill;
     });
   });
 

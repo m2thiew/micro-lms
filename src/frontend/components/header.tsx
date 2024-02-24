@@ -35,15 +35,15 @@ export const Header = (): React.JSX.Element => {
 
   // Pulsanter per le pillole.
   const pillButton = (
-    <a
-      href="#"
+    <Link
+      href="/pill/"
       className="ml-2 inline-flex cursor-pointer items-center gap-2 rounded-lg px-5 py-2.5 font-medium text-white hover:bg-slate-700/20"
       onClick={() => {
         alert("pillole");
       }}
     >
       <p className="text-xl">Pillole</p>
-    </a>
+    </Link>
   );
 
   // Pulsante per area amministratore.

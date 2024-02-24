@@ -7,6 +7,7 @@ import { carouselCustomTheme } from "@/frontend/lib/flowbite";
 import { FbArrowRightOutline } from "@/frontend/ui/icons/flowbite";
 import { Carousel, type CustomFlowbiteTheme } from "flowbite-react";
 import Image from "next/image";
+import Link from "next/link";
 import { default as assetCarousel01 } from "/public/assets/carousel01.png";
 import { default as assetCarousel02 } from "/public/assets/carousel02.png";
 import { default as assetCarousel03 } from "/public/assets/carousel03.png";
@@ -42,13 +43,13 @@ export default function Home() {
                 Accedi
               </a>
 
-              <a
-                href="#"
+              <Link
+                href="/pill/"
                 className="ml-2 inline-flex items-center px-5 py-2.5 text-lg font-medium  text-blue-600 hover:underline"
               >
                 Le mie pillole
                 <FbArrowRightOutline className="ml-2 h-3.5 w-3.5" />
-              </a>
+              </Link>
             </div>
           </div>
 

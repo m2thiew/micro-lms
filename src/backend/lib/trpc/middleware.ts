@@ -9,6 +9,8 @@
  * @project micro-lms
  */
 
+import { fetchLearnersPublicData } from "@/backend/features/learner/utils/fetch";
+import { type LearnerPublicData } from "@/shared/features/learner/schema";
 import { tokenPayloadSchema } from "@/shared/features/login/schema";
 import { verifyToken } from "@/shared/features/login/utils/jwt";
 import { type $Enums } from "@prisma/client";
@@ -19,6 +21,8 @@ import { createAPIMiddleware, type APIContext } from "./server";
 
 export type APIContextLoggedIn = APIContext & {
   token: string;
+  sessionId: number;
+  learner: LearnerPublicData;
   email: string;
   role: $Enums.Role;
 };
@@ -83,18 +87,26 @@ export const requireLearnerLoggedIn = createAPIMiddleware(async ({ ctx, next }) 
   // esegue una query per verificare se esiste l'utente con la sessione corrispondente
   // al token appena analizzato.
 
-  const session = await db.session.findFirst({
-    select: { id: true },
+  const sessionRow = await db.session.findFirst({
+    select: {
+      id: true,
+      learnerId: true,
+    },
     where: {
       token: token,
       Learner: { email: email, role: role },
     },
   });
 
-  if (!session) throw new TRPCError({ code: "UNAUTHORIZED" });
+  if (!sessionRow) throw new TRPCError({ code: "UNAUTHORIZED" });
 
-  // aggiunge l'email e il ruolo al contesto della chiamata api.
-  const newCtx: APIContextLoggedIn = { ...ctx, token, email, role };
+  // recupera i dati pubblici del learner.
+  const learner = (await fetchLearnersPublicData(db, sessionRow.learnerId)).at(0);
+  if (!learner) throw new TRPCError({ code: "UNAUTHORIZED" });
+
+  // aggiunge i riferimenti alla sessione e i dati del learner nel contesto.
+  const { id: sessionId } = sessionRow;
+  const newCtx: APIContextLoggedIn = { ...ctx, token, sessionId, learner, email, role };
 
   // procede ad eseguire la chiamata
   return next({ ctx: newCtx });

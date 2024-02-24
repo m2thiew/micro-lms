@@ -53,6 +53,7 @@ export const learnerPublicDataSchema = z.object({
   name,
   surname,
   email,
+  pillsId: subscriptionFields.pillsId,
 });
 export type LearnerPublicData = z.infer<typeof learnerPublicDataSchema>;
 

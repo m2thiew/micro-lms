@@ -51,13 +51,22 @@ const thumbPathUpload = z
 
 const contentUpload = z.array(z.string().trim()).nonempty();
 
+// trasformazione dati da fomrato DB a formato app.
+
+const contentRow = z.object({
+  path: z.string(),
+});
+type ContentRow = z.infer<typeof contentRow>;
+
+export const contentRowToContent = contentRow.transform((contentRow): string => contentRow.path);
+
 // ------------------------------------------------------------------------------------------------
 
 /**
  * Dati di una pillola visbili agli amministratori.
  */
 
-export const pillAdminData = z.object({
+export const pillAdminDataSchema = z.object({
   id,
   createdAt,
   updatedAt,
@@ -66,7 +75,22 @@ export const pillAdminData = z.object({
   thumbPath,
   content,
 });
-export type PillAdminData = z.infer<typeof pillAdminData>;
+export type PillAdminData = z.infer<typeof pillAdminDataSchema>;
+
+// ------------------------------------------------------------------------------------------------
+
+/**
+ * Dati di una pillola visbili a tutti.
+ */
+
+export const pillPublicDataSchema = z.object({
+  id,
+  title,
+  description,
+  thumbPath,
+  content,
+});
+export type PillPublicData = z.infer<typeof pillPublicDataSchema>;
 
 // ------------------------------------------------------------------------------------------------
 
@@ -118,6 +142,17 @@ export const adminPillApiDeleteSchema = z.object({
   id,
 });
 export type AdminPillApiDeleteInput = z.infer<typeof adminPillApiDeleteSchema>;
+
+// ------------------------------------------------------------------------------------------------
+
+/**
+ * Input per API "learnerPill.get"
+ */
+
+export const learnerPillApiGetSchema = z.object({
+  id,
+});
+export type LearnerPillApiGetInput = z.infer<typeof learnerPillApiGetSchema>;
 
 // ------------------------------------------------------------------------------------------------
 
