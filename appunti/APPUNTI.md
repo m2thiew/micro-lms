@@ -607,10 +607,10 @@ TODO:
 - ~~elenco delle pillole~~
 - ~~eliminazione pillole~~
 - ~~dump dei file delle pillole (epsortazione / ripristino)~~
-- crezione "assegnazione pillola"
+- ~~crezione "assegnazione pillola"~~
   - ~~gestione checkbox con zod e react-hook-form~~
-- modifica "assegnazione pillola"
-- elenco "assegnazioni"
+- ~~modifica "assegnazione pillola"~~
+- ~~elenco "assegnazioni"~~
 - elenco pillole learner
 - visulizzazione pillola learner
 - track visualizzazione learner

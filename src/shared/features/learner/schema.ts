@@ -9,6 +9,7 @@
  */
 
 import { z } from "zod";
+import { subscriptionFields } from "../subscription/schema";
 
 // ------------------------------------------------------------------------------------------------
 
@@ -31,6 +32,15 @@ export const learnerFields = {
 export type LearnerFields = typeof learnerFields;
 
 const { id, createdAt, updatedAt, name, surname, email, password, role } = learnerFields;
+
+const subscriptionRow = z.object({
+  pillId: z.number().int(),
+});
+export type SubscriptionRow = z.infer<typeof subscriptionRow>;
+
+export const subscriptionRowToPillId = subscriptionRow.transform((subRow): number => {
+  return subRow.pillId;
+});
 
 // ------------------------------------------------------------------------------------------------
 
@@ -65,6 +75,7 @@ export const learnerAdminDataSchema = z.object({
   surname,
   email,
   role,
+  pillsId: subscriptionFields.pillsId,
 });
 export type LearnerAdminData = z.infer<typeof learnerAdminDataSchema>;
 

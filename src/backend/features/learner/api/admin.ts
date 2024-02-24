@@ -15,11 +15,57 @@ import {
   adminLearnerApiDeleteSchema,
   adminLearnerApiGetSchema,
   adminLearnerApiUpdateSchema,
+  learnerAdminDataSchema,
+  subscriptionRowToPillId,
   type LearnerAdminData,
 } from "@/shared/features/learner/schema";
 import { getMd5 } from "@/shared/utils/crypto";
+import { type PrismaClient } from "@prisma/client";
 import { TRPCError } from "@trpc/server";
-import { setTimeout } from "timers/promises";
+
+// ------------------------------------------------------------------------------------------------
+
+/**
+ * Recupera tutti, uno o alcuni dati dei learner, convertendo i dati nel formato usato nella app.
+ * @param db connessione al DB
+ * @param ids (opzionale) se specificato, recupera solo i learner con tali id
+ * @returns dati dei lerner per gli admin
+ */
+const fetchLearnersAdminData = async (
+  db: PrismaClient,
+  id?: number | number[],
+): Promise<LearnerAdminData[]> => {
+  // cosrtruzione where
+  const idList: number[] = id instanceof Array ? id : [id ?? 0];
+  const where = id !== undefined ? { id: { in: idList } } : undefined;
+
+  // recupero righe DB
+  const learnerRows = await db.learner.findMany({
+    select: {
+      id: true,
+      createdAt: true,
+      updatedAt: true,
+      name: true,
+      surname: true,
+      email: true,
+      role: true,
+      Subscription: {
+        select: { pillId: true },
+      },
+    },
+    where: where,
+  });
+
+  // conversione da formato DB a formato della app.
+  const learners: LearnerAdminData[] = learnerRows.map((learnerRow): LearnerAdminData => {
+    const subscriptionRows = learnerRow.Subscription;
+    const pillsId = subscriptionRows.map((subRow) => subscriptionRowToPillId.parse(subRow));
+
+    return learnerAdminDataSchema.parse({ ...learnerRow, pillsId });
+  });
+
+  return learners;
+};
 
 // ------------------------------------------------------------------------------------------------
 
@@ -30,20 +76,7 @@ import { setTimeout } from "timers/promises";
 const list = adminAPIProcedure.query(async ({ ctx }): Promise<LearnerAdminData[]> => {
   const { db } = ctx;
 
-  // await setTimeout(5000);
-  // throw new Error("ERRRRR");
-
-  const learners = await db.learner.findMany({
-    select: {
-      id: true,
-      createdAt: true,
-      updatedAt: true,
-      name: true,
-      surname: true,
-      email: true,
-      role: true,
-    },
-  });
+  const learners = await fetchLearnersAdminData(db);
 
   return learners;
 });
@@ -59,21 +92,7 @@ const get = adminAPIProcedure
   .query(async ({ ctx, input }): Promise<LearnerAdminData> => {
     const { db } = ctx;
 
-    const learner = await db.learner.findUnique({
-      select: {
-        id: true,
-        createdAt: true,
-        updatedAt: true,
-        name: true,
-        surname: true,
-        email: true,
-        role: true,
-      },
-      where: {
-        id: input.id,
-      },
-    });
-
+    const learner = (await fetchLearnersAdminData(db, input.id)).at(0);
     if (!learner) throw new TRPCError({ code: "NOT_FOUND" });
 
     return learner;
@@ -90,7 +109,7 @@ const create = adminAPIProcedure
   .mutation(async ({ ctx, input }): Promise<LearnerAdminData> => {
     const { db } = ctx;
 
-    const newLearner = await db.learner.create({
+    const newLearnerRow = await db.learner.create({
       data: {
         name: input.name,
         surname: input.surname,
@@ -100,7 +119,10 @@ const create = adminAPIProcedure
       },
     });
 
-    return newLearner;
+    const learner = (await fetchLearnersAdminData(db, newLearnerRow.id)).at(0);
+    if (!learner) throw new TRPCError({ code: "NOT_FOUND" });
+
+    return learner;
   });
 
 // ------------------------------------------------------------------------------------------------
@@ -116,7 +138,7 @@ const update = adminAPIProcedure
 
     // await setTimeout(3000);
 
-    const updatedLearner = await db.learner.update({
+    const updatedLearnerRow = await db.learner.update({
       data: {
         name: input.name,
         surname: input.surname,
@@ -128,7 +150,10 @@ const update = adminAPIProcedure
       },
     });
 
-    return updatedLearner;
+    const learner = (await fetchLearnersAdminData(db, input.id)).at(0);
+    if (!learner) throw new TRPCError({ code: "NOT_FOUND" });
+
+    return learner;
   });
 
 // ------------------------------------------------------------------------------------------------
@@ -137,18 +162,21 @@ const update = adminAPIProcedure
  * Elimina un learner.
  */
 
-const doDelete = adminAPIProcedure
+const execDelete = adminAPIProcedure
   .input(adminLearnerApiDeleteSchema)
   .mutation(async ({ ctx, input }): Promise<LearnerAdminData> => {
     const { db } = ctx;
 
-    const deleteddLearner = await db.learner.delete({
+    const learner = (await fetchLearnersAdminData(db, input.id)).at(0);
+    if (!learner) throw new TRPCError({ code: "NOT_FOUND" });
+
+    const deletedLearnerRow = await db.learner.delete({
       where: {
         id: input.id,
       },
     });
 
-    return deleteddLearner;
+    return learner;
   });
 
 // ------------------------------------------------------------------------------------------------
@@ -158,5 +186,5 @@ export const adminLearnerApi = createAPIRouter({
   get,
   create,
   update,
-  delete: doDelete,
+  delete: execDelete,
 });
