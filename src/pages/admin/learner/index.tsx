@@ -13,6 +13,7 @@ import { useLoginStatus } from "@/frontend/features/login/context/status";
 import { NewLink, PrimaryLink, SecondaryLink } from "@/frontend/ui/buttons";
 import { FbArrowLeftOutline } from "@/frontend/ui/icons/flowbite";
 import { Alert } from "flowbite-react";
+import Head from "next/head";
 
 // ------------------------------------------------------------------------------------------------
 
@@ -30,6 +31,9 @@ const LearnerList = (): React.JSX.Element => {
 
   return (
     <>
+      <Head>
+        <title>Elenco dei learner</title>
+      </Head>
       <div className="text-center">
         <h1 className="text-4xl font-extrabold text-black">Elenco dei learner</h1>
 

@@ -12,6 +12,7 @@ import { AdminLearnerUpdateForm } from "@/frontend/features/learner/components/a
 import { SecondaryLink } from "@/frontend/ui/buttons";
 import { FbArrowLeftOutline } from "@/frontend/ui/icons/flowbite";
 import { ErrorCard } from "@/frontend/ui/status";
+import Head from "next/head";
 import { useRouter } from "next/router";
 import { z } from "zod";
 
@@ -32,6 +33,9 @@ const AdminLearnerUpdatePage = (): React.JSX.Element => {
 
     return (
       <>
+        <Head>
+          <title>Modifica learner</title>
+        </Head>
         <div className="text-center">
           <h1 className="text-4xl font-extrabold text-black">Modifica learner</h1>
 

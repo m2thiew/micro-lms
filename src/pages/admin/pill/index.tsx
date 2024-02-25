@@ -13,6 +13,7 @@ import { AdminPillList } from "@/frontend/features/pill/components/admin-list";
 import { NewLink, SecondaryLink } from "@/frontend/ui/buttons";
 import { FbArrowLeftOutline } from "@/frontend/ui/icons/flowbite";
 import { Alert } from "flowbite-react";
+import Head from "next/head";
 
 // ------------------------------------------------------------------------------------------------
 
@@ -25,6 +26,9 @@ const AdminPillListPage = (): React.JSX.Element => {
 
   return (
     <>
+      <Head>
+        <title>Elenco delle pillole</title>
+      </Head>
       <div className="text-center">
         <h1 className="text-4xl font-extrabold text-black">Elenco delle pillole</h1>
 

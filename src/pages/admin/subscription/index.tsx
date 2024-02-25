@@ -13,6 +13,7 @@ import { AdminSubscriptionsList } from "@/frontend/features/subscription/compone
 import { SecondaryLink } from "@/frontend/ui/buttons";
 import { FbArrowLeftOutline } from "@/frontend/ui/icons/flowbite";
 import { Alert } from "flowbite-react";
+import Head from "next/head";
 
 // ------------------------------------------------------------------------------------------------
 
@@ -25,6 +26,9 @@ const AdminSubscriptionsListPage = (): React.JSX.Element => {
 
   return (
     <>
+      <Head>
+        <title>Elenco assegnazioni</title>
+      </Head>
       <div className="text-center">
         <h1 className="text-4xl font-extrabold text-black">Elenco assegnazioni</h1>
 

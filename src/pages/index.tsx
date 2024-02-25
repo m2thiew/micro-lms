@@ -8,6 +8,7 @@ import { carouselCustomTheme } from "@/frontend/lib/flowbite";
 import { PrimaryButton, PrimaryLink } from "@/frontend/ui/buttons";
 import { FbBookSolid } from "@/frontend/ui/icons/flowbite";
 import { Carousel } from "flowbite-react";
+import Head from "next/head";
 import Image from "next/image";
 import { default as assetCarousel01 } from "/public/assets/carousel01.png";
 import { default as assetCarousel02 } from "/public/assets/carousel02.png";
@@ -22,6 +23,9 @@ export default function Home() {
 
   return (
     <>
+      <Head>
+        <title>Micro LMS</title>
+      </Head>
       <div className="grid grid-rows-2 gap-12 lg:grid-cols-2">
         {/* testo introduttivo */}
         <div className="text-center">

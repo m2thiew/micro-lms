@@ -18,6 +18,7 @@ import {
   FbUserSolid,
 } from "@/frontend/ui/icons/flowbite";
 import { Alert } from "flowbite-react";
+import Head from "next/head";
 import Link from "next/link";
 import React from "react";
 
@@ -32,6 +33,9 @@ const AdminPage = (): React.JSX.Element => {
 
   return (
     <>
+      <Head>
+        <title>Pannello amministrazione</title>
+      </Head>
       <div className="text-center">
         <h1 className="text-4xl font-extrabold text-black">Pannello amministrazione</h1>
 

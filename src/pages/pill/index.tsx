@@ -11,6 +11,7 @@
 import { useLoginStatus } from "@/frontend/features/login/context/status";
 import { LearnerSubscribedPillList } from "@/frontend/features/pill/components/learner-list";
 import { Alert } from "flowbite-react";
+import Head from "next/head";
 import { use } from "react";
 
 // ------------------------------------------------------------------------------------------------
@@ -22,6 +23,9 @@ const LearnerSubscribedPillPage = (): React.JSX.Element => {
 
   return (
     <>
+      <Head>
+        <title>Le tue pillole</title>
+      </Head>
       <div className="text-center">
         <h1 className="text-4xl font-extrabold text-black">Le tue pillole</h1>
 

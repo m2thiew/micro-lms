@@ -12,6 +12,7 @@ import { AdminSubscriptionSetForm } from "@/frontend/features/subscription/compo
 import { SecondaryLink } from "@/frontend/ui/buttons";
 import { FbArrowLeftOutline } from "@/frontend/ui/icons/flowbite";
 import { ErrorCard } from "@/frontend/ui/status";
+import Head from "next/head";
 import { useRouter } from "next/router";
 import { z } from "zod";
 
@@ -32,6 +33,9 @@ const AdminSubscriptionSetPage = (): React.JSX.Element => {
 
     return (
       <>
+        <Head>
+          <title>Assegna pillole</title>
+        </Head>
         <div className="text-center">
           <h1 className="text-4xl font-extrabold text-black">Assegna pillole</h1>
 
