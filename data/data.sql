@@ -22,7 +22,7 @@ CREATE TABLE `Learner` (
   `password` char(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
   `role` enum('LEARNER','ADMIN') CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT 'LEARNER',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 LOCK TABLES `Learner` WRITE;
@@ -41,7 +41,7 @@ CREATE TABLE `Pill` (
   `description` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `thumbPath` char(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 LOCK TABLES `Pill` WRITE;
@@ -59,9 +59,9 @@ CREATE TABLE `PillContent` (
   `path` char(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
   `pillId` int NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`),
-  UNIQUE KEY `PillContent_pillId_path_key` (`pillId`,`path`),
+  UNIQUE KEY `PillPathUnique` (`pillId`,`path`),
   CONSTRAINT `PillContent_pillId_fkey` FOREIGN KEY (`pillId`) REFERENCES `Pill` (`id`) ON DELETE RESTRICT ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=30 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=32 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 LOCK TABLES `PillContent` WRITE;
@@ -83,12 +83,12 @@ CREATE TABLE `Session` (
   PRIMARY KEY (`id`),
   UNIQUE KEY `Session_learnerId_key` (`learnerId`),
   CONSTRAINT `Session_learnerId_fkey` FOREIGN KEY (`learnerId`) REFERENCES `Learner` (`id`) ON DELETE RESTRICT ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 LOCK TABLES `Session` WRITE;
 /*!40000 ALTER TABLE `Session` DISABLE KEYS */;
-INSERT INTO `Session` VALUES (6,'2024-01-27 19:10:21','2024-02-24 21:16:31','eyJhbGciOiJSUzI1NiJ9.eyJuYW1lIjoiQWRtaW4iLCJzdXJuYW1lIjoiTWljcm8gTE1TIiwiZW1haWwiOiJhZG1pbkBtaWNyb2xtcy5vcmciLCJyb2xlIjoiQURNSU4iLCJpYXQiOjE3MDg4MTI5OTEsImV4cCI6MTcwODgxNjU5MX0.n-ef3nNn_pTruaxd6awiyFYLHb9UnNrLjNj2u_GJoL2C2bZklcOvTKnCtQnCpQxIInXwRQ-S9Vk_RlDezU-alDHujtP0hsiRKwJZa08vF8mpUKDj0DFHWzgup-AHXXYW5i_kxTgKrbW7Ecev0dwvLm-H0A73jzuSb65QrKeZVyObUiuPiTQZGWD96VPpcxfNxSnSQ5gEwxPT6TyXpqXFkcUQ0nPfKzG7ZRjiz3Y2xP18e5vRudZ9MUjTI4VWOwp4Z6EDDedATWvvxuKMjhvl_Js2k-K-goUNVXsI3Gholr0Ey-yJIJmFwujygkfda1uU_MBxwTELl7LkJ8C0HLgNjQ','302e1a64899204b5','2024-01-27 19:10:21',1),(8,'2024-02-24 21:53:02','2024-02-24 21:53:02','eyJhbGciOiJSUzI1NiJ9.eyJuYW1lIjoiTHVjYSIsInN1cm5hbWUiOiJTaWdhbGluaSIsImVtYWlsIjoibHVjYS5zaWdhbGluaUBtZWdhaXRhbGlhbWVkaWEuaXQiLCJyb2xlIjoiTEVBUk5FUiIsImlhdCI6MTcwODgxNTE4MiwiZXhwIjoxNzA4ODE4NzgyfQ.dkMy1mOFq9SGhwj66mKNs2YUxyFiBXq0Vs7bcBL-we83iw6_xEN1jCyigkJyV5rf01JspAkXVOtyh7LJEbJzQTuqCerQM9SWNzCIOClUdmEFCII08Rw4JhjZKXIZDdLWy3lESwGhF3zGbqjzHvs3XgWkpML_TVmH3ydBdsPa6zXJJF45Hk4gZ-cgmkjpsaBuULhghFnF4JwfrGSynIatteNYB0LoGV4W0tcOL3VWveQX4CbmEMmaVcsI8Iv-5M8mylsq0RXI78-8GZJj0YEUvPLL_a_tDDRwQNVFC326V-kMBkY9pnBCui0jxNfDeoF_1Ea-WABL0JaRBp_werMFCA','01a424a35db54e6f','2024-02-24 21:53:02',7);
+INSERT INTO `Session` VALUES (8,'2024-02-24 21:53:02','2024-02-24 21:53:02','eyJhbGciOiJSUzI1NiJ9.eyJuYW1lIjoiTHVjYSIsInN1cm5hbWUiOiJTaWdhbGluaSIsImVtYWlsIjoibHVjYS5zaWdhbGluaUBtZWdhaXRhbGlhbWVkaWEuaXQiLCJyb2xlIjoiTEVBUk5FUiIsImlhdCI6MTcwODgxNTE4MiwiZXhwIjoxNzA4ODE4NzgyfQ.dkMy1mOFq9SGhwj66mKNs2YUxyFiBXq0Vs7bcBL-we83iw6_xEN1jCyigkJyV5rf01JspAkXVOtyh7LJEbJzQTuqCerQM9SWNzCIOClUdmEFCII08Rw4JhjZKXIZDdLWy3lESwGhF3zGbqjzHvs3XgWkpML_TVmH3ydBdsPa6zXJJF45Hk4gZ-cgmkjpsaBuULhghFnF4JwfrGSynIatteNYB0LoGV4W0tcOL3VWveQX4CbmEMmaVcsI8Iv-5M8mylsq0RXI78-8GZJj0YEUvPLL_a_tDDRwQNVFC326V-kMBkY9pnBCui0jxNfDeoF_1Ea-WABL0JaRBp_werMFCA','01a424a35db54e6f','2024-02-24 21:53:02',7),(18,'2024-02-25 22:29:38','2024-02-25 22:29:38','eyJhbGciOiJSUzI1NiJ9.eyJuYW1lIjoiQWRtaW4iLCJzdXJuYW1lIjoiTWljcm8gTE1TIiwiZW1haWwiOiJhZG1pbkBtaWNyb2xtcy5vcmciLCJyb2xlIjoiQURNSU4iLCJpYXQiOjE3MDg5MDM3NzgsImV4cCI6MTcwODkwNzM3OH0.geYvMDmG9SyTPTylaffQmOAUHr5X3XaFWEFp5Z7juk1MeiZHFlM8xl4pO3Ryv1ZaHQ6RTS1Ge6kOc2xT9AE6ywfP6pYDMqlBHRDORXSAiLrra0fd4_QZQactYLY5_9UnPJBUKXdB2xeg3ztEm8j7jboHENrXST7Gfn6Dmwz4vzO3gUBcFbV86Bf258R97X0XjcStR6-Y8YhanjhEUM-gikd5ZIPGJWRzOoqBioopKjlJgRfYrlxCRaM71bpq_wVSQ_08yLrDFCn0YG6k9KalsntlWYzA5zbZyyi0a7iIPLSCqvGzaXnBu9fCQlTt4pR6OyxXZ-rEqCGXpodZsn6FEA','9da522790c52bdf9','2024-02-25 22:29:38',1);
 /*!40000 ALTER TABLE `Session` ENABLE KEYS */;
 UNLOCK TABLES;
 DROP TABLE IF EXISTS `Subscription`;
@@ -101,17 +101,39 @@ CREATE TABLE `Subscription` (
   `learnerId` int NOT NULL DEFAULT '0',
   `pillId` int NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`),
-  UNIQUE KEY `Subscription_learnerId_pillId_key` (`learnerId`,`pillId`),
+  UNIQUE KEY `LearnerPillUnique` (`learnerId`,`pillId`),
   KEY `Subscription_pillId_fkey` (`pillId`),
   CONSTRAINT `Subscription_learnerId_fkey` FOREIGN KEY (`learnerId`) REFERENCES `Learner` (`id`) ON DELETE RESTRICT ON UPDATE CASCADE,
   CONSTRAINT `Subscription_pillId_fkey` FOREIGN KEY (`pillId`) REFERENCES `Pill` (`id`) ON DELETE RESTRICT ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=25 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 LOCK TABLES `Subscription` WRITE;
 /*!40000 ALTER TABLE `Subscription` DISABLE KEYS */;
-INSERT INTO `Subscription` VALUES (13,'2024-02-24 21:36:57','2024-02-24 21:36:57',1,8),(14,'2024-02-24 21:36:57','2024-02-24 21:36:57',1,9),(15,'2024-02-24 21:36:57','2024-02-24 21:36:57',1,10),(16,'2024-02-24 21:49:35','2024-02-24 21:49:35',7,9);
+INSERT INTO `Subscription` VALUES (16,'2024-02-24 21:49:35','2024-02-24 21:49:35',7,9),(22,'2024-02-25 21:27:42','2024-02-25 21:27:42',1,8),(23,'2024-02-25 21:27:42','2024-02-25 21:27:42',1,9),(24,'2024-02-25 21:27:42','2024-02-25 21:27:42',1,10);
 /*!40000 ALTER TABLE `Subscription` ENABLE KEYS */;
+UNLOCK TABLES;
+DROP TABLE IF EXISTS `Track`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `Track` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `createdAt` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `updatedAt` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `learnerId` int NOT NULL DEFAULT '0',
+  `pillId` int NOT NULL DEFAULT '0',
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `LearnerPillUnique` (`learnerId`,`pillId`),
+  KEY `Track_pillId_fkey` (`pillId`),
+  CONSTRAINT `Track_learnerId_fkey` FOREIGN KEY (`learnerId`) REFERENCES `Learner` (`id`) ON DELETE RESTRICT ON UPDATE CASCADE,
+  CONSTRAINT `Track_pillId_fkey` FOREIGN KEY (`pillId`) REFERENCES `Pill` (`id`) ON DELETE RESTRICT ON UPDATE CASCADE
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+LOCK TABLES `Track` WRITE;
+/*!40000 ALTER TABLE `Track` DISABLE KEYS */;
+INSERT INTO `Track` VALUES (6,'2024-02-25 21:27:48','2024-02-25 22:40:59',1,9);
+/*!40000 ALTER TABLE `Track` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
