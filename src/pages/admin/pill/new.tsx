@@ -9,6 +9,8 @@
  */
 
 import { AdminPillCreateForm } from "@/frontend/features/pill/components/admin-form";
+import { SecondaryLink } from "@/frontend/ui/buttons";
+import { FbArrowLeftOutline } from "@/frontend/ui/icons/flowbite";
 import React from "react";
 
 // ------------------------------------------------------------------------------------------------
@@ -21,10 +23,22 @@ import React from "react";
 const AdminPillCreatePage = (): React.JSX.Element => {
   return (
     <>
-      <div className="mx-auto w-full px-5 py-12 lg:w-[64rem]">
-        <h1 className="text-2xl font-bold text-black">Nuova pillola</h1>
-        <p>...</p>
+      <div className="text-center">
+        <h1 className="text-4xl font-extrabold text-black">Nuova pillola</h1>
+
+        <p className="mt-4 text-lg">
+          {"Compila il form sottostante per creare una nuova pillola."}
+        </p>
+      </div>
+
+      <div className="mt-6">
         <AdminPillCreateForm />
+      </div>
+
+      <div className="mt-6">
+        <SecondaryLink href="/admin/pill" className="inline-flex items-center justify-center gap-2">
+          <FbArrowLeftOutline className="h-3 w-4" /> <p>indietro</p>
+        </SecondaryLink>
       </div>
     </>
   );

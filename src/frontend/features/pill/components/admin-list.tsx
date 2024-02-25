@@ -8,14 +8,14 @@
  * @project micro-lms
  */
 
-import { defaultColumnsDefinition } from "@/frontend/lib/ag-grid";
+import { defaultColumnsDefinition, defaultGridOptions } from "@/frontend/lib/ag-grid";
 import { apiClient } from "@/frontend/lib/trpc/client";
 import { DeleteLink, EditLink } from "@/frontend/ui/buttons";
 import { ErrorCard, LoadingBar } from "@/frontend/ui/status";
 import { type PillAdminData } from "@/shared/features/pill/schema";
 import { type ColDef, type GetRowIdFunc } from "@ag-grid-community/core";
 import { AgGridReact, type CustomCellRendererProps } from "@ag-grid-community/react";
-import React from "react";
+import React, { useMemo } from "react";
 
 // ------------------------------------------------------------------------------------------------
 
@@ -24,9 +24,6 @@ export const AdminPillList = (): React.JSX.Element => {
   const pills = apiClient.adminPill.list.useQuery();
   const deletePill = apiClient.adminPill.delete.useMutation();
   const apiCache = apiClient.useUtils();
-
-  if (pills.isLoading) return <LoadingBar />;
-  if (pills.error) return <ErrorCard error={pills.error.message} />;
 
   // azione per i pulsanti "Elimina" presente in elenco.
   const handleDeletePill = (id: number, title: string) => {
@@ -81,14 +78,19 @@ export const AdminPillList = (): React.JSX.Element => {
   };
 
   // Colonne esposte in elenco.
-  const columnsDefinition: ColDef<PillAdminData>[] = [
-    { field: "id", headerName: "ID", width: 100 },
-    { field: "id", headerName: "Titolo", cellRenderer: renderTitleAndThumb },
-    { field: "id", headerName: "Contenuti", cellRenderer: renderContentCount },
-    { field: "id", headerName: "Azioni", cellRenderer: renderActionsButton },
-  ];
+  const columnsDefinition = useMemo((): ColDef<PillAdminData>[] => {
+    return [
+      { field: "id", headerName: "ID", width: 100 },
+      { field: "id", headerName: "Titolo", cellRenderer: renderTitleAndThumb },
+      { field: "id", headerName: "Contenuti", width: 100, cellRenderer: renderContentCount },
+      { field: "id", headerName: "Azioni", cellRenderer: renderActionsButton },
+    ];
+  }, []);
 
   const getRowId: GetRowIdFunc<PillAdminData> = (row) => `${row.data.id}`;
+
+  if (pills.isLoading) return <LoadingBar />;
+  if (pills.error) return <ErrorCard error={pills.error.message} />;
 
   return (
     <div className="ag-theme-quartz h-96 w-full">
@@ -98,6 +100,7 @@ export const AdminPillList = (): React.JSX.Element => {
         getRowId={getRowId}
         pagination={true}
         defaultColDef={defaultColumnsDefinition}
+        gridOptions={defaultGridOptions}
       />
     </div>
   );

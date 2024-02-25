@@ -16,6 +16,7 @@ import { type LearnerAdminData } from "@/shared/features/learner/schema";
 import { type ColDef, type GetRowIdFunc } from "@ag-grid-community/core";
 import { AgGridReact, type CustomCellRendererProps } from "@ag-grid-community/react";
 import { Tooltip } from "flowbite-react";
+import { useMemo } from "react";
 
 // ------------------------------------------------------------------------------------------------
 
@@ -29,9 +30,6 @@ export const AdminLearnersList = (): React.JSX.Element => {
   const learners = apiClient.adminLearner.list.useQuery();
   const deleteLearner = apiClient.adminLearner.delete.useMutation();
   const apiCache = apiClient.useUtils();
-
-  if (learners.isLoading) return <LoadingBar />;
-  if (learners.error) return <ErrorCard error={learners.error.message} />;
 
   // azione per i pulsanti "Elimina" presente in elenco.
   const handleDeleteLearner = (id: number, name: string, surname: string) => {
@@ -64,19 +62,24 @@ export const AdminLearnersList = (): React.JSX.Element => {
   };
 
   // Colonne esposte in elenco.
-  const columnsDefinition: ColDef<LearnerAdminData>[] = [
-    { field: "id", headerName: "ID", width: 100 },
-    { field: "name", headerName: "Nome" },
-    { field: "surname", headerName: "Cognome" },
-    { field: "email", headerName: "E-Mail" },
-    {
-      field: "id",
-      headerName: "Azioni",
-      cellRenderer: renderActionsButton,
-    },
-  ];
+  const columnsDefinition = useMemo((): ColDef<LearnerAdminData>[] => {
+    return [
+      { field: "id", headerName: "ID", width: 100 },
+      { field: "name", headerName: "Nome" },
+      { field: "surname", headerName: "Cognome" },
+      { field: "email", headerName: "E-Mail" },
+      {
+        field: "id",
+        headerName: "Azioni",
+        cellRenderer: renderActionsButton,
+      },
+    ];
+  }, []);
 
   const getRowId: GetRowIdFunc<LearnerAdminData> = (row) => `${row.data.id}`;
+
+  if (learners.isLoading) return <LoadingBar />;
+  if (learners.error) return <ErrorCard error={learners.error.message} />;
 
   return (
     <div className="ag-theme-quartz h-96 w-full">

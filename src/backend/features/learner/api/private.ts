@@ -28,7 +28,7 @@ const get = loggedInAPIProcedure.query(({ ctx }): LearnerPublicData => {
  * Definizione route "learner".
  */
 
-export const learnerApi = createAPIRouter({
+export const privateLearnerApi = createAPIRouter({
   get,
 });
 

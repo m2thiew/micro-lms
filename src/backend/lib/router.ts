@@ -12,7 +12,7 @@
 import { createAPIRouter } from "@/backend/lib/trpc/server";
 import { helloApi } from "../features/hello/api";
 import { adminLearnerApi } from "../features/learner/api/admin";
-import { learnerApi } from "../features/learner/api/learner";
+import { privateLearnerApi } from "../features/learner/api/private";
 import { loginApi } from "../features/login/api";
 import { adminPillApi } from "../features/pill/api/admin";
 import { privatePillApi } from "../features/pill/api/private";
@@ -24,7 +24,7 @@ export const apiServerRouter = createAPIRouter({
   adminLearner: adminLearnerApi,
   adminPill: adminPillApi,
   adminSubscription: adminSubscription,
-  learner: learnerApi,
+  privateLearner: privateLearnerApi,
   privatePill: privatePillApi,
 });
 

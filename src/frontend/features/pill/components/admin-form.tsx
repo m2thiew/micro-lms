@@ -9,6 +9,7 @@
  */
 
 import { apiClient } from "@/frontend/lib/trpc/client";
+import { SubmitButton } from "@/frontend/ui/buttons";
 import { ErrorCard, LoadingBar } from "@/frontend/ui/status";
 import {
   adminPillFormCreateSchema,
@@ -81,11 +82,10 @@ export const AdminPillCreateForm = () => {
     pillCreate
       .mutateAsync(input)
       .then((newPIll) => {
-        console.log("onSubmit", "newPill", newPIll);
+        alert("Nuova pillola creata.");
+
         void apiCache.adminPill.invalidate();
-        alert("success");
-        form.reset();
-        // void router.push("/admin/pill");
+        void router.push("/admin/pill");
       })
       .catch((err) => {
         console.log(err);
@@ -133,13 +133,13 @@ export const AdminPillUpdateForm = ({ id }: UpdateProps) => {
     pillUpdate
       .mutateAsync({ id, ...input })
       .then(() => {
-        // forza il ricaricamento del dato modificato.
-        void apiCache.adminPill.invalidate();
-        pill.remove();
-        setDataLoaded(false);
+        // pill.remove();
+        // setDataLoaded(false);
 
-        alert("success");
-        // void router.push("/admin/pill");
+        alert("Modifiche salvate.");
+
+        void apiCache.adminPill.invalidate();
+        void router.push("/admin/pill");
       })
       .catch((err) => {
         console.log(err);
@@ -191,86 +191,91 @@ const AdminPillFormContent = (props: FormContentProps) => {
   const disabled = form.formState.isSubmitSuccessful;
 
   return (
-    <form onSubmit={onSubmit}>
-      <div className="mb-6">
-        <label
-          htmlFor="name"
-          className="mb-2 block text-sm font-medium text-gray-900 dark:text-white"
-        >
-          Titolo
-        </label>
-        <input
-          {...form.register("title")}
-          disabled={disabled}
-          className="block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-blue-500 focus:ring-blue-500 disabled:cursor-not-allowed disabled:bg-slate-200"
-        />
-        {errors.title ? <span className="text-red-500">{errors.title.message}</span> : undefined}
-      </div>
+    <>
+      {mode == "create" ? (
+        <h2 className="text-lg font-bold">Dati della nuova pillola</h2>
+      ) : (
+        <h2 className="text-lg font-bold">{`Dati attuali della pillola "${data.title}"`}</h2>
+      )}
+      <form onSubmit={onSubmit} className="mt-6">
+        <div className="mb-6">
+          <label
+            htmlFor="name"
+            className="mb-2 block text-sm font-medium text-gray-900 dark:text-white"
+          >
+            Titolo
+          </label>
+          <input
+            {...form.register("title")}
+            disabled={disabled}
+            className="block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-blue-500 focus:ring-blue-500 disabled:cursor-not-allowed disabled:bg-slate-200"
+          />
+          {errors.title ? <span className="text-red-500">{errors.title.message}</span> : undefined}
+        </div>
 
-      <div className="mb-6">
-        <label htmlFor="surname" className="mb-2 block text-sm text-gray-900 dark:text-white">
-          Descrizione (opzionale)
-        </label>
-        <textarea
-          {...form.register("description")}
-          disabled={disabled}
-          className="block h-24 w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-blue-500 focus:ring-blue-500 disabled:cursor-not-allowed disabled:bg-slate-200"
-        />
-        {errors.description ? (
-          <span className="text-red-500">{errors.description.message}</span>
-        ) : undefined}
-      </div>
+        <div className="mb-6">
+          <label htmlFor="surname" className="mb-2 block text-sm text-gray-900 dark:text-white">
+            Descrizione (opzionale)
+          </label>
+          <textarea
+            {...form.register("description")}
+            disabled={disabled}
+            className="block h-24 w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-blue-500 focus:ring-blue-500 disabled:cursor-not-allowed disabled:bg-slate-200"
+          />
+          {errors.description ? (
+            <span className="text-red-500">{errors.description.message}</span>
+          ) : undefined}
+        </div>
 
-      <div className="mb-6">
-        <label htmlFor="surname" className="mb-2 block text-sm text-gray-900 dark:text-white">
-          Immagine di anteprima (opzionale)
-        </label>
-        <p>{"è possibile caricare una immagine per l'anteprima della pillola"}</p>
-        <Controller
-          name="thumbPath"
-          control={form.control}
-          render={({ field }) => {
-            return <FileUploadInput {...field} config={uploadPillThumbConfig} />;
-          }}
-        />
-        {errors.thumbPath ? (
-          <span className="text-red-500">{getFormErrorMessage(errors.thumbPath)}</span>
-        ) : undefined}
-      </div>
+        <div className="mb-6">
+          <label htmlFor="surname" className="mb-2 block text-sm text-gray-900 dark:text-white">
+            Immagine di anteprima (opzionale)
+          </label>
+          <p className="mb-2">
+            {"è possibile caricare una immagine per l'anteprima della pillola"}
+          </p>
+          <Controller
+            name="thumbPath"
+            control={form.control}
+            render={({ field }) => {
+              return <FileUploadInput {...field} config={uploadPillThumbConfig} />;
+            }}
+          />
+          {errors.thumbPath ? (
+            <span className="text-red-500">{getFormErrorMessage(errors.thumbPath)}</span>
+          ) : undefined}
+        </div>
 
-      <div className="mb-6">
-        <label
-          htmlFor="name"
-          className="mb-2 block text-sm font-medium text-gray-900 dark:text-white"
-        >
-          Contenuti
-        </label>
-        <p>
-          Selezionare i file che comporranno i contenuti della pillola. È possibile caricare sia
-          immagini, sia video.
-        </p>
-        <p>
-          <strong>È obbligatorio caricare almeno un contenuto</strong>
-        </p>
-        <Controller
-          name="content"
-          control={form.control}
-          render={({ field }) => {
-            return <FileUploadInput {...field} config={uploadPillContentConfig} />;
-          }}
-        />
-        {errors.content ? (
-          <span className="text-red-500">{getFormErrorMessage(errors.content)}</span>
-        ) : undefined}
-      </div>
+        <div className="mb-6">
+          <label
+            htmlFor="name"
+            className="mb-2 block text-sm font-medium text-gray-900 dark:text-white"
+          >
+            Contenuti
+          </label>
+          <p className="mb-2">
+            Selezionare i file che comporranno i contenuti della pillola. È possibile caricare sia
+            immagini, sia video.
+          </p>
+          <p className="mb-2">
+            <strong>È obbligatorio caricare almeno un contenuto</strong>
+          </p>
+          <Controller
+            name="content"
+            control={form.control}
+            render={({ field }) => {
+              return <FileUploadInput {...field} config={uploadPillContentConfig} />;
+            }}
+          />
+          {errors.content ? (
+            <span className="text-red-500">{getFormErrorMessage(errors.content)}</span>
+          ) : undefined}
+        </div>
 
-      <button
-        type="submit"
-        disabled={disabled}
-        className="w-full rounded-lg bg-blue-700 px-5 py-2.5 text-center text-sm font-medium text-white hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300 disabled:cursor-not-allowed disabled:bg-blue-200 "
-      >
-        Submit
-      </button>
-    </form>
+        <SubmitButton disabled={disabled}>
+          {mode == "create" ? "Crea nuova pillola" : "Salva modifiche"}
+        </SubmitButton>
+      </form>
+    </>
   );
 };

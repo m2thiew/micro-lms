@@ -9,6 +9,7 @@
  */
 
 import { apiClient } from "@/frontend/lib/trpc/client";
+import { SubmitButton } from "@/frontend/ui/buttons";
 import { ErrorCard, LoadingBar } from "@/frontend/ui/status";
 import { type PillAdminData } from "@/shared/features/pill/schema";
 import {
@@ -46,7 +47,7 @@ type FormContent = {
  */
 export const AdminSubscriptionSetForm = (props: SetProps): React.JSX.Element => {
   // navigazione
-  const navigation = useRouter();
+  const router = useRouter();
 
   // chiamate api.
   const [isDataLoaded, setDataLoaded] = useState<boolean>(false);
@@ -56,7 +57,7 @@ export const AdminSubscriptionSetForm = (props: SetProps): React.JSX.Element => 
     { enabled: !isDataLoaded, cacheTime: 0 },
   );
   const setSubscriptions = apiClient.adminSubscription.set.useMutation();
-  const apiCahce = apiClient.useUtils();
+  const apiCache = apiClient.useUtils();
 
   // setup form (set)
   const form = useForm<AdminSubscriptionFormSetInput>({
@@ -72,11 +73,13 @@ export const AdminSubscriptionSetForm = (props: SetProps): React.JSX.Element => 
     setSubscriptions
       .mutateAsync(input)
       .then(() => {
-        alert("success");
+        // subscription.remove();
+        // setDataLoaded(false);
 
-        void apiCahce.adminSubscription.invalidate();
-        subscription.remove();
-        setDataLoaded(false);
+        alert("Modifiche salvate.");
+
+        void apiCache.adminSubscription.invalidate();
+        void router.push("/admin/subscription");
       })
       .catch((error) => {
         console.error(error);
@@ -174,17 +177,9 @@ const AdminSubscriptionFormContent = (props: FormContent): React.JSX.Element => 
 
   return (
     <>
-      <form onSubmit={onSubmit}>
-        <div className="bg-gray-100">
-          <p>
-            <strong>
-              {learner.data.name} {learner.data.surname}
-            </strong>
-          </p>
-          <p>{learner.data.email}</p>
-        </div>
-        <hr />
-        <table className="w-full text-left text-sm text-gray-500 dark:text-gray-400 rtl:text-right">
+      <h2 className="text-lg font-bold">{`Pillole assegnate a "${learner.data.name} ${learner.data.surname}"`}</h2>
+      <form onSubmit={onSubmit} className="mt-6">
+        <table className="mb-6 w-full text-left text-sm text-gray-500 dark:text-gray-400 rtl:text-right">
           <thead className="bg-gray-50 text-xs uppercase text-gray-700 dark:bg-gray-700 dark:text-gray-400">
             <tr key="header">
               <th scope="col" className="w-[10%] p-4"></th>
@@ -199,13 +194,7 @@ const AdminSubscriptionFormContent = (props: FormContent): React.JSX.Element => 
           </thead>
         </table>
 
-        <button
-          type="submit"
-          disabled={disabled}
-          className="w-full rounded-lg bg-blue-700 px-5 py-2.5 text-center text-sm font-medium text-white hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300 disabled:cursor-not-allowed disabled:bg-blue-200 "
-        >
-          Submit
-        </button>
+        <SubmitButton disabled={disabled}>Assegna pillole</SubmitButton>
       </form>
     </>
   );

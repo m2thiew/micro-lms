@@ -10,6 +10,8 @@
 
 import { useLoginStatus } from "@/frontend/features/login/context/status";
 import { AdminSubscriptionsList } from "@/frontend/features/subscription/components/admin-list";
+import { SecondaryLink } from "@/frontend/ui/buttons";
+import { FbArrowLeftOutline } from "@/frontend/ui/icons/flowbite";
 import { Alert } from "flowbite-react";
 
 // ------------------------------------------------------------------------------------------------
@@ -23,10 +25,24 @@ const AdminSubscriptionsListPage = (): React.JSX.Element => {
 
   return (
     <>
-      <div className="mx-auto w-full px-5 py-12 lg:w-[64rem]">
-        <h1 className="text-2xl font-bold text-black">Assegnazione pillole</h1>
-        <p>...</p>
+      <div className="text-center">
+        <h1 className="text-4xl font-extrabold text-black">Elenco assegnazioni</h1>
+
+        <p className="mt-4 text-lg">
+          {
+            "Di seguito sono esposti i learner con i dati sulle pillole assegnate a ciascuno di essi."
+          }
+        </p>
+      </div>
+
+      <div className="mt-6">
         <AdminSubscriptionsList />
+      </div>
+
+      <div className="mt-6">
+        <SecondaryLink href="/admin" className="inline-flex items-center justify-center gap-2">
+          <FbArrowLeftOutline className="h-3 w-4" /> <p>indietro</p>
+        </SecondaryLink>
       </div>
     </>
   );

@@ -357,8 +357,18 @@ const execDelete = adminAPIProcedure
         where: { pillId: input.id },
       });
 
+      // eliminazione assegnazioni pillola
+      await tx.subscription.deleteMany({
+        where: { pillId: input.id },
+      });
+
+      // eliminazione track pillola
+      await tx.track.deleteMany({
+        where: { pillId: input.id },
+      });
+
       // eliminazione pillola.
-      const deletedPillRow = await tx.pill.delete({
+      await tx.pill.delete({
         where: { id: input.id },
       });
 

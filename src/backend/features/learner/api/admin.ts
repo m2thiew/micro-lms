@@ -121,16 +121,31 @@ const execDelete = adminAPIProcedure
   .mutation(async ({ ctx, input }): Promise<LearnerAdminData> => {
     const { db } = ctx;
 
-    const learner = (await fetchLearnersAdminData(db, input.id)).at(0);
-    if (!learner) throw new TRPCError({ code: "NOT_FOUND" });
+    // eliminazione tutti i dati learner in un'unica transazione.
 
-    const deletedLearnerRow = await db.learner.delete({
-      where: {
-        id: input.id,
-      },
+    return await db.$transaction(async (tx): Promise<LearnerAdminData> => {
+      const learner = (await fetchLearnersAdminData(db, input.id)).at(0);
+      if (!learner) throw new TRPCError({ code: "NOT_FOUND" });
+
+      // eliminazione assegnazioni learner
+      await tx.subscription.deleteMany({
+        where: { learnerId: input.id },
+      });
+
+      // eliminazione track learner
+      await tx.track.deleteMany({
+        where: { learnerId: input.id },
+      });
+
+      // eliminazione learner
+      await tx.learner.delete({
+        where: {
+          id: input.id,
+        },
+      });
+
+      return learner;
     });
-
-    return learner;
   });
 
 // ------------------------------------------------------------------------------------------------
