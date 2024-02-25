@@ -71,9 +71,9 @@ export const FormDoLogin = () => {
   const formError = form.formState.errors;
 
   // azione di submit.
-  const onSubmit = form.handleSubmit(async (input) => {
+  const onSubmit = form.handleSubmit((input) => {
     // chiamata alle API per eseguire il login.
-    await login.doLogin(input.email, input.password);
+    login.doLogin(input.email, input.password);
   });
 
   // classi CSS

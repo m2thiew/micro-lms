@@ -9,7 +9,7 @@ import {
   type JWTDecoded,
   type LoginData,
 } from "@/shared/features/login/utils/jwt";
-import { doNothingAsync, doNothingSync } from "@/shared/utils/void";
+import { doNothingSync } from "@/shared/utils/void";
 import React, { useContext, useEffect, useState } from "react";
 import {
   deleteTokenFromStorage,
@@ -40,8 +40,8 @@ type LoginState =
 
 // Funzioni esposte dal contesto.
 type LoginFunctions = {
-  doLogin: (username: string, password: string) => Promise<void>;
-  doLogout: () => Promise<void>;
+  doLogin: (username: string, password: string) => void;
+  doLogout: () => void;
   clearError: () => void;
 };
 
@@ -58,8 +58,8 @@ const defaultValue: LoginStatusContext = {
   token: undefined,
   isLoading: true,
   error: undefined,
-  doLogin: doNothingAsync,
-  doLogout: doNothingAsync,
+  doLogin: doNothingSync,
+  doLogout: doNothingSync,
   clearError: doNothingSync,
   isLoggedIn: false,
 };
@@ -135,7 +135,7 @@ export const LoginStatusProvider = (props: ProviderProps): React.JSX.Element => 
    * Funzione esposta che esegue il login.
    */
 
-  const doLogin = async (username: string, password: string): Promise<void> => {
+  const doLogin = (username: string, password: string): void => {
     // se è già stato eseguito il login, non esegue alcuna azione
     if (isLoading || data) return;
 
@@ -145,8 +145,9 @@ export const LoginStatusProvider = (props: ProviderProps): React.JSX.Element => 
 
     const input = { email: username, password: password };
 
-    await doLoginCall.mutateAsync(input, {
-      onSuccess(data, variables, context) {
+    doLoginCall
+      .mutateAsync(input)
+      .then((data) => {
         // salvo il token in local storage.
         const { token } = data;
         setTokenInStorage(token);
@@ -155,13 +156,30 @@ export const LoginStatusProvider = (props: ProviderProps): React.JSX.Element => 
         setLoading(false);
         setToken(token);
         setError(undefined);
-      },
-      onError(error, variables, context) {
+      })
+      .catch((error) => {
         // login fallito.
         setLoading(false);
-        setError(error.message);
-      },
-    });
+        setError(error instanceof Error ? error.message : "unknown error");
+      });
+
+    // await doLoginCall.mutateAsync(input, {
+    //   onSuccess(data, variables, context) {
+    //     // salvo il token in local storage.
+    //     const { token } = data;
+    //     setTokenInStorage(token);
+
+    //     // aggiorno lo stato del contesto.
+    //     setLoading(false);
+    //     setToken(token);
+    //     setError(undefined);
+    //   },
+    //   onError(error, variables, context) {
+    //     // login fallito.
+    //     setLoading(false);
+    //     setError(error.message);
+    //   },
+    // });
   };
 
   // ----------------------------------------------------------------------------------------------
@@ -170,7 +188,7 @@ export const LoginStatusProvider = (props: ProviderProps): React.JSX.Element => 
    * Funzione esposta che esegue il logout.
    */
 
-  const doLogout = async (): Promise<void> => {
+  const doLogout = (): void => {
     // se non si è attualmente loggati, allora non esegue alcuna azione.
     if (isLoading || !token) return;
 
@@ -178,8 +196,9 @@ export const LoginStatusProvider = (props: ProviderProps): React.JSX.Element => 
 
     // chiamata alle API per eseguire il logout.
 
-    await doLogoutCall.mutateAsync(undefined, {
-      onSuccess(data, variables, context) {
+    doLogoutCall
+      .mutateAsync()
+      .then((data) => {
         // logout eseguito. Elimino il token salvato dal local storage.
         deleteTokenFromStorage();
 
@@ -187,13 +206,29 @@ export const LoginStatusProvider = (props: ProviderProps): React.JSX.Element => 
         setLoading(false);
         setToken(undefined);
         setError(undefined);
-      },
-      onError(error, variables, context) {
+      })
+      .catch((error) => {
         // logout fallito.
         setLoading(false);
-        setError(error.message);
-      },
-    });
+        setError(error instanceof Error ? error.message : "unknown error");
+      });
+
+    // await doLogoutCall.mutateAsync(undefined, {
+    //   onSuccess(data, variables, context) {
+    //     // logout eseguito. Elimino il token salvato dal local storage.
+    //     deleteTokenFromStorage();
+
+    //     // aggiorno lo stato del contesto.
+    //     setLoading(false);
+    //     setToken(undefined);
+    //     setError(undefined);
+    //   },
+    //   onError(error, variables, context) {
+    //     // logout fallito.
+    //     setLoading(false);
+    //     setError(error.message);
+    //   },
+    // });
   };
 
   // ----------------------------------------------------------------------------------------------
