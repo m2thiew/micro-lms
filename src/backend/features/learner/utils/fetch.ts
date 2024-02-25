@@ -12,6 +12,7 @@ import {
   learnerAdminDataSchema,
   learnerPublicDataSchema,
   subscriptionRowToPillId,
+  trackRowToTrack,
   type LearnerAdminData,
   type Learner as LearnerPublicData,
 } from "@/shared/features/learner/schema";
@@ -56,16 +57,19 @@ export const fetchLearnersAdminData = async (
       Subscription: {
         select: { pillId: true },
       },
+      Track: {
+        select: { learnerId: true, pillId: true, createdAt: true },
+      },
     },
     where: where,
   });
 
   // conversione da formato DB a formato della app.
   const learners: LearnerAdminData[] = learnerRows.map((learnerRow): LearnerAdminData => {
-    const subscriptionRows = learnerRow.Subscription;
-    const pillsId = subscriptionRows.map((subRow) => subscriptionRowToPillId.parse(subRow));
+    const pillsId = learnerRow.Subscription.map((subRow) => subscriptionRowToPillId.parse(subRow));
+    const tracks = learnerRow.Track.map((trackRow) => trackRowToTrack.parse(trackRow));
 
-    return learnerAdminDataSchema.parse({ ...learnerRow, pillsId });
+    return learnerAdminDataSchema.parse({ ...learnerRow, pillsId, tracks });
   });
 
   return learners;
@@ -97,16 +101,19 @@ export const fetchLearnersPublicData = async (
       Subscription: {
         select: { pillId: true },
       },
+      Track: {
+        select: { learnerId: true, pillId: true, createdAt: true },
+      },
     },
     where: where,
   });
 
   // conversione da formato DB a formato della app.
   const learners: LearnerPublicData[] = learnerRows.map((learnerRow): LearnerPublicData => {
-    const subscriptionRows = learnerRow.Subscription;
-    const pillsId = subscriptionRows.map((subRow) => subscriptionRowToPillId.parse(subRow));
+    const pillsId = learnerRow.Subscription.map((subRow) => subscriptionRowToPillId.parse(subRow));
+    const tracks = learnerRow.Track.map((trackRow) => trackRowToTrack.parse(trackRow));
 
-    return learnerPublicDataSchema.parse({ ...learnerRow, pillsId });
+    return learnerPublicDataSchema.parse({ ...learnerRow, pillsId, tracks });
   });
 
   return learners;

@@ -38,6 +38,7 @@ model Learner {
   role         Role           @default(LEARNER)
   Session      Session[]
   Subscription Subscription[]
+  Track        Track[]
 }
 
 model Session {
@@ -60,6 +61,7 @@ model Pill {
   thumbPath    String         @default("") @db.Char(255)
   PillContent  PillContent[]
   Subscription Subscription[]
+  Track        Track[]
 }
 
 model PillContent {
@@ -70,7 +72,7 @@ model PillContent {
   Pill      Pill     @relation(fields: [pillId], references: [id])
   pillId    Int      @default(0) @db.Int()
 
-  @@unique([pillId, path])
+  @@unique(fields: [pillId, path], map: "PillPathUnique", name: "PillPathUnique")
 }
 
 model Subscription {
@@ -82,5 +84,17 @@ model Subscription {
   Pill      Pill     @relation(fields: [pillId], references: [id])
   pillId    Int      @default(0) @db.Int()
 
-  @@unique([learnerId, pillId])
+  @@unique(fields: [learnerId, pillId], map: "LearnerPillUnique", name: "LearnerPillUnique")
+}
+
+model Track {
+  id        Int      @id @default(autoincrement()) @db.Int()
+  createdAt DateTime @default(now()) @db.Timestamp(0)
+  updatedAt DateTime @default(now()) @updatedAt @db.Timestamp(0)
+  Learner   Learner  @relation(fields: [learnerId], references: [id])
+  learnerId Int      @default(0) @db.Int()
+  Pill      Pill     @relation(fields: [pillId], references: [id])
+  pillId    Int      @default(0) @db.Int()
+
+  @@unique(fields: [learnerId, pillId], map: "LearnerPillUnique", name: "LearnerPillUnique")
 }

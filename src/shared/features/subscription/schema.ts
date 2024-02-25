@@ -8,7 +8,7 @@
  * @project micro-lms
  */
 
-import { number, z } from "zod";
+import { z } from "zod";
 
 // ------------------------------------------------------------------------------------------------
 
@@ -22,6 +22,14 @@ export const subscriptionFields = {
 } as const;
 
 const { learnerId, pillsId } = subscriptionFields;
+
+export const trackFields = {
+  learnerId: z.number().int(),
+  pillId: z.number().int(),
+  viewedAt: z.coerce.date(),
+} as const;
+
+const { viewedAt, pillId } = trackFields;
 
 // ------------------------------------------------------------------------------------------------
 
@@ -75,10 +83,28 @@ export const subscriptionAdminDataSchema = z.object({
 export type SubscriptionAdminData = z.infer<typeof subscriptionAdminDataSchema>;
 
 /**
- * Dati assegnazione (public)
+ * Dati assegnazione (private)
  */
-export const subscriptionSchema = subscriptionAdminDataSchema;
-export type Subscription = SubscriptionAdminData;
+export const subscriptionPrivateSchema = subscriptionAdminDataSchema;
+export type SubscriptionPrivateData = SubscriptionAdminData;
+
+// ------------------------------------------------------------------------------------------------
+
+/**
+ * Dati track (admin).
+ */
+export const trackAdminData = z.object({
+  learnerId,
+  pillId,
+  viewedAt,
+});
+export type TrackAdminData = z.infer<typeof trackAdminData>;
+
+/**
+ * Dati track (private).
+ */
+export const trackPrivateData = trackAdminData;
+export type TrackPrivateData = TrackAdminData;
 
 // ------------------------------------------------------------------------------------------------
 

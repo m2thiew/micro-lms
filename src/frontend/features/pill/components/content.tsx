@@ -15,6 +15,7 @@ import { mime } from "@/shared/lib/mime";
 import { buildPublicUrl } from "@/shared/utils/url";
 import { Carousel } from "flowbite-react";
 import { useRouter } from "next/router";
+import { useEffect, useState } from "react";
 
 // ------------------------------------------------------------------------------------------------
 
@@ -31,8 +32,24 @@ export const PillContent = (props: ContentProps): React.JSX.Element => {
   const router = useRouter();
 
   // chiamate api
-  const pill = apiClient.learnerPill.get.useQuery({ id });
+  const [trackSent, setTrackSent] = useState<boolean>(false);
+
+  const pill = apiClient.privatePill.get.useQuery({ id });
+  const setTrack = apiClient.privatePill.setTrack.useMutation();
   const apiCache = apiClient.useUtils();
+
+  // invia il track di visualizzazione al primo caricamento del contenuto.
+  useEffect(() => {
+    if (!trackSent) {
+      setTrack
+        .mutateAsync({ id })
+        .then((response) => {
+          console.log("setTrack success", response);
+          setTrackSent(true);
+        })
+        .catch(console.error);
+    }
+  }, [trackSent, props.id]);
 
   if (pill.isLoading) return <LoadingBar />;
   if (pill.error) return <ErrorCard error={pill.error.message} />;

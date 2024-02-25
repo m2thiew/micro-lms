@@ -15,7 +15,7 @@ import { adminLearnerApi } from "../features/learner/api/admin";
 import { learnerApi } from "../features/learner/api/learner";
 import { loginApi } from "../features/login/api";
 import { adminPillApi } from "../features/pill/api/admin";
-import { learnerPillApi } from "../features/pill/api/learner";
+import { privatePillApi } from "../features/pill/api/private";
 import { adminSubscription } from "../features/subscription/api/admin";
 
 export const apiServerRouter = createAPIRouter({
@@ -25,7 +25,7 @@ export const apiServerRouter = createAPIRouter({
   adminPill: adminPillApi,
   adminSubscription: adminSubscription,
   learner: learnerApi,
-  learnerPill: learnerPillApi,
+  privatePill: privatePillApi,
 });
 
 // --------------------------------------------------------------------------------------------------------------------

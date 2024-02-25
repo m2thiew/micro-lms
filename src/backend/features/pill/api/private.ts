@@ -10,9 +10,13 @@
 
 import { loggedInAPIProcedure } from "@/backend/lib/trpc/procedures";
 import { createAPIRouter } from "@/backend/lib/trpc/server";
-import { learnerPillApiGetSchema, type PillPublicData } from "@/shared/features/pill/schema";
+import {
+  privatePillApiGetSchema,
+  privatePillApiSetTrackSchema,
+  type PillPublicData,
+} from "@/shared/features/pill/schema";
+import { type TrackPrivateData } from "@/shared/features/subscription/schema";
 import { TRPCError } from "@trpc/server";
-import input from "postcss/lib/input";
 import { fetchPillsPublicData } from "../utils/fetch";
 
 // ------------------------------------------------------------------------------------------------
@@ -34,7 +38,7 @@ const list = loggedInAPIProcedure.query(async ({ ctx }): Promise<PillPublicData[
  * Restituisce i dati di una pillola a cui il learner è iscritto.
  */
 const get = loggedInAPIProcedure
-  .input(learnerPillApiGetSchema)
+  .input(privatePillApiGetSchema)
   .query(async ({ ctx, input }): Promise<PillPublicData> => {
     const { db, learner } = ctx;
 
@@ -49,10 +53,41 @@ const get = loggedInAPIProcedure
 // ------------------------------------------------------------------------------------------------
 
 /**
- * Definizione route "learnerPill"
+ *
  */
-export const learnerPillApi = createAPIRouter({
+const setTrack = loggedInAPIProcedure
+  .input(privatePillApiSetTrackSchema)
+  .mutation(async ({ ctx, input }): Promise<TrackPrivateData> => {
+    const { db, learner } = ctx;
+
+    if (!learner.pillsId.includes(input.id)) throw new TRPCError({ code: "UNAUTHORIZED" });
+
+    // inserimento/track di visualizzazione pillola.
+    const track = await db.track.upsert({
+      create: {
+        learnerId: learner.id,
+        pillId: input.id,
+      },
+      update: {
+        learnerId: learner.id,
+        pillId: input.id,
+      },
+      where: {
+        LearnerPillUnique: { learnerId: learner.id, pillId: input.id },
+      },
+    });
+
+    return track;
+  });
+
+// ------------------------------------------------------------------------------------------------
+
+/**
+ * Definizione route "privatePill"
+ */
+export const privatePillApi = createAPIRouter({
   list,
   get,
+  setTrack,
 });
 // ------------------------------------------------------------------------------------------------

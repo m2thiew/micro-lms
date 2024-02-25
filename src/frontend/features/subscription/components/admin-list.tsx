@@ -44,6 +44,13 @@ export const AdminSubscriptionsList = (): React.JSX.Element => {
     return `${params.data.pillsId.length}`;
   };
 
+  // Espone il numero di pillole visionate.
+  const formatPillTrackedNumber = (params: ValueFormatterParams<LearnerAdminData>): string => {
+    if (!params.data) return "-";
+
+    return `${params.data.tracks.length}`;
+  };
+
   // Cella con i pulsanti di modifica.
   const renderActionsButton = (params: CustomCellRendererProps<LearnerAdminData>) => {
     if (!params.data) return null;
@@ -62,7 +69,7 @@ export const AdminSubscriptionsList = (): React.JSX.Element => {
     { field: "id", headerName: "ID", width: 100 },
     { headerName: "Learner", valueFormatter: formatFullName },
     { headerName: "Pillole assegnate", valueFormatter: formatPillNumber },
-    { headerName: "Pillole visionate", valueFormatter: () => "0" },
+    { headerName: "Pillole visionate", valueFormatter: formatPillTrackedNumber },
     { headerName: "Azioni", cellRenderer: renderActionsButton },
   ];
 

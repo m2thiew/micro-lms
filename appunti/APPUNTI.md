@@ -611,7 +611,27 @@ TODO:
   - ~~gestione checkbox con zod e react-hook-form~~
 - ~~modifica "assegnazione pillola"~~
 - ~~elenco "assegnazioni"~~
-- elenco pillole learner
-- visulizzazione pillola learner
-- track visualizzazione learner
-- viusalizzazione track lato admin
+- ~~elenco pillole learner~~
+- ~~visulizzazione pillola learner~~
+- ~~track visualizzazione learner~~
+- ~~aggiungere track di lettura a dati pillole per learner~~
+- ~~aggiungere track di lettura a dati pillole per admin~~
+- ~~viusalizzazione track lato admin~~
+- polish presentazione pagine
+  - barrà del menù
+  - container responsive
+  - hoepage
+  - azioni admin
+  - elenco learner
+  - form crezione learner
+  - form crezione update
+  - elenco pillole
+  - form creazione pillola
+  - form modifica pillola
+  - elenco assegnazioni
+  - form assegnazioni
+  - elenco pillole
+  - derttaglio pillola
+- README
+  - deyup progetto
+  - esportazione dati

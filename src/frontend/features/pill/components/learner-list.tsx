@@ -22,7 +22,7 @@ export const LearnerSubscribedPillList = (): React.JSX.Element => {
   const router = useRouter();
 
   // chiamate api
-  const learnerPills = apiClient.learnerPill.list.useQuery();
+  const learnerPills = apiClient.privatePill.list.useQuery();
 
   if (learnerPills.isLoading) return <LoadingBar />;
   if (learnerPills.error) return <ErrorCard error={learnerPills.error.message} />;

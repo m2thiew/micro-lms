@@ -149,10 +149,21 @@ export type AdminPillApiDeleteInput = z.infer<typeof adminPillApiDeleteSchema>;
  * Input per API "learnerPill.get"
  */
 
-export const learnerPillApiGetSchema = z.object({
+export const privatePillApiGetSchema = z.object({
   id,
 });
-export type LearnerPillApiGetInput = z.infer<typeof learnerPillApiGetSchema>;
+export type PrivatePillApiGetInput = z.infer<typeof privatePillApiGetSchema>;
+
+// ------------------------------------------------------------------------------------------------
+
+/**
+ * Input per API "learnerPill.get"
+ */
+
+export const privatePillApiSetTrackSchema = z.object({
+  id,
+});
+export type PrivatePillApiSetTrackInput = z.infer<typeof privatePillApiSetTrackSchema>;
 
 // ------------------------------------------------------------------------------------------------
 

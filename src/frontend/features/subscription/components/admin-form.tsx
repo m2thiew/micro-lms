@@ -19,6 +19,7 @@ import {
 } from "@/shared/features/subscription/schema";
 import { returnSyncHandler, type SyncHandler } from "@/shared/utils/async";
 import { zodResolver } from "@hookform/resolvers/zod";
+import { DateTime } from "luxon";
 import { useRouter } from "next/router";
 import React, { useEffect, useState } from "react";
 import { useForm, type FieldErrors, type UseFormReturn } from "react-hook-form";
@@ -133,9 +134,20 @@ const AdminSubscriptionFormContent = (props: FormContent): React.JSX.Element => 
   if (!dataReady) return <LoadingBar />;
   if (someError) return <ErrorCard error={someError.message} />;
 
+  // costruisce l'elenco delle pillole visionate incrociando i track learner e i dati delle pillole.
+  const viewedPills: Record<string, Date> = {};
+  learner.data.tracks.forEach((track) => {
+    viewedPills[track.pillId] = track.viewedAt;
+  });
+
   // esposizione riga per assegnare una pillola.
   const showSubscriptionPillRow = (pill: PillAdminData) => {
     const checkboxId = `pillsId.${pill.id}`;
+
+    const viewedPill = viewedPills[pill.id];
+    const viewedAt = viewedPill
+      ? DateTime.fromJSDate(viewedPill).toFormat("dd/MM/yyyy HH:mm:ss")
+      : "-";
 
     return (
       <tr className="border-b bg-white hover:bg-gray-50" key={pill.id}>
@@ -155,7 +167,7 @@ const AdminSubscriptionFormContent = (props: FormContent): React.JSX.Element => 
           </div>
         </td>
         <td className="px-6 py-4">{pill.title}</td>
-        <td className="px-6 py-4">-</td>
+        <td className="px-6 py-4">{viewedAt}</td>
       </tr>
     );
   };
@@ -175,11 +187,11 @@ const AdminSubscriptionFormContent = (props: FormContent): React.JSX.Element => 
         <table className="w-full text-left text-sm text-gray-500 dark:text-gray-400 rtl:text-right">
           <thead className="bg-gray-50 text-xs uppercase text-gray-700 dark:bg-gray-700 dark:text-gray-400">
             <tr key="header">
-              <th scope="col" className="p-4"></th>
-              <th scope="col" className="px-6 py-3">
+              <th scope="col" className="w-[10%] p-4"></th>
+              <th scope="col" className="w-[50%] px-6 py-3">
                 Pillola
               </th>
-              <th scope="col" className="px-6 py-3">
+              <th scope="col" className="w-[40%] px-6 py-3">
                 Data fruizione
               </th>
             </tr>

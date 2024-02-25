@@ -9,7 +9,11 @@
  */
 
 import { z } from "zod";
-import { subscriptionFields } from "../subscription/schema";
+import {
+  subscriptionFields,
+  trackPrivateData,
+  type TrackPrivateData,
+} from "../subscription/schema";
 
 // ------------------------------------------------------------------------------------------------
 
@@ -33,13 +37,28 @@ export type LearnerFields = typeof learnerFields;
 
 const { id, createdAt, updatedAt, name, surname, email, password, role } = learnerFields;
 
-const subscriptionRow = z.object({
+// conversione delle righe "Subscription" presenti in DB in oggetto "pillsId"
+
+export const subscriptionRow = z.object({
   pillId: z.number().int(),
 });
 export type SubscriptionRow = z.infer<typeof subscriptionRow>;
 
 export const subscriptionRowToPillId = subscriptionRow.transform((subRow): number => {
   return subRow.pillId;
+});
+
+// conversione delle righe "Track" presenti in DB in oggetto "tracks"
+
+export const trackRow = z.object({
+  createdAt: z.coerce.date(),
+  learnerId: z.number().int(),
+  pillId: z.number().int(),
+});
+export type TrackRow = z.infer<typeof trackRow>;
+
+export const trackRowToTrack = trackRow.transform((trackRow): TrackPrivateData => {
+  return { pillId: trackRow.pillId, learnerId: trackRow.learnerId, viewedAt: trackRow.createdAt };
 });
 
 // ------------------------------------------------------------------------------------------------
@@ -54,6 +73,7 @@ export const learnerPublicDataSchema = z.object({
   surname,
   email,
   pillsId: subscriptionFields.pillsId,
+  tracks: z.array(trackPrivateData),
 });
 export type LearnerPublicData = z.infer<typeof learnerPublicDataSchema>;
 
@@ -77,6 +97,7 @@ export const learnerAdminDataSchema = z.object({
   email,
   role,
   pillsId: subscriptionFields.pillsId,
+  tracks: z.array(trackPrivateData),
 });
 export type LearnerAdminData = z.infer<typeof learnerAdminDataSchema>;
 
