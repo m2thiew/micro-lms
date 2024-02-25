@@ -15,7 +15,7 @@ import React, { useState } from "react";
 import { useLoginPopupForm } from "../features/login/context/popup-form";
 import { useLoginStatus } from "../features/login/context/status";
 import { PrimaryButton } from "../ui/buttons";
-import { FbBookSolid } from "../ui/icons/flowbite";
+import { FbBookSolid, FbUserCircleSolid } from "../ui/icons/flowbite";
 
 // proprità passate ai componenti.
 
@@ -28,19 +28,21 @@ type AccountLoggedInButtonProps = {
 export const Header = (): React.JSX.Element => {
   // navigazione
   const router = useRouter();
+
   const login = useLoginStatus();
+  const loginPopupForm = useLoginPopupForm();
 
   // gestione menù hamburger
   const [isHamburgerOpen, setHamburgerOpen] = useState(false);
 
   // CSS pagina selezionata.
-  const selectedPageCSS =
+  const selectedPageClassName =
     "block rounded bg-blue-700 px-3 py-2 text-white md:bg-transparent md:p-0 md:text-blue-700";
-  const notSelectedPageCSS =
+  const notSelectedPageClassName =
     "block py-2 px-3 md:p-0 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700";
 
   // CSS contenitore menù hamburger
-  const hamburgerCSS = isHamburgerOpen
+  const hamburgerClassName = isHamburgerOpen
     ? "w-full items-center justify-between md:order-1 md:flex md:w-auto"
     : "hidden w-full items-center justify-between md:order-1 md:flex md:w-auto";
 
@@ -52,35 +54,6 @@ export const Header = (): React.JSX.Element => {
   // calcolo visibilità pulsanti.
   const isPillVisible = login.isLoggedIn;
   const isAdminVisible = login.isLoggedIn && login.data.role == "ADMIN";
-
-  // pulsante di account
-  const accountButton = login.isLoggedIn ? (
-    <AccountLoggedInButton data={login.data} />
-  ) : (
-    <AccountNotLoggedButton />
-  );
-
-  // Pulsanter per le pillole.
-  const pillButton = (
-    <Link
-      href="/pill/"
-      className="ml-2 inline-flex cursor-pointer items-center gap-2 rounded-lg px-5 py-2.5 font-medium text-white hover:bg-slate-700/20"
-    >
-      <p className="text-xl">Pillole</p>
-    </Link>
-  );
-
-  // Pulsante per area amministratore.
-  const adminButton =
-    login.isLoggedIn && login.data.role == "ADMIN" ? (
-      <Link
-        href="/admin/"
-        className={isAdminCurrent ? selectedPageCSS : notSelectedPageCSS}
-        aria-current="page"
-      >
-        Admin
-      </Link>
-    ) : null;
 
   return (
     <>
@@ -98,7 +71,26 @@ export const Header = (): React.JSX.Element => {
               </span>
             </Link>
             <div className="flex space-x-3 md:order-2 md:space-x-0 rtl:space-x-reverse">
-              {accountButton}
+              {login.isLoggedIn ? (
+                <PrimaryButton
+                  onClick={() => {
+                    loginPopupForm.open();
+                  }}
+                  className="inline-flex items-center justify-center gap-1"
+                >
+                  <FbUserCircleSolid className="h-5" />
+                  Benvenuto
+                </PrimaryButton>
+              ) : (
+                <PrimaryButton
+                  onClick={() => {
+                    loginPopupForm.open();
+                  }}
+                >
+                  accedi
+                </PrimaryButton>
+              )}
+
               <button
                 data-collapse-toggle="navbar-sticky"
                 type="button"
@@ -127,13 +119,17 @@ export const Header = (): React.JSX.Element => {
                 </svg>
               </button>
             </div>
-            <div className={hamburgerCSS} id="navbar-sticky">
+
+            <div className={hamburgerClassName} id="navbar-sticky">
               <ul className="mt-4 flex flex-col rounded-lg border border-gray-100 bg-gray-50 p-4 font-medium  md:mt-0 md:flex-row md:space-x-8 md:border-0 md:bg-white md:p-0 rtl:space-x-reverse">
                 <li>
                   <Link
                     href="/"
-                    className={isHomeCurrent ? selectedPageCSS : notSelectedPageCSS}
-                    aria-current="page"
+                    className={isHomeCurrent ? selectedPageClassName : notSelectedPageClassName}
+                    aria-current={isHomeCurrent ? "page" : undefined}
+                    onClick={() => {
+                      setHamburgerOpen(false);
+                    }}
                   >
                     Home
                   </Link>
@@ -142,8 +138,11 @@ export const Header = (): React.JSX.Element => {
                   <li>
                     <Link
                       href="/pill/"
-                      className={isPillCurrent ? selectedPageCSS : notSelectedPageCSS}
-                      aria-current="page"
+                      className={isPillCurrent ? selectedPageClassName : notSelectedPageClassName}
+                      aria-current={isPillCurrent ? "page" : undefined}
+                      onClick={() => {
+                        setHamburgerOpen(false);
+                      }}
                     >
                       Pillole
                     </Link>
@@ -153,8 +152,11 @@ export const Header = (): React.JSX.Element => {
                   <li>
                     <Link
                       href="/admin/"
-                      className={isAdminCurrent ? selectedPageCSS : notSelectedPageCSS}
-                      aria-current="page"
+                      className={isAdminCurrent ? selectedPageClassName : notSelectedPageClassName}
+                      aria-current={isAdminCurrent ? "page" : undefined}
+                      onClick={() => {
+                        setHamburgerOpen(false);
+                      }}
                     >
                       Admin
                     </Link>
@@ -170,32 +172,3 @@ export const Header = (): React.JSX.Element => {
 };
 
 // ------------------------------------------------------------------------------------------------
-
-const AccountNotLoggedButton = () => {
-  const loginPopupForm = useLoginPopupForm();
-  return (
-    <PrimaryButton
-      onClick={() => {
-        loginPopupForm.open();
-      }}
-    >
-      accedi
-    </PrimaryButton>
-  );
-};
-
-// ------------------------------------------------------------------------------------------------
-
-const AccountLoggedInButton = ({ data }: AccountLoggedInButtonProps) => {
-  const loginPopupForm = useLoginPopupForm();
-
-  return (
-    <PrimaryButton
-      onClick={() => {
-        loginPopupForm.open();
-      }}
-    >
-      Benvenuto
-    </PrimaryButton>
-  );
-};

@@ -9,6 +9,8 @@
  * @project micro-lms
  */
 
+import { DangerButton, PrimaryLink, SubmitButton } from "@/frontend/ui/buttons";
+import { FbBookSolid } from "@/frontend/ui/icons/flowbite";
 import { doLoginSchema } from "@/shared/features/login/schema";
 import { returnSyncHandler } from "@/shared/utils/async";
 import { doNothingSync } from "@/shared/utils/void";
@@ -67,7 +69,16 @@ export const LoginPopupFormProvider = (props: ProviderProps): React.JSX.Element 
   const AlertLoadig = <Alert color="info">caricamento...</Alert>;
 
   // messaggio di errore.
-  const AlertError = <Alert color="failure">{login.error}</Alert>;
+  const AlertError = (
+    <Alert
+      color="failure"
+      onDismiss={() => {
+        login.clearError();
+      }}
+    >
+      {login.error}
+    </Alert>
+  );
 
   // funzioni esposte per aprire/chiudere il popup.
   const open = () => {
@@ -94,12 +105,15 @@ export const LoginPopupFormProvider = (props: ProviderProps): React.JSX.Element 
         onClose={() => {
           setOpen(false);
         }}
+        size={"md"}
       >
         <Modal.Header>Login</Modal.Header>
         <Modal.Body>
-          {login.isLoading ? AlertLoadig : login.error ? AlertError : undefined}
+          <div className="flex flex-col gap-2">
+            {login.isLoading ? AlertLoadig : login.error ? AlertError : undefined}
 
-          {login.isLoggedIn ? <FormDoLogout /> : <FormDoLogin />}
+            <div className="flex-none">{login.isLoggedIn ? <FormDoLogout /> : <FormDoLogin />}</div>
+          </div>
         </Modal.Body>
       </Modal>
       {props.children}
@@ -148,46 +162,40 @@ export const FormDoLogin = (): React.JSX.Element => {
 
   return (
     <>
-      <div className="relative block max-w-sm items-center rounded-lg border border-gray-100 bg-white p-6 shadow-md">
-        <form className="mx-auto max-w-sm" onSubmit={returnSyncHandler(onSubmit)}>
-          <div className="mb-5">
-            <label
-              htmlFor="email"
-              className="mb-2 block text-sm font-medium text-gray-900 dark:text-white"
-            >
-              E-Mail
-            </label>
-            <input
-              type="email"
-              className={inputClassName}
-              {...form.register("email")}
-              disabled={disabled}
-            />
-            {formError.email && <span className="text-red-500">{formError.email.message}</span>}
-          </div>
-          <div className="mb-5">
-            <label
-              htmlFor="password"
-              className="mb-2 block text-sm font-medium text-gray-900 dark:text-white"
-            >
-              Password
-            </label>
-            <input
-              type="password"
-              className={inputClassName}
-              {...form.register("password")}
-              disabled={disabled}
-            />
-            {formError.password && (
-              <span className="text-red-500">{formError.password.message}</span>
-            )}
-          </div>
+      <form className="mx-auto  " onSubmit={returnSyncHandler(onSubmit)}>
+        <div className="mb-5">
+          <label
+            htmlFor="email"
+            className="mb-2 block text-sm font-medium text-gray-900 dark:text-white"
+          >
+            E-Mail
+          </label>
+          <input
+            type="email"
+            className={inputClassName}
+            {...form.register("email")}
+            disabled={disabled}
+          />
+          {formError.email && <span className="text-red-500">{formError.email.message}</span>}
+        </div>
+        <div className="mb-5">
+          <label
+            htmlFor="password"
+            className="mb-2 block text-sm font-medium text-gray-900 dark:text-white"
+          >
+            Password
+          </label>
+          <input
+            type="password"
+            className={inputClassName}
+            {...form.register("password")}
+            disabled={disabled}
+          />
+          {formError.password && <span className="text-red-500">{formError.password.message}</span>}
+        </div>
 
-          <button type="submit" className={submitClassName} disabled={disabled}>
-            Submit
-          </button>
-        </form>
-      </div>
+        <SubmitButton disabled={disabled}>Accedi</SubmitButton>
+      </form>
     </>
   );
 };
@@ -203,35 +211,47 @@ export const FormDoLogin = (): React.JSX.Element => {
 export const FormDoLogout = (): React.JSX.Element => {
   // stato del login.
   const login = useLoginStatus();
+  const loginPopupForm = useLoginPopupForm();
 
   if (!login.data) {
     return <p>dati non disponibili</p>;
   }
 
-  const { email, role, expire } = login.data;
+  const { email, role, expire, name, surname } = login.data;
 
   return (
     <>
-      <div className="max-w-sm rounded-lg border border-gray-200 bg-white p-6 shadow dark:border-gray-700 dark:bg-gray-800">
-        <a href="#">
-          <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
-            Benvenuto {email}
-          </h5>
-        </a>
-        <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">
+      <div>
+        <h5 className="text-gray-90 text-2xl font-bold tracking-tight text-black ">
+          Benvenuto {name} {surname}
+        </h5>
+
+        <p className="mt-4 text-lg text-gray-900">
           Il tuo ruolo: <b>{role}</b>
         </p>
-        <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">
-          scadenza del login: <b>{expire.toLocaleString()}</b>
+        <p className="mt-4 text-lg text-gray-900">
+          Scadenza del login: <b>{expire.toLocaleString()}</b>
         </p>
-        <a
-          className="inline-flex items-center rounded-lg bg-blue-700 px-3 py-2 text-center text-sm font-medium text-white hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300"
-          onClick={() => {
-            void login.doLogout();
-          }}
-        >
-          logout
-        </a>
+
+        <div className="mt-4 flex items-center justify-center gap-4">
+          <PrimaryLink
+            className=" inline-flex items-center justify-center gap-1"
+            href="/pill/"
+            onClick={() => {
+              loginPopupForm.close();
+            }}
+          >
+            <FbBookSolid /> Guarda le tue pillole
+          </PrimaryLink>
+          <DangerButton
+            onClick={() => {
+              void login.doLogout();
+              loginPopupForm.close();
+            }}
+          >
+            logout
+          </DangerButton>
+        </div>
       </div>
     </>
   );

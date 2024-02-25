@@ -621,19 +621,20 @@ TODO:
   - ~~barrà del menù~~
   - ~~container responsive~~
   - ~~hoepage~~
-  - azioni admin
-  - elenco learner
-  - form crezione learner
-  - form crezione update
-  - elenco pillole
-  - form creazione pillola
-  - form modifica pillola
-  - elenco assegnazioni
-  - form assegnazioni
-  - elenco pillole
-  - derttaglio pillola
-  - form: alert + redirect dopo operazioni
-  - check pillola vista dal learner
+  - ~~azioni admin~~
+  - ~~elenco learner~~
+  - ~~form crezione learner~~
+  - ~~form crezione update~~
+  - ~~elenco pillole~~
+  - ~~form creazione pillola~~
+  - ~~form modifica pillola~~
+  - ~~elenco assegnazioni~~
+  - ~~form assegnazioni~~
+  - ~~elenco pillole~~
+  - ~~derttaglio pillola~~
+  - ~~form: alert + redirect dopo operazioni~~
+  - ~~check pillola vista dal learner~~
+  - ~~form di login~~
 - README
   - deyup progetto
   - esportazione dati

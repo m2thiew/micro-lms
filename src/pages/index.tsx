@@ -6,6 +6,7 @@ import { useLoginPopupForm } from "@/frontend/features/login/context/popup-form"
 import { useLoginStatus } from "@/frontend/features/login/context/status";
 import { carouselCustomTheme } from "@/frontend/lib/flowbite";
 import { PrimaryButton, PrimaryLink } from "@/frontend/ui/buttons";
+import { FbBookSolid } from "@/frontend/ui/icons/flowbite";
 import { Carousel } from "flowbite-react";
 import Image from "next/image";
 import { default as assetCarousel01 } from "/public/assets/carousel01.png";
@@ -31,8 +32,11 @@ export default function Home() {
           </p>
           <div className="mt-4">
             {login.isLoggedIn ? (
-              <PrimaryLink className="bg-teal-700 text-xl hover:bg-teal-800" href="/pill/">
-                Guarda le tue pillole
+              <PrimaryLink
+                className=" inline-flex items-center justify-center gap-2 text-xl"
+                href="/pill/"
+              >
+                <FbBookSolid /> Guarda le tue pillole
               </PrimaryLink>
             ) : (
               <PrimaryButton

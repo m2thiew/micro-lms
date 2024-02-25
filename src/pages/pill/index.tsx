@@ -22,9 +22,13 @@ const LearnerSubscribedPillPage = (): React.JSX.Element => {
 
   return (
     <>
-      <div className="mx-auto w-full px-5 py-12 lg:w-[64rem]">
-        <h1 className="text-2xl font-bold text-black">Elenco delle tue pillole</h1>
-        <p>...</p>
+      <div className="text-center">
+        <h1 className="text-4xl font-extrabold text-black">Le tue pillole</h1>
+
+        <p className="mt-4 text-lg">{"Di seguito sono esposte le tue pillole da fruire."}</p>
+      </div>
+
+      <div className="mt-6">
         <LearnerSubscribedPillList />
       </div>
     </>

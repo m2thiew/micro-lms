@@ -48,6 +48,28 @@ PrimaryButton.displayName = "PrimaryButton";
 // ------------------------------------------------------------------------------------------------
 
 /**
+ * Button per azioni di "pericolo"
+ */
+export const DangerButton = React.forwardRef<HTMLButtonElement, ButtonProps>(
+  (props, ref): React.JSX.Element => {
+    const { className, children } = props;
+    const mergedClassName = twMerge(
+      "rounded-lg bg-red-700 px-4 py-2 text-center text-sm font-medium text-white hover:bg-red-800 focus:outline-none focus:ring-4 focus:ring-red-300 ",
+      className,
+    );
+
+    return (
+      <button {...props} ref={ref} className={mergedClassName} type="button">
+        {children}
+      </button>
+    );
+  },
+);
+DangerButton.displayName = "DangerButton";
+
+// ------------------------------------------------------------------------------------------------
+
+/**
  * Link primario
  */
 export const PrimaryLink = React.forwardRef<HTMLAnchorElement, LinkProps>(

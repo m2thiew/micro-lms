@@ -9,7 +9,7 @@ import {
   type JWTDecoded,
   type LoginData,
 } from "@/shared/features/login/utils/jwt";
-import { doNothingAsync } from "@/shared/utils/void";
+import { doNothingAsync, doNothingSync } from "@/shared/utils/void";
 import React, { useContext, useEffect, useState } from "react";
 import {
   deleteTokenFromStorage,
@@ -42,6 +42,7 @@ type LoginState =
 type LoginFunctions = {
   doLogin: (username: string, password: string) => Promise<void>;
   doLogout: () => Promise<void>;
+  clearError: () => void;
 };
 
 // dati & funzioni esposti dal contesto
@@ -59,6 +60,7 @@ const defaultValue: LoginStatusContext = {
   error: undefined,
   doLogin: doNothingAsync,
   doLogout: doNothingAsync,
+  clearError: doNothingSync,
   isLoggedIn: false,
 };
 
@@ -196,6 +198,13 @@ export const LoginStatusProvider = (props: ProviderProps): React.JSX.Element => 
 
   // ----------------------------------------------------------------------------------------------
 
+  // funzione che svuota il testo dell'errore
+  const clearError = (): void => {
+    setError(undefined);
+  };
+
+  // ----------------------------------------------------------------------------------------------
+
   /**
    * Restituisce il contesto.
    */
@@ -206,7 +215,7 @@ export const LoginStatusProvider = (props: ProviderProps): React.JSX.Element => 
     token && data ? { token, data, isLoggedIn: true as const } : { isLoggedIn: false as const };
 
   const state: LoginState = { ...tokenAndData, isLoading, error };
-  const functions: LoginFunctions = { doLogin, doLogout };
+  const functions: LoginFunctions = { doLogin, doLogout, clearError };
 
   const value: LoginStatusContext = { ...state, ...functions };
 

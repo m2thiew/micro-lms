@@ -23,45 +23,52 @@ export const LearnerSubscribedPillList = (): React.JSX.Element => {
   const router = useRouter();
 
   // chiamate api
+  const learner = apiClient.privateLearner.get.useQuery();
   const learnerPills = apiClient.privatePill.list.useQuery();
 
-  if (learnerPills.isLoading) return <LoadingBar />;
-  if (learnerPills.error) return <ErrorCard error={learnerPills.error.message} />;
+  const someLoading = learner.isLoading || learnerPills.isLoading;
+  const someError = learner.error ?? learnerPills.error;
+  const allSuccess = learner.status == "success" && learnerPills.status == "success";
 
-  if (learnerPills.data.length == 0) return <p>non hai nessuna pillola assegnata</p>;
+  if (someLoading) return <LoadingBar />;
+  if (someError) return <ErrorCard error={someError.message} />;
+  if (!allSuccess) return <ErrorCard error={"unable to load all data"} />;
+
+  // costruisce l'elenco delle pillole visionate incrociando i track learner e i dati delle pillole.
+  const viewedPills: Record<string, Date> = {};
+  learner.data.tracks.forEach((track) => {
+    viewedPills[track.pillId] = track.viewedAt;
+  });
 
   // funzione per esporre la card di una pillola.
   const showPillCard = (pill: PillPublicData): React.JSX.Element => {
     const viewPillLink = `/pill/${pill.id}`;
     const thumbPath = pill.thumbPath ? pill.thumbPath : "/default-thumb.png";
+    const viewed = viewedPills[pill.id] !== undefined;
 
     return (
       <PillCard
+        key={pill.id}
         id={pill.id}
         title={pill.title}
         description=""
         thumbPath={thumbPath}
         href={viewPillLink}
+        viewed={viewed}
       />
-      // <div
-      //   key={pill.id}
-      //   className="h-80 w-64 rounded-lg border border-gray-200 bg-white shadow hover:border-2 hover:border-blue-500 "
-      // >
-      //   <Link href={viewPillLink}>
-      //     <img src={thumbPath} className="h-44 w-full rounded-t-lg" />
-      //     <div className="p-5">
-      //       <h5 className="mb-2 text-center text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
-      //         {pill.title}
-      //       </h5>
-      //     </div>
-      //   </Link>
-      // </div>
     );
   };
 
+  if (learnerPills.data.length == 0)
+    return (
+      <p className="mt-4 text-center text-lg">
+        <em>{"Attualmente non hai alcuna pillola assegnata."}</em>
+      </p>
+    );
+
   return (
     <>
-      <div className="flex h-64 items-stretch justify-start gap-12">
+      <div className="mt-6 flex flex-wrap items-stretch justify-center gap-12">
         {learnerPills.data.map(showPillCard)}
       </div>
     </>

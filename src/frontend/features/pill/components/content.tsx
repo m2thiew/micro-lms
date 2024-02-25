@@ -92,13 +92,20 @@ export const PillContent = (props: ContentProps): React.JSX.Element => {
 
   return (
     <div className="w-full">
-      <div className="grid grid-cols-[1fr,3fr] gap-12">
-        <img src={thumbPath} className="h-auto max-h-96 w-full  rounded-2xl" />
-        <div className="p-5 text-lg text-black">
+      <div className="grid grid-cols-1 grid-rows-2 gap-12 md:grid-cols-[2fr,3fr] md:grid-rows-1 ">
+        <div className="flex justify-center md:justify-end">
+          <img
+            src={thumbPath}
+            className="h-auto max-h-64 w-auto w-full max-w-64 flex-none  rounded-2xl"
+          />
+        </div>
+        <div className="px-5 text-lg text-black">
           <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
             {pill.data.title}
           </h5>
-          <p>{pill.data.description}</p>
+          <p className="mt-4 text-lg">
+            {pill.data.description ? pill.data.description : <i>nessuna descrizione fornita</i>}
+          </p>
         </div>
       </div>
       <hr className="my-6" />
