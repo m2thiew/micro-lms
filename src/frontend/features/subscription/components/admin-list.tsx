@@ -10,7 +10,7 @@
 
 import { defaultColumnsDefinition } from "@/frontend/lib/ag-grid";
 import { apiClient } from "@/frontend/lib/trpc/client";
-import { EditButton } from "@/frontend/ui/buttons";
+import { EditLink } from "@/frontend/ui/buttons";
 import { ErrorCard, LoadingBar } from "@/frontend/ui/status";
 import { type LearnerAdminData } from "@/shared/features/learner/schema";
 import { type ColDef, type GetRowIdFunc, type ValueFormatterParams } from "@ag-grid-community/core";
@@ -59,7 +59,7 @@ export const AdminSubscriptionsList = (): React.JSX.Element => {
 
     return (
       <div className="m-0 flex h-10 items-center gap-1 p-0">
-        <EditButton className="h-7 px-2 text-sm" href={`/admin/subscription/${id}`} />
+        <EditLink className="h-7 px-2 text-sm" href={`/admin/subscription/${id}`} />
       </div>
     );
   };

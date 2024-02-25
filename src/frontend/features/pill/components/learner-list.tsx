@@ -14,6 +14,7 @@ import { type PillPublicData } from "@/shared/features/pill/schema";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import React from "react";
+import { PillCard } from "./card";
 
 // ------------------------------------------------------------------------------------------------
 
@@ -35,19 +36,26 @@ export const LearnerSubscribedPillList = (): React.JSX.Element => {
     const thumbPath = pill.thumbPath ? pill.thumbPath : "/default-thumb.png";
 
     return (
-      <div
-        key={pill.id}
-        className="h-80 w-64 rounded-lg border border-gray-200 bg-white shadow hover:border-2 hover:border-blue-500 "
-      >
-        <Link href={viewPillLink}>
-          <img src={thumbPath} className="h-44 w-full rounded-t-lg" />
-          <div className="p-5">
-            <h5 className="mb-2 text-center text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
-              {pill.title}
-            </h5>
-          </div>
-        </Link>
-      </div>
+      <PillCard
+        id={pill.id}
+        title={pill.title}
+        description=""
+        thumbPath={thumbPath}
+        href={viewPillLink}
+      />
+      // <div
+      //   key={pill.id}
+      //   className="h-80 w-64 rounded-lg border border-gray-200 bg-white shadow hover:border-2 hover:border-blue-500 "
+      // >
+      //   <Link href={viewPillLink}>
+      //     <img src={thumbPath} className="h-44 w-full rounded-t-lg" />
+      //     <div className="p-5">
+      //       <h5 className="mb-2 text-center text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
+      //         {pill.title}
+      //       </h5>
+      //     </div>
+      //   </Link>
+      // </div>
     );
   };
 

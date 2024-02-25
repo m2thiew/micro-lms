@@ -10,7 +10,7 @@
  */
 
 import { ClientSideRowModelModule } from "@ag-grid-community/client-side-row-model";
-import { ModuleRegistry, type ColDef } from "@ag-grid-community/core";
+import { ModuleRegistry, type ColDef, type GridOptions } from "@ag-grid-community/core";
 
 // ------------------------------------------------------------------------------------------------
 
@@ -27,5 +27,7 @@ export const registerAgGridModules = (): void => {
 /**
  * Impostazioni di default per le colonne degli elenchi AgGrid.
  */
-
 export const defaultColumnsDefinition: ColDef = { filter: true };
+export const defaultGridOptions: GridOptions = { autoSizeStrategy: { type: "fitGridWidth" } };
+
+// ------------------------------------------------------------------------------------------------

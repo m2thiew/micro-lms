@@ -9,6 +9,7 @@
  */
 
 import { apiClient } from "@/frontend/lib/trpc/client";
+import { SubmitButton } from "@/frontend/ui/buttons";
 import { ErrorCard, LoadingBar } from "@/frontend/ui/status";
 import {
   adminLearnerFormCreateSchema,
@@ -74,6 +75,8 @@ export const AdminLearnerCreateForm = () => {
     learnerCreate
       .mutateAsync(input)
       .then(() => {
+        alert("Nuovo learner creato.");
+
         void apiCache.adminLearner.invalidate();
         void router.push("/admin/learner");
       })
@@ -126,6 +129,8 @@ export const AdminLearnerUpdateForm = ({ id }: UpdateProps) => {
     learnerUpdate
       .mutateAsync({ id, ...input })
       .then(() => {
+        alert("Modifiche salvate.");
+
         void apiCache.adminLearner.invalidate();
         void router.push("/admin/learner");
       })
@@ -182,99 +187,100 @@ const AdminLearnerFormContent = (props: FormContentProps) => {
   }, [isPasswordFieldVisible, form, mode]);
 
   return (
-    <form onSubmit={onSubmit}>
-      <div className="mb-6 grid gap-6 md:grid-cols-2">
-        <div>
-          <label
-            htmlFor="name"
-            className="mb-2 block text-sm font-medium text-gray-900 dark:text-white"
-          >
-            Nome
-          </label>
-          <input
-            {...form.register("name")}
-            disabled={disabled}
-            className="block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-blue-500 focus:ring-blue-500 disabled:cursor-not-allowed disabled:bg-slate-200"
-            placeholder="John"
-          />
-          {errors.name ? <span className="text-red-500">{errors.name.message}</span> : undefined}
+    <>
+      {mode == "create" ? (
+        <h2 className="text-lg font-bold">Dati del nuovo learner</h2>
+      ) : (
+        <h2 className="text-lg font-bold">
+          Dati attuali del learner {data.name} {data.surname}
+        </h2>
+      )}
+      <form onSubmit={onSubmit} className="mt-6">
+        <div className="mb-6 grid gap-6 md:grid-cols-2">
+          <div>
+            <label
+              htmlFor="name"
+              className="mb-2 block text-sm font-medium text-gray-900 dark:text-white"
+            >
+              Nome
+            </label>
+            <input
+              {...form.register("name")}
+              disabled={disabled}
+              className="block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-blue-500 focus:ring-blue-500 disabled:cursor-not-allowed disabled:bg-slate-200"
+            />
+            {errors.name ? <span className="text-red-500">{errors.name.message}</span> : undefined}
+          </div>
+          <div>
+            <label
+              htmlFor="surname"
+              className="mb-2 block text-sm font-medium text-gray-900 dark:text-white"
+            >
+              Cognome
+            </label>
+            <input
+              {...form.register("surname")}
+              disabled={disabled}
+              className="block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-blue-500 focus:ring-blue-500 disabled:cursor-not-allowed disabled:bg-slate-200"
+            />
+            {errors.surname ? (
+              <span className="text-red-500">{errors.surname.message}</span>
+            ) : undefined}
+          </div>
         </div>
-        <div>
-          <label
-            htmlFor="surname"
-            className="mb-2 block text-sm font-medium text-gray-900 dark:text-white"
-          >
-            Cognome
-          </label>
-          <input
-            {...form.register("surname")}
-            disabled={disabled}
-            className="block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-blue-500 focus:ring-blue-500 disabled:cursor-not-allowed disabled:bg-slate-200"
-            placeholder="Doe"
-          />
-          {errors.surname ? (
-            <span className="text-red-500">{errors.surname.message}</span>
-          ) : undefined}
-        </div>
-      </div>
-      <div className="mb-6">
-        <label
-          htmlFor="email"
-          className="mb-2 block text-sm font-medium text-gray-900 dark:text-white"
-        >
-          E-Mail
-        </label>
-        <input
-          {...form.register("email")}
-          type="email"
-          disabled={disabled}
-          className="block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-blue-500 focus:ring-blue-500 disabled:cursor-not-allowed disabled:bg-slate-200"
-          placeholder="john.doe@company.com"
-        />
-        {errors.email ? <span className="text-red-500">{errors.email.message}</span> : undefined}
-      </div>
-      {isPasswordCheckVisible ? (
-        <div className="mb-6 flex items-center gap-2">
-          <input
-            id="passwordEnabled"
-            name="passwordEnabled"
-            disabled={disabled}
-            type="checkbox"
-            onChange={() => {
-              setPasswordFieldVisible(!isPasswordFieldVisible);
-            }}
-          />
-          <label htmlFor="passwordEnabled">modifica password</label>
-        </div>
-      ) : undefined}
-      {isPasswordFieldVisible ? (
         <div className="mb-6">
           <label
-            htmlFor="password"
+            htmlFor="email"
             className="mb-2 block text-sm font-medium text-gray-900 dark:text-white"
           >
-            Password
+            E-Mail
           </label>
           <input
-            {...form.register("password")}
-            type="password"
+            {...form.register("email")}
+            type="email"
             disabled={disabled}
             className="block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-blue-500 focus:ring-blue-500 disabled:cursor-not-allowed disabled:bg-slate-200"
-            placeholder="•••••••••"
           />
-          {errors.password ? (
-            <span className="text-red-500">{errors.password.message}</span>
-          ) : undefined}
+          {errors.email ? <span className="text-red-500">{errors.email.message}</span> : undefined}
         </div>
-      ) : undefined}
+        {isPasswordCheckVisible ? (
+          <div className="mb-6 flex items-center gap-2">
+            <input
+              id="passwordEnabled"
+              name="passwordEnabled"
+              disabled={disabled}
+              type="checkbox"
+              onChange={() => {
+                setPasswordFieldVisible(!isPasswordFieldVisible);
+              }}
+            />
+            <label htmlFor="passwordEnabled">modifica password</label>
+          </div>
+        ) : undefined}
+        {isPasswordFieldVisible ? (
+          <div className="mb-6">
+            <label
+              htmlFor="password"
+              className="mb-2 block text-sm font-medium text-gray-900 dark:text-white"
+            >
+              Password
+            </label>
+            <input
+              {...form.register("password")}
+              type="password"
+              disabled={disabled}
+              className="block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-blue-500 focus:ring-blue-500 disabled:cursor-not-allowed disabled:bg-slate-200"
+            />
+            {errors.password ? (
+              <span className="text-red-500">{errors.password.message}</span>
+            ) : undefined}
+          </div>
+        ) : undefined}
 
-      <button
-        type="submit"
-        disabled={disabled}
-        className="w-full rounded-lg bg-blue-700 px-5 py-2.5 text-center text-sm font-medium text-white hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300 disabled:cursor-not-allowed disabled:bg-blue-200 "
-      >
-        Submit
-      </button>
-    </form>
+        <SubmitButton disabled={disabled}>
+          {mode == "create" ? "Crea nuovo learner" : "Salva modifiche"}
+        </SubmitButton>
+      </form>
+    </>
   );
 };

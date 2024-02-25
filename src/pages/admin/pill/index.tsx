@@ -10,7 +10,7 @@
 
 import { useLoginStatus } from "@/frontend/features/login/context/status";
 import { AdminPillList } from "@/frontend/features/pill/components/admin-list";
-import { NewButton } from "@/frontend/ui/buttons";
+import { NewLink } from "@/frontend/ui/buttons";
 import { Alert } from "flowbite-react";
 
 // ------------------------------------------------------------------------------------------------
@@ -28,7 +28,7 @@ const AdminPillListPage = (): React.JSX.Element => {
         <h1 className="text-2xl font-bold text-black">Elenco pillole</h1>
         <p>...</p>
         <div className="my-4 flex items-end justify-end gap-4">
-          <NewButton href="/admin/pill/new">Nuova pillola</NewButton>
+          <NewLink href="/admin/pill/new">Nuova pillola</NewLink>
         </div>
         <AdminPillList />
       </div>

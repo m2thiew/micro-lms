@@ -37,7 +37,7 @@ export const PrimaryButton = React.forwardRef<HTMLButtonElement, ButtonProps>(
     );
 
     return (
-      <button {...props} ref={ref} className={mergedClassName} type="button" role="button">
+      <button {...props} ref={ref} className={mergedClassName} type="button">
         {children}
       </button>
     );
@@ -76,10 +76,38 @@ PrimaryLink.displayName = "PrimaryLink";
 // ------------------------------------------------------------------------------------------------
 
 /**
- * Pulsante per l'azione "nuovo ...".
+ * Link secondario
+ */
+export const SecondaryLink = React.forwardRef<HTMLAnchorElement, LinkProps>(
+  (props, ref): React.JSX.Element => {
+    const { className, children, href } = props;
+    const mergedClassName = twMerge(
+      "rounded-lg bg-neutral-700 px-4 py-2 text-center text-sm font-medium text-white hover:bg-neutral-800 focus:outline-none focus:ring-4 focus:ring-blue-300",
+      className,
+    );
+
+    return (
+      <Link
+        {...props}
+        href={href ?? "javascript:void(0)"}
+        ref={ref}
+        className={mergedClassName}
+        role="button"
+      >
+        {children}
+      </Link>
+    );
+  },
+);
+SecondaryLink.displayName = "SecondaryLink";
+
+// ------------------------------------------------------------------------------------------------
+
+/**
+ * Link per l'azione "nuovo ...".
  */
 
-export const NewButton = React.forwardRef<HTMLAnchorElement, LinkWithIconProps>(
+export const NewLink = React.forwardRef<HTMLAnchorElement, LinkWithIconProps>(
   (props, ref): React.JSX.Element => {
     const href = props.href ?? "#";
     const className = twMerge(
@@ -98,15 +126,15 @@ export const NewButton = React.forwardRef<HTMLAnchorElement, LinkWithIconProps>(
     );
   },
 );
-NewButton.displayName = "NewButton";
+NewLink.displayName = "NewLink";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * Pulsante per l'azione "modifica ...".
+ * Link per l'azione "modifica ...".
  */
 
-export const EditButton = React.forwardRef<HTMLAnchorElement, LinkWithIconProps>(
+export const EditLink = React.forwardRef<HTMLAnchorElement, LinkWithIconProps>(
   (props, ref): React.JSX.Element => {
     const href = props.href ?? "#";
     const className = twMerge(
@@ -125,15 +153,15 @@ export const EditButton = React.forwardRef<HTMLAnchorElement, LinkWithIconProps>
     );
   },
 );
-EditButton.displayName = "EditButton";
+EditLink.displayName = "EditLink";
 
 // ------------------------------------------------------------------------------------------------
 
 /**
- * Pulsante per l'azione "elimina ...".
+ * Link per l'azione "elimina ...".
  */
 
-export const DeleteButton = React.forwardRef<HTMLAnchorElement, LinkWithIconProps>(
+export const DeleteLink = React.forwardRef<HTMLAnchorElement, LinkWithIconProps>(
   (props, ref): React.JSX.Element => {
     const href = props.href ?? "#";
     const className = twMerge(
@@ -152,7 +180,7 @@ export const DeleteButton = React.forwardRef<HTMLAnchorElement, LinkWithIconProp
     );
   },
 );
-DeleteButton.displayName = "DeleteButton";
+DeleteLink.displayName = "DeleteLink";
 
 // ------------------------------------------------------------------------------------------------
 
@@ -182,9 +210,30 @@ OutlineButton.displayName = "OutlineButton";
 // ------------------------------------------------------------------------------------------------
 
 /**
+ * Button di submit dei form
+ */
+export const SubmitButton = React.forwardRef<HTMLButtonElement, ButtonProps>(
+  (props, ref): React.JSX.Element => {
+    const { className, children } = props;
+    const mergedClassName = twMerge(
+      "w-full rounded-lg bg-blue-700 px-5 py-2.5 text-center text-sm font-medium text-white hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300 disabled:cursor-not-allowed disabled:bg-blue-200 ",
+      className,
+    );
+
+    return (
+      <button {...props} ref={ref} className={mergedClassName} type="submit">
+        {children}
+      </button>
+    );
+  },
+);
+SubmitButton.displayName = "SubmitButton";
+
+// ------------------------------------------------------------------------------------------------
+
+/**
  * Pulsante solido.
  */
-
 export const SolidButton = React.forwardRef<HTMLAnchorElement, LinkWithIconProps>(
   (props, ref): React.JSX.Element => {
     const href = props.href ?? "#";
@@ -203,3 +252,5 @@ export const SolidButton = React.forwardRef<HTMLAnchorElement, LinkWithIconProps
   },
 );
 SolidButton.displayName = "SolidButton";
+
+// ------------------------------------------------------------------------------------------------

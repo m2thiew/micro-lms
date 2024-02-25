@@ -9,6 +9,8 @@
  */
 
 import { AdminLearnerCreateForm } from "@/frontend/features/learner/components/admin-form";
+import { SecondaryLink } from "@/frontend/ui/buttons";
+import { FbArrowLeftOutline } from "@/frontend/ui/icons/flowbite";
 import React from "react";
 
 // ------------------------------------------------------------------------------------------------
@@ -21,10 +23,27 @@ import React from "react";
 const AdminLearnerCreatePage = (): React.JSX.Element => {
   return (
     <>
-      <div className="mx-auto w-full px-5 py-12 lg:w-[64rem]">
-        <h1 className="text-2xl font-bold text-black">Nuovo learner</h1>
-        <p>...</p>
+      <div className="text-center">
+        <h1 className="text-4xl font-extrabold text-black">Nuovo learner</h1>
+
+        <p className="mt-4 text-lg">
+          {
+            "Compila il form sottostante per creare un nuovo learner. Tutti i campi sono obbligatori"
+          }
+        </p>
+      </div>
+
+      <div className="mt-6">
         <AdminLearnerCreateForm />
+      </div>
+
+      <div className="mt-6">
+        <SecondaryLink
+          href="/admin/learner"
+          className="inline-flex items-center justify-center gap-2"
+        >
+          <FbArrowLeftOutline className="h-3 w-4" /> <p>indietro</p>
+        </SecondaryLink>
       </div>
     </>
   );

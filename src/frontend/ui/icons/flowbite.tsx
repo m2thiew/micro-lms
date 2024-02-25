@@ -10874,7 +10874,7 @@ export const FbDotsVerticalOutline: TIcon = forwardRef((props: TIconProps, ref: 
       <path
         stroke="currentColor"
         strokeLinecap="round"
-        stroke-width="3"
+        strokeWidth="3"
         d="M1.5 2h.01M1.5 8h.01m-.01 6h.01"
       />
     </svg>
@@ -10902,7 +10902,7 @@ export const FbDotsHorizontalOutline: TIcon = forwardRef((props: TIconProps, ref
       <path
         stroke="currentColor"
         strokeLinecap="round"
-        stroke-width="3"
+        strokeWidth="3"
         d="M2.49 2h.01m6 0h.01m5.99 0h.01"
       />
     </svg>

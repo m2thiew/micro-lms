@@ -618,9 +618,9 @@ TODO:
 - ~~aggiungere track di lettura a dati pillole per admin~~
 - ~~viusalizzazione track lato admin~~
 - polish presentazione pagine
-  - barrà del menù
-  - container responsive
-  - hoepage
+  - ~~barrà del menù~~
+  - ~~container responsive~~
+  - ~~hoepage~~
   - azioni admin
   - elenco learner
   - form crezione learner
@@ -632,6 +632,8 @@ TODO:
   - form assegnazioni
   - elenco pillole
   - derttaglio pillola
+  - form: alert + redirect dopo operazioni
+  - check pillola vista dal learner
 - README
   - deyup progetto
   - esportazione dati

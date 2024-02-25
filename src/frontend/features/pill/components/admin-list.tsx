@@ -10,7 +10,7 @@
 
 import { defaultColumnsDefinition } from "@/frontend/lib/ag-grid";
 import { apiClient } from "@/frontend/lib/trpc/client";
-import { DeleteButton, EditButton } from "@/frontend/ui/buttons";
+import { DeleteLink, EditLink } from "@/frontend/ui/buttons";
 import { ErrorCard, LoadingBar } from "@/frontend/ui/status";
 import { type PillAdminData } from "@/shared/features/pill/schema";
 import { type ColDef, type GetRowIdFunc } from "@ag-grid-community/core";
@@ -74,8 +74,8 @@ export const AdminPillList = (): React.JSX.Element => {
 
     return (
       <div className="m-0 flex h-10 items-center gap-1 p-0">
-        <EditButton className="h-7 px-2 text-sm" href={`/admin/pill/${id}`} />
-        <DeleteButton className="h-7 px-2 text-sm" onClick={handleDeletePill(id, title)} />
+        <EditLink className="h-7 px-2 text-sm" href={`/admin/pill/${id}`} />
+        <DeleteLink className="h-7 px-2 text-sm" onClick={handleDeletePill(id, title)} />
       </div>
     );
   };

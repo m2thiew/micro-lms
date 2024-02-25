@@ -8,9 +8,9 @@
  * @project micro-lms
  */
 
-import { defaultColumnsDefinition } from "@/frontend/lib/ag-grid";
+import { defaultColumnsDefinition, defaultGridOptions } from "@/frontend/lib/ag-grid";
 import { apiClient } from "@/frontend/lib/trpc/client";
-import { DeleteButton, EditButton } from "@/frontend/ui/buttons";
+import { DeleteLink, EditLink } from "@/frontend/ui/buttons";
 import { ErrorCard, LoadingBar } from "@/frontend/ui/status";
 import { type LearnerAdminData } from "@/shared/features/learner/schema";
 import { type ColDef, type GetRowIdFunc } from "@ag-grid-community/core";
@@ -57,11 +57,8 @@ export const AdminLearnersList = (): React.JSX.Element => {
 
     return (
       <div className="m-0 flex h-10 items-center gap-1 p-0">
-        <EditButton className="h-7 px-2 text-sm" href={`/admin/learner/${id}`} />
-        <DeleteButton
-          className="h-7 px-2 text-sm"
-          onClick={handleDeleteLearner(id, name, surname)}
-        />
+        <EditLink className="h-7 px-2 text-sm" href={`/admin/learner/${id}`} />
+        <DeleteLink className="h-7 px-2 text-sm" onClick={handleDeleteLearner(id, name, surname)} />
       </div>
     );
   };
@@ -89,6 +86,7 @@ export const AdminLearnersList = (): React.JSX.Element => {
         getRowId={getRowId}
         pagination={true}
         defaultColDef={defaultColumnsDefinition}
+        gridOptions={defaultGridOptions}
       />
     </div>
   );
