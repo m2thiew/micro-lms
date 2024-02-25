@@ -8,15 +8,70 @@
  * @project micro-lms
  */
 
-import clsx from "clsx";
 import Link from "next/link";
 import React from "react";
 import { twMerge } from "tailwind-merge";
 import { FbCirclePlusOutline, FbEditOutline, FbTrashBinOutline } from "./icons/flowbite";
 
-type ButtonProps = React.AnchorHTMLAttributes<HTMLAnchorElement> & {
+// ------------------------------------------------------------------------------------------------
+
+type LinkWithIconProps = React.AnchorHTMLAttributes<HTMLAnchorElement> & {
   icon?: React.JSX.Element;
 };
+
+type ButtonProps = React.ButtonHTMLAttributes<HTMLButtonElement>;
+
+type LinkProps = React.AnchorHTMLAttributes<HTMLAnchorElement>;
+
+// ------------------------------------------------------------------------------------------------
+
+/**
+ * Button primario
+ */
+export const PrimaryButton = React.forwardRef<HTMLButtonElement, ButtonProps>(
+  (props, ref): React.JSX.Element => {
+    const { className, children } = props;
+    const mergedClassName = twMerge(
+      "rounded-lg bg-blue-700 px-4 py-2 text-center text-sm font-medium text-white hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300 ",
+      className,
+    );
+
+    return (
+      <button {...props} ref={ref} className={mergedClassName} type="button" role="button">
+        {children}
+      </button>
+    );
+  },
+);
+PrimaryButton.displayName = "PrimaryButton";
+
+// ------------------------------------------------------------------------------------------------
+
+/**
+ * Link primario
+ */
+export const PrimaryLink = React.forwardRef<HTMLAnchorElement, LinkProps>(
+  (props, ref): React.JSX.Element => {
+    const { className, children, href } = props;
+    const mergedClassName = twMerge(
+      "rounded-lg bg-blue-700 px-4 py-2 text-center text-sm font-medium text-white hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300",
+      className,
+    );
+
+    return (
+      <Link
+        {...props}
+        href={href ?? "javascript:void(0)"}
+        ref={ref}
+        className={mergedClassName}
+        role="button"
+      >
+        {children}
+      </Link>
+    );
+  },
+);
+PrimaryLink.displayName = "PrimaryLink";
 
 // ------------------------------------------------------------------------------------------------
 
@@ -24,7 +79,7 @@ type ButtonProps = React.AnchorHTMLAttributes<HTMLAnchorElement> & {
  * Pulsante per l'azione "nuovo ...".
  */
 
-export const NewButton = React.forwardRef<HTMLAnchorElement, ButtonProps>(
+export const NewButton = React.forwardRef<HTMLAnchorElement, LinkWithIconProps>(
   (props, ref): React.JSX.Element => {
     const href = props.href ?? "#";
     const className = twMerge(
@@ -51,7 +106,7 @@ NewButton.displayName = "NewButton";
  * Pulsante per l'azione "modifica ...".
  */
 
-export const EditButton = React.forwardRef<HTMLAnchorElement, ButtonProps>(
+export const EditButton = React.forwardRef<HTMLAnchorElement, LinkWithIconProps>(
   (props, ref): React.JSX.Element => {
     const href = props.href ?? "#";
     const className = twMerge(
@@ -78,7 +133,7 @@ EditButton.displayName = "EditButton";
  * Pulsante per l'azione "elimina ...".
  */
 
-export const DeleteButton = React.forwardRef<HTMLAnchorElement, ButtonProps>(
+export const DeleteButton = React.forwardRef<HTMLAnchorElement, LinkWithIconProps>(
   (props, ref): React.JSX.Element => {
     const href = props.href ?? "#";
     const className = twMerge(
@@ -105,7 +160,7 @@ DeleteButton.displayName = "DeleteButton";
  * Pulsante outline.
  */
 
-export const OutlineButton = React.forwardRef<HTMLAnchorElement, ButtonProps>(
+export const OutlineButton = React.forwardRef<HTMLAnchorElement, LinkWithIconProps>(
   (props, ref): React.JSX.Element => {
     const href = props.href ?? "#";
     const className = twMerge(
@@ -130,7 +185,7 @@ OutlineButton.displayName = "OutlineButton";
  * Pulsante solido.
  */
 
-export const SolidButton = React.forwardRef<HTMLAnchorElement, ButtonProps>(
+export const SolidButton = React.forwardRef<HTMLAnchorElement, LinkWithIconProps>(
   (props, ref): React.JSX.Element => {
     const href = props.href ?? "#";
     const className = twMerge(

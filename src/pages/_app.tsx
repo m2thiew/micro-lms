@@ -3,6 +3,7 @@ import { LoginPopupFormProvider } from "@/frontend/features/login/context/popup-
 import { LoginStatusProvider } from "@/frontend/features/login/context/status";
 import { registerAgGridModules } from "@/frontend/lib/ag-grid";
 import { apiClient } from "@/frontend/lib/trpc/client";
+import { MainContainer } from "@/frontend/ui/container";
 import "@/styles/tailwind.css";
 import "@ag-grid-community/styles/ag-grid.css";
 import "@ag-grid-community/styles/ag-theme-quartz.css";
@@ -26,9 +27,9 @@ const App: AppType = ({ Component, pageProps }: AppProps) => {
       <LoginStatusProvider>
         <LoginPopupFormProvider>
           <Header></Header>
-          <main className="m-0 p-0 text-gray-500">
+          <MainContainer>
             <Component {...pageProps} />
-          </main>
+          </MainContainer>
         </LoginPopupFormProvider>
       </LoginStatusProvider>
     </>
