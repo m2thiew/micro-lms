@@ -106,9 +106,19 @@
           "*.css": "tailwindcss"
         },
 
-        // si indica a tailwind di trattare clsx("...") come il contenuto di className="...."
+        // abilita l'autocompletamento di tailwind dentro la funzione twMerge() e dentro
+        // le variabili il cui nome ha il suffisso "ClassName"
         "tailwindCSS.experimental.classRegex": [
-          ["clsx\\(([^)]*)\\)", "(?:'|\"|`)([^']*)(?:'|\"|`)"]
+          ["twMerge\\(([^\\)]*)\\)", "(?:'|\"|`)([^']*)(?:'|\"|`)"]
+        ],
+        "tailwindCSS.classAttributes": [
+          "class",
+          "className",
+          "ngClass",
+          "className",
+          ".*className",
+          ".*ClassName",
+          ".*Classname"
         ],
 
         // esclusione file per ottimizzare le prestazioni.
