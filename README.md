@@ -62,6 +62,18 @@ Avviando Visual Studio Code tramite la scorciatoia creata sul desktop, tutte le 
 
 Per eseguire il debug del progetto è sufficiente premete il tasto `[F5]` dentro VS Code. Verrà quindi avviato il debug del server di backend, sia della finestra di navigazione frontend (verrà avviato una istanza di Google Chrome).
 
+## Account learner per i test
+
+Importando il backup dei dati salvato nel repository, la applicazione è inizializzata con un elenco di learner e pillole già inseriti. L'utente `admin@microlms.org` ha assegnato il ruolo di "admin" ed è quindi abilitato a creare, modificare ed eliminare tutti i learner e le pillole presenti nella applicazione.
+
+Si riportano le credenziali di accesso utilizzabili per i test durante lo sviluppo:
+
+| email                   | password    | ruolo   | pillole assegnate |
+| :---------------------- | :---------- | :------ | :---------------: |
+| admin@microlms.org      | admin       | admin   |         6         |
+| luigi.verdi@hotmail.com | luigi.verdi | learner |         3         |
+| mario.rossi@yahoo.com   | mario.rossi | learner |         3         |
+
 ---
 
 Questo è un progetto di uno studente per la [**Università degli Studi di Milano Statale**](https://www.unimi.it/).
