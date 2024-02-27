@@ -76,4 +76,4 @@ Si riportano le credenziali di accesso utilizzabili per i test durante lo svilup
 
 ---
 
-Questo è un progetto di uno studente per la [**Università degli Studi di Milano Statale**](https://www.unimi.it/).
+Questo è un progetto di tesi per la [**Università degli Studi di Milano Statale**](https://www.unimi.it/).
