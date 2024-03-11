@@ -15,7 +15,6 @@ import { doLoginSchema } from "@/shared/features/login/schema";
 import { returnSyncHandler } from "@/shared/utils/async";
 import { doNothingSync } from "@/shared/utils/void";
 import { zodResolver } from "@hookform/resolvers/zod";
-import clsx from "clsx";
 import { Alert, Modal } from "flowbite-react";
 import React, { useContext, useState } from "react";
 import { useForm } from "react-hook-form";

@@ -20,15 +20,10 @@ export const UploadPage = () => {
     <>
       <div className="mx-auto w-full px-5 py-12 lg:w-[32rem]">
         <h3 className="my-8 text-center text-2xl font-bold">Upload immagine singola</h3>
-        <FileUploadInput
-          name="thumb"
-          value="default.jpg"
-          config={uploadPillThumbConfig}
-          tmpDir={tmpDir}
-        />
+        <FileUploadInput name="thumb" value="default.jpg" config={uploadPillThumbConfig} />
         <hr className="my-8" />
         <h3 className="my-8 text-center text-2xl font-bold">Upload immagini/video multiple</h3>
-        <FileUploadInput name="content" config={uploadPillContentConfig} tmpDir={tmpDir} />
+        <FileUploadInput name="content" config={uploadPillContentConfig} />
       </div>
     </>
   );

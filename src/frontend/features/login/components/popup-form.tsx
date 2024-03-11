@@ -5,7 +5,6 @@
 import { doLoginSchema } from "@/shared/features/login/schema";
 import { returnSyncHandler } from "@/shared/utils/async";
 import { zodResolver } from "@hookform/resolvers/zod";
-import clsx from "clsx";
 import { Alert, Modal } from "flowbite-react";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
@@ -160,7 +159,7 @@ export const FormDoLogout = () => {
         <a
           className="inline-flex items-center rounded-lg bg-blue-700 px-3 py-2 text-center text-sm font-medium text-white hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300"
           onClick={() => {
-            void login.doLogout();
+            login.doLogout();
           }}
         >
           logout

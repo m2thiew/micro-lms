@@ -8,8 +8,8 @@
  * @project micro-lms
  */
 
-import clsx from "clsx";
-import { forwardRef } from "react";
+// import clsx from "clsx";
+// import { forwardRef } from "react";
 
 /**
  * Proprietà delle icone SVG.

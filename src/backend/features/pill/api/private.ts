@@ -63,7 +63,7 @@ const setTrack = loggedInAPIProcedure
     if (!learner.pillsId.includes(input.id)) throw new TRPCError({ code: "UNAUTHORIZED" });
 
     // inserimento/track di visualizzazione pillola.
-    const track = await db.track.upsert({
+    const trackRow = await db.track.upsert({
       create: {
         learnerId: learner.id,
         pillId: input.id,
@@ -76,6 +76,12 @@ const setTrack = loggedInAPIProcedure
         LearnerPillUnique: { learnerId: learner.id, pillId: input.id },
       },
     });
+
+    const track: TrackPrivateData = {
+      learnerId: trackRow.learnerId,
+      pillId: trackRow.pillId,
+      viewedAt: trackRow.createdAt,
+    };
 
     return track;
   });
