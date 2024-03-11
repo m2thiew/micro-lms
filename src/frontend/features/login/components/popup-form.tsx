@@ -77,13 +77,10 @@ export const FormDoLogin = () => {
   });
 
   // classi CSS
-  const inputClassName = clsx(
-    "block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-blue-500 focus:ring-blue-500 disabled:cursor-not-allowed",
-  );
-  const submitClassName = clsx(
-    "w-full rounded-lg bg-blue-700 px-5 py-2.5 text-center text-sm font-medium text-white hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300 disabled:cursor-progress sm:w-auto",
-  );
-
+  const inputClassName =
+    "block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-blue-500 focus:ring-blue-500 disabled:cursor-not-allowed";
+  const submitClassName =
+    "w-full rounded-lg bg-blue-700 px-5 py-2.5 text-center text-sm font-medium text-white hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300 disabled:cursor-progress sm:w-auto";
   // stato del form.
   const disabled = login.isLoading;
 
