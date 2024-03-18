@@ -31,6 +31,10 @@ const AdminLearnerUpdatePage = (): React.JSX.Element => {
   try {
     const id = paramId.parse(router.query.id);
 
+    <div className="mt-6">
+      <AdminLearnerUpdateForm id={router.query.id} />
+    </div>;
+
     return (
       <>
         <Head>
