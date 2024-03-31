@@ -68,11 +68,7 @@ export const AdminLearnersList = (): React.JSX.Element => {
       { field: "name", headerName: "Nome" },
       { field: "surname", headerName: "Cognome" },
       { field: "email", headerName: "E-Mail" },
-      {
-        field: "id",
-        headerName: "Azioni",
-        cellRenderer: renderActionsButton,
-      },
+      { field: "id", headerName: "Azioni", cellRenderer: renderActionsButton },
     ];
   }, []);
 
