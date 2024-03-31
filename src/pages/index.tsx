@@ -38,23 +38,14 @@ export default function Home() {
             Micro LMS è un learning management system semplice da usare e veloce da capire.
           </p>
           <div className="mt-4">
-            {login.isLoggedIn ? (
-              <PrimaryLink
-                className=" inline-flex items-center justify-center gap-2 text-xl"
-                href="/pill/"
-              >
-                <FbBookSolid /> Guarda le tue pillole
-              </PrimaryLink>
-            ) : (
-              <PrimaryButton
-                className="text-xl"
-                onClick={() => {
-                  loginPopupForm.open();
-                }}
-              >
-                accedi
-              </PrimaryButton>
-            )}
+            <PrimaryButton
+              className="text-xl"
+              onClick={() => {
+                loginPopupForm.open();
+              }}
+            >
+              accedi
+            </PrimaryButton>
           </div>
         </div>
 
@@ -65,24 +56,6 @@ export default function Home() {
             <Image src={assetCarousel02} alt="carousel 02" className="h-80 w-auto" />
             <Image src={assetCarousel03} alt="carousel 03" className="h-80 w-auto" />
           </Carousel>
-        </div>
-      </div>
-
-      <div className="grid grid-rows-2 gap-12 lg:grid-cols-2">
-        <div>
-          <form method="GET" action={"/"}>
-            <h3 className="text-xl font-bold">Input</h3>
-            <textarea
-              name="text"
-              className="h-full w-full text-lg"
-              value={router.query.text}
-            ></textarea>
-            <SubmitButton type="submit">Invia</SubmitButton>
-          </form>
-        </div>
-        <div>
-          <h3 className="text-xl font-bold">Output</h3>
-          <p className="text-lg">{router.query.text}</p>
         </div>
       </div>
     </>

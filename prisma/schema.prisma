@@ -59,7 +59,7 @@ model Pill {
   title        String         @default("") @db.Char(255)
   description  String         @db.Text()
   thumbPath    String         @default("") @db.Char(255)
-  referenceId  String         @db.Char(255)
+  referenceId  Int            @db.Int()
   PillContent  PillContent[]
   Subscription Subscription[]
   Track        Track[]

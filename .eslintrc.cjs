@@ -13,7 +13,7 @@ const config = {
   ],
   rules: {
     // variabili dichiarate ma non usate sono seganlate come "waringin" e non come "errore"
-    "@typescript-eslint/no-unused-vars": ["warn", { varsIgnorePattern: "^_" }],
+    "@typescript-eslint/no-unused-vars": ["off", { varsIgnorePattern: "^_" }],
 
     // se si importa un elemento da usare solo come tipo, allora deve essere importato come "type"
     "@typescript-eslint/consistent-type-imports": [

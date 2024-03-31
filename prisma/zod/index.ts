@@ -78,7 +78,7 @@ export const PillSchema = z.object({
   title: z.string(),
   description: z.string(),
   thumbPath: z.string(),
-  referenceId: z.string(),
+  referenceId: z.number().int(),
 })
 
 export type Pill = z.infer<typeof PillSchema>

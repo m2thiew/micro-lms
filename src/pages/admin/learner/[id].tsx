@@ -18,6 +18,10 @@ import { z } from "zod";
 
 // ------------------------------------------------------------------------------------------------
 
+const someFunction = (value: string | string[]) => {
+  return value;
+};
+
 /**
  * Pagina per la modifica di un learner (id del learner presente nella url)
  * @returns pagina NextJS
@@ -31,9 +35,15 @@ const AdminLearnerUpdatePage = (): React.JSX.Element => {
   try {
     const id = paramId.parse(router.query.id);
 
-    <div className="mt-6">
-      <AdminLearnerUpdateForm id={router.query.id} />
-    </div>;
+    // someFunction(router.query.id);
+
+    // if (router.query.id) {
+    //   someFunction(router.query.id);
+    // }
+
+    // <div className="mt-6">
+    //   <AdminLearnerUpdateForm id={router.query.id} />
+    // </div>;
 
     return (
       <>
